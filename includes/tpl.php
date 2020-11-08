@@ -23,7 +23,7 @@ function replace($var=array(),$file,$path="",$condtemplates=1) {
 
  foreach ( $keywords[0] as $key => $val )
  {
-         if ( eregi( "{{tpl_auto_", $val ) )
+         if ( preg_match( "{{tpl_auto_", $val ) )
          {
 
                  $val = eregi_replace( "{{|}}", "", $val );
@@ -43,7 +43,7 @@ function replace($var=array(),$file,$path="",$condtemplates=1) {
  ///ends
  */
  if (!is_array($var)) $var=array();
- if (is_array($var) and eregi("{{",$output)) {
+ if (is_array($var) and preg_match("/{{",$output)) {
   foreach ($var as $key => $value) {
        if ($key=="error")
           $output=eregi_replace ("({{error}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
@@ -57,12 +57,12 @@ function replace($var=array(),$file,$path="",$condtemplates=1) {
        $output=str_replace("{{".$key."}}",$value,$output);
   }
   if (count($multiplelanguage)>0){
-  if ($_SESSION[language_session]=='') {
+  if ($_SESSION['language_session']=='') {
         $language_set1='0';
         $language_session1="&amp;language_session=0";
   }else{
-        $language_set1=$_SESSION[language_session];
-        $language_session1="&amp;language_session=".$_SESSION[language_session];
+        $language_set1=$_SESSION['language_session'];
+        $language_session1="&amp;language_session=".$_SESSION['language_session'];
   }
   $language_setini=$language_set1;
   $language_set1=$language_set1.'-';

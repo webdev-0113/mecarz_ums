@@ -13,12 +13,12 @@ function sessao_close()
 function sessao_read( $aKey )
 {
       global $db,$HTTP_COOKIE_VARS,$_SERVER,$config;
-      $query = "SELECT DataValue FROM {$config[table_prefix]}sessions WHERE ip='$aKey' or ip='".user_ipses()."' or SessionID='$aKey' ";
+      $query = "SELECT DataValue FROM {$config['table_prefix']}sessions WHERE ip='$aKey' or ip='".user_ipses()."' or SessionID='$aKey' ";
       $busca =$db->query($query);
-      if(mysql_num_rows($busca) == 1)
+      if(mysqli_num_rows($busca) == 1)
       {
-            $r = mysql_fetch_array($busca);
-            @mysql_free_result($busca);
+            $r = mysqli_fetch_array($busca);
+            @mysqli_free_result($busca);
             return $r['DataValue'];
       } ELSE {
             if ( $HTTP_COOKIE_VARS['username_cookie'] == "" ) $cookie="-";
@@ -26,9 +26,9 @@ function sessao_read( $aKey )
             $url=urlencode($_SERVER["REQUEST_URI"]);
             $ip = user_ipses();
             
-            $query = "INSERT INTO {$config[table_prefix]}sessions (SessionID, LastUpdated, DataValue,`username`,`location`,`ip`)
+            $query = "INSERT INTO {$config['table_prefix']}sessions (SessionID, LastUpdated, DataValue,`username`,`location`,`ip`)
                       VALUES ('$aKey', NOW(), '','$cookie','$url','$ip')";
-            mysql_query($query);
+            mysqli_query($db->db_connect_id, $query);
             
             return "";
       }
@@ -42,16 +42,16 @@ function sessao_write( $aKey, $aVal )
       $url=urlencode($_SERVER["REQUEST_URI"]);
       $ip = user_ipses();
       
-      $query = "UPDATE {$config[table_prefix]}sessions SET DataValue = '$aVal', LastUpdated = NOW(),`username`='$cookie',`location`='$url',`ip`='{$ip}' WHERE SessionID = '$aKey'  or ip='".user_ipses()."'";
-      mysql_query($query);
+      $query = "UPDATE {$config['table_prefix']}sessions SET DataValue = '$aVal', LastUpdated = NOW(),`username`='$cookie',`location`='$url',`ip`='{$ip}' WHERE SessionID = '$aKey'  or ip='".user_ipses()."'";
+      mysqli_query($db->db_connect_id, $query);
       
       return True;
 }
 function sessao_destroy( $aKey )
 {
       global $db,$config;
-      $query = "DELETE FROM {$config[table_prefix]}sessions WHERE SessionID = '$aKey'";
-      mysql_query($query);
+      $query = "DELETE FROM {$config['table_prefix']}sessions WHERE SessionID = '$aKey'";
+      mysqli_query($db->db_connect_id, $query);
       $db->close();
       return True;
 }
@@ -59,8 +59,8 @@ function sessao_gc( $aMaxLifeTime )
 {
       global $db,$config;
       $aMaxLifeTime=$config['aMaxLifeTime'];
-      $query = "DELETE FROM {$config[table_prefix]}sessions WHERE UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(LastUpdated) > '$aMaxLifeTime'";
-      mysql_query($query);
+      $query = "DELETE FROM {$config['table_prefix']}sessions WHERE UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(LastUpdated) > '$aMaxLifeTime'";
+      mysqli_query($db->db_connect_id, $query);
       return True;
 }
 function user_ipses()
@@ -80,19 +80,20 @@ function user_ipses()
 
 session_set_save_handler("sessao_open", "sessao_close", "sessao_read", "sessao_write", "sessao_destroy", "sessao_gc");
 
-    function logs(&$onlineusers)
+    function logs($onlineusers)
     {
         global $db, $Global_Class, $tpl,$lang;
         global $config, $_REQUEST, $language_set;
 
         $exp = $config['aMaxLifeTime'];
         $expired = time() - $exp;
-        $sql = "select * from {$config[table_prefix]}sessions WHERE UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(LastUpdated) < '$exp' order by LastUpdated desc";
+        $sql = "select * from {$config['table_prefix']}sessions WHERE UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(LastUpdated) < '$exp' order by LastUpdated desc";
 
         $result = $db -> query( $sql );
-        $num_rows = mysql_num_rows( $result );
+        $num_rows = mysqli_num_rows( $result );
         $onlineusers=$num_rows;
         $contor=1;
+        $out = '';
         if ( $num_rows > 0 ) {
             while ( $user = mysql_fetch_assoc( $result ) ) {
                 if ($user[username]=='-') $user[username]=$lang['tpl_auto_guess'];
@@ -103,7 +104,7 @@ session_set_save_handler("sessao_open", "sessao_close", "sessao_read", "sessao_w
                 $out .= $tpl -> replace( $user, "logs1.html" );
                 $contor++;
             } // while
-            @mysql_free_result($result);
+            @mysqli_free_result($result);
         }
 
         return $out;
@@ -116,13 +117,14 @@ session_set_save_handler("sessao_open", "sessao_close", "sessao_read", "sessao_w
         $exp = $config['aMaxLifeTime'];
         $expired = time() - $exp;
 
-        $config[admin_number_intop]=($config[admin_number_intop]<=0)?5:$config[admin_number_intop];
-        $sql = "select * from {$config[table_prefix]}cars WHERE 1 order by noview desc limit {$config[admin_number_intop]}";
+        $config['admin_number_intop']=($config['admin_number_intop']<=0)?5:$config['admin_number_intop'];
+        $sql = "select * from {$config['table_prefix']}cars WHERE 1 order by noview desc limit {$config['admin_number_intop']}";
 
         $result = $db -> query( $sql );
-        $num_rows = mysql_num_rows( $result );
+        $num_rows = mysqli_num_rows( $result );
         $onlineusers=$num_rows;
         $contor=1;
+        $out = '';
         if ( $num_rows > 0 ) {
             while ( $user = mysql_fetch_assoc( $result ) ) {
 
@@ -134,7 +136,7 @@ session_set_save_handler("sessao_open", "sessao_close", "sessao_read", "sessao_w
                 $out .= $tpl -> replace( $user, "logs3.html" );
                 $contor++;
             } // while
-            @mysql_free_result($result);
+            @mysqli_free_result($result);
         }
 
         return $out;

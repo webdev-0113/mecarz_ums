@@ -16,7 +16,7 @@
  *
  * @access  public
  */
-function PMA_splitSqlFile(&$ret, $sql, $release)
+function PMA_splitSqlFile($ret, $sql, $release)
 {
     // do not trim, see bug #1030644
     //$sql          = trim($sql);
@@ -118,7 +118,7 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
     } // end for
 
     // add any rest to the returned array
-    if (!empty($sql) && preg_match('@[^[:space:]]+@', $sql)) {
+    if (!empty($sql) && preg_match('/@[^[:space:]]+@', $sql)) {
         $ret[] = array('query' => $sql, 'empty' => $nothing);
     }
 

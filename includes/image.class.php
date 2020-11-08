@@ -165,7 +165,7 @@ function make_filename($oid,$name=''){
         }
 }
 
-function imagestringbox(&$image, $font, $left, $top, $text, $color,$pos,$wh) {
+function imagestringbox($image, $font, $left, $top, $text, $color,$pos,$wh) {
 $color1=explode("|",$color);
 switch ($pos){
 

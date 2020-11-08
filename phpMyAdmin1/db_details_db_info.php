@@ -9,7 +9,7 @@ require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db'));
 
-function fillTooltip(&$tooltip_truename, &$tooltip_aliasname, &$tmp) {
+function fillTooltip($tooltip_truename, $tooltip_aliasname, $tmp) {
     $tooltip_truename[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested' ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
     $tooltip_aliasname[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested'  ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']));
     if (isset($tmp['Create_time']) && !empty($tmp['Create_time'])) {
@@ -53,7 +53,7 @@ if ($cfg['SkipLockedTables'] == TRUE) {
     if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
         while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
             // if in use memorize tablename
-            if (preg_match('@in_use=[1-9]+@i', $tmp[1])) {
+            if (preg_match('/@in_use=[1-9]+@i', $tmp[1])) {
                 $sot_cache[$tmp[0]] = TRUE;
             }
         }
@@ -73,7 +73,7 @@ if ($cfg['SkipLockedTables'] == TRUE) {
                             $sts_tmp['Type'] =& $sts_tmp['Engine'];
                         }
 
-                        if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB'] && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
+                        if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB'] && !preg_match('/@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
                             continue;
                         }
 
@@ -102,7 +102,7 @@ if (!isset($sot_ready)) {
             if (!isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
                 $sts_tmp['Type'] =& $sts_tmp['Engine'];
             }
-            if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB'] && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
+            if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB'] && !preg_match('/@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
                 continue;
             }
 

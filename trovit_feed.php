@@ -36,41 +36,41 @@ $Email_class = new EmailClass;
 $settings_profile = $Global_Class -> getprofile( "1","settings","id" );
 
 $count = 0;
-if ($_REQUEST[language_session] != '') {
- $_SESSION[language_session] = $_REQUEST[language_session];
- $language_set = $_SESSION[language_session];
- if ($_SESSION[language_session]==0) {
+if ($_REQUEST['language_session'] != '') {
+ $_SESSION['language_session'] = $_REQUEST['language_session'];
+ $language_set = $_SESSION['language_session'];
+ if ($_SESSION['language_session']==0) {
       $language_set = '';
  }
 }
-if ($_SESSION[language_session]>0) {
-  $language_set = $_SESSION[language_session];
+if ($_SESSION['language_session']>0) {
+  $language_set = $_SESSION['language_session'];
 }
 $array_lang[]=0;
-if ($settings_profile[language1]!=-1){
+if ($settings_profile['language1']!=-1){
     $count++;
-    if ($settings_profile[languageadmin]==$settings_profile[language1]) {
+    if ($settings_profile['languageadmin']==$settings_profile['language1']) {
         //$language_set=1;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language1],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language1'],0,-4));
     $array_lang[]=$count;
 
 }
 
-if ($settings_profile[language2]!=-1){
+if ($settings_profile['language2']!=-1){
     $count++;
-    if ($settings_profile[languageadmin]==$settings_profile[language2]) {
+    if ($settings_profile['languageadmin']==$settings_profile['language2']) {
         //$language_set=2;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language2],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language2'],0,-4));
     $array_lang[]=$count;
 }
-if ($settings_profile[language3]!=-1){
+if ($settings_profile['language3']!=-1){
     $count++;
-    if ($settings_profile[languageadmin]==$settings_profile[language3]) {
+    if ($settings_profile['languageadmin']==$settings_profile['language3']) {
         //$language_set=3;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language3],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language3'],0,-4));
     $array_lang[]=$count;
 }
 
@@ -95,61 +95,61 @@ if ($settings_profile[language6]!=-1  and $settings_profile[language6]!=''){
 if ($count>0) {
   $found=0;
   foreach ($multiplelanguage as $key=>$val){
-            $class_ = ($_SESSION[language_session] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
-            $found = ($_SESSION[language_session] == $key ) ? 1: $found;
+            $class_ = ($_SESSION['language_session'] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
+            $found = ($_SESSION['language_session'] == $key ) ? 1: $found;
             $var_lang['key']=$key;
             $var_lang['val']=strtolower($val);
             $var_lang['class']=strtolower($class_);
-            $settings_profile[languagedropdown1] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
+            $settings_profile['languagedropdown1'] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
 
   }
-  if ($found==0) $_SESSION[language_session]='';
-  $class_ = ($_SESSION[language_session] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
+  if ($found==0) $_SESSION['language_session']='';
+  $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
   $var_lang['key']=0;
   $var_lang['val']=strtolower(substr($settings_profile[language],0,-4));
   $var_lang['class']=strtolower($class_);
-  $settings_profile[languagedropdown] = $tpl->replace($var_lang,"urllanguge.html");
+  $settings_profile['languagedropdown'] = $tpl->replace($var_lang,"urllanguge.html");
 
-  $settings_profile[languagedropdown] .= $settings_profile[languagedropdown1];
+  $settings_profile['languagedropdown'] .= $settings_profile['languagedropdown1'];
 
 }
 if (file_exists($config['path'].'language/'.$settings_profile["language{$language_set}"])) {
     require $config['path'].'language/'.$settings_profile["language{$language_set}"];
 }
 
-if ($settings_profile[nrpageuser]>0) {
-    $config['nrresult'] = $settings_profile[nrpageuser];
+if ($settings_profile['nrpageuser']>0) {
+    $config['nrresult'] = $settings_profile['nrpageuser'];
 }
-if ($settings_profile[picture_width]>0) {
-    $IMG_WIDTH_BIG = $settings_profile[picture_width];
+if ($settings_profile['picture_width']>0) {
+    $IMG_WIDTH_BIG = $settings_profile['picture_width'];
 }
-if ($settings_profile[picture_height]>0) {
-    $IMG_HEIGHT_BIG = $settings_profile[picture_height];
+if ($settings_profile['picture_height']>0) {
+    $IMG_HEIGHT_BIG = $settings_profile['picture_height'];
 }
-if ($settings_profile[thumbnail_width]>0) {
-    $IMG_WIDTH = $settings_profile[thumbnail_width];
+if ($settings_profile['thumbnail_width']>0) {
+    $IMG_WIDTH = $settings_profile['thumbnail_width'];
 }
-if ($settings_profile[thumbnail_height]>0) {
-    $IMG_HEIGHT = $settings_profile[thumbnail_height];
+if ($settings_profile['thumbnail_height']>0) {
+    $IMG_HEIGHT = $settings_profile['thumbnail_height'];
 }
 $lang["tpl_auto_css"] = $config['tpl_path_visit'] . "style.css";
-$settings_profile[time]=dateformat($config["config_date_format"],strtotime ("now"));
+$settings_profile['time']=dateformat($config["config_date_format"],strtotime ("now"));
 $lang["tpl_auto_separator_sign"]=$config["config_separator"];
 
-$settings_profile[customlinks] = $VisitClass -> customlinks("other_menu_list.html");
+$settings_profile['customlinks'] = $VisitClass -> customlinks("other_menu_list.html");
 
-if ($settings_profile[logo]=="") $settings_profile[logo]="../images/spacer.gif";
-if ($settings_profile[thumbnail]=="") $settings_profile[thumbnail]="../images/spacer.gif";
-if ($settings_profile[picture]=="") $settings_profile[picture]="../images/spacer.gif";
+if ($settings_profile['logo']=="") $settings_profile['logo']="../images/spacer.gif";
+if ($settings_profile['thumbnail']=="") $settings_profile['thumbnail']="../images/spacer.gif";
+if ($settings_profile['picture']=="") $settings_profile['picture']="../images/spacer.gif";
 
 
-$p=$_REQUEST[p];
+$p=$_REQUEST['p'];
 $arraytabels=array("country",'state',"city","year","category", "make", "model","bodytype","transmission","intcolor", "extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol');
 foreach ($arraytabels as $keyy){
 $config[$keyy.'profile']=array();
-$sql = "SELECT * FROM `{$config[table_prefix]}{$keyy}` WHERE 1";
+$sql = "SELECT * FROM `{$config['table_prefix']}{$keyy}` WHERE 1";
 $result = $db -> query( $sql );
-$num_rows = mysql_num_rows( $result );
+$num_rows = mysqli_num_rows( $result );
 
 $contor=0;
 if ( $num_rows > 0 ) {
@@ -167,7 +167,7 @@ switch ($p){
 
 		
 		        $variable = array (
-		                      "nrresult"=>$settings_profile[nrpageuser],
+		                      "nrresult"=>$settings_profile['nrpageuser'],
 		                      "page"=>$_REQUEST['page'],
 		                      "agent"=>$_REQUEST['agent']
 		        );
@@ -194,9 +194,9 @@ if ($_REQUEST['country']>0){
 }else{
 	$limi= " limit 20";
 }
-		        $sql = "SELECT *,DATE_FORMAT({$config[table_prefix]}cars.date_add,'%d/%m/%Y') as dateadd  FROM `{$config[table_prefix]}cars` WHERE active >= 1 $sqlc order by id desc ".$limi;// LIMIT 5 and id = 2084
+		        $sql = "SELECT *,DATE_FORMAT({$config['table_prefix']}cars.date_add,'%d/%m/%Y') as dateadd  FROM `{$config['table_prefix']}cars` WHERE active >= 1 $sqlc order by id desc ".$limi;// LIMIT 5 and id = 2084
 		        $result = $db -> query( $sql );
-		        $num_rows = mysql_num_rows( $result );
+		        $num_rows = mysqli_num_rows( $result );
 
 		        $contor=0;
 		        if ( $num_rows > 0 ) {
@@ -208,9 +208,9 @@ if ($_REQUEST['country']>0){
 				        }		            	    
 		//echo $user[county]."\n";
 
-        //$admin_profile	= $config[adminprofile][$user[admin]];
-        //$user['admin_phone']=$config[adminprofile][$user[admin]]['phone'];
-        //$user['admin_email']=$config[adminprofile][$user[admin]]['email'];
+        //$admin_profile	= $config[adminprofile][$user['admin']];
+        //$user['admin_phone']=$config[adminprofile][$user['admin']]['phone'];
+        //$user['admin_email']=$config[adminprofile][$user['admin']]['email'];
 		
         /*
         
@@ -252,7 +252,7 @@ if ($_REQUEST['country']>0){
 		//echo "<BR>";
 		//$user['county']=$config['statearray'][$user['county']];
 		/*foreach ($config['statearray'] as $keyv=>$valv){
-			if (@eregi($user['county'],$keyv)){
+			if (@preg_match($user['county'],$keyv)){
 				$user['county']=$valv;	
 				$config['foundcountry']=true;	
 				break;
@@ -270,7 +270,7 @@ if ($_REQUEST['country']>0){
 		
         $sql = "SELECT description,picture FROM `{$config['table_prefix']}gallery` where carsid='{$user[id]}' order by `order`";
         $result123 = $db -> query( $sql );
-        $num_rows_gallery = mysql_num_rows( $result123 );
+        $num_rows_gallery = mysqli_num_rows( $result123 );
 
 
         $count=1;

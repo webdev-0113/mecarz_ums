@@ -36,7 +36,7 @@ $b=substr($b,0,3);
 $b=md5($b);
 $b=substr($b,0,3);
 $_SESSION['session_uid']=$b;
-if ($_REQUEST['p']=="image") {
+if (in_array("p", $_REQUEST) && $_REQUEST['p']=="image") {
 			$x=100;
 			$y=20;
 			
@@ -63,7 +63,7 @@ require $path . "global.class.php";
 require $path . "admin.class.php";
 require $path . "visit.class.php";
 require $path . "email.class.php";
-require $path . "banner_visit.class.php"; 
+require $path . "banner_visit.class.php";
 
 
 $config['tpl'] = $config['tplvisit'];
@@ -77,7 +77,7 @@ $banner_class = new Banner_Visit_Class;
 //$dealer = new DealerClass;
 
 $settings_profile = $Global_Class -> getprofile( "1","settings","id" );
-switch($_REQUEST[p]){
+switch($_REQUEST['p']){
 
        case "showbanner":
           echo $banner_class->showbanner();
@@ -89,7 +89,7 @@ switch($_REQUEST[p]){
        break;       
 
 } 
-list($config[config_auto_bannerscode1],$config[config_auto_bannerscode2],$config[config_auto_bannerscode3],$config[config_auto_bannerscode4])=$banner_class->banner(); 
+list($config['config_auto_bannerscode1'],$config['config_auto_bannerscode2'],$config['config_auto_bannerscode3'],$config['config_auto_bannerscode4'])=$banner_class->banner();
 foreach ($settings_profile as $kk1=>$vv1){
 	if ($vv1!=''){
 	$config[$kk1]=$vv1;
@@ -97,89 +97,89 @@ foreach ($settings_profile as $kk1=>$vv1){
 }
 $config['config_auto_price_before']=$config['price_before'];
 
-$_SESSION[cardatase] = "cars";
+$_SESSION['cardatase'] = "cars";
 
 
 if ($_REQUEST['reset']==2){
-   $_SESSION[rent]=false;
-   $_SESSION[template] = "";
+   $_SESSION['rent']=false;
+   $_SESSION['template'] = "";
 }
 /*
-if ($_REQUEST[p]=='rent'){
-   $_SESSION[rent]=true;
-   $_SESSION[cardatase] = "rentcars";
-   $_SESSION[template] = "rent";
+if ($_REQUEST['p']=='rent'){
+   $_SESSION['rent']=true;
+   $_SESSION['cardatase'] = "rentcars";
+   $_SESSION['template'] = "rent";
    unset($_SESSION['arrival_date']);
    unset($_SESSION['departure_date']);
 }
-if ($_SESSION[rent]) {
+if ($_SESSION['rent']) {
    $lang['tpl_auto_load_calendar_js'] = $tpl -> replace( array(), "calendar1.js", "js" );
 }
 */
-if ($_SESSION[cardatase] =='') {
- $_SESSION[cardatase] ="cars";
+if ($_SESSION['cardatase'] =='') {
+ $_SESSION['cardatase'] ="cars";
 }
 
 $count = 0;
 //print_R($_GET);
-if ($_GET[language_session] == '' AND $_COOKIE[language_session]<>'') {
-$_SESSION[language_session] = $_REQUEST[language_session]=$_COOKIE[language_session];
+if ($_GET['language_session'] == '' AND $_COOKIE['language_session']<>'') {
+$_SESSION['language_session'] = $_REQUEST['language_session']=$_COOKIE['language_session'];
 	
 }else
 if ($_COOKIE['linksave']==$_SERVER['REQUEST_URI']){
- $language_set	= $_COOKIE[language_session];
- $_SESSION[language_session]=$language_set;
+ $language_set	= $_COOKIE['language_session'];
+ $_SESSION['language_session']=$language_set;
  if ($language_set==0) {
       $language_set = '';
  }
-}elseif ($_GET[language_session] != '') {
- $_SESSION[language_session] = $_GET[language_session];
- $language_set = $_SESSION[language_session];
- if ($_SESSION[language_session]==0) {
+}elseif ($_GET['language_session'] != '') {
+ $_SESSION['language_session'] = $_GET['language_session'];
+ $language_set = $_SESSION['language_session'];
+ if ($_SESSION['language_session']==0) {
       $language_set = '';
  }
- setcookie('language_session',$_SESSION[language_session],time()+3600*24*365);
+ setcookie('language_session',$_SESSION['language_session'],time()+3600*24*365);
 }
-if ($_SESSION[language_session]>0) {
-  $language_set = $_SESSION[language_session];
+if ($_SESSION['language_session']>0) {
+  $language_set = $_SESSION['language_session'];
 }
 $array_lang[]=0;
-if ($settings_profile[language1]!=-1){
+if ($settings_profile['language1']!=-1){
     $count++;
-    if ($settings_profile[languageadmin]==$settings_profile[language1]) {
+    if ($settings_profile['languageadmin']==$settings_profile['language1']) {
         //$language_set=1;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language1],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language1'],0,-4));
     $array_lang[]=$count;
 
 }
-if ($settings_profile[language2]!=-1){
+if ($settings_profile['language2']!=-1){
     $count++;
-    if ($settings_profile[languageadmin]==$settings_profile[language2]) {
+    if ($settings_profile['languageadmin']==$settings_profile['language2']) {
         //$language_set=2;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language2],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language2'],0,-4));
     $array_lang[]=$count;
 }
-if ($settings_profile[language3]!=-1){
+if ($settings_profile['language3']!=-1){
     $count++;
-    if ($settings_profile[languageadmin]==$settings_profile[language3]) {
+    if ($settings_profile['languageadmin']==$settings_profile['language3']) {
         //$language_set=3;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language3],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language3'],0,-4));
     $array_lang[]=$count;
 }
 /*
-if ($_REQUEST[language_session] != '') {
- $_SESSION[language_session] = $_REQUEST[language_session];
- $language_set = $_SESSION[language_session];
- if ($_SESSION[language_session]==0) {
+if ($_REQUEST['language_session'] != '') {
+ $_SESSION['language_session'] = $_REQUEST['language_session'];
+ $language_set = $_SESSION['language_session'];
+ if ($_SESSION['language_session']==0) {
       //$language_set = '';
  }
  $array_lang[]=$count;
 }
-if (!in_array($_SESSION[language_session],$array_lang)){
-   $_SESSION[language_session]=0;
+if (!in_array($_SESSION['language_session'],$array_lang)){
+   $_SESSION['language_session']=0;
    $language_set='';
 }
 */
@@ -188,8 +188,8 @@ if (!in_array($_SESSION[language_session],$array_lang)){
 if ($count>0) {
   $found=0;
   foreach ($multiplelanguage as $key=>$val){
-            $class_ = ($_SESSION[language_session] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
-            $found = ($_SESSION[language_session] == $key ) ? 1: $found;
+            $class_ = ($_SESSION['language_session'] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
+            $found = ($_SESSION['language_session'] == $key ) ? 1: $found;
             $var_lang['key']=$key;
             $var_lang['val']=strtolower($val);
             $var_lang['class']=strtolower($class_);
@@ -197,11 +197,11 @@ if ($count>0) {
 			if (1) {
 			$var_lang['onclicklang']="setCookie('language_session',$key,365);setCookie('linksave','$link',365);window.location=window.location;return false;";
 			}
-            $settings_profile[languagedropdown1] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
+            $settings_profile['languagedropdown1'] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
 
   }
-  if ($found==0) $_SESSION[language_session]='';
-  $class_ = ($_SESSION[language_session] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
+  if ($found==0) $_SESSION['language_session']='';
+  $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
   $var_lang['key']=0;
   $var_lang['val']=strtolower(substr($settings_profile[language],0,-4));
   $var_lang['class']=strtolower($class_);
@@ -209,54 +209,54 @@ if ($count>0) {
 			if (2) {
 			$var_lang['onclicklang']="setCookie('language_session',0,365);setCookie('linksave','$link',365);window.location=window.location;return false;";
 			}  
-  $settings_profile[languagedropdown] = $tpl->replace($var_lang,"urllanguge.html");
+  $settings_profile['languagedropdown'] = $tpl->replace($var_lang,"urllanguge.html");
 
-  $settings_profile[languagedropdown] .= $settings_profile[languagedropdown1];
+  $settings_profile['languagedropdown'] .= $settings_profile['languagedropdown1'];
 
 }
 if (file_exists($config['path'].'language/'.$settings_profile["language{$language_set}"])) {
     @require $config['path'].'language/'.$settings_profile["language{$language_set}"];
 }
 require $path . "update.php"; 
-if ($settings_profile[nrpageuser]>0) {
-    $config['nrresult'] = $settings_profile[nrpageuser];
+if ($settings_profile['nrpageuser']>0) {
+    $config['nrresult'] = $settings_profile['nrpageuser'];
 }
-if ($settings_profile[picture_width]>0) {
-    $IMG_WIDTH_BIG = $settings_profile[picture_width];
+if ($settings_profile['picture_width']>0) {
+    $IMG_WIDTH_BIG = $settings_profile['picture_width'];
 }
-if ($settings_profile[picture_height]>0) {
-    $IMG_HEIGHT_BIG = $settings_profile[picture_height];
+if ($settings_profile['picture_height']>0) {
+    $IMG_HEIGHT_BIG = $settings_profile['picture_height'];
 }
-if ($settings_profile[thumbnail_width]>0) {
-    $IMG_WIDTH = $settings_profile[thumbnail_width];
+if ($settings_profile['thumbnail_width']>0) {
+    $IMG_WIDTH = $settings_profile['thumbnail_width'];
 }
-if ($settings_profile[thumbnail_height]>0) {
-    $IMG_HEIGHT = $settings_profile[thumbnail_height];
+if ($settings_profile['thumbnail_height']>0) {
+    $IMG_HEIGHT = $settings_profile['thumbnail_height'];
 }
 $lang["tpl_auto_css"] = $config['tpl_path_visit'] . "style.css";
-$settings_profile[time]=dateformat($config["config_date_format"],strtotime ("now"));
+$settings_profile['time']=dateformat($config["config_date_format"],strtotime ("now"));
 $lang["tpl_auto_separator_sign"]=$config["config_separator"];
 if (file_exists("seo1.php")){
 	@include_once("seo1.php");
 }
-$settings_profile[customlinks] = $VisitClass -> customlinks("other_menu_list.html");
+$settings_profile['customlinks'] = $VisitClass -> customlinks("other_menu_list.html");
 $news_profile['customlinks'] = $settings_profile['customlinks'];
 
-if ($settings_profile[logo]=="") $settings_profile[logo]="../images/spacer.gif";
-if ($settings_profile[thumbnail]=="") $settings_profile[thumbnail]="../images/spacer.gif";
-if ($settings_profile[picture]=="") $settings_profile[picture]="../images/spacer.gif";
+if ($settings_profile['logo']=="") $settings_profile['logo']="../images/spacer.gif";
+if ($settings_profile['thumbnail']=="") $settings_profile['thumbnail']="../images/spacer.gif";
+if ($settings_profile['picture']=="") $settings_profile['picture']="../images/spacer.gif";
 
-$settings_profile[logo] = $config['url_path_temp'] . $settings_profile[logo];
+$settings_profile['logo'] = $config['url_path_temp'] . $settings_profile['logo'];
 
-$settings_profile[signup] = "onclick=\"OpenWindow(this.href,'name', '{$config['width_popup']}', '{$config['height_popup']}','yes'); return false\"";
+$settings_profile['signup'] = "onclick=\"OpenWindow(this.href,'name', '{$config['width_popup']}', '{$config['height_popup']}','yes'); return false\"";
 
 
-$p=$_REQUEST[p];
+$p=$_REQUEST['p'];
 
 if ( $HTTP_COOKIE_VARS['username_dealer_cookie'] == "" ) {
-        $settings_profile[dealerlogin] = $tpl->replace($settings_profile,"dealerlogin.html");
+        $settings_profile['dealerlogin'] = $tpl->replace($settings_profile,"dealerlogin.html");
 }else{
-        $settings_profile[dealerlogin] = "({$HTTP_COOKIE_VARS['username_dealer_cookie']}) <a href=\"logout.html\">{$lang[tpl_auto_Logout]}</a>";
+        $settings_profile['dealerlogin'] = "({$HTTP_COOKIE_VARS['username_dealer_cookie']}) <a href=\"logout.html\">{$lang['tpl_auto_Logout']}</a>";
 }
 
 if ($HTTP_COOKIE_VARS['username_dealer_cookie'] != "") {
@@ -280,7 +280,7 @@ foreach ($javascript_profile as $key=>$val){
 }        
 
       
-switch ( $_REQUEST[pp] )
+switch ( $_REQUEST['pp'] )
 {
 
 
@@ -320,7 +320,7 @@ END;
             break;
             
 	case "state1":
-                    $sqlcat="and `countryid` like '{$_REQUEST[first]}'";
+                    $sqlcat="and `countryid` like '{$_REQUEST['first']}'";
                     $out = $Global_Class -> getdropdown( '', "state", "name{$language_set}", "id", "name{$language_set}",0, $sqlcat );
                     //$out = $Global_Class -> getdropdown( '', "province", "name", "province", "province",0, $sqlcat );
                     //$out=explode("</option>",$out);
@@ -337,7 +337,7 @@ END;
     	break;
     	
     	case "state":
-                    $sqlcat="and `countryid` like '{$_REQUEST[first]}'";
+                    $sqlcat="and `countryid` like '{$_REQUEST['first']}'";
                     $out = $Global_Class -> getdropdown( '', "state", "name{$language_set}", "id", "name{$language_set}",0, $sqlcat );
                     //$out = $Global_Class -> getdropdown( '', "province", "name", "province", "province",0, $sqlcat );
                     //$out=explode("</option>",$out);
@@ -354,7 +354,7 @@ END;
     	break;
     	
     	case "city":
-                    $sqlcat=" and `stateid` like '{$_REQUEST[first]}' ";
+                    $sqlcat=" and `stateid` like '{$_REQUEST['first']}' ";
                     $out = $Global_Class -> getdropdown( '', "city", "name{$language_set}", "id", "name{$language_set}",0, $sqlcat  );
                     //$out = $Global_Class -> getdropdown( '', "listing", "city", "city", "city",0,$sqlcat  );
 
@@ -416,13 +416,13 @@ switch ($p){
         break;          
         case "mycars":
 
-              if ($_REQUEST[o]=='add'){
+              if ($_REQUEST['o']=='add'){
                       $arraytemp=array();
                       //if (!is_array($_COOKIE['myproperties'])) $_COOKIE['myproperties']=array();
                       //
                       $arraytemp=explode(',',$_COOKIE['mycars']);
 
-                      $arraytemp[]=$_REQUEST[id];
+                      $arraytemp[]=$_REQUEST['id'];
                       //unset($arraytemp[array_search('',$arraytemp)]);
                       $arraytemp=array_unique($arraytemp);
                       $tempval =implode(",",$arraytemp);
@@ -432,11 +432,11 @@ switch ($p){
                       header("Location: index.php?p=mycars"); /* Redirect browser */
                       exit(0);
               }
-              if ($_REQUEST[o]=='delete'){
+              if ($_REQUEST['o']=='delete'){
 
                       $arraytemp=explode(',',$_COOKIE['mycars']);
                       if (!is_array($arraytemp)) $arraytemp=array();
-                      unset($arraytemp[array_search($_REQUEST[id],$arraytemp)]);
+                      unset($arraytemp[array_search($_REQUEST['id'],$arraytemp)]);
                       unset($arraytemp[array_search('',$arraytemp)]);
                       $arraytemp=array_unique($arraytemp);
                       $tempval =implode(",",$arraytemp);                      
@@ -451,25 +451,25 @@ switch ($p){
 
               $VisitClass -> resetarray(0);
               $page = $lang["tpl_auto_Wishlist"];
-			  $outputtoscreen_car = $VisitClass -> cars_list(&$pageoutfin,&$nr_car_found,1);	
+			  $outputtoscreen_car = $VisitClass -> cars_list($pageoutfin,$nr_car_found,1);
 
               $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car);              
         break;	
         case "compare":
-                $listing_profile = $Global_Class -> getprofile( $_REQUEST[compareid],"cars","id" );
+                $listing_profile = $Global_Class -> getprofile( $_REQUEST['compareid'],"cars","id" );
                 $listing_profile1 = $Global_Class -> getprofile( $_REQUEST[compareid1],"cars","id" );
 
                 if ($listing_profile and $listing_profile1) {
 
-                    $news_profile['title'] = $lang['tpl_auto_Compare_properties'].$listing_profile[make]." ".$listing_profile[model].$lang['tpl_auto_and'].$listing_profile1[make]." ".$listing_profile1[model];
+                    $news_profile['title'] = $lang['tpl_auto_Compare_properties'].$listing_profile['make']." ".$listing_profile['model'].$lang['tpl_auto_and'].$listing_profile1['make']." ".$listing_profile1['model'];
 
-                    $news_profile['cars1'] = $VisitClass -> cars_details($listing_profile, &$num_rows_gallery,2);
-                    $news_profile['cars2'] = $VisitClass -> cars_details($listing_profile1, &$num_rows_gallery,2);
+                    $news_profile['cars1'] = $VisitClass -> cars_details($listing_profile, $num_rows_gallery,2);
+                    $news_profile['cars2'] = $VisitClass -> cars_details($listing_profile1, $num_rows_gallery,2);
 
 					$outputtoscreen_listing = $tpl -> replace( $news_profile, "cars_compare.html" );
 
                     //$VisitClass -> resetarray();
-					$news_profile[message]=$outputtoscreen_listing;
+					$news_profile['message']=$outputtoscreen_listing;
 
 			        echo $outputtoscreen = $tpl->replace($news_profile,"send_email_thanks.html");
                     exit(0) ;
@@ -482,9 +482,9 @@ switch ($p){
               $VisitClass -> resetarray(0);
               $page = $lang["tpl_auto_sitemap"];
 
-              $profile[allcategory] = $VisitClass -> category_content();
+              $profile['allcategory'] = $VisitClass -> category_content();
 
-              $profile[allisting] = $VisitClass -> sitemap();
+              $profile['allisting'] = $VisitClass -> sitemap();
 
               $outputtoscreen_ .= $tpl -> replace( $profile, "sitemap.html" );
 
@@ -501,11 +501,11 @@ switch ($p){
 
         break;
         case "allfeatures":
-              $news_profile[page] = $lang["tpl_auto_Features"];
+              $news_profile['page'] = $lang["tpl_auto_Features"];
 
-              $sql = "SELECT {$config[table_prefix]}features.* FROM `{$config[table_prefix]}features` where 1 order by {$config[table_prefix]}features.name";
+              $sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name";
               $result = $db -> query( $sql );
-              $num_rows = mysql_num_rows( $result );
+              $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {
                   while ( $var_features = mysql_fetch_assoc( $result ) ) {
@@ -519,7 +519,7 @@ switch ($p){
                   } // while
               }
               
-              @mysql_free_result($result);
+              @mysqli_free_result($result);
               $outputtoscreen_listing = $tpl->replace($user,"allfeatures.html");
 
               $VisitClass -> resetarray(0);
@@ -537,31 +537,31 @@ switch ($p){
 
                  $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car);
               }else{
-              $news_profile[customlinks] = $VisitClass -> customlinks("customlinks_repeat.html");
-              $news_profile[page] = $lang["tpl_auto_news"];
-              $news_profile[customlinks_repeat] .= $VisitClass -> news_content();
+              $news_profile['customlinks'] = $VisitClass -> customlinks("customlinks_repeat.html");
+              $news_profile['page'] = $lang["tpl_auto_news"];
+              $news_profile['customlinks_repeat'] .= $VisitClass -> news_content();
               $outputtoscreen .= $tpl->replace($news_profile,"customlinks.html");
               }
               break;
         break;
         case "customlinks":
-              $customlinks_profile = $Global_Class -> getprofile( $_REQUEST[id],"customlinks","id" );
+              $customlinks_profile = $Global_Class -> getprofile( $_REQUEST['id'],"customlinks","id" );
             if ($customlinks_profile ){
               $car_profileini = $customlinks_profile;
-              $customlinks_profile[content]=$customlinks_profile["content"."$language_set"];
-              $customlinks_profile[name]=$customlinks_profile["name"."$language_set"];
-              $customlinks_profile[name1]=makeurl($customlinks_profile[name]);
+              $customlinks_profile['content']=$customlinks_profile["content"."$language_set"];
+              $customlinks_profile['name']=$customlinks_profile["name"."$language_set"];
+              $customlinks_profile['name1']=makeurl($customlinks_profile['name']);
 
               if ($config['user_same_format_for_all_customlinks']){
                  $VisitClass -> resetarray(0);
-                 $page = $customlinks_profile[name];
-                 $outputtoscreen_car = $customlinks_profile[content];
+                 $page = $customlinks_profile['name'];
+                 $outputtoscreen_car = $customlinks_profile['content'];
 
                  $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car);
               }else{
-                 $news_profile[customlinks] = $VisitClass -> customlinks("customlinks_repeat.html");
-                 $news_profile[page] = $customlinks_profile[name];
-                 $news_profile[customlinks_repeat] .= $customlinks_profile[content];
+                 $news_profile['customlinks'] = $VisitClass -> customlinks("customlinks_repeat.html");
+                 $news_profile['page'] = $customlinks_profile['name'];
+                 $news_profile['customlinks_repeat'] .= $customlinks_profile['content'];
 
                  $outputtoscreen .= $tpl->replace($news_profile,"customlinks.html");
               }
@@ -582,39 +582,39 @@ switch ($p){
 
                  $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car);
               }else{
-                 $news_profile[customlinks] = $VisitClass -> customlinks("customlinks_repeat.html");
-                 $news_profile[page] = $lang["tpl_auto_faq"];
+                 $news_profile['customlinks'] = $VisitClass -> customlinks("customlinks_repeat.html");
+                 $news_profile['page'] = $lang["tpl_auto_faq"];
 
-                 $news_profile[customlinks_repeat]  .= $VisitClass -> faq_content();
+                 $news_profile['customlinks_repeat']  .= $VisitClass -> faq_content();
                  $outputtoscreen .= $tpl->replace($news_profile,"customlinks.html");
               }
               break;
         break;
         case "details":
 
-                $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
+                $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
                 $car_profileini = $car_profile;
                 if ($car_profile) {
                     $VisitClass -> resetarray(0);
                     if ($config['show_category_indetailpage']){
                     $car_profile1 = $VisitClass->prepareuser($car_profile);
-                    $page = $car_profile1[category]." ".$car_profile1[model]." ".$car_profile1[make]." ".$car_profile1[year];
+                    $page = $car_profile1['category']." ".$car_profile1['model']." ".$car_profile1['make']." ".$car_profile1['year'];
                     }else{
-                    $page = $car_profile[model];
+                    $page = $car_profile['model'];
                     }
-                    //$outputtoscreen_car = $VisitClass -> cars_list(&$pageoutfin,&$nr_car_found);
-                    $outputtoscreen_car .= $VisitClass -> cars_details($car_profile, &$num_rows_gallery,0);
+                    //$outputtoscreen_car = $VisitClass -> cars_list($pageoutfin,$nr_car_found);
+                    $outputtoscreen_car .= $VisitClass -> cars_details($car_profile, $num_rows_gallery,0);
 
-                    $user_profile[number]=$user_profile[nrpozetotal];
+                    $user_profile['number']=$user_profile['nrpozetotal'];
                     if ($num_rows_gallery>0){
-                        $gallery_profile[model]=$car_profile[model];
-                        $gallery_profile[number]=$num_rows_gallery;
-                        if ($settings_profile[picture_width]>10){
-                        $gallery_profile[width_div]=$config[picturewidth]+80;
-                        $gallery_profile[height_div]=$config[pictureheight]+125;
+                        $gallery_profile['model']=$car_profile['model'];
+                        $gallery_profile['number']=$num_rows_gallery;
+                        if ($settings_profile['picture_width']>10){
+                        $gallery_profile['width_div']=$config['picturewidth']+80;
+                        $gallery_profile['height_div']=$config['pictureheight']+125;
                         }else{                                                
-                        $gallery_profile[width_div]=$IMG_WIDTH_BIG+80;
-                        $gallery_profile[height_div]=$IMG_HEIGHT_BIG+125;
+                        $gallery_profile['width_div']=$IMG_WIDTH_BIG+80;
+                        $gallery_profile['height_div']=$IMG_HEIGHT_BIG+125;
                         }
                         $outputtoscreen_car .= $tpl->replace($gallery_profile,"cars_gallery_div.html");
                     }
@@ -629,10 +629,10 @@ switch ($p){
                 }
         break;
         case "vehicle_information":
-                $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
+                $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
                 $car_profileini = $car_profile;
                 if ($car_profile) {
-                    $category_profile = $Global_Class -> getprofile( $user[category], "category", 'id' );
+                    $category_profile = $Global_Class -> getprofile( $user['category'], "category", 'id' );
 
 
                     if (!is_array($config["config_search_field"])) $config["config_search_field"]=array();
@@ -645,39 +645,39 @@ switch ($p){
                     $array_list=$config["config_search_field"];
 
 
-                    $outputtoscreen1 = $VisitClass -> cars_details($car_profile, &$num_rows_gallery,1);
+                    $outputtoscreen1 = $VisitClass -> cars_details($car_profile, $num_rows_gallery,1);
 
-                    $news_profile[titlesite] = $car_profile[name];
+                    $news_profile['titlesite'] = $car_profile['name'];
 
 
                     $outputtoscreen .= $outputtoscreen1;
 
-                    $user_profile[number]=$user_profile[nrpozetotal];
+                    $user_profile['number']=$user_profile['nrpozetotal'];
                     if ($num_rows_gallery>0){
-                        $gallery_profile[model]=$car_profile[model];
-                        $gallery_profile[number]=$num_rows_gallery;
-                        $gallery_profile[width_div]=$settings_profile[picture_width]+50;
-                        $gallery_profile[height_div]=$settings_profile[picture_height]+50;
+                        $gallery_profile['model']=$car_profile['model'];
+                        $gallery_profile['number']=$num_rows_gallery;
+                        $gallery_profile['width_div']=$settings_profile['picture_width']+50;
+                        $gallery_profile['height_div']=$settings_profile['picture_height']+50;
                         $outputtoscreen .= $tpl->replace($gallery_profile,"cars_gallery_div.html");
                     }
-                    $news_profile[vehicle_information] = $outputtoscreen;
+                    $news_profile['vehicle_information'] = $outputtoscreen;
                     echo $outputtoscreen = $tpl->replace($news_profile,"vehicle_information_sheet.html");
                     exit;
                     $footer="";
                 }
         break;
         case "contactus":
-        			$page=$lang[tpl_auto_contactus];
+        			$page=$lang['tpl_auto_contactus'];
                     $outputtoscreen_car = $tpl->replace($email,"contact.html");
                     $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car,$nr_car_found,$pageoutfin);
         break;
         case "contactus1":
         
-        			$page=$lang[tpl_auto_contactus];
+        			$page=$lang['tpl_auto_contactus'];
 
 
                     foreach ($_POST as $key=>$val){
-                    	if (!in_array($key,$config[igonorefiledcontact])){
+                    	if (!in_array($key,$config['igonorefiledcontact'])){
                     	$email[$key]=$val;
                     	$bodymail.="$key: $val<br>\n";
                     	}
@@ -686,15 +686,15 @@ switch ($p){
                     $settings_template = $Global_Class -> getprofile( "1","template","id" );
 
 
-                    $settings_template[contact_subject] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['contactus_subject'] );
-                    $settings_template[contact_body] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['contactus_body'] ).$bodymail;
-					if ($_SESSION['session_uid']!=$_REQUEST[code] or $_REQUEST[code]=='' ){                    
+                    $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['contactus_subject'] );
+                    $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['contactus_body'] ).$bodymail;
+					if ($_SESSION['session_uid']!=$_REQUEST['code'] or $_REQUEST['code']=='' ){
 	                    $email['error']=$lang['tpl_auto_The_Image_Text_is_not_correct1'];
 	                    $outputtoscreen_car = $tpl->replace($email,"contact.html");
 					}else{
-						if ($email_var[email]=='') $email_var[email]=$settings_template[email];
-	                    $sendresult = $Email_class -> emailsend( $settings_template[email], $settings_template[from], $email_var[email], $email_var[name], $settings_template[contact_subject], $settings_template[contact_body] );
-	                    $email_var[message]=$lang['tpl_auto_thanks'];
+						if ($email_var['email']=='') $email_var['email']=$settings_template['email'];
+	                    $sendresult = $Email_class -> emailsend( $settings_template['email'], $settings_template['from'], $email_var['email'], $email_var['name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
+	                    $email_var['message']=$lang['tpl_auto_thanks'];
 	                    $outputtoscreen_car = $tpl->replace($email_var,"contact_thanks.html");
 					}
 					
@@ -702,24 +702,24 @@ switch ($p){
 
         break;            
         case "contact":
-                $admin_profile = $Global_Class -> getprofile( $_REQUEST[admin],"admin","id" );
+                $admin_profile = $Global_Class -> getprofile( $_REQUEST['admin'],"admin","id" );
                 if ($admin_profile) {
-                    $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
-                    $category_profile = $Global_Class -> getprofile( $car_profile[category], "category", 'id' );
+                    $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
+                    $category_profile = $Global_Class -> getprofile( $car_profile['category'], "category", 'id' );
                     $email=$settings_profile;
-                    $email[admin] = $_REQUEST[admin];
-                    $email[id] = $_REQUEST[id];
-                    $email[name_model_id] = $category_profile[name]." - ".$car_profile[model]." (#".$_REQUEST[id].")";
+                    $email['admin'] = $_REQUEST['admin'];
+                    $email['id'] = $_REQUEST['id'];
+                    $email['name_model_id'] = $category_profile['name']." - ".$car_profile['model']." (#".$_REQUEST['id'].")";
                     $outputtoscreen = $tpl->replace($email,"send_email.html");
                     echo $outputtoscreen;
                     exit;
                 }
         break;
         case "contact1":
-                $admin_profile = $Global_Class -> getprofile( $_REQUEST[admin],"admin","id" );
+                $admin_profile = $Global_Class -> getprofile( $_REQUEST['admin'],"admin","id" );
                 if ($admin_profile) {
-                    $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
-                    $category_profile = $Global_Class -> getprofile( $car_profile[category], "category", 'id' );
+                    $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
+                    $category_profile = $Global_Class -> getprofile( $car_profile['category'], "category", 'id' );
                     $email_var = $VisitClass->prepareuser($car_profile);
                     $email_var['guest_name'] = $_REQUEST['name'];
                     $email_var['guest_phone'] = $_REQUEST['phone'];
@@ -731,27 +731,27 @@ switch ($p){
 					$email_var['description']='';
                     $settings_template = $Global_Class -> getprofile( "1","template","id" );
 
-                    $settings_template[contact_subject] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["contact_subject".$language_set] );
-                    $settings_template[contact_body] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["contact_body".$language_set] );
-					if ($_SESSION['session_uid']!=$_REQUEST[code] or $_REQUEST[code]=='' ){
-	                    $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
-	                    $category_profile = $Global_Class -> getprofile( $car_profile[category], "category", 'id' );
+                    $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["contact_subject".$language_set] );
+                    $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["contact_body".$language_set] );
+					if ($_SESSION['session_uid']!=$_REQUEST['code'] or $_REQUEST['code']=='' ){
+	                    $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
+	                    $category_profile = $Global_Class -> getprofile( $car_profile['category'], "category", 'id' );
 	                    $email=$settings_profile;
-	                    $email[admin] = $_REQUEST[admin];
-	                    $email[id] = $_REQUEST[id];
-	                    $email[name_model_id] = $category_profile[name]." - ".$car_profile[model]." (#".$_REQUEST[id].")";
+	                    $email['admin'] = $_REQUEST['admin'];
+	                    $email['id'] = $_REQUEST['id'];
+	                    $email['name_model_id'] = $category_profile['name']." - ".$car_profile['model']." (#".$_REQUEST['id'].")";
 	                    $email['error']=$lang['tpl_auto_The_Image_Text_is_not_correct1'];
 	                    $outputtoscreen = $tpl->replace($email,"send_email.html");						
 						
 					}else{
-	                    $sendresult = $Email_class -> emailsend( $admin_profile[email], $admin_profile[name], $email_var[guest_email], $email_var[guest_name], $settings_template[contact_subject], $settings_template[contact_body] );
-	                    $email_var[message]=$lang['tpl_auto_thanks'];
+	                    $sendresult = $Email_class -> emailsend( $admin_profile['email'], $admin_profile['name'], $email_var['guest_email'], $email_var['guest_name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
+	                    $email_var['message']=$lang['tpl_auto_thanks'];
 	                    foreach($email_var as $key=>$val){
                     	$email_var[$key]=addslashes($email_var[$key]);
                     	}
-	                    $sql="INSERT INTO `{$config[table_prefix]}messages` ( `id` , `carsid`,  `name` ,  `email` , `phone`,`message`,`date_add` )
+	                    $sql="INSERT INTO `{$config['table_prefix']}messages` ( `id` , `carsid`,  `name` ,  `email` , `phone`,`message`,`date_add` )
 	VALUES
-	( '', '{$_REQUEST[id]}', '{$email_var['guest_name']}', '{$email_var['guest_email']}', '{$email_var['guest_phone']}','{$email_var['guest_message']}','".date("Y-m-d")."' );";
+	( '', '{$_REQUEST['id']}', '{$email_var['guest_name']}', '{$email_var['guest_email']}', '{$email_var['guest_phone']}','{$email_var['guest_message']}','".date("Y-m-d")."' );";
 	                    $result = $db -> query($sql);
 	                                                                
 	                    $outputtoscreen = $tpl->replace($email_var,"send_email_thanks.html");
@@ -763,7 +763,7 @@ switch ($p){
                 }
         break;
         case "signup":
-                    $settings_profile['adprofiles'] = $VisitClass->adprofiles_content(&$nrmax);
+                    $settings_profile['adprofiles'] = $VisitClass->adprofiles_content($nrmax);
                     $settings_profile['nrmax'] = $nrmax;
                     $outputtoscreen_car = $tpl->replace($settings_profile,"signup.html");
                     $page = $lang["tpl_auto_signup"];
@@ -821,7 +821,7 @@ switch ($p){
                             $email_var['nopictures'] = $settings_profile['nopictures'];
                             $email_var['delay'] = $settings_profile['delay_How_many_days_this_object_will_be_active'];
                         }
-						if ($_SESSION['session_uid']!=$_REQUEST[code] or $_REQUEST[code]=='' ){
+						if ($_SESSION['session_uid']!=$_REQUEST['code'] or $_REQUEST['code']=='' ){
 							$outputtoscreen_add[1] =" ".$lang['tpl_auto_The_Image_Text_is_not_correct1'];
 						}
 
@@ -834,23 +834,23 @@ switch ($p){
 
                                             $settings_template = $Global_Class -> getprofile( "1","template","id" );
 
-                                            $settings_template[signup_subject] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signup_subject".$language_set] );
-                                            $settings_template[signup_body] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signup_body".$language_set] );
+                                            $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signup_subject".$language_set] );
+                                            $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signup_body".$language_set] );
                                             $email_var['password']=md5($email_var['password']);
-                                            $sql="INSERT INTO `{$config[table_prefix]}admin` ( `id` , `right` , `username` , `password` , `password1` , `email` , `noemail` ,`nocontactemail`, `name` , `phone` ,`fax`, `address`,  `country` , `state` , `city` , `zip`, `logo` , `description` , `nocars` , `nopictures` ,  `adprofiles`, `unic_id`,`active`, `delay` , `date_delay` )
+                                            $sql="INSERT INTO `{$config['table_prefix']}admin` ( `id` , `right` , `username` , `password` , `password1` , `email` , `noemail` ,`nocontactemail`, `name` , `phone` ,`fax`, `address`,  `country` , `state` , `city` , `zip`, `logo` , `description` , `nocars` , `nopictures` ,  `adprofiles`, `unic_id`,`active`, `delay` , `date_delay` )
 VALUES
 ( '', '{$settings_profile[rights_signupuser]}', '{$email_var['username']}' , '{$email_var['password']}' , '{$email_var['password']}', '{$email_var['email']}', '1','{$email_var['nocontactemail']}', '{$email_var['name']}', '{$email_var['phone']}','{$email_var['fax']}','{$email_var['address']}', '{$email_var['country']}', '{$email_var['state']}', '{$email_var['city']}','{$email_var['zip']}', '', '', '{$email_var['nocars']}', '{$email_var['nopictures']}', '{$email_var['adprofiles']}','$unic_id','1' , '720', CURDATE() );";
                                             $result = $db -> query($sql);
 
-                                            $sendresult = $Email_class -> emailsend(  $email_var[email], $email_var[username],$settings_template[email], $settings_template[from], $settings_template[signup_subject], $settings_template[signup_body] );
-                                            $sendresult = $Email_class -> emailsend(  $settings_template[email], $settings_template[from] , $settings_template[email], $settings_template[from], $settings_template[signup_subject], $settings_template[signup_body] );
-                                            $email_var[message]=$lang['tpl_auto_thanks_signup'];
-                                            $email_var[message] .= $tpl->replace(array(),"google.html");
+                                            $sendresult = $Email_class -> emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                                            $sendresult = $Email_class -> emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                                            $email_var['message']=$lang['tpl_auto_thanks_signup'];
+                                            $email_var['message'] .= $tpl->replace(array(),"google.html");
                                             $outputtoscreen_car = $tpl->replace($email_var,"send_email_thanks.html");
 
                         }else{
-                                $settings_profile[error]= $outputtoscreen_add[1];
-                                $settings_profile['adprofiles'] = $VisitClass->adprofiles_content(&$nrmax);
+                                $settings_profile['error']= $outputtoscreen_add[1];
+                                $settings_profile['adprofiles'] = $VisitClass->adprofiles_content($nrmax);
                                 $settings_profile['nrmax'] = $nrmax;
                                 $outputtoscreen_car = $tpl->replace($settings_profile,"signup.html");
 
@@ -860,7 +860,7 @@ VALUES
         break;
 
         case "confirm":
-                        $id=$_REQUEST[id];
+                        $id=$_REQUEST['id'];
                         if ($id=="")
                             break;
                         $user_profile = $Global_Class -> getprofile( $id, "admin", "unic_id" );
@@ -877,15 +877,15 @@ VALUES
                         if ($user_profile['active']==0) {
                            $active = 0;
                         }
-                        if ($adprofiles && $adprofiles[price]==0){
+                        if ($adprofiles && $adprofiles['price']==0){
                             $active = 1;
                             $settings_profile['adprofiles']=0;
                             $sqlupdate=" ,delay='$adprofiles[days]',date_delay=NOW(),emailrenewsent=0,`daystoexpire` = $adprofiles[days]-(TO_DAYS(NOW()) - TO_DAYS(NOW())) ";
                         }
-                        $sql="UPDATE `{$config[table_prefix]}admin` SET `active`='$active'{$sqlupdate} where `unic_id`='$id' limit 1;";
+                        $sql="UPDATE `{$config['table_prefix']}admin` SET `active`='$active'{$sqlupdate} where `unic_id`='$id' limit 1;";
                         $result = $db -> query($sql);
 
-                        $news_profile[page] = $lang['tpl_auto_Confirm_email_address'];
+                        $news_profile['page'] = $lang['tpl_auto_Confirm_email_address'];
 
                         if (!is_array($config["config_search_field"])) $config["config_search_field"]=array();
                         $array_list=$config["config_search_field"];
@@ -897,12 +897,12 @@ VALUES
                         }
 
 
-                        $news_profile["category"] = $Global_Class -> getdropdown( $_REQUEST[category], "category", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION[cardatase] );
-                        $news_profile["make"] = $Global_Class -> getdropdown( $_REQUEST[make], "make", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION[cardatase] );
-                        $news_profile["model"] = $Global_Class -> getdropdown( $_REQUEST[model], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_SESSION[make]}' ",$_SESSION[cardatase] );
-                        $news_profile["fueltype"] = $Global_Class -> getdropdown_array( $_REQUEST[fueltype], $lang['fuelltype'],1,"",$_SESSION[cardatase] );
-                        $news_profile["orderby"] = $Global_Class -> getdropdown_array_car( $_REQUEST[orderby], $config["config_orderby"] );
-                        $news_profile["method"] = $Global_Class -> getdropdown_array1( $_REQUEST[method], $config["config_method"] );
+                        $news_profile["category"] = $Global_Class -> getdropdown( $_REQUEST['category'], "category", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION['cardatase'] );
+                        $news_profile["make"] = $Global_Class -> getdropdown( $_REQUEST['make'], "make", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION['cardatase'] );
+                        $news_profile["model"] = $Global_Class -> getdropdown( $_REQUEST['model'], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_SESSION['make']}' ",$_SESSION['cardatase'] );
+                        $news_profile["fueltype"] = $Global_Class -> getdropdown_array( $_REQUEST['fueltype'], $lang['fuelltype'],1,"",$_SESSION['cardatase'] );
+                        $news_profile["orderby"] = $Global_Class -> getdropdown_array_car( $_REQUEST['orderby'], $config["config_orderby"] );
+                        $news_profile["method"] = $Global_Class -> getdropdown_array1( $_REQUEST['method'], $config["config_method"] );
                         $settings_profile['message'] = $lang['tpl_auto_thanks_confirm'];
                         if ($settings_profile['adprofiles']==0) {
                             $settings_profile['message'] .= $lang['tpl_auto_thanks_confirm1'];
@@ -912,7 +912,7 @@ VALUES
                             $settings_profile['message'] .= $lang['tpl_auto_thanks_confirm2'];
                             $payment_profile = $Global_Class -> getprofile(1 , "payment", "id" );
                             $adprofiles_profile = $Global_Class -> getprofile($user_profile['adprofiles'] , "adprofiles", "id" );
-                            switch ($payment_profile[id]) {
+                            switch ($payment_profile['id']) {
                              default:
                                   $payment_profile['item_number']=$user_profile['id'];
                                   $payment_profile['amount'] =$adprofiles_profile['price'];
@@ -927,11 +927,11 @@ VALUES
 
                         $news_profile["nr_car_found"] = $nr_car_found;
 
-                        $news_profile[pageoutfin]=$pageoutfin;
-                        $news_profile[signupmembers] = $settings_profile[signupmembers];
-                        $news_profile[sponsored] = $VisitClass -> cars_sponsored();
+                        $news_profile['pageoutfin']=$pageoutfin;
+                        $news_profile['signupmembers'] = $news_profile['signupmembers'];
+                        $news_profile['sponsored'] = $VisitClass -> cars_sponsored();
 
-                        if (trim($news_profile[sponsored])!=''){
+                        if (trim($news_profile['sponsored'])!=''){
                         $news_profile["sponsored_show"] = $tpl->replace($news_profile,"sponsored_show.html");
                         }
                         $news_profile['arrival_date'] = $_SESSION['arrival_date'];
@@ -939,14 +939,14 @@ VALUES
 
                         $news_profile["simple_search"] = $tpl->replace($news_profile,"simple_search.html");
                         $news_profile["newsletter_form"] = $tpl->replace($news_profile,"newsletter_form.html");
-                        $news_profile[output_car_details] = $outputtoscreen_car;
+                        $news_profile['output_car_details'] = $outputtoscreen_car;
                         $outputtoscreen .= $tpl->replace($news_profile,"cars.html");
 
         break;
 
 
         case "confirmpayment":
-                        $news_profile[page] = $lang['tpl_auto_Confirm_email_address'];
+                        $news_profile['page'] = $lang['tpl_auto_Confirm_email_address'];
 
                         if (!is_array($config["config_search_field"])) $config["config_search_field"]=array();
                         $array_list=$config["config_search_field"];
@@ -957,7 +957,7 @@ VALUES
                             }
                         }
 
-                        $id=$_REQUEST[id];
+                        $id=$_REQUEST['id'];
                         if ($id=="")
                             break;
                         $user_profile = $Global_Class -> getprofile( $id, "admin", "unic_id" );
@@ -966,12 +966,12 @@ VALUES
                                 break;
                         }
 
-                        $news_profile["category"] = $Global_Class -> getdropdown( $_REQUEST[category], "category", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION[cardatase] );
-                        $news_profile["make"] = $Global_Class -> getdropdown( $_REQUEST[make], "make", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION[cardatase] );
-                        $news_profile["model"] = $Global_Class -> getdropdown( $_REQUEST[model], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_SESSION[make]}' ",$_SESSION[cardatase] );
-                        $news_profile["fueltype"] = $Global_Class -> getdropdown_array( $_REQUEST[fueltype], $lang['fuelltype'],1,"",$_SESSION[cardatase] );
-                        $news_profile["orderby"] = $Global_Class -> getdropdown_array_car( $_REQUEST[orderby], $config["config_orderby"] );
-                        $news_profile["method"] = $Global_Class -> getdropdown_array1( $_REQUEST[method], $config["config_method"] );
+                        $news_profile["category"] = $Global_Class -> getdropdown( $_REQUEST['category'], "category", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION['cardatase'] );
+                        $news_profile["make"] = $Global_Class -> getdropdown( $_REQUEST['make'], "make", "name{$language_set}", "id", "name{$language_set}",1,"",$_SESSION['cardatase'] );
+                        $news_profile["model"] = $Global_Class -> getdropdown( $_REQUEST['model'], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_SESSION['make']}' ",$_SESSION['cardatase'] );
+                        $news_profile["fueltype"] = $Global_Class -> getdropdown_array( $_REQUEST['fueltype'], $lang['fuelltype'],1,"",$_SESSION['cardatase'] );
+                        $news_profile["orderby"] = $Global_Class -> getdropdown_array_car( $_REQUEST['orderby'], $config["config_orderby"] );
+                        $news_profile["method"] = $Global_Class -> getdropdown_array1( $_REQUEST['method'], $config["config_method"] );
                         $settings_profile['message'] = $lang['tpl_auto_thanks_confirm'];
                         if ($user_profile['active']==1) {
                             $settings_profile['message'] .= $lang['tpl_auto_thanks_confirm1'];
@@ -984,7 +984,7 @@ VALUES
                                 }else{
                                     $active = 3;
                                 }
-                                $sql="UPDATE `{$config[table_prefix]}admin` SET `active`='$active' where `unic_id`='$id' limit 1;";
+                                $sql="UPDATE `{$config['table_prefix']}admin` SET `active`='$active' where `unic_id`='$id' limit 1;";
                                 $result = $db -> query($sql);
 
 
@@ -994,7 +994,7 @@ VALUES
 
                             $payment_profile = $Global_Class -> getprofile(1 , "payment", "id" );
                             $adprofiles_profile = $Global_Class -> getprofile($user_profile['adprofiles'] , "adprofiles", "id" );
-                            switch ($payment_profile[id]) {
+                            switch ($payment_profile['id']) {
                              default:
                                   $payment_profile['amount'] =$adprofiles_profile['price'];
                                   $payment_profile['return'] =$adprofiles_profile['price'];
@@ -1008,10 +1008,10 @@ VALUES
 
                         $news_profile["nr_car_found"] = $nr_car_found;
 
-                        $news_profile[pageoutfin]=$pageoutfin;
-                        $news_profile[signupmembers] = $settings_profile[signupmembers];
-                        $news_profile[sponsored] = $VisitClass -> cars_sponsored();
-                        if (trim($news_profile[sponsored])!=''){
+                        $news_profile['pageoutfin']=$pageoutfin;
+                        $news_profile['signupmembers'] = $news_profile['signupmembers'];
+                        $news_profile['sponsored'] = $VisitClass -> cars_sponsored();
+                        if (trim($news_profile['sponsored'])!=''){
                         $news_profile["sponsored_show"] = $tpl->replace($news_profile,"sponsored_show.html");
                         }
                         $news_profile['arrival_date'] = $_SESSION['arrival_date'];
@@ -1019,7 +1019,7 @@ VALUES
 
                         $news_profile["simple_search"] = $tpl->replace($news_profile,"simple_search.html");
                         $news_profile["newsletter_form"] = $tpl->replace($news_profile,"newsletter_form.html");
-                        $news_profile[output_car_details] = $outputtoscreen_car;
+                        $news_profile['output_car_details'] = $outputtoscreen_car;
                         $outputtoscreen .= $tpl->replace($news_profile,"cars.html");
 
         break;
@@ -1061,38 +1061,38 @@ VALUES
 
                                             $settings_template = $Global_Class -> getprofile( "1","template","id" );
 
-                                            $settings_template[signupmembers_subject] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signupmembers_subject".$language_set] );
-                                            $settings_template[signupmembers_body] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signupmembers_body".$language_set] );
+                                            $settings_template['signupmembers_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signupmembers_subject".$language_set] );
+                                            $settings_template['signupmembers_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signupmembers_body".$language_set] );
                                             $email_var['password']=md5($email_var['password']);
-                                            $sql="INSERT INTO `{$config[table_prefix]}members` ( `id` , `name` ,  `email` , `unic_id`,`active`,`date_add` )
+                                            $sql="INSERT INTO `{$config['table_prefix']}members` ( `id` , `name` ,  `email` , `unic_id`,`active`,`date_add` )
 VALUES
-( '', '{$email_var[name]}', '{$email_var['email']}', '$unic_id','2','".date("Y-m-d")."' );";
+( '', '{$email_var['name']}', '{$email_var['email']}', '$unic_id','2','".date("Y-m-d")."' );";
                                             $result = $db -> query($sql);
 
-                                            $sendresult = $Email_class -> emailsend( $email_var[email], $email_var[name], $settings_template[email], $settings_template[from], $settings_template[signupmembers_subject], $settings_template[signupmembers_body] );
-                                            $sendresult = $Email_class -> emailsend(  $settings_template[email], $settings_template[from], $settings_template[email], $settings_template[from], $settings_template[signupmembers_subject], $settings_template[signupmembers_body] );
-                                            $email_var[message]=$lang['tpl_auto_thanks_signupmembers'];
+                                            $sendresult = $Email_class -> emailsend( $email_var['email'], $email_var['name'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
+                                            $sendresult = $Email_class -> emailsend(  $settings_template['email'], $settings_template['from'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
+                                            $email_var['message']=$lang['tpl_auto_thanks_signupmembers'];
                                             $outputtoscreen_subscribe = $tpl->replace($email_var,"emailadmin_thanks.html");
                                            }else{
                                                    $outok = $Global_Class -> delete_id($email_profile[id],"members",array(),'id');
                                                    if ($outok){
-                                                    $email_var[message]=$lang['tpl_auto_thanks_unsubcribemembers'];
+                                                    $email_var['message']=$lang['tpl_auto_thanks_unsubcribemembers'];
                                                     $outputtoscreen_subscribe = $tpl->replace($email_var,"emailadmin_thanks.html");
                                                    }
                                           }
                         }else{
-                                $settings_profile[error]= $outputtoscreen_add[1];
+                                $settings_profile['error']= $outputtoscreen_add[1];
                                 $outputtoscreen_subscribe = $tpl->replace($settings_profile,"newsletter_form.html");
 
                         }
-              $news_profile[page] = $lang["tpl_auto_Newsletter"];
+              $news_profile['page'] = $lang["tpl_auto_Newsletter"];
               $page = $lang["tpl_auto_Newsletter"];
               $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_subscribe,$nr_listing_found,$pageoutfin);
 
         break;
 
         case "confirmsubcribe":
-                        $id=$_REQUEST[id];
+                        $id=$_REQUEST['id'];
                         if ($id=="")
                             break;
                         $user_profile = $Global_Class -> getprofile( $id, "members", "unic_id" );
@@ -1100,7 +1100,7 @@ VALUES
                         {
                                 break;
                         }
-                        $sql="UPDATE `{$config[table_prefix]}members` SET `active`=1 where `unic_id`='$id' limit 1;";
+                        $sql="UPDATE `{$config['table_prefix']}members` SET `active`=1 where `unic_id`='$id' limit 1;";
                         $result = $db -> query($sql);
                         echo "
                                         <script type=\"text/javascript\" language=\"javascript\">
@@ -1122,11 +1122,11 @@ VALUES
                         $username = $HTTP_POST_VARS['input_username'];
                         if ( $username == "" )
                         {
-                                                                $settings_profile[error]=$lang["error1"];
+                                                                $settings_profile['error']=$lang["error1"];
                                                                 $header=$tpl->replace($settings_profile,"header.html");
                         } elseif ( $password == "" )
                         {
-                                                                $settings_profile[error]=$lang["error2"];
+                                                                $settings_profile['error']=$lang["error2"];
                                                                 $header=$tpl->replace($settings_profile,"header.html");
 
                         } elseif ( $userprofile = $dealer -> verifyadmin( $username, $password ) )
@@ -1142,14 +1142,14 @@ VALUES
                                 {
                                         $profile_ = $dealer -> getadminprofile( $username );
 
-                                        if ($profile_[active]==0){
+                                        if ($profile_['active']==0){
                                         $var = array ( "error" => $lang["error10"]
                                                 );
                                         }
-                                        elseif ($profile_[active]==2){
+                                        elseif ($profile_['active']==2){
                                         $var = array ( "error" => $lang["error11"]
                                                 );
-                                        }if ($profile_[active]==1)
+                                        }if ($profile_['active']==1)
                                         $var = array ( "error" => $lang["error4"]
                                                 );
                                 }
@@ -1158,7 +1158,7 @@ VALUES
                                         $var = array ( "error" => $lang["error3"]
                                                 );
                                 }
-                                $settings_profile[error]=$var[error];
+                                $settings_profile['error']=$var[error];
                         }
                         //$header=$tpl->replace($settings_profile,"header.html");
                         //$outputtoscreen = $header;
@@ -1177,14 +1177,14 @@ VALUES
         case "advsearch":
               $VisitClass -> resetarray();
               $page = $lang["tpl_auto_cars"];
-              $outputtoscreen_car = $VisitClass -> cars_list(&$pageoutfin,&$nr_car_found);
+              $outputtoscreen_car = $VisitClass -> cars_list($pageoutfin,$nr_car_found);
               $_SESSION['adv_search']=true;
               $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car,$nr_car_found,$pageoutfin);
         break;
         case "search":
               $VisitClass -> resetarray();
               $page = $lang["tpl_auto_cars"];
-              $outputtoscreen_car = $VisitClass -> cars_list(&$pageoutfin,&$nr_car_found);
+              $outputtoscreen_car = $VisitClass -> cars_list($pageoutfin,$nr_car_found);
               $_SESSION['adv_search']=false;
               $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car,$nr_car_found,$pageoutfin);
         break;
@@ -1196,7 +1196,7 @@ VALUES
               $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car);
         break;
         case "payment":
-                    $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
+                    $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
                     if ($car_profile) {
                         $settings_profile['price']=$car_profile['price'];
                         if($car_profile['specialprice']>0) {
@@ -1210,25 +1210,25 @@ VALUES
         break;
 //15 feb 2005
         case "send":
-                $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
+                $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
                 if ($car_profile) {
 
-                    $category_profile = $Global_Class -> getprofile( $car_profile[category], "category", 'id' );
+                    $category_profile = $Global_Class -> getprofile( $car_profile['category'], "category", 'id' );
                     $car_profile = $VisitClass->prepareuser($car_profile);
                     $email=$settings_profile;
-                    $email[admin] = $_REQUEST[admin];
-                    $email[id] = $_REQUEST[id];
-                    $email[name_model_id] = $category_profile["name{$language_set}"]." - ".$car_profile[model]." (#".$_REQUEST[id].")";
+                    $email['admin'] = $_REQUEST['admin'];
+                    $email['id'] = $_REQUEST['id'];
+                    $email['name_model_id'] = $category_profile["name{$language_set}"]." - ".$car_profile['model']." (#".$_REQUEST['id'].")";
                     $outputtoscreen = $tpl->replace($email,"send_email_to_a_friend.html");
                     echo $outputtoscreen;
                     exit;
                 }
         break;
         case "send1":
-                $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
+                $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
                 if ($car_profile) {
-                    //$car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
-                    $category_profile = $Global_Class -> getprofile( $car_profile[category], "category", 'id' );
+                    //$car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
+                    $category_profile = $Global_Class -> getprofile( $car_profile['category'], "category", 'id' );
                     $email_var = $VisitClass->prepareuser($car_profile);
                     $email_var['guest_name'] = $_REQUEST['name'];
                     $email_var['guest_email'] = $_REQUEST['email'];
@@ -1243,21 +1243,21 @@ VALUES
                     $email_var['url']=$config['url_path']."index.php?p=details&id=".$email_var['id'];
                     $settings_template = $Global_Class -> getprofile( "1","template","id" );
 
-                    $settings_template[contact_subject] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["friend_subject".$language_set] );
-                    $settings_template[contact_body] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["friend_body".$language_set] );
-					if ($_SESSION['session_uid']!=$_REQUEST[code] or $_REQUEST[code]=='' ){
+                    $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["friend_subject".$language_set] );
+                    $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["friend_body".$language_set] );
+					if ($_SESSION['session_uid']!=$_REQUEST['code'] or $_REQUEST['code']=='' ){
 						
-	                    $car_profile = $Global_Class -> getprofile( $_REQUEST[id],"$tabel_cars","id" );
-	                    $category_profile = $Global_Class -> getprofile( $car_profile[category], "category", 'id' );
+	                    $car_profile = $Global_Class -> getprofile( $_REQUEST['id'],"$tabel_cars","id" );
+	                    $category_profile = $Global_Class -> getprofile( $car_profile['category'], "category", 'id' );
 	                    $email=$settings_profile;
-	                    $email[admin] = $_REQUEST[admin];
-	                    $email[id] = $_REQUEST[id];
-	                    $email[name_model_id] = $category_profile[name]." - ".$car_profile[model]." (#".$_REQUEST[id].")";
+	                    $email['admin'] = $_REQUEST['admin'];
+	                    $email['id'] = $_REQUEST['id'];
+	                    $email['name_model_id'] = $category_profile['name']." - ".$car_profile['model']." (#".$_REQUEST['id'].")";
 	                    $email['error']=$lang['tpl_auto_The_Image_Text_is_not_correct1'];
 	                    $outputtoscreen = $tpl->replace($email,"send_email_to_a_friend.html");						
 					}else{
-	                    $sendresult = $Email_class -> emailsend( $email_var[friendemail], $email_var[friendname], $email_var[guest_email], $email_var[guest_name], $settings_template[contact_subject], $settings_template[contact_body] );
-	                    $email_var[message]=$lang['tpl_auto_thanksfriend'];
+	                    $sendresult = $Email_class -> emailsend( $email_var['friendemail'], $email_var['friendname'], $email_var['guest_email'], $email_var['guest_name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
+	                    $email_var['message']=$lang['tpl_auto_thanksfriend'];
 	                    $outputtoscreen = $tpl->replace($email_var,"send_email_thanks.html");
 					}
                     
@@ -1269,22 +1269,22 @@ VALUES
 
               $VisitClass -> resetarray(0);
               
-              $user = $Global_Class -> getprofile( $_REQUEST[id], "cars", 'unicid' );
-		      $_REQUEST[days]=$config['delay_How_many_days_this_object_will_be_active'];
+              $user = $Global_Class -> getprofile( $_REQUEST['id'], "cars", 'unicid' );
+		      $_REQUEST['days']=$config['delay_How_many_days_this_object_will_be_active'];
 		      if ($user){
-		                $admin_profile = $Global_Class -> getprofile( $user[admin], "admin", 'id' );
-		                $user[name]=$admin_profile['name'];
+		                $admin_profile = $Global_Class -> getprofile( $user['admin'], "admin", 'id' );
+		                $user['name']=$admin_profile['name'];
 		
 		                $user = $VisitClass->prepareuser($user);
 		                
-		                $user[days]=$_REQUEST[days];
+		                $user['days']=$_REQUEST['days'];
 		                
 		                $outputtoscreen_car.=preg_replace( "/\{(\w+)\}/e", "\$user[\\1]", $lang['youradwasupdated'] );
 		
 		                srand((double)microtime() * 1000000);
 		                $unic_id = @md5(rand(0, 999999));
 		
-		                $sql = "UPDATE `{$config[table_prefix]}cars` SET `date_delay` = INTERVAL {$_REQUEST[days]} DAY+`date_delay`, unicid='{$unic_id}',daystoexpire=0,daysactive=0 where id='{$user[id]}' limit 1;";
+		                $sql = "UPDATE `{$config['table_prefix']}cars` SET `date_delay` = INTERVAL {$_REQUEST['days']} DAY+`date_delay`, unicid='{$unic_id}',daystoexpire=0,daysactive=0 where id='{$user[id]}' limit 1;";
 		                $result = $db -> query( $sql );
 		
 		      }else{
@@ -1325,11 +1325,11 @@ if ($_REQUEST['p']=='search' OR $_REQUEST['p']=='advsearch'){
 		 $config['config_auto_searchtile']=$lang['tpl_auto_searchtile'];
 		 $config['config_auto_descriptionsearchtile']=$lang['tpl_auto_descriptionsearchtile'];
 		 
-		 $category_profile = $Global_Class -> getprofile( $_REQUEST[make], "make", 'id' );
+		 $category_profile = $Global_Class -> getprofile( $_REQUEST['make'], "make", 'id' );
 		 $config['config_auto_searchtile']=str_replace("<make>",$category_profile['name'.$language_set],$config['config_auto_searchtile']);
 		 $config['config_auto_descriptionsearchtile']=str_replace("<make>",$category_profile['name'.$language_set],$config['config_auto_descriptionsearchtile']);
 		 
-		 $category_profile = $Global_Class -> getprofile( $_REQUEST[model], "model", 'id' );
+		 $category_profile = $Global_Class -> getprofile( $_REQUEST['model'], "model", 'id' );
 		 $config['config_auto_searchtile']=str_replace("<model>",$category_profile['name'.$language_set],$config['config_auto_searchtile']);
 		 $config['config_auto_descriptionsearchtile']=str_replace("<model>",$category_profile['name'.$language_set],$config['config_auto_descriptionsearchtile']);
 
@@ -1377,7 +1377,7 @@ $config['config_auto_homepageurl']='http://www.mecarz.com/1-index.html';
 }else{
 $config['config_auto_homepageurl']='http://www.mecarz.com/';	
 }
-$settings_profile[output] = $outputtoscreen;
+$settings_profile['output'] = $outputtoscreen;
 $outputtoscreen=$tpl->replace($settings_profile,"index.html");
 
 echo $outputtoscreen;

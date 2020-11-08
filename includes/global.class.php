@@ -46,11 +46,11 @@ class GlobalClass{
 
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                       $variable[$tablefield_array_r['Field']]=$_REQUEST["input_".$tablefield_array_r['Field']];
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
 
                if ( ($variable['page']=="")||($variable['page']<1) ) $variable['page']=0;
 
@@ -63,14 +63,14 @@ class GlobalClass{
                            if ($variable[$val]!="") {
                                $param.="&amp;input_$val=".$variable[$val];
                                if (in_array($val,$relation)){
-                                     $sql_cond1.=" and {$config[table_prefix]}".$relation_table[$val][0].".".$relation_table[$val][1]."={$config[table_prefix]}$default_tabel.$val and {$config[table_prefix]}".$relation_table[$val][0].".".$relation_table[$val][2]." like '%".$variable[$val]."%'";
-                                     $sql_table.= " , {$config[table_prefix]}".$relation_table[$val][0];
+                                     $sql_cond1.=" and {$config['table_prefix']}".$relation_table[$val][0].".".$relation_table[$val][1]."={$config['table_prefix']}$default_tabel.$val and {$config['table_prefix']}".$relation_table[$val][0].".".$relation_table[$val][2]." like '%".$variable[$val]."%'";
+                                     $sql_table.= " , {$config['table_prefix']}".$relation_table[$val][0];
                                }else{
                                      if ($_REQUEST['id_back']=='yes' and $val=='id'){
-                                       $sql_cond1.=" and {$config[table_prefix]}$default_tabel.$val = '".$variable[$val]."'";
+                                       $sql_cond1.=" and {$config['table_prefix']}$default_tabel.$val = '".$variable[$val]."'";
                                      }else{
 
-                                                                                if (eregi("(([0-9]{2})-([0-9]{2})-([0-9]{4}))",$variable[$val]) and $_REQUEST[o]=='search') {
+                                                                                if (preg_match("/(([0-9]{2})-([0-9]{2})-([0-9]{4}))",$variable[$val]) and $_REQUEST['o']=='search') {
 
                                                                                         $pattern = "/([0-9]{2})-([0-9]{2})-([0-9]{4})/i";
                                                                                         $replacement = "\$3-\$2-\$1";
@@ -78,7 +78,7 @@ class GlobalClass{
 
 
                                         }
-                                       $sql_cond1.=" and {$config[table_prefix]}$default_tabel.$val like '%".$variable[$val]."%'";
+                                       $sql_cond1.=" and {$config['table_prefix']}$default_tabel.$val like '%".$variable[$val]."%'";
                                      }
                                }
                            }
@@ -91,21 +91,21 @@ class GlobalClass{
 	            $var_header[searchfor]='f';
 	            $var_header[searchforvalue]=$_REQUEST[f];               	
                }
-               if ($_REQUEST[o]=='search'){
+               if ($_REQUEST['o']=='search'){
                	   $param.="&o=search";
                }
-               if ($_REQUEST[admin]!=''){
-               	   $param.="&admin=".trim($_REQUEST[admin])."";
-              	   $admin_profile = $this -> getprofile( $_REQUEST[admin],"admin","id" );
+               if ($_REQUEST['admin']!=''){
+               	   $param.="&admin=".trim($_REQUEST['admin'])."";
+              	   $admin_profile = $this -> getprofile( $_REQUEST['admin'],"admin","id" );
 	
-	               switch ($_REQUEST[admin]){
+	               switch ($_REQUEST['admin']){
 	               	default:
-	               	 $sql_default.=" and admin='{$_REQUEST[admin]}' ";
+	               	 $sql_default.=" and admin='{$_REQUEST['admin']}' ";
 	               	break;               	               	
 	               } 
 	               $var_header[error1]=$lang['tpl_auto_Filter'].$lang['tpl_auto_Admin']." ".$admin_profile[username];
 	               $var_header[searchfor]='admin';
-	               $var_header[searchforvalue]=$_REQUEST[admin];
+	               $var_header[searchforvalue]=$_REQUEST['admin'];
                }                             
                
                switch ($_REQUEST[f]){
@@ -137,13 +137,13 @@ class GlobalClass{
               
 			   //$sqlcount = "SELECT COUNT(*) FROM {$config['table_prefix']}$default_tabel $sql_default_global_from $sql_table WHERE 1 $sql_default ";
                
-               $sql = "SELECT {$config[table_prefix]}$default_tabel.* FROM {$config['table_prefix']}$default_tabel $sql_default_global_from $sql_table WHERE 1 $sql_default ";
+               $sql = "SELECT {$config['table_prefix']}$default_tabel.* FROM {$config['table_prefix']}$default_tabel $sql_default_global_from $sql_table WHERE 1 $sql_default ";
                               
                $sql.=$sql_cond1;
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows_ini = mysql_num_rows($result);
-               //list($num_rows_ini) = mysql_fetch_row($result);
-               @mysql_free_result($result);
+               $num_rows_ini = mysqli_num_rows($result);
+               //list($num_rows_ini) = mysqli_fetch_row($result);
+               @mysqli_free_result($result);
 
                if ( ($variable['nrresult']<=0)||($variable['nrresult']=="") )
                    $variable['nrresult']=$default_nrresult;
@@ -205,9 +205,9 @@ class GlobalClass{
 
                $page_ini=$variable['page'];
                $variable['page']=$variable['page']*$variable['nrresult'];
-               $sql.= " ORDER BY {$config[table_prefix]}$default_tabel.{$variable['orderby']} {$variable['method']} LIMIT {$variable['page']},{$variable['nrresult']}";
+               $sql.= " ORDER BY {$config['table_prefix']}$default_tabel.{$variable['orderby']} {$variable['method']} LIMIT {$variable['page']},{$variable['nrresult']}";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
 
                $i=0;
                $out1="";
@@ -242,7 +242,7 @@ class GlobalClass{
 											                 $var_gallery = $this -> getprofile_order($var[id], "gallery", "order", "carsid");
 											
 											                 if ($var_gallery[thumbnail] == ""){
-											                     $var_gallery[thumbnail] = $settings_profile[thumbnail];
+											                     $var_gallery[thumbnail] = $settings_profile['thumbnail'];
 											                 }
 											
 											                 $thumbnailtemp = $config['url_path_temp'] . $var_gallery[thumbnail];    		
@@ -257,7 +257,7 @@ class GlobalClass{
 									                    $var_gallery = $this -> getprofile_order( $var[carid], "gallery", "order", 'carsid' );
 									
 														if ($var_gallery[thumbnail]==""){
-														$var_gallery[thumbnail]=$settings_profile[thumbnail];
+														$var_gallery[thumbnail]=$settings_profile['thumbnail'];
 														}
 														if ($var_gallery[thumbnail]!=''){
 														$var['galleryimage']="<img src=\"".$config['url_path_temp'] . $var_gallery[thumbnail]."\">\n<br>";
@@ -301,7 +301,7 @@ class GlobalClass{
                                                         }
                                                 }
                                                 foreach($tablefield_array as $key=>$val){
-                                                            if (eregi("([0-9]{4})-([0-9]{2})-([0-9]{2})",$var[$val])) {
+                                                            if (preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2})",$var[$val])) {
                                                                 if ($var[$val] == '0000-00-00') {
                                                                 $var[$val]="-";
                                                                 }else{
@@ -333,7 +333,7 @@ class GlobalClass{
                                                            $var[$val]="<img src=\"../temp/{$var[$val]}\" border=0>";
                                                                                                                 }
                                                         if (in_array($val,$search_fields)) {
-                                                           if ($default_tabel!='admin' and !eregi("\.jpg",$var[$val]) and strlen($var[$val])>$config['chars_to_see_on_list_page']){
+                                                           if ($default_tabel!='admin' and !preg_match("/\.jpg",$var[$val]) and strlen($var[$val])>$config['chars_to_see_on_list_page']){
                                                            	$var[$val]=substr($var[$val],0,$config['chars_to_see_on_list_page']).$config['chars_after_on_list_page'];
                                                            }
                                                            $var_fields['fields']=$var[$val];
@@ -376,7 +376,7 @@ class GlobalClass{
                                                 $var_fields="";
                                                 $i++;
                               }
-                              @mysql_free_result($result);
+                              @mysqli_free_result($result);
                               $vartemp['nr']=$num_rows_ini;
                               $vartemp['nr1']=$variable['page']+1;
                               $vartemp['nr2']=$variable['page']+$num_rows;
@@ -491,7 +491,7 @@ class GlobalClass{
                $i=0;
                if (!is_array($config['admin_section'][$default_option]['radio_fields']))$config['admin_section'][$default_option]['radio_fields']=array();
 
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                       if (in_array($tablefield_array_r['Field'],$fileds_not_show)){
                            $variable[$tablefield_array_r['Field']]=$_REQUEST[$tablefield_array_r['Field']];
@@ -560,7 +560,7 @@ class GlobalClass{
                            unset($var);
                       }
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
 
                $var_header['option']=$out1;
                $var_header["p"]="$default_option";
@@ -634,13 +634,13 @@ class GlobalClass{
                if ($default_tabel=='cars'){
                   $sql = "SELECT `picture`,`thumbnail` FROM `{$config['table_prefix']}gallery` WHERE `carsid`='$id'";
                   $result = $db -> query($sql);
-                  $num_rows = mysql_num_rows($result);
+                  $num_rows = mysqli_num_rows($result);
                       if ($num_rows>0){
                                      while ($var = mysql_fetch_assoc($result)){
                                                                         @unlink($config["temp"].$var[picture]);
                                                                         @unlink($config["temp"].$var[thumbnail]);
                                      }
-                                     @mysql_free_result($result);
+                                     @mysqli_free_result($result);
 
                       }
                   $sql = "delete from `{$config['table_prefix']}gallery` WHERE `carsid`='$id'";
@@ -671,8 +671,8 @@ class GlobalClass{
                	  /*
                   $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel`";
                   $result = $db -> query($sql,__FILE__,__LINE__);
-                  $num_rows_ini = mysql_num_rows($result);
-                  @mysql_free_result($result);
+                  $num_rows_ini = mysqli_num_rows($result);
+                  @mysqli_free_result($result);
                   if ($num_rows_ini<1){
                       $sql = "TRUNCATE TABLE `{$config['table_prefix']}$default_tabel`";
                       @$result = $db -> query($sql,__FILE__,__LINE__);
@@ -687,17 +687,17 @@ class GlobalClass{
 			 	
 
               
-               if (!eregi("limit",$sql1)){
+               if (!preg_match("/limit",$sql1)){
                	$sql1.=" LIMIT 1";
                }                	
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql1";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   $user = mysql_fetch_assoc($result);
                   $config[profilesmem][$default_tabel][$id]=$user;
                   $config[profilesmem][$default_tabel][$id][saved]=1;
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($user);
                }else return false;
          	   
@@ -705,15 +705,15 @@ class GlobalClass{
       function getprofilefirst($default_tabel,$sql1=""){
                global $config;
                global $db; //database
-               if (!eregi("limit",$sql1)){
+               if (!preg_match("/limit",$sql1)){
                	$sql1.=" LIMIT 1";
                }               
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sql1";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   $user = mysql_fetch_assoc($result);
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($user);
                }else return false;
       }
@@ -722,10 +722,10 @@ class GlobalClass{
                global $db; //database
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' AND `$id1_`='$id1'";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   $user = mysql_fetch_assoc($result);
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($user);
                }else return false;
       }
@@ -737,9 +737,9 @@ class GlobalClass{
                //echo "<BR>";
                $result = $db -> query($sql,__FILE__,__LINE__);
                //$user = mysql_fetch_assoc($result);
-               list($num_rows) = mysql_fetch_row($result);
-               //$num_rows = mysql_num_rows($result);
-               @mysql_free_result($result);
+               list($num_rows) = mysqli_fetch_row($result);
+               //$num_rows = mysqli_num_rows($result);
+               @mysqli_free_result($result);
                return intval($num_rows);
       }
       function getnumber($default_tabel,$sql=''){
@@ -748,8 +748,8 @@ class GlobalClass{
                $sql = "select count(*) from `{$config['table_prefix']}$default_tabel` WHERE 1 $sql";
                //echo "<BR>";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               list($num_rows) = mysql_fetch_row($result);
-               @mysql_free_result($result);
+               list($num_rows) = mysqli_fetch_row($result);
+               @mysqli_free_result($result);
                return $num_rows;
       }
       function getdropdown($id,$default_tabel,$orderby,$id_,$name_,$number=0,$sqlini="",$cardatabase="cars"){
@@ -758,10 +758,10 @@ class GlobalClass{
                /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
 			   */
                /*
@@ -789,7 +789,7 @@ class GlobalClass{
                $sql = "SELECT `$id_`,`$name_` FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini ORDER BY $orderby";//GROUP BY $id_ 
 
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   while ($user = mysql_fetch_assoc($result)){
                         $out .= "<option";
@@ -802,7 +802,7 @@ class GlobalClass{
                         }
                         $out .= " value='".$user[$id_]."'>".$user[$name_]."{$number_out}</option>\n";
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($out);
                }else return false;
       }
@@ -812,17 +812,17 @@ class GlobalClass{
                /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
                */
 
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini GROUP BY $id_ ORDER BY $orderby";
 
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   while ($user = mysql_fetch_assoc($result)){
                         $out .= "<option";
@@ -834,7 +834,7 @@ class GlobalClass{
                         $user[model] = $model_profile["name{$language_set}"];
                         $out .= " value='".$user[$id_]."'>".$user[$id_]." - ".$user[stock]." - ".$user[make]." - ".$user[model]." - ".$user[year]."</option>\n";
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($out);
                }else return false;
       }
@@ -845,7 +845,7 @@ class GlobalClass{
                $temp=explode("</option>\n",$dropdown);
                if (!is_array($temp)) $temp=array();
                foreach ($temp as $key=>$val){
-                if (eregi("selected",$val)){
+                if (preg_match("/selected",$val)){
                          $temp1=explode("'>",$val);
                          return ($temp1[1]);
                         }
@@ -855,22 +855,22 @@ class GlobalClass{
 				/*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
                */
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` GROUP BY $id_ ORDER BY $orderby";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   while ($user = mysql_fetch_assoc($result)){
                         $out .= "<option";
                         $out .= ($user[$id_] == $id ) ? " selected": "";
                         $out .= " value='".$user[$id_]."'>".$user[$name_]."</option>\n";
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($out);
                }else return false;
       }
@@ -940,12 +940,12 @@ class GlobalClass{
                if (!is_array($text_fields_wysiwyg)) $text_fields_wysiwyg=array();
                if (!is_array($datetime_fields)) $datetime_fields=array();
                if (!is_array($radio)) $radio=array();
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       $tablefield_array[]=$tablefield_array_r['Field'];
 
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $tablefield_arraynew=array();
                if (!is_array($config['admin_section'][$default_tabel]['order']))$config['admin_section'][$default_tabel]['order']=array();
                foreach ($config['admin_section'][$default_tabel]['order'] as $key=>$val){
@@ -1051,13 +1051,13 @@ class GlobalClass{
                          if ($_POST["input_".$tablefield_array_r['Field']]=="on")
                              $var['tpl_input_name_val']="checked";
 
-                         if ($default_option=="rights" AND eregi("_add|_view|_delete",$tablefield_array_r['Field']) ){
+                         if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $templang = explode("_",$tablefield_array_r['Field']);
                              $var1[tpl_name]=$lang["tpl_auto_".$templang[1]];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                              $i--;
-                         }elseif ($default_option=="rights" AND eregi("_edit",$tablefield_array_r['Field']) ){
+                         }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $var1[tpl_name]=$lang["tpl_auto_edit"];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -1116,7 +1116,7 @@ class GlobalClass{
                	$config['config2_multiple_options'][1].=$this -> getcheckbox('',"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
                 }
 				$addg=true;
-				if ($_REQUEST[o]=="add") {
+				if ($_REQUEST['o']=="add") {
 				        $admin_profile = $this -> getprofile(  $_COOKIE['id_cookie'], "admin", "id" );
 				        if ($admin_profile[nopictures]!=0 and 0>=$admin_profile[nopictures]) {
 				            $_REQUEST['o']="view";
@@ -1230,14 +1230,14 @@ class GlobalClass{
                if (!is_array($radio)) $radio=array();
                $value_toexplode_array=array();
                $tablefinal=array();
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       if (is_array($tablefield_array_r)){
                         $tablefinal[] = $tablefield_array_r;
                       }
                       if (!in_array($tablefield_array_r['Field'],$fields)){
 
                          if (in_array($tablefield_array_r['Field'],$varchar_fields)){
-                              if (eregi(",",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
+                              if (preg_match("/,",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
                               $value_toexplode=explode(",",$_POST["input_".$tablefield_array_r['Field']]);
                               foreach ($value_toexplode as $keytemp=>$valtemp){
                               $valtemp = trim($valtemp);
@@ -1250,7 +1250,7 @@ class GlobalClass{
                          }
                        }
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                if (count($value_toexplode_array)==0) $value_toexplode_array=array(1);
                foreach ($value_toexplode_array as $keyexplode=>$valexplode){
                   //foreach ($valexplode as $key1_=>$val1_)
@@ -1293,7 +1293,7 @@ class GlobalClass{
                          if (in_array($tablefield_array_r['Field'],$copy_from_id)){
                               $variable[$tablefield_array_r['Field']]=$copy_from_id_value[$tablefield_array_r['Field']];
                          }
-                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !eregi( $config['emailverif'], $_POST["input_".$tablefield_array_r['Field']] ) ) ){
+                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !preg_match( $config['emailverif'], $_POST["input_".$tablefield_array_r['Field']] ) ) ){
                             $var["error"] .= $lang["msg_error_email"].$lang['tabel_'.$default_option][$tablefield_array_r['Field']];
                          }
 
@@ -1348,7 +1348,7 @@ class GlobalClass{
 							 global $_COOKIE;
                              $row = array(
 													"admin"=>$_COOKIE['id_cookie'],
-													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysql_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
+													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysqli_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
 													"sql"=>"$sql"
 													);
 									
@@ -1357,7 +1357,7 @@ class GlobalClass{
                                if ($var['error']==""){
                                             $var_temp_return[0]=true;
                                             $var_temp_return[1]=$lang["tpl_".$default_option."_add"];
-                                            $var_temp_return[2]=mysql_insert_id();
+                                            $var_temp_return[2]=mysqli_insert_id();
                                             if ($default_tabel=='cars'){                             
 							 						$this -> insertcheckbox($var_temp_return[2],'features','name','id','name','carsfeatures','carsid','featuresid');
 							 						
@@ -1430,7 +1430,7 @@ class GlobalClass{
                if ($var['error']==""){
                              $var_temp_return[0]=true;
                              $var_temp_return[1]=count($value_toexplode_array)." ".$lang["tpl_".$default_option."_add"];
-                             $var_temp_return[2]=mysql_insert_id();
+                             $var_temp_return[2]=mysqli_insert_id();
                              return $var_temp_return;
                }
                $var_temp_return[0]=false;
@@ -1460,12 +1460,12 @@ class GlobalClass{
                if (!is_array($datetime_fields)) $datetime_fields=array();
                if (!is_array($radio)) $radio=array();
 
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       $tablefield_array[]=$tablefield_array_r['Field'];
 
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $tablefield_arraynew=array();
                if (!is_array($config['admin_section'][$default_tabel]['order']))$config['admin_section'][$default_tabel]['order']=array();
                foreach ($config['admin_section'][$default_tabel]['order'] as $key=>$val){
@@ -1574,13 +1574,13 @@ class GlobalClass{
                          if ($_POST[$kmultiplenew."input_".$tablefield_array_r['Field']]=="on")
                              $var['tpl_input_name_val']="checked";
 
-                         if ($default_option=="rights" AND eregi("_add|_view|_delete",$tablefield_array_r['Field']) ){
+                         if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $templang = explode("_",$tablefield_array_r['Field']);
                              $var1[tpl_name]=$lang["tpl_auto_".$templang[1]];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                              $i--;
-                         }elseif ($default_option=="rights" AND eregi("_edit",$tablefield_array_r['Field']) ){
+                         }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $var1[tpl_name]=$lang["tpl_auto_edit"];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -1671,7 +1671,7 @@ class GlobalClass{
                if (!is_array($radio)) $radio=array();
 
                            $condtoinsert=true;
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       if (!in_array($tablefield_array_r['Field'],$fields)){
                                $tablefield_array_rinitial = $tablefield_array_r['Field'] ;
@@ -1717,7 +1717,7 @@ class GlobalClass{
                          if (in_array($tablefield_array_r['Field'],$copy_from_id)){
                               $variable[$tablefield_array_r['Field']]=$copy_from_id_value[$tablefield_array_r['Field']];
                          }
-                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !eregi( $config['emailverif'], $_POST[$kmultiplenew."input_".$tablefield_array_r['Field']] ) ) ){
+                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !preg_match( $config['emailverif'], $_POST[$kmultiplenew."input_".$tablefield_array_r['Field']] ) ) ){
                                                                 $var["error"] .= $lang["msg_error_email"].$lang['tabel_'.$default_option][$tablefield_array_r['Field']];
                          }
 
@@ -1754,7 +1754,7 @@ class GlobalClass{
                          $sql_input_val.=" , '".$variable[$tablefield_array_r['Field']]."' ";
                       }
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
 
                if ($var['error']==""){
 
@@ -1781,7 +1781,7 @@ class GlobalClass{
 							 global $_COOKIE;
                              $row = array(
 													"admin"=>$_COOKIE['id_cookie'],
-													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysql_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
+													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysqli_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
 													"sql"=>"$sqlfinal"
 													);
 									
@@ -1790,7 +1790,7 @@ class GlobalClass{
                                                         }
                                                          $var_temp_return[0]=true;
                              $var_temp_return[1]=$lang["tpl_".$default_option."_add"];
-                             $var_temp_return[2]=mysql_insert_id();
+                             $var_temp_return[2]=mysqli_insert_id();
                              if ($kmultiple==$config['auto_multiple'][$default_tabel]-1 or $config['auto_multiple'][$default_tabel]<=0){
                              return $var_temp_return;
                              }
@@ -1824,12 +1824,12 @@ class GlobalClass{
                if (!is_array($datetime_fields)) $datetime_fields=array();
                if (!is_array($radio)) $radio=array();
 
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       $tablefield_array[]=$tablefield_array_r['Field'];
 
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $tablefield_arraynew=array();
                if (!is_array($config['admin_section'][$default_tabel]['order']))$config['admin_section'][$default_tabel]['order']=array();
                foreach ($config['admin_section'][$default_tabel]['order'] as $key=>$val){
@@ -1939,13 +1939,13 @@ class GlobalClass{
                          if ($_POST[$kmultiplenew."input_".$tablefield_array_r['Field']]=="on")
                              $var['tpl_input_name_val']="checked";
 
-                         if ($default_option=="rights" AND eregi("_add|_view|_delete",$tablefield_array_r['Field']) ){
+                         if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $templang = explode("_",$tablefield_array_r['Field']);
                              $var1[tpl_name]=$lang["tpl_auto_".$templang[1]];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                              $i--;
-                         }elseif ($default_option=="rights" AND eregi("_edit",$tablefield_array_r['Field']) ){
+                         }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $var1[tpl_name]=$lang["tpl_auto_edit"];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -2025,7 +2025,7 @@ class GlobalClass{
                if (!is_array($date_fields)) $date_fields=array();
                if (!is_array($datetime_fields)) $datetime_fields=array();
                $condtoinsert=true;
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       if (!in_array($tablefield_array_r['Field'],$fields)){
                                $tablefield_array_rinitial = $tablefield_array_r['Field'] ;
@@ -2083,7 +2083,7 @@ class GlobalClass{
                          if (in_array($tablefield_array_r['Field'],$copy_from_id)){
                               $variable[$tablefield_array_r['Field']]=$copy_from_id_value[$tablefield_array_r['Field']];
                          }
-                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !eregi( $config['emailverif'], $_POST[$kmultiplenew."input_".$tablefield_array_r['Field']] ) ) ){
+                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !preg_match( $config['emailverif'], $_POST[$kmultiplenew."input_".$tablefield_array_r['Field']] ) ) ){
                                                                 $var["error"] .= $lang["msg_error_email"].$lang['tabel_'.$default_option][$tablefield_array_r['Field']];
                          }
 
@@ -2118,7 +2118,7 @@ class GlobalClass{
                          $sql_input_val.=" , '".$variable[$tablefield_array_r['Field']]."' ";
                       }
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
 
                if ($var['error']==""){
 
@@ -2145,7 +2145,7 @@ class GlobalClass{
 							 global $_COOKIE;
                              $row = array(
 													"admin"=>$_COOKIE['id_cookie'],
-													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysql_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
+													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysqli_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
 													"sql"=>"$sqlfinal"
 													);
 									
@@ -2154,7 +2154,7 @@ class GlobalClass{
                                                         }
                                                          $var_temp_return[0]=true;
                              $var_temp_return[1]=$lang["tpl_".$default_option."_add"];
-                             $var_temp_return[2]=mysql_insert_id();
+                             $var_temp_return[2]=mysqli_insert_id();
                              if ($kmultiple==$config['auto_multiple'][$default_tabel]-1 or $config['auto_multiple'][$default_tabel]<=0){
                              return $var_temp_return;
                              }
@@ -2189,12 +2189,12 @@ class GlobalClass{
                if (!is_array($text_fields_wysiwyg)) $text_fields_wysiwyg=array();
                if (!is_array($datetime_fields)) $datetime_fields=array();
                if (!is_array($radio)) $radio=array();
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       $tablefield_array[]=$tablefield_array_r['Field'];
 
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $tablefield_arraynew=array();
                if (!is_array($config['admin_section'][$default_tabel]['order']))$config['admin_section'][$default_tabel]['order']=array();
                foreach ($config['admin_section'][$default_tabel]['order'] as $key=>$val){
@@ -2295,13 +2295,13 @@ class GlobalClass{
                          if ($_POST["input_".$tablefield_array_r['Field']]=="on")
                              $var['tpl_input_name_val']="checked";
 
-                         if ($default_option=="rights" AND eregi("_add|_view|_delete",$tablefield_array_r['Field']) ){
+                         if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $templang = explode("_",$tablefield_array_r['Field']);
                              $var1[tpl_name]=$lang["tpl_auto_".$templang[1]];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                              $i--;
-                         }elseif ($default_option=="rights" AND eregi("_edit",$tablefield_array_r['Field']) ){
+                         }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $var1[tpl_name]=$lang["tpl_auto_edit"];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -2378,14 +2378,14 @@ class GlobalClass{
                if (!is_array($radio)) $radio=array();
                $value_toexplode_array=array();
                $tablefinal=array();
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       if (is_array($tablefield_array_r)){
                         $tablefinal[] = $tablefield_array_r;
                       }
                       if (!in_array($tablefield_array_r['Field'],$fields)){
 
                          if (in_array($tablefield_array_r['Field'],$varchar_fields)){
-                              if (eregi(",",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
+                              if (preg_match("/,",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
                               $value_toexplode=explode(",",$_POST["input_".$tablefield_array_r['Field']]);
                               foreach ($value_toexplode as $keytemp=>$valtemp){
                               $valtemp = trim($valtemp);
@@ -2398,7 +2398,7 @@ class GlobalClass{
                          }
                        }
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                if (count($value_toexplode_array)==0) $value_toexplode_array=array(1);
                foreach ($value_toexplode_array as $keyexplode=>$valexplode){
                   //foreach ($valexplode as $key1_=>$val1_)
@@ -2441,7 +2441,7 @@ class GlobalClass{
                          if (in_array($tablefield_array_r['Field'],$copy_from_id)){
                               $variable[$tablefield_array_r['Field']]=$copy_from_id_value[$tablefield_array_r['Field']];
                          }
-                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !eregi( $config['emailverif'], $_POST["input_".$tablefield_array_r['Field']] ) ) ){
+                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !preg_match( $config['emailverif'], $_POST["input_".$tablefield_array_r['Field']] ) ) ){
                             $var["error"] .= $lang["msg_error_email"].$lang['tabel_'.$default_option][$tablefield_array_r['Field']];
                          }
 
@@ -2497,7 +2497,7 @@ class GlobalClass{
 							 global $_COOKIE;
                              $row = array(
 													"admin"=>$_COOKIE['id_cookie'],
-													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysql_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
+													"action"=>$lang['logging']['add']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".mysqli_insert_id().": ".$variable[$config['admin_section'][$_REQUEST['p']]['field_name_for_delete']].") ",
 													"sql"=>"$sqlfinal"
 													);
 									
@@ -2507,7 +2507,7 @@ class GlobalClass{
                                if ($var['error']==""){
                                              $var_temp_return[0]=true;
                                              $var_temp_return[1]=$lang["tpl_".$default_option."_add"];
-                                             $var_temp_return[2]=mysql_insert_id();
+                                             $var_temp_return[2]=mysqli_insert_id();
                                              return $var_temp_return;
                                }
                              }
@@ -2520,7 +2520,7 @@ class GlobalClass{
                if ($var['error']==""){
                              $var_temp_return[0]=true;
                              $var_temp_return[1]=count($value_toexplode_array)." ".$lang["tpl_".$default_option."_add"];
-                             $var_temp_return[2]=mysql_insert_id();
+                             $var_temp_return[2]=mysqli_insert_id();
                              return $var_temp_return;
                }
                $var_temp_return[0]=false;
@@ -2550,12 +2550,12 @@ class GlobalClass{
                if (!is_array($text_fields_wysiwyg)) $text_fields_wysiwyg=array();
                if (!is_array($datetime_fields)) $datetime_fields=array();
                if (!is_array($radio)) $radio=array();
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       $tablefield_array[]=$tablefield_array_r['Field'];
 
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $tablefield_arraynew=array();
                if (!is_array($config['admin_section'][$default_tabel]['order']))$config['admin_section'][$default_tabel]['order']=array();
                foreach ($config['admin_section'][$default_tabel]['order'] as $key=>$val){
@@ -2692,13 +2692,13 @@ class GlobalClass{
                          else
                              $var['tpl_input_name_val']="";
 
-                         if ($default_option=="rights" AND eregi("_add|_view|_delete",$tablefield_array_r['Field']) ){
+                         if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $templang = explode("_",$tablefield_array_r['Field']);
                              $var1[tpl_name]=$lang["tpl_auto_".$templang[1]];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                              $i--;
-                         }elseif ($default_option=="rights" AND eregi("_edit",$tablefield_array_r['Field']) ){
+                         }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
                              $var1=$var;
                              $var1[tpl_name]=$lang["tpl_auto_edit"];
                              $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -2779,7 +2779,7 @@ class GlobalClass{
 				$i++;
                	$config['config2_multiple_options'][0]=1;
                	global  $language_set;
-               	$config['config2_multiple_options'][1].=$this -> getcheckbox($_REQUEST[id],"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
+               	$config['config2_multiple_options'][1].=$this -> getcheckbox($_REQUEST['id'],"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
                 }
                }   
                if ($default_tabel=='cars'){
@@ -2816,7 +2816,7 @@ class GlobalClass{
                if (!is_array($datetime_fields)) $datetime_fields=array();
                if (!is_array($radio)) $radio=array();
                $profile=$this->getprofile($id,$default_tabel,$id_);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       if (!in_array($tablefield_array_r['Field'],$fields)){
                          $tablefield_array[]=$tablefield_array_r['Field'];
                          $variable[$tablefield_array_r['Field']]=$_POST["input_".$tablefield_array_r['Field']];
@@ -2893,7 +2893,7 @@ class GlobalClass{
                               $variable[$tablefield_array_r['Field']]=$copy_from_id_value[$tablefield_array_r['Field']];
                          }
 
-                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !eregi( $config['emailverif'], $_POST["input_".$tablefield_array_r['Field']] ) ) ){
+                         if (in_array($tablefield_array_r['Field'],$email_fields) AND ( !preg_match( $config['emailverif'], $_POST["input_".$tablefield_array_r['Field']] ) ) ){
                                                                 $var["error"] .= $lang["msg_error_email"].$lang['tabel_'.$default_option][$tablefield_array_r['Field']];
                          }
                          if (in_array($tablefield_array_r['Field'],$date_fields)){
@@ -2936,7 +2936,7 @@ class GlobalClass{
 
                       }
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                if ($var['error']==""){
                              $sql = "UPDATE `{$config['table_prefix']}$default_tabel` SET `$id_`='$id' "
                                     ." $sql_input WHERE `$id_`='$id' limit 1";
@@ -3337,10 +3337,10 @@ class GlobalClass{
 			     	 $sql .= " ORDER BY `$orderby` LIMIT 1";
 			     }
                  $result = $db -> query($sql,__FILE__,__LINE__);
-                 $num_rows = mysql_num_rows($result);
+                 $num_rows = mysqli_num_rows($result);
                  if ($num_rows>0){
                     $user = mysql_fetch_assoc($result);
-                    @mysql_free_result($result);
+                    @mysqli_free_result($result);
                     return ($user);
                  }else return false;
         }
@@ -3390,15 +3390,15 @@ class GlobalClass{
                global $db; //database
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
                if ($config[orderbyfeatures]!='') $orderby=$config[orderbyfeatures];
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                $i=0;
                if ($num_rows>0){
 
@@ -3426,7 +3426,7 @@ class GlobalClass{
                         $variab['features' . $var_] .=$tpl->replace($var,"global_add_checkbox.html");
                         $i++;
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   $out.=$tpl->replace($variab,"global_add_features.html");
                   return ($out);
                }else return false;
@@ -3437,14 +3437,14 @@ class GlobalClass{
                global $_COOKIE;
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                            $i=0;
                if ($num_rows>0){
                          $sql = "delete from `{$config['table_prefix']}$default_tabel_relation` WHERE `$relation_id1`='$id'";
@@ -3465,7 +3465,7 @@ class GlobalClass{
                                        
 			                             $row = array(
 																"admin"=>$_COOKIE['id_cookie'],
-																"action"=>$lang['logging']['edit']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".$id." $user[name] ) ",
+																"action"=>$lang['logging']['edit']." ".$lang["tpl_auto_".$_REQUEST['p']]." ( ".$id." $user['name'] ) ",
 																"sql"=>"$sql"
 																); 
 			
@@ -3473,7 +3473,7 @@ class GlobalClass{
 
                                                   }
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return true;
                }else return false;
       }
@@ -3515,12 +3515,12 @@ class GlobalClass{
 
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini GROUP BY $id_ ORDER BY $orderby";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   while ($user = mysql_fetch_assoc($result)){
                         $out[] = $user;
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($out);
                }else return false;
       }
@@ -3530,12 +3530,12 @@ class GlobalClass{
                $out=array();
                $sql = "select `$field` from `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                if ($num_rows>0){
                   while ($user = mysql_fetch_assoc($result)){
                         $out[] = $user[$field];
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   return ($out);
                }else return false;
       }
@@ -3571,10 +3571,10 @@ class GlobalClass{
                               $contor =0;
                               if (!is_array($array_members)) $array_members = array();
                               foreach($array_members as $key=>$val){
-                        $settings_template[signup_subject] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
-                        $settings_template[signup_body] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
+                        $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
+                        $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
 
-                        $sendresult = $Email_class -> emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template[signup_subject], $settings_template[signup_body] );
+                        $sendresult = $Email_class -> emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                                                                                                 if ($sendresult) {
                                                                                                         $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
@@ -3712,10 +3712,10 @@ class GlobalClass{
                               }
                               $contor =0;
                               foreach($array_members as $key=>$val){
-                        $settings_template[signup_subject] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
-                        $settings_template[signup_body] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
+                        $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
+                        $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
 
-                        $sendresult = $Email_class -> emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template[signup_subject], $settings_template[signup_body] );
+                        $sendresult = $Email_class -> emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                                                                                                 if ($sendresult) {
                                                                                                         $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
@@ -3737,14 +3737,14 @@ class GlobalClass{
                global $db; //database
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
                $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
                $result = $db -> query($sql,__FILE__,__LINE__);
-               $num_rows = mysql_num_rows($result);
+               $num_rows = mysqli_num_rows($result);
                $contor=0;
                if ($num_rows>0){
                   while ($user = mysql_fetch_assoc($result)){
@@ -3752,7 +3752,7 @@ class GlobalClass{
 		               //echo "<BR>";
 		               $resultccc = $db -> query($sql,__FILE__,__LINE__);
 		               //$user = mysql_fetch_assoc($result);
-		               list($num_rowsxx) = mysql_fetch_row($resultccc);
+		               list($num_rowsxx) = mysqli_fetch_row($resultccc);
                		if ($num_rowsxx>0){
                		
                		verific daca sunt masini cu acest make
@@ -3762,7 +3762,7 @@ class GlobalClass{
                         //second
                         $sql1 = "SELECT * FROM `{$config['table_prefix']}$default_tabel1` WHERE $relatedid='".$user[$id_]."' GROUP BY $id_1 ORDER BY $orderby1";
                         $result1 = $db -> query($sql1);
-                        $num_rows1 = mysql_num_rows($result1);
+                        $num_rows1 = mysqli_num_rows($result1);
                         $out1="";
                         if ($num_rows1>0){
                            while ($user1 = mysql_fetch_assoc($result1)){
@@ -3776,7 +3776,7 @@ class GlobalClass{
                         $out .= " $out1 ); //".$user[$name_]."\n";
                		//}
                   }
-                  @mysql_free_result($result);
+                  @mysqli_free_result($result);
                   //echo $out;
                   //exit;
                   return ($out);
@@ -3808,7 +3808,7 @@ class GlobalClass{
                if (!is_array($profile)) $profile=array();
 
                foreach($profile as $key=>$val){
-                      if (eregi("([0-9]{4})-([0-9]{2})-([0-9]{2})",$profile[$key])) {
+                      if (preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2})",$profile[$key])) {
                           if ($profile[$key] == '0000-00-00') {
                           $profile[$key]="-";
                           }else{
@@ -3817,15 +3817,15 @@ class GlobalClass{
                       }
                }
 
-               //while ($tablefield_array_r = mysql_fetch_array($result)){
+               //while ($tablefield_array_r = mysqli_fetch_array($result)){
                       //$tablefield_array[]=$tablefield_array_r['Field'];
 
-               while ($tablefield_array_r = mysql_fetch_array($result)){
+               while ($tablefield_array_r = mysqli_fetch_array($result)){
 
                       $tablefield_array[]=$tablefield_array_r['Field'];
 
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $tablefield_arraynew=array();
                if (!is_array($config['admin_section'][$default_tabel]['order']))$config['admin_section'][$default_tabel]['order']=array();
                foreach ($config['admin_section'][$default_tabel]['order'] as $key=>$val){
@@ -3917,17 +3917,17 @@ class GlobalClass{
                       }elseif (in_array($tablefield_array_r['Field'],$checkbox)){
                          $var['tpl_input_name_val']=($var['tpl_input_name_val']==0)? $lang[no] : $lang[yes];
 
-                         if (eregi("_add",$tablefield_array_r['Field'])){
+                         if (preg_match("/_add",$tablefield_array_r['Field'])){
                             $temp=eregi_replace("_add","",$tablefield_array_r['Field']);
                             $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_add"];
 
-                         }elseif (eregi("_view",$tablefield_array_r['Field'])){
+                         }elseif (preg_match("/_view",$tablefield_array_r['Field'])){
                             $temp=eregi_replace("_view","",$tablefield_array_r['Field']);
                             $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_view"];
-                         }elseif (eregi("_delete",$tablefield_array_r['Field'])){
+                         }elseif (preg_match("/_delete",$tablefield_array_r['Field'])){
                             $temp=eregi_replace("_delete","",$tablefield_array_r['Field']);
                             $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_delete"];
-                         }elseif (eregi("_edit",$tablefield_array_r['Field'])){
+                         }elseif (preg_match("/_edit",$tablefield_array_r['Field'])){
                             //$var['tpl_name'].=$lang["tpl_auto_edit"];
                          }
                          $out1.=$tpl->replace($var,"global_add_see.html");
@@ -3966,7 +3966,7 @@ class GlobalClass{
                       unset($var);
                       $i++;
                }
-               @mysql_free_result($result);
+               @mysqli_free_result($result);
                $var_initial['options']=$out1;
                $var_initial['what_add']=$lang["tpl_auto_$default_option"];
 				

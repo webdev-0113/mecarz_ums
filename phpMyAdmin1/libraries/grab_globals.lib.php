@@ -12,7 +12,7 @@
  * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
  */
 
-function PMA_gpc_extract($array, &$target, $sanitize = TRUE) {
+function PMA_gpc_extract($array, $target, $sanitize = TRUE) {
     if (!is_array($array)) {
         return FALSE;
     }

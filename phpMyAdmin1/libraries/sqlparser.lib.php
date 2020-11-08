@@ -58,13 +58,13 @@ if ($is_minimum_common == FALSE) {
     }
 
     if (!defined('DEBUG_TIMING')) {
-        function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize)
+        function PMA_SQP_arrayAdd($arr, $type, $data, $arrsize)
         {
             $arr[] = array('type' => $type, 'data' => $data);
             $arrsize++;
         } // end of the "PMA_SQP_arrayAdd()" function
     } else {
-        function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize)
+        function PMA_SQP_arrayAdd($arr, $type, $data, $arrsize)
         {
             global $timer;
 
@@ -2093,7 +2093,7 @@ if ($is_minimum_common == FALSE) {
                         && ($typearr[1] != 'punct_level_plus')
                         && (!PMA_STR_binarySearchInArr($arr[$i]['data'], $keywords_no_newline, $keywords_no_newline_cnt))) {
                         // do not put a space before the first token, because
-                        // we use a lot of eregi() checking for the first
+                        // we use a lot of preg_match() checking for the first
                         // reserved word at beginning of query
                         // so do not put a newline before
                         //
