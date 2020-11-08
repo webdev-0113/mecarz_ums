@@ -1,0 +1,56 @@
+                    <TABLE width="100%" border="0" cellpadding="2" cellspacing="2" class="{{carslisting}}" style="height:100%;">
+                     <TR>
+                       <TD colspan=2 align=left>&nbsp;&nbsp;{{checkbox}}<img src="images/button.gif" alt="">&nbsp;<a href="{{language_set}}{{id}}_car_{{year1}}_{{make1}}_{{model1}}.html">{{soldstart}}{{year}} - {{make}} - {{model}} {{sold}}{{soldends}}</A>
+                       </TD>
+                     </TR>
+                     <TR>
+                       <TD vAlign="middle" align="center" width="120" height="90"><a href="{{language_set}}{{id}}_car_{{year1}}_{{make1}}_{{model1}}.html">{{soldclass}}<IMG src="{{thumbnail}}" border=0 class="hand" title="{{year}} - {{make}} - {{model}}" alt="{{year}} - {{make}} - {{model}}"></A></TD>
+                       <TD vAlign="middle" align="left" width="100%">
+                       <TABLE border="0" cellpadding="1" cellspacing="1">
+                        <TR>
+                         <TD align=right><B>{{tpl_auto_stock}}</B>: </TD>
+                         <TD>#{{stock}}</TD>
+                        </TR>
+                        <TR>
+                         <TD align=right><B>{{tpl_auto_category}}</B>: </TD>
+                         <TD>{{category}}</TD>
+                        </TR>
+                        <TR>
+                         <TD align=right><B>{{tpl_auto_engine}}</B>: </TD>
+                         <TD>{{engine}}</TD>
+                        </TR>
+                        <TR>
+                         <TD align=right><B>{{tpl_auto_extcolor}}</B>: </TD>
+                         <TD>{{extcolor}}</TD>
+                        </TR>
+                        <TR>
+                         <TD align=right><B>{{tpl_auto_miles}}</B>: </TD>
+                         <TD>{{miles}}</TD>
+                        </TR>
+                        <TR>
+                         <TD align=right><B>{{tpl_auto_price}}</B>: </TD>
+                         <TD>{{price}}</TD>
+                        </TR>
+                       </TABLE>
+                       </TD>
+                     </TR>
+                     <TR>
+                       <TD colSpan=2 align=left>
+                               <table width="100%" border=0 cellpadding="1" cellspacing="1">
+                                    <tr>
+                                            <td width="5%">&nbsp;
+                                            </td>
+                                            <Td>
+                                            &nbsp;{{shortdescription}}
+                                            </Td>
+                                    </tr>
+                            </table>
+                       </TD>
+                     </TR>
+                     <TR>
+                       <TD colSpan=2 align=right>
+                       {{remove}} <img src="images/infodetails.gif" border="0" alt="{{tpl_auto_details}}">&nbsp;<a href="{{language_set}}{{id}}_car_{{year1}}_{{make1}}_{{model1}}.html">{{tpl_auto_details}}</a>
+                       </TD>
+                     </TR>
+                    </TABLE>
+                    <br />

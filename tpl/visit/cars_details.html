@@ -1,0 +1,263 @@
+                    <TABLE width="100%" border="0" cellpadding="0" cellspacing="2">
+                     <TR>
+                       <TD>
+                           <div align="center"><font class="textGray">&nbsp;{{tpl_auto_Click_on_a_picture_to_view_the_gallery}}</font></div>
+                           <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="cars-tabel-mic">
+                            <tr>
+                            <td height="5" colspan="7"><img src="images/spacer.gif"></td>
+                            </tr>
+                             {{picture}}
+<script type="text/javascript">
+<!--
+var picture_array = new Array();
+var picturestring_array = new Array();
+{{picture_big}}
+var win = null;
+//-->
+</script>
+                            <tr>
+                            <td height="5" colspan="7"><img src="images/spacer.gif"></td>
+                            </tr>
+                           </table>
+                       </TD>
+                     </TR>
+                     <TR>
+                      <TD>
+                       <TABLE width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <TR>
+                         <TD width="60%">
+                           <TABLE width="100%" border="0" cellpadding="1" cellspacing="1" class="cars-tabel-mic">
+                            <TR>
+                             <TD colspan=2 align=center><b>{{tpl_auto_Car_Information}}</b>
+                             (<A HREF="{{language_set}}vehicle_information_sheet_{{id}}_{{year}}_{{make}}_{{model}}.html" onclick="OpenWindow(this.href,'name', '850', '600','yes'); return false" target="_blank">{{tpl_auto_vehicle_information_sheet}}</a>)</TD>
+                            </TR>
+                                        <TR>
+                                         <TD align=right width="25%"><B>{{tpl_auto_stock}}</B>: </TD>
+                                         <TD>#{{stock}}</TD>
+                                        </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_country}}</B>: </TD>
+                             <TD><a href="{{language_set}}{{country1}}.html">{{country}}</a> (<a href="index.php?p=search&submit1=1&model={{modelid}}&make={{makeid}}&country={{countryid}}">find similar cars</a>)</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_state}}</B>: </TD>
+                             <TD><a href="{{language_set}}searchstate-{{stateid}}-{{state1}}.html">{{state}}</a></TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_city}}</B>: </TD>
+                             <TD><a href="{{language_set}}searchcity-{{cityid}}-{{city1}}.html">{{city}}</a></TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_year}}</B>: </TD>
+                             <TD><a href="{{language_set}}searchyear-{{yearid}}-{{year1}}.html">{{year}}</a></TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_make}}</B>: </TD>
+                             <TD><a href="{{language_set}}{{make1}}.html">{{make}}</a></TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_model}}</B>: </TD>
+                             <TD><a href="{{language_set}}searchmodel-{{modelid}}-{{model1}}.html">{{model}}</a></TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_category}}</B>: </TD>
+                             <TD><a href="{{language_set}}searchcategory-{{categoryid}}-{{category1}}.html">{{category}}</a></TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_typeofvehicle}}</B>: </TD>
+                             <TD>{{typeofvehicle}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_doors}}</B>: </TD>
+                             <TD>{{doors}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_classifyemissions}}</B>: </TD>
+                             <TD>{{classifyemissions}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_gearbox}}</B>: </TD>
+                             <TD>{{gearbox}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_climaticcontrol}}</B>: </TD>
+                             <TD>{{climaticcontrol}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_power}}</B>: </TD>
+                             <TD>{{power}}</TD>
+                            </TR>                                                                                                                                                                       
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_vin}}</B>: </TD>
+                             <TD>{{vin}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_engine}}</B>: </TD>
+                             <TD>{{engine}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_stereo}}</B>: </TD>
+                             <TD>{{stereo}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_bodytype}}</B>: </TD>
+                             <TD>{{bodytype}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_transmission}}</B>: </TD>
+                             <TD>{{transmission}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_fueltype}}</B>: </TD>
+                             <TD>{{fueltype}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_intcolor}}</B>: </TD>
+                             <TD>{{intcolor}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_extcolor}}</B>: </TD>
+                             <TD>{{extcolor}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_miles}}</B>: </TD>
+                             <TD>{{miles}}</TD>
+                            </TR>
+                            <TR>
+                             <TD align=right><B>{{tpl_auto_price}}</B>: </TD>
+                             <TD>
+                                 {{price}}
+                             </TD>
+                            </TR>
+                           </TABLE>
+                         </TD>
+                         <td style="width:1px;"><img src="images/spacer.gif"></td>
+                         <TD width="40%" valign="top" align="center"  style="height:100%">
+                           {{contact}}
+                         </TD>
+                        </TR>
+                       </TABLE>
+                      </TD>
+                     </TR>
+                     <tr>
+                      <td>
+                       <TABLE width="100%" border="0" cellpadding="1" cellspacing="1" class="cars-tabel-mic">
+                        <TR>
+                          <TD>
+                          <TABLE width="100%" border="0" cellpadding="3" cellspacing="2">
+                           <TR>
+                            <TD WIDTH="25%" valign="middle" align="center">
+                             <A HREF="index.php?p=send&amp;id={{id}}{{language_session}}" onclick="OpenWindow(this.href,'name', '500', '460','no'); return false" target="_blank"><img src="images/email.gif" alt="" border=0>{{tpl_auto_Send_This_To_a_Friend}}</a>
+                            </TD>
+                            <TD WIDTH="25%" valign="middle" align="center">
+                             <A HREF="index.php?p=payment&amp;id={{id}}{{language_session}}" onclick="OpenWindow(this.href,'name', '500', '460','no'); return false" target="_blank"><img src="images/calculator.gif" alt="" border=0>{{tpl_auto_Calculate_Mortgage}}</a>
+                            </TD>
+                            <TD WIDTH="25%" valign="middle" align="center">
+                             <A HREF="index.php?p=vehicle_information&amp;id={{id}}{{language_session}}" onclick="OpenWindow(this.href,'name', '850', '600','yes'); return false" target="_blank"><img src="images/printer.gif" alt="" border=0>{{tpl_auto_Print_This}}</a>
+                            </TD>
+                            <TD WIDTH="25%" valign="middle" align="center">
+                             <A HREF="index.php?p=mycars&o=add&id={{id}}"><img src="images/mycars.gif" alt="" border=0>&nbsp;{{tpl_auto_Add_to_wishlist}}</a>
+                            </TD>                               
+                           </TR>
+                          </TABLE>
+                         </TD>
+                        </TR>
+                        <tr>
+                        <td align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6559690723630311";
+/* mecarz homepage 728x15 midlinks ads */
+google_ad_slot = "2666958841";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+                        </td>
+                        </tr>
+                       </TABLE>
+                       </td>
+                     </tr>
+                     <tr>
+                      <td>
+                       <TABLE width="100%" border="0" cellpadding="1" cellspacing="1" class="cars-tabel-mic">
+                        <TR>
+                         <TD align=center><B><a href="index.php?p=allfeatures{{language_session}}">{{tpl_auto_Vehicle_Features}}</a></B>: </TD>
+                        </TR>
+                        <TR>
+                          <TD>
+                          <TABLE width="100%" border="0" cellpadding="3" cellspacing="2">
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                            {{features}}
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                            {{features1}}
+                            </TD>
+                           </TR>
+                          </TABLE>
+                         </TD>
+                        </TR>
+                       </TABLE>
+                       </td>
+                     </tr>
+                     <tr>
+                     <Td align="center">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6559690723630311";
+/* mecarz 728x90 mid banner */
+google_ad_slot = "8746436500";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+                     </Td>
+                     </tr>
+                     <tr>
+                      <td>
+                       <TABLE width="100%" border="0" cellpadding="1" cellspacing="1" class="cars-tabel-mic">
+                        <TR>
+                         <TD align=center><B>{{tpl_auto_Additional_Information}}</B>: </TD>
+                        </TR>
+                        <TR>
+                          <TD>
+                          <TABLE width="100%" border="0" cellpadding="3" cellspacing="2">
+                           <TR>
+                            <TD WIDTH="100%" VALIGN=TOP>
+                             {{description}}
+                            </TD>
+                           </TR>
+                          </TABLE>
+                         </TD>
+                        </TR>
+                       </TABLE>
+                       </td>
+                     </tr>
+                     <TR>
+                       <TD>
+                        <TABLE width="100%" border="0" cellpadding="3" cellspacing="2">
+                          <TR>
+
+                            <TD WIDTH="33%" align=center VALIGN=TOP>
+                             <a href="{{prevurl}}">{{tpl_auto_previouscar}}</a>
+                            </TD>
+
+                            <TD WIDTH="33%" align=center VALIGN=TOP>
+                             <a href="javascript:history.back(-1);">{{tpl_auto_back}}</a>
+                            </TD>
+                            <TD WIDTH="33%" align=center VALIGN=TOP>
+                             <a href="{{nexturl}}">{{tpl_auto_nextcar}}</a>
+                            </TD>
+
+                          </TR>
+                        </TABLE>
+                       </TD>
+                     </TR>
+                    </TABLE>

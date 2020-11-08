@@ -1,0 +1,67 @@
+<FORM method="POST" name="login" action="index.php">
+<input type=hidden name=p value={{p}}>
+<input type=hidden name=redirect value="{{redirect}}">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="2">
+        <tr>
+       <td align="center" valign=middle>
+         <table border=0 width="65%" align="center" cellpadding="3" cellspacing="3">
+          <tr>
+             <td align="center" colspan="2" >
+              <strong>{{tpl_auto_Admin_Login}}</strong>
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr>
+             <td width="40%" align="right">
+             <strong>{{tpl_auto_username}}</strong>
+             </td>
+             <td>
+               <input type=text name=username value="{{username}}">
+             </td>
+          </tr>
+          <tr>
+             <td align="right">
+               <strong>{{tpl_auto_Password}}</strong>
+             </td>
+             <td>
+               <input type=password name=password>
+             </td>
+          </tr>
+		  <tr>
+			<td align="right">
+				<strong>{{tpl_auto_Text_you_see}}</strong><br />
+				<img src="index.php?p=image" alt="">
+			</td>
+			<td>				
+				<input name="code" type="text">
+				
+			</td>
+		  </tr>          
+          <tr>
+             <td colspan="2" align="center">
+             <p class="submit">
+               <input type=submit name=reset value="{{tpl_auto_Login}}">
+             </p>
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+               <a href="index.php?p=forgot">{{tpl_auto_Admin_Forgot_Password}}</a> 
+               <a href="../index.php">{{tpl_auto_View_site}}</a>
+             </td>
+          </tr>
+
+         </table>
+       </FORM>
+                </td>
+        </tr>
+</table>
+<script type="text/javascript">
+<!--
+document.login.username.focus()
+//-->
+</script>

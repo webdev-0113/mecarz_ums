@@ -1,0 +1,25 @@
+          <tr class="{{class_temp}}">
+             <td width="30%">
+               <b>{{tpl_name}}</b>
+             </td>
+             <td>
+               <select name="{{tpl_input_name}}" id="inputsponsoredid" size="1"{{onchange}}>
+                {{tpl_input_name_val}}
+               </select>
+               {{tpl_auto_id}}: <input type="text" name="inputid" id="inputid" size="15" value="" onkeyup="selectID();" onKeyPress="return goodchars(event,'0123456789')" >
+             </td>
+          </tr>
+<script type="text/javascript">
+<!--
+function selectID()
+{
+ var arrayLength=document.getElementById('inputsponsoredid').length;
+ for (var i=0;i<arrayLength;i++) {
+          if (document.getElementById('inputsponsoredid').options[i].value==document.getElementById('inputid').value){
+               document.getElementById('inputsponsoredid').selectedIndex=i;
+               break;
+          }
+ }
+}
+//-->
+</script>

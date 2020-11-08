@@ -1,0 +1,29 @@
+<script type="text/javascript">
+<!--
+function Mody_check(val) {
+list=document.formarticle.elements;
+nrMAX=list.length-1;
+if (val==-1) for (i=0;i<nrMAX;i++) if (list[i].type=='checkbox'){ list[i].checked = !list[i].checked;}
+if (val== 0) for (i=0;i<nrMAX;i++) if (list[i].type=='checkbox'){ list[i].checked = false;} 
+if (val== 1) for (i=0;i<nrMAX;i++) if (list[i].type=='checkbox'){ list[i].checked = true;}
+}
+// -->
+</script>
+                          <tr >
+                            <td colspan="2">
+              <a href="javascript:Mody_check(1) " class="submit"><B>{{tpl_auto_Mark_All}}</B></a>&nbsp;::
+              <a href="javascript:Mody_check(0) " class="submit"><B>{{tpl_auto_Unmark_all}}</B></a>&nbsp;
+                            </td>
+                          </tr>
+                          <tr >
+                            <td width="50%" >
+                            <table border=0 width="100%" cellpadding="2" cellspacing="2"> 
+                              {{features}}
+                            </table>
+                            </td>
+                            <td width="50%" >
+                            <table border=0 width="100%" cellpadding="2" cellspacing="2"> 
+                              {{features1}}
+                            </table>
+                            </td>
+                          </tr>                          

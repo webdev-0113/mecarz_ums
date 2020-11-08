@@ -1,0 +1,86 @@
+<html>
+<head>
+<style>
+<!--
+.ch{cursor:pointer;cursor:hand}
+a.search:link { color: {{colorurl}} }
+a.search:visited { color: {{colorurl}} }
+a.search:hover { color: {{colorurl}} }
+a.search:active { color: {{colorurl}} }
+body { background-color: transparent; }
+  //-->
+</style>
+<script>
+<!--
+function ss(w,id) {window.status = w;return true;}
+
+function cs(){window.status='';}
+
+function jcc(a) {
+        pha=document.getElementById(a);
+        phb=pha.href;
+        pha.href=phb;
+}
+function ha(a){
+        pha=document.getElementById(a);
+        phb=pha.href
+         pha.href=phb; jcc(a);
+}
+function ca(a) {
+        pha=document.getElementById(a);
+        phb=pha.href;
+        pha.href=phb;
+        jcc(a);
+        //top.location.href=document.getElementById(a).href;
+        window.open(document.getElementById(a).href,"_blank","");
+ }
+function ga(o,e) {
+        if (document.getElementById) {
+                a=o.id.substring(1);
+                p = "";
+                r = "";
+                g = e.target;
+                if (g) {
+                        t = g.id;
+                        f = g.parentNode;
+                        if (f) {
+                                p = f.id;
+                                h = f.parentNode;
+                                if (h)r = h.id;
+                        }
+                }
+                 else {
+                         h = e.srcElement;f = h.parentNode;
+                         if (f)p = f.id;
+                         t = h.id;
+                 }
+if (t==a || p==a || r==a)
+        return true;
+        pha=document.getElementById(a);
+        phb=pha.href;
+         pha.href=phb;
+         jcc(a);
+        // top.location.href=document.getElementById(a).href;}
+        window.open(document.getElementById(a).href,"_blank","");
+}
+
+//-->
+
+</script>
+</head>
+<body bgcolor="{{colorbackground}}" link="{{colorurl}}" alink="{{colorurl}}" vlink="{{colorurl}}" leftMargin="0" topMargin="0" marginwidth="0" marginheight="0">
+<table width="237" height="60" cellspacing="0" cellpadding="0" border="0" bgcolor="{{colorbackground}}">
+<tr >
+<td id="taw0" class="ch" width="" height="" align="left" valign="center" onFocus="ss('{{desc1}}','aw0')" onMouseOver="ss('{{desc1}}','aw0')"  onMouseOut="cs()" onClick="ga(this,event)">
+<div style="overflow:hidden; width:233px; padding-left:2px">
+<a id="aw0" target="_top" href="index.php?p=redirect&idb={{id}}" title="{{title}}" onFocus="ss('{{desc1}}','aw0')" onClick="ha('aw0')" onMouseOver="return ss('{{desc1}}','aw0')"  onMouseOut="cs()" target="_blank">
+<font style="line-height:13px;font-size:12px" face="arial,sans-serif" color="{{colortext}}">
+{{bannersourcecode}}
+</font>
+</a>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>

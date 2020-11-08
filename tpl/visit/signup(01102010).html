@@ -1,0 +1,267 @@
+<script type="text/javascript">
+<!--
+var digits = "0123456789";
+var phoneNumberDelimiters = "()-+. ";
+var validWorldPhoneChars = phoneNumberDelimiters + "+";
+var minDigitsInIPhoneNumber = 6;
+
+function isInteger(s)
+{   var i;
+    for (i = 0; i < s.length; i++)
+    {
+        // Check that current character is number.
+        var c = s.charAt(i);
+        if (((c < "0") || (c > "9"))) return false;
+    }
+    // All characters are numbers.
+    return true;
+}
+
+function stripCharsInBag(s, bag)
+{   var i;
+    var returnString = "";
+    // Search through string's characters one by one.
+    // If character is not in bag, append to returnString.
+    for (i = 0; i < s.length; i++)
+    {
+        // Check that current character isn't whitespace.
+        var c = s.charAt(i);
+        if (bag.indexOf(c) == -1) returnString += c;
+    }
+    return returnString;
+}
+
+function checkInternationalPhone(strPhone){
+s=stripCharsInBag(strPhone,validWorldPhoneChars);
+return (isInteger(s) && s.length >= minDigitsInIPhoneNumber);
+}
+
+function verifyForm(theForm){
+        var msg='';
+        var cond=0;
+        var i;
+        if ({{nrmax}}>1) {
+        for (i=0;i< {{nrmax}};i++) {
+            if (theForm.adprofiles[i].checked==true)
+                cond=1;
+        }
+        }else{
+            cond=1;
+        }
+        if(cond==0){
+                msg='{{tpl_auto_please_select_adprofile}}'
+        }else
+        if((theForm.input_username.value=='blank')||(theForm.input_username.value=='')){
+                msg='{{tpl_auto_please_type_username}}'
+                theForm.input_username.focus();
+        }else
+        if((theForm.input_username.value.length>20)||(theForm.input_username.value.length<4)){
+                msg='{{tpl_auto_please_type_username_a_larger_or_smaller}}'
+                theForm.input_username.focus();
+        }
+        else
+        if((theForm.input_email.value=='blank')||(theForm.input_email.value=='')){
+                msg='{{tpl_auto_please_type_email_address}}'
+                theForm.input_email.focus();
+        }else
+        if((theForm.input_email.value.indexOf('@')<1)||
+        (theForm.input_email.value.indexOf('@')>(theForm.input_email.value.length - 5))||
+        (theForm.input_email.value.indexOf('.')<1)){
+                msg='{{tpl_auto_please_type_email_address_valid}}'
+                theForm.input_email.focus();
+        }else
+        if((theForm.input_password.value=='blank')||(theForm.input_password.value=='')){
+                msg='{{tpl_auto_please_type_password}}'
+                theForm.input_password.focus();
+        }else
+        if((theForm.input_password.value.length>20)||(theForm.input_password.value.length<4)){
+                msg='{{tpl_auto_please_type_username_a_larger_or_smaller}}'
+                theForm.input_password.focus();
+        }else
+        if(theForm.input_password.value!=theForm.input_password1.value){
+                msg='{{tpl_auto_please_retype_password}}'
+                theForm.input_password1.focus();
+        }else
+        if((theForm.input_name.value=='blank')||(theForm.input_name.value=='')){
+                msg='{{tpl_auto_please_type_name}}'
+                theForm.input_name.focus();
+        }else
+        if((theForm.input_phone.value=='blank')||(theForm.input_phone.value=='')){
+                msg='{{tpl_auto_please_type_phone}}'
+                theForm.input_phone.focus();
+        }else
+        if((theForm.input_address.value=='blank')||(theForm.input_address.value=='')){
+                msg='{{tpl_auto_please_type_address}}'
+                theForm.input_address.focus();
+        }
+        else
+        if (checkInternationalPhone(theForm.input_phone.value)==false){
+                msg='{{tpl_auto_please_type_phone}}'
+                theForm.input_phone.focus();
+        }
+        else
+        if((theForm.input_country.value=='blank')||(theForm.input_country.value=='')){
+                msg='{{tpl_auto_please_type_country}}'
+                theForm.input_country.focus();
+        }else
+        if((theForm.input_state.value=='blank')||(theForm.input_state.value=='')){
+                msg='{{tpl_auto_please_type_state}}'
+                theForm.input_state.focus();
+        }else
+        if((theForm.input_city.value=='blank')||(theForm.input_city.value=='')){
+                msg='{{tpl_auto_please_type_city}}'
+                theForm.input_city.focus();
+        }else
+        if((theForm.input_zip.value=='blank')||(theForm.input_zip.value=='')){
+                msg='{{tpl_auto_please_type_zip}}'
+                theForm.input_zip.focus();
+        }else
+        if((theForm.code.value.length!=3)){
+                msg='{{tpl_auto_The_Image_Text_is_not_correct}}'
+                theForm.code.focus();
+        }
+        if(msg!=''){
+                alert(msg);
+                return false
+        }
+}
+// -->
+</script>
+                       <form method="post" action="index.php" onSubmit="return verifyForm(this);">
+                       <TABLE width="98%" border="0" cellpadding="2" cellspacing="2" class="menu">
+                        <TR>
+                         <TD align=center  valign="middle"><B>&nbsp;{{error}}</B> </TD>
+                        </TR>
+
+                        <TR>
+                          <TD>
+                          <TABLE width="100%" border="0" cellpadding="3" cellspacing="2">
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_username}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="input_username" value="{{input_username_val}}" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_email}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="input_email" value="{{input_email_val}}" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_password}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="password" name="input_password" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_retype_password}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="password" name="input_password1" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_name}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="input_name" value="{{input_name_val}}" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_nocontactemail}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="checkbox" name="input_nocontactemail" value="1" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_phone}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="input_phone" value="{{input_phone_val}}" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD VALIGN=TOP>
+                                {{tpl_auto_your_fax}}:
+                            </TD>
+                            <TD VALIGN=TOP>
+                                <input type="text" size="40" name="input_fax" value="{{input_fax_val}}">
+                            </TD>
+                           </TR>                            
+                           <TR>
+                            <TD VALIGN=TOP>
+                                {{tpl_auto_your_Address}}:
+                            </TD>
+                            <TD VALIGN=TOP>
+                                <input type="text" size="40" name="input_address" value="{{input_address_val}}">
+                            </TD>
+                           </TR>                            
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_country}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="input_country" value="{{input_country_val}}" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_state}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="input_state" value="{{input_state_val}}" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_city}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="input_city" value="{{input_city_val}}" size="40">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD VALIGN=TOP>
+                                {{tpl_auto_your_zip}}:
+                            </TD>
+                            <TD VALIGN=TOP>
+                                <input type="text" size="40" name="input_zip" value="{{input_zip_val}}">
+                            </TD>
+                           </TR>                            
+                           <TR>
+                            <TD COLSPAN=2 VALIGN=TOP align=center>
+                                {{adprofiles}}
+                            </TD>
+                           </TR>
+						   <tr>
+								<td >
+									{{tpl_auto_Code}}*
+								</td>
+								<td>				
+									<input style="width: 55px; float: left; margin-top: 0pt; padding-top: 0pt;" id="code" name="code" type="text">
+									<img src="index.php?p=image" style="float: left; margin-top: 0pt; padding-top: 0pt; margin-left: 3px;">
+								</td>
+						   </tr>
+                           <TR>
+                            <TD COLSPAN=2 VALIGN=TOP align=center>
+                                <input type="hidden" name="p" value="signup1">
+                                <input type="submit" name="submit" value="{{tpl_auto_signup}}">
+                            </TD>
+                           </TR>
+                          </TABLE>
+                         </TD>
+                        </TR>
+                       </TABLE>
+                       </form>

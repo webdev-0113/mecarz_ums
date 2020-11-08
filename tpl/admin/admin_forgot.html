@@ -1,0 +1,51 @@
+<script type="text/javascript">
+<!--
+function setfocus() {
+        document.login.email.focus()
+}
+//-->
+</script>
+<body onload=setfocus()>
+<table width="60%" border="0" align="center">
+        <tr>
+       <td align="center" valign=middle>
+       <FORM method="POST" name="login">
+       <input type=hidden name=p value={{p}}>
+       <input type=hidden name=redirect value="{{redirect}}">
+         <table border=0 width="40%" align="center">
+          <tr>
+             <td align="left" valign="middle" colspan="2">
+              {{tpl_auto_Admin_Forgot_Password}}
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr>
+             <td width="40%">
+             {{tpl_auto_email}}
+             </td>
+             <td>
+               <input type=text name=email value="{{email}}">
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+             <p class="submit">
+               <input type=submit name=reset value="{{tpl_auto_Send_New_Password}}">
+             </p>
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+               <a href="index.php">{{tpl_auto_Login}}</a>
+             </td>
+          </tr>
+
+         </table>
+       </FORM>
+        </td>
+        </tr>
+</table>

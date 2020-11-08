@@ -1,0 +1,98 @@
+
+<script type="text/javascript">
+<!--
+function verifyForm(theForm){
+        var msg='';
+        if((theForm.name.value=='blank')||(theForm.name.value=='')){
+                msg='{{tpl_auto_please_type_name}}'
+        }else
+        if((theForm.email.value=='blank')||(theForm.email.value=='')){
+                msg='{{tpl_auto_please_type_email_address}}'
+        }else
+        if((theForm.email.value.indexOf('@')<1)||
+        (theForm.email.value.indexOf('@')>(theForm.email.value.length - 5))||
+        (theForm.email.value.indexOf('.')<1)){
+                msg='{{tpl_auto_please_type_email_address_valid}}'
+        }else
+        if((theForm.phone.value=='blank')||(theForm.phone.value=='')){
+                msg='{{tpl_auto_please_type_phone}}'
+        }else
+        if((theForm.message.value=='blank')||(theForm.message.value=='')){
+                msg='{{tpl_auto_please_type_message}}'
+        }else
+        if((theForm.message.value.length>5000)||(theForm.message.value.length<15)){
+                msg='{{tpl_auto_please_type_message_a_larger_or_smaller}}'
+        }else
+        if((theForm.code.value.length!=3)){
+                msg='{{tpl_auto_The_Image_Text_is_not_correct}}'
+                theForm.code.focus();
+        }
+
+        if(msg!=''){
+                alert(msg);
+                return false
+        }
+}
+// -->
+</script>
+                       <form method="post" action="index.php" onSubmit="return verifyForm(this);">
+                       <input type=hidden name=p value="contactus1">
+                       <TABLE width="98%" border="0" cellpadding="2" cellspacing="2" class="menu">
+                        <TR>
+                          <TD>
+                          <TABLE width="100%" border="0" cellpadding="3" cellspacing="2">
+                        <TR>
+                         <TD align=center  valign="middle" colspan="2"><B>&nbsp;{{error}}</B> </TD>
+                        </TR>                          
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_name}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="name" value="{{name}}">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_email}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="email" value="{{email}}">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_phone}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <input type="text" name="phone" value="{{phone}}">
+                            </TD>
+                           </TR>
+                           <TR>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                {{tpl_auto_your_message}}:
+                            </TD>
+                            <TD WIDTH="50%" VALIGN=TOP>
+                                <textarea cols=40 rows=6 name="message">{{message}}</textarea>
+                            </TD>
+                           </TR>
+						   <tr>
+								<td >
+									{{tpl_auto_Code}}*
+								</td>
+								<td>				
+									<input style="width: 165px; float: left; margin-top: 0pt; padding-top: 0pt;" id="code" name="code" type="text">
+									<img src="index.php?p=image" style="float: left; margin-top: 0pt; padding-top: 0pt; margin-left: 3px;">
+								</td>
+						   </tr>                            
+                           <TR>
+                            <TD COLSPAN=2 VALIGN=TOP align=center>
+                                <input type="submit" name="submit" value="{{tpl_auto_send}}">
+                            </TD>
+                           </TR>
+
+                          </TABLE>
+                         </TD>
+                        </TR>
+                       </TABLE>
+                       </form>

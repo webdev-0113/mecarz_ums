@@ -1,0 +1,49 @@
+<TABLE  cellSpacing=0 cellPadding=0 border=0 width="100%">
+                  <TBODY>
+                    <TR> 
+                      <TD class="tableHeadingBold"> {{tpl_auto_Visits}} </TD>
+                      <td class="tableHeadingBold">{{tpl_auto_Online}}: <font color="red">{{visitsuniqueonline}}</font> ({{tpl_auto_last}} {{config_auto_minutes}} {{tpl_auto_mins}})</td>
+                      <td class="tableHeadingBold" align="right">  <a href="javascript:void(0);" onclick="funcaccstats('visits','idVisits',this,'{{tpl_auto_Loading}}');">{{tpl_auto_Refresh}}</a>&nbsp; 
+                      </td>
+                    </TR>
+                    <TR> 
+                      <TD width="100%" colspan="3">  
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 width="100%"> <TBODY> 
+<TR> 
+  <TD valign="top"> <TABLE cellSpacing=0 cellPadding=0 border=0 width="100%">
+      <TBODY>
+        <TR> 
+          <TD class="tableCellTwo tableHeadingBold" width="10%">{{tpl_auto_Last_30_days}}</TD>
+          <TD class="tableCellTwo tableHeadingBold" width="45%">{{tpl_auto_Total}}</TD>
+          <TD class="tableCellTwo tableHeadingBold" width="45%">{{tpl_auto_Unique}}</TD>
+        </TR>
+      {{repeats}} </TBODY> </TABLE></TD>
+       <td class="separator" style="width:1px;" width="1"><img src="images/spacer.gif" width="1" height="1"></td>
+  <TD class=tablePad valign="top"> <TABLE  cellSpacing=0 cellPadding=0 border=0 width="100%">
+      <tr> 
+        <td class="tableCellOne tableHeadingBold" width="10%">{{tpl_auto_Hour}}</td>
+        <td class="tableCellOne tableHeadingBold" width="40%">{{tpl_auto_Total}}</td>
+        <td class="tableCellOne tableHeadingBold" width="50%">{{tpl_auto_Unique}}</td>
+      </tr>
+      {{repeats2}} </table></TD>
+       <td class="separator" style="width:1px;" width="1"><img src="images/spacer.gif" width="1" height="1"></td>
+  <TD class=tablePad valign="top"> <TABLE  cellSpacing=0 cellPadding=0 border=0 width="100%">
+      {{repeats1}} 
+      <tr> 
+        <td class=tableHeadingBold>{{tpl_auto_Since}}</td>
+        <td class=tableHeadingBold>{{tpl_auto_Total}}</td>
+        <td class=tableHeadingBold>{{tpl_auto_Unique}}</td>
+      </tr>
+      <tr> 
+        <td class=tableHeadingBold>{{starttime}}</td>
+        <td class=tableHeadingBold>{{totalvisits}}</td>
+        <td class=tableHeadingBold>{{totalunique}}</td>
+      </tr>
+    </table></TD>
+</TR></TBODY>
+</TABLE>
+
+</TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>

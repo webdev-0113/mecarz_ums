@@ -1,0 +1,32 @@
+
+      <table align="center" border=0 cellpadding="2" cellspacing="2" class="tabel">
+          <tr align="center">
+             <td colspan="{{colspan}}" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr align="center">
+             <td colspan="{{colspan}}" align="center" class="msg">
+              {{tpl_auto_View_Edit_Delete}} {{auto_option}}:
+             </td>
+          </tr>
+
+          <tr class="class_temp1"{{class}}>
+             <td width="2%" align="center"{{class}}>
+               {{tpl_auto_Select}}
+             </td>
+             {{option_fields}}
+          </tr>
+          {{result}}
+          <tr>
+          <td colspan="{{colspan}}">
+              {{pageout}}
+              {{resultnr}}
+          </td>
+          </tr>
+          <tr>
+             <td colspan="{{colspan}}" align="left">
+              {{explain}}
+             </td>
+          </tr>
+         </table>

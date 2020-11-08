@@ -1,0 +1,125 @@
+<script type="text/javascript">
+<!--
+  modelsID = new Array();
+  modelsArray = new Array();
+
+{{modelsArray}}
+
+  modelscountryID = new Array();
+  modelscountryArray = new Array();
+
+{{modelscountryArray}}
+//-->
+</script>
+  <form method=get action=index.php name="formarticle">
+ <TABLE cellSpacing=2 cellPadding=2 width="100%" border=0 class="menu">
+    <TBODY>
+      <tr>
+        <td colspan=2 align=center height=24 class="menutop"><B>{{tpl_auto_Find_Your_Vehicle}}</B></td>
+      </tr>
+      <TR>
+        <TD colspan=2  align=center  valign="middle"></TD>
+      </TR>
+                <tr>
+        <td>          		<strong>{{tpl_auto_country}}</strong><br> 				
+                         <select name="country" size="1" style="width:165px;"  onchange="funcget1cc('state',document.formarticle.country.value,document.formarticle.country.value,'state',document.getElementById('state'),'{{tpl_auto_Loading}}');return false;">
+                         <option value=''>{{tpl_auto_All}}</option>
+                         {{country}}
+                         </select>
+           </td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_state}}</strong><br> 
+          <div id="state">
+                         <select name="state" size="1"  style="width:165px;" onchange="funcget1cc('city',document.formarticle.state.value,document.formarticle.state.value,'city',document.getElementById('city'),'{{tpl_auto_Loading}}');return false;">
+                         <option value=''>{{tpl_auto_All}}</option>
+                         {{state}}
+                         </select>
+                         </div>
+          </td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_city}}</strong><br> 
+        <div id="city">
+        <select name="city" size="1"  style="width:165px;" onchange="funcget1('admin',document.formarticle.admin.value,document.formarticle.country.value,document.formarticle.state.value,document.formarticle.city.value,'admin',document.getElementById('admin'),'{{tpl_auto_Loading}}');return false;">
+            <option value=''>{{tpl_auto_All}}</option>
+                         {{city}}
+
+          </select> 
+          </div>
+          </td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_admin}}</strong><br> 
+        <div id="admin" > 
+        <select name="admin" size="1"  style="width:165px;">
+            <option value=''>{{tpl_auto_All}}</option>
+            {{admin}}
+          </select> </div></td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_category}}</strong><br> <select name="category" size="1" style="width:165px;">
+            <option value=''>{{tpl_auto_All}}</option>
+                         {{category}}
+                          </select> </td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_make}}</strong><br> <select name="make" size="1" style="width:165px;"  onChange="changemodel(document.formarticle.model.selectedIndex);" >
+            <option value=''>{{tpl_auto_All}}</option>
+                         {{make}}
+                          </select> </td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_model}}</strong><br> <select name="model" size="1" style="width:165px;">
+            <option value=''>{{tpl_auto_All}}</option>
+                         {{model}}
+          </select> </td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_year}}</strong> <br>
+          {{tpl_auto_from}}
+          <select name="year" size="1" style="width:50px;">
+            <option value=''>{{tpl_auto_All}}</option>
+            {{year}}
+          </select>
+          {{tpl_auto_to}}
+          <select name="year1" size="1" style="width:50px;">
+            <option value=''>{{tpl_auto_All}}</option>
+            {{year1}}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_searchby}}</strong><br> <select name="searchby" size="1" style="width:165px;">
+            <option value=''>{{tpl_auto_All}}</option>
+                         {{searchby}}
+                          </select> </td>
+      </tr>      
+      <tr>
+        <td><strong>{{tpl_auto_price}}</strong> <br>
+          {{tpl_auto_from}}
+          <input type="text" name="price" size="4" value="{{price}}" style="width:44px;">
+          {{tpl_auto_to}}
+          <input type="text" name="price1" size="4" value="{{price1}}"  style="width:44px;">
+        </td>
+      </tr>
+         <tr>
+          <td> <input type="checkbox" name="gallery" {{gallery}} value="checked" >{{tpl_auto_only_find_cars_with_pictures}} </td>
+         </tr>
+      <tr>
+        <td> <input type="submit" name="sub" value="{{tpl_auto_Search}}" style="width:165px;">
+        </td>
+      </tr>
+      <tr>
+        <td align=center> <A HREF="{{language_set}}search-cars.html">{{tpl_auto_Advanced_search}}</a>
+        </td>
+      </tr>
+      <tr>
+        <td height=10></td>
+      </tr>
+    </TBODY>
+</TABLE>
+<input type="hidden" name="submit1" value="1">
+<input type="hidden" name="p" value="search">
+<input type="hidden" name="language_session" value="{{language_setini}}">
+</form>

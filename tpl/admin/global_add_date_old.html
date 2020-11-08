@@ -1,0 +1,50 @@
+
+          <tr class="{{class_temp}}">
+             <td width="30%">
+               <b>{{tpl_name}}</b>
+             </td>
+             <td>
+<DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>
+<script type="text/javascript" ID="js15">
+<!--
+var cal_{{tpl_input_day}} = new CalendarPopup("testdiv1");
+cal_{{tpl_input_day}}.setReturnFunction("setMultipleValues{{tpl_input_day}}");
+cal_{{tpl_input_day}}.addDisabledDates(null, "31/12/{{config_auto_year_start_}}");
+cal_{{tpl_input_day}}.addDisabledDates("01/01/{{config_auto_year_finish_}}", null);
+cal_{{tpl_input_day}}.setDayHeaders({{config_auto_days_name}});
+cal_{{tpl_input_day}}.setWeekStartDay({{config_auto_startday_week}});
+cal_{{tpl_input_day}}.setMonthNames({{config_auto_month_name}});
+cal_{{tpl_input_day}}.setTodayText("{{tpl_auto_today}}");
+cal_{{tpl_input_day}}.offsetX = 30;
+cal_{{tpl_input_day}}.offsetY = 0;
+function setMultipleValues{{tpl_input_day}}(y,m,d) {
+        document.formarticle.{{tpl_input_year}}.value=y;
+        document.formarticle.{{tpl_input_month}}.selectedIndex=m;
+        for (var i=0; i<document.formarticle.{{tpl_input_day}}.options.length; i++) {
+                if (document.formarticle.{{tpl_input_day}}.options[i].value==d) {
+                        document.formarticle.{{tpl_input_day}}.selectedIndex=i;
+                        }
+                }
+        }
+function getDateString(y_obj,m_obj,d_obj) {
+        var y = y_obj.options[y_obj.selectedIndex].value;
+        var m = m_obj.options[m_obj.selectedIndex].value;
+        var d = d_obj.options[d_obj.selectedIndex].value;
+        if (y=="" || m=="") { return null; }
+        if (d=="") { d=1; }
+        return str= y+'-'+m+'-'+d;
+        }
+//-->
+</script>
+               <select name="{{tpl_input_day}}" size="1" class="calendardays">
+                {{tpl_input_day_val}}
+               </select>
+               <select name="{{tpl_input_month}}" size="1" class="calendardays">
+                                {{tpl_input_month_val}}
+               </select>
+               <select name="{{tpl_input_year}}" size="1" class="calendardays">
+                                {{tpl_input_year_val}}
+               </select>
+                                <A HREF="#" onClick="cal_{{tpl_input_day}}.showCalendar('anchor{{tpl_input_day}}',getDateString(document.formarticle.{{tpl_input_year}},document.formarticle.{{tpl_input_month}},document.formarticle.{{tpl_input_day}})); return false;" TITLE="cal_{{tpl_input_day}}.showCalendar('anchor{{tpl_input_day}}',getDateString(document.formarticle.{{tpl_input_year}},document.formarticle.{{tpl_input_month}},document.formarticle.{{tpl_input_day}})); return false;" NAME="anchor{{tpl_input_day}}" ID="anchor{{tpl_input_day}}"><img src="../images/calendar.gif" border=0></A>
+             </td>
+          </tr>

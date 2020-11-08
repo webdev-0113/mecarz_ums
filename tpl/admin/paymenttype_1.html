@@ -1,0 +1,31 @@
+
+		<!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post">-->
+		<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+
+		<tr class="adclass">
+			<td><strong>{{name}}</strong></td>
+			<td>
+			 <input name="business" value="{{business}}" type="hidden">
+			 <input name="cmd" value="_xclick" type="hidden">
+			 <input name="upload" value="1" type="hidden">
+			 
+			 <input name="item_name" value="{{item_name}}" type="hidden">
+			 <input name="item_number" value="{{adminprofile}}" type="hidden">
+			 <input type="hidden" name="custom" value="{{item_number}}" />
+	
+			 <input name="amount" value="{{amount}}" type="hidden">
+			 <input name="currency_code" value="{{currency_code}}" type="hidden">
+			 
+			 <input name="return" value="{{success_url}}" type="hidden">
+			 <input name="notify_url" value="{{notify_url}}" type="hidden">
+			 <input name="cancel_return" value="{{cancel_url}}" type="hidden">
+			 
+			 <input src="../images/payment/paypalcom.gif" type="image">
+			</td>
+			<td>
+			<input value="{{tpl_auto_Continue}}" type="submit"></td>
+			</tr>
+		<tr>
+		<td colspan="3"><hr></td>
+		</tr>		
+		</form>

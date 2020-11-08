@@ -1,0 +1,12 @@
+<h4 style="display:inline;">{{titlesite}} (<a href="../index.php">{{tpl_auto_View_site}}</a>)</h4>&nbsp;{{languagedropdown}}
+<ul id="adminmenu">
+        <li><a href='index.php?page=0' class="{{Class}}">{{tpl_auto_Home}}</a></li>
+        {{repeat}}
+        <li><a href='index.php?p=change' class="{{Classchange}}">{{tpl_auto_Change_Password}}</a></li>
+        <li><a href='index.php?p=logout' class="{{Classlogout}}">{{username}}({{tpl_auto_Logout}})</a></li>
+</ul>
+{{deactive}}
+<ul id="adminmenu2">
+        {{repeat2}}
+</ul>
+                        {{home_page}}
