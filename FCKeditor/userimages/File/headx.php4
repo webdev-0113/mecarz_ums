@@ -605,7 +605,7 @@ if (!empty($_SESSION['tree'])) {
 
 /* ------------------------------------------------------------------------- */
 
-function strip (&$str) {
+function strip ($str) {
 	$str = stripslashes($str);
 }
 
@@ -927,7 +927,7 @@ function tree_showtree ($tree, $hassubdirs, $path, $col, $numcols) {
 	if ($hassubdirs[$path]) {
 		if (!empty($tree[$path])) { $action = 'minus'; $iid = 8; } else { $action = 'plus'; $iid = 7; }
 		if ($col == 0) $iid -= 3; else if ($islast[$col]) $iid += 3;
-		echo("		<td><a href=\"$self?frame=treeview&$action=" . urlencode($path) . '&dir=' . urlencode($_SESSION['dir']) . '&' . SID . '#' . urlencode($path) . '">');
+		echo("		<td><a href=\"$self?frame=treeview$action=" . urlencode($path) . '&dir=' . urlencode($_SESSION['dir']) . '&' . SID . '#' . urlencode($path) . '">');
 		echo("<img src=\"$self?imageid=$iid\" width=\"19\" height=\"18\" border=\"0\">");
 		echo("</a></td>\n");
 	} else {
@@ -959,7 +959,7 @@ function tree_showtree ($tree, $hassubdirs, $path, $col, $numcols) {
 	return;
 }
 
-function tree_plus (&$tree, &$hassubdirs, $p) {
+function tree_plus ($tree, $hassubdirs, $p) {
 	if ($path = spath(realpath($p))) {
 		$tree[$path] = tree_getsubdirs($path);
 		for ($i = 0; $i < sizeof($tree[$path]); $i++) {
@@ -970,7 +970,7 @@ function tree_plus (&$tree, &$hassubdirs, $p) {
 	return;
 }
 
-function tree_minus (&$tree, &$hassubdirs, $p) {
+function tree_minus ($tree, $hassubdirs, $p) {
 	$dirchanged = FALSE;
 	if ($path = spath(realpath($p))) {
 		if (!empty($tree[$path])) {
@@ -1198,11 +1198,11 @@ function outputdirlisting ($dir, $files, $inaframe, $sort, $reverse) {
 	if ($inaframe) $p = '&notreeupdate=TRUE&'; $p = ''; $p .= SID . '&dir=' . urlencode($dir);
 	echo("	<tr>\n");
 	echo("		<td bgcolor=\"#EEEEEE\"><img src=\"$self?imageid=16\" width=\"17\" height=\"13\"></td>\n");
-	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=filename&reverse=" . (($sort == 'filename') ? !$reverse : 0) . "&$p\"><b>{$words['filename']}</b></a></td>\n");
-	if ($GLOBALS['showsize']) echo("		<td bgcolor=\"#EEEEEE\" align=\"right\"><a href=\"$self?sort=size&reverse=" . (($sort == 'size') ? !$reverse : 0) . "&$p\"><b>{$words['size']}</b></a></td>\n");
-	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=permission&reverse=" . (($sort == 'permission') ? !$reverse : 0) . "&$p\"><b>{$words['permission']}</b></a></td>\n");
-	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=owner&reverse=" . (($sort == 'owner') ? !$reverse : 0) . "&$p\"><b>{$words['owner']}</b></a></td>\n");
-	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=group&reverse=" . (($sort == 'group') ? !$reverse : 0) . "&$p\"><b>{$words['group']}</b></a></td>\n");
+	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=filename&reverse=" . (($sort == 'filename') ? !$reverse : 0) . "$p\"><b>{$words['filename']}</b></a></td>\n");
+	if ($GLOBALS['showsize']) echo("		<td bgcolor=\"#EEEEEE\" align=\"right\"><a href=\"$self?sort=size&reverse=" . (($sort == 'size') ? !$reverse : 0) . "$p\"><b>{$words['size']}</b></a></td>\n");
+	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=permission&reverse=" . (($sort == 'permission') ? !$reverse : 0) . "$p\"><b>{$words['permission']}</b></a></td>\n");
+	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=owner&reverse=" . (($sort == 'owner') ? !$reverse : 0) . "$p\"><b>{$words['owner']}</b></a></td>\n");
+	echo("		<td bgcolor=\"#EEEEEE\"><a href=\"$self?sort=group&reverse=" . (($sort == 'group') ? !$reverse : 0) . "$p\"><b>{$words['group']}</b></a></td>\n");
 	echo("		<td bgcolor=\"#EEEEEE\"><b>{$words['functions']}</b></td>\n");
 	echo("	</tr>\n");
 	$p = '&' . SID;

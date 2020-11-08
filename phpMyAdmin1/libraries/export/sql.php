@@ -244,7 +244,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         }
 
         // are there any constraints to cut out?
-        if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $create_query)) {
+        if (preg_match('/@CONSTRAINT|FOREIGN[\s]+KEY@', $create_query)) {
 
             // Split the query into lines, so we can easily handle it. We know lines are separated by $crlf (done few lines above).
             $sql_lines = explode($crlf, $create_query);
@@ -252,7 +252,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 
             // lets find first line with constraints
             for ($i = 0; $i < $sql_count; $i++) {
-                if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$i])) break;
+                if (preg_match('/@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$i])) break;
             }
 
             // remove , from the end of create statement
@@ -281,7 +281,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 
             $first = TRUE;
             for($j = $i; $j < $sql_count; $j++) {
-                if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$j])) {
+                if (preg_match('/@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$j])) {
                     if (!$first) {
                         $sql_constraints .= $crlf;
                     }

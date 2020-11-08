@@ -80,7 +80,7 @@ $fields_types           = array();
 foreach ($save_row AS $saved_row_key => $row) {
     $fields_names[]     = $row['Field'];
     // loic1: set or enum types: slashes single quotes inside options
-    if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
+    if (preg_match('/@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
         $tmp[2]         = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
         $fields_types[] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
     } else {
@@ -312,7 +312,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         <?php
         foreach ($fields_names AS $key => $val) {
             if ($index_type != 'FULLTEXT'
-                || preg_match('@^(varchar|text|tinytext|mediumtext|longtext)@i', $fields_types[$key])) {
+                || preg_match('/@^(varchar|text|tinytext|mediumtext|longtext)@i', $fields_types[$key])) {
                 echo "\n" . '                '
                      . '<option value="' . htmlspecialchars($val) . '"' . (($val == $selected) ? ' selected="selected"' : '') . '>'
                      . htmlspecialchars($val) . (($add_type) ? ' [' . $fields_types[$key] . ']' : '' ) . '</option>' . "\n";

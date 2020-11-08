@@ -49,12 +49,12 @@ if (!empty($disp_message)) {
 if (!isset($goto)) {
     $goto    = 'db_details.php';
 }
-if (!preg_match('@^(db_details|tbl_properties|tbl_select|ldi_table)@', $goto)) {
+if (!preg_match('/@^(db_details|tbl_properties|tbl_select|ldi_table)@', $goto)) {
     $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
 } else {
     $err_url = $goto . '?'
              . PMA_generate_common_url($db)
-             . ((preg_match('@^(tbl_properties|tbl_select)@', $goto)) ? '&amp;table=' . urlencode($table) : '');
+             . ((preg_match('/@^(tbl_properties|tbl_select)@', $goto)) ? '&amp;table=' . urlencode($table) : '');
 }
 
 
@@ -324,7 +324,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 $vrow[$rowfield] = date('Y-m-d H:i:s', time());
             } // end if... else if...
         }
-        $len             = (preg_match('@float|double@', $row_table_def['Type']))
+        $len             = (preg_match('/@float|double@', $row_table_def['Type']))
                          ? 100
                          : PMA_DBI_field_len($vresult, $i);
         $first_timestamp = 0;
@@ -875,7 +875,7 @@ if (isset($primary_key))
             <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 5); ?>" style="vertical-align: middle" /><label for="radio_after_insert_same_insert"><?php echo $strAfterInsertSame; ?></label><br />
 <?php
     // If we have just numeric primary key, we can also edit next
-    if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
+    if (preg_match('/@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
 ?>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
             <input type="radio" name="after_insert" value="edit_next" id="radio_after_insert_edit_next"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 5); ?>" style="vertical-align: middle" /><label for="radio_after_insert_edit_next"><?php echo $strAfterInsertNext; ?></label><br />

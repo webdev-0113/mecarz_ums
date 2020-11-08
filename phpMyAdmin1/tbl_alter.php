@@ -59,7 +59,7 @@ if (isset($do_save_data)) {
 
         $full_field_type = $field_type[$i];
         if ($field_length[$i] != ''
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $field_type[$i])) {
+            && !preg_match('/@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $field_type[$i])) {
             $full_field_type .= '(' . $field_length[$i] . ')';
         }
         if ($field_attribute[$i] != '') {

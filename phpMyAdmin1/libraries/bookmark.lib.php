@@ -122,7 +122,7 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bo
  *
  * @access  public
  */
-function &PMA_queryDBBookmarks($db, $cfgBookmark, &$table_array)
+function &PMA_queryDBBookmarks($db, $cfgBookmark, $table_array)
 {
     global $dbh;
     $bookmarks = array();

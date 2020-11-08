@@ -6,7 +6,33 @@
 // (available Mon-Fri 10am to 17pm CET)
 // /e-mail contact
 // sales@accscripts.com
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='/ioncube/ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if((@$__id[1])==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}@dl($__ln);}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('The file <b>'.__FILE__.'</b> has been encoded with the <a href="http://www.ioncube.com">ionCube PHP Encoder</a> and requires the free '.basename($__ln).' <a href="http://www.ioncube.com/loaders.php">ionCube PHP Loader</a> to be installed.');exit(199);
+if(!extension_loaded('ionCube Loader')){
+    $__oc=strtolower(substr(php_uname(),0,3));
+    $__ln='/ioncube/ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');
+    $__oid=$__id=realpath(ini_get('extension_dir'));
+    $__here=dirname(__FILE__);if((@$__id[1])==':'){$__id=str_replace('\\','/',substr($__id,2));
+    $__here=str_replace('\\','/',substr($__here,2));
+    }
+    $__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);
+    while($__i--){
+        if($__rd[$__i]=='/'){
+            $__lp=substr($__rd,0,$__i).$__ln;
+            if(file_exists($__oid.$__lp)){
+                $__ln=$__lp;
+                break;
+            }
+        }
+    }
+    @dl($__ln);
+}else{
+    die('The file '.__FILE__." is corrupted.\n");
+}
+
+if(function_exists('_il_exec')){
+    return _il_exec();
+}
+
+echo('The file <b>'.__FILE__.'</b> has been encoded with the <a href="http://www.ioncube.com">ionCube PHP Encoder</a> and requires the free '.basename($__ln).' <a href="http://www.ioncube.com/loaders.php">ionCube PHP Loader</a> to be installed.');exit(199);
 ?>
 0y4hY9ozaITgXMe8Y0a416sFsukUFH4zgZgGqhT35dYJ8QMu910Kcyxa1saqmv2ydnsHEm6Armwp
 pSyB8C6wehebW1Rsn3cF5V76fsOdBvEXG4g3Sy3nPtzkp66CB5EfsVOgyNaq1ovErB9fyL1HCYHq

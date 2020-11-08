@@ -38,7 +38,7 @@ if (function_exists('mcrypt_encrypt')) {
  *
  * @access  private
  */
-function PMA_cookie_cmp(&$a, $b)
+function PMA_cookie_cmp($a, $b)
 {
     return (strcmp($a[1], $b[1]));
 } // end of the 'PMA_cmp()' function

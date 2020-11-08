@@ -22,12 +22,12 @@ if (!isset($db)) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (!isset($goto) || !preg_match('@^(db_details|tbl_properties)(_[a-z]*)?\.php$@i', $goto)) {
+if (!isset($goto) || !preg_match('/@^(db_details|tbl_properties)(_[a-z]*)?\.php$@i', $goto)) {
     $goto = 'db_details.php';
 }
 $err_url  = $goto
           . '?' . PMA_generate_common_url($db)
-          . (preg_match('@^tbl_properties(_[a-z]*)?\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
+          . (preg_match('/@^tbl_properties(_[a-z]*)?\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
 
 
 /**
@@ -164,7 +164,7 @@ if (!empty($prev_sql_query)) {
 
 // Drop database is not allowed -> ensure the query can be run
 if (!$cfg['AllowUserDropDatabase']
-    && preg_match('@DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $sql_query)) {
+    && preg_match('/@DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
@@ -252,7 +252,7 @@ if ($sql_query != '') {
         if ($pieces_count == 1 && !empty($pieces[0]['query'])) {
             $sql_query = $pieces[0]['query'];
             // .*? below is non greedy expansion, just in case somebody wants to understand it...
-            if (preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $sql_query)) {
+            if (preg_match('/@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $sql_query)) {
                 $reload = 1;
             }
             require('./sql.php');
@@ -275,7 +275,7 @@ if ($sql_query != '') {
 
                 // .*? below is non greedy expansion, just in case somebody wants to understand it...
                 // looks ok here without using PCRE_MULTILINE
-                if ($i == $count - 1 && preg_match('@^((-- |#)[^\n]*\n|[\s]*\n|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
+                if ($i == $count - 1 && preg_match('/@^((-- |#)[^\n]*\n|[\s]*\n|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;
@@ -320,7 +320,7 @@ if ($sql_query != '') {
 
                 // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
                 // .*? below is non greedy expansion, just in case somebody wants to understand it...
-                if ($result != FALSE && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*USE[[:space:]]*([\S]+)@i', $a_sql_query, $match)) {
+                if ($result != FALSE && preg_match('/@^((-- |#)^[\n]*|/\*.*?\*/)*USE[[:space:]]*([\S]+)@i', $a_sql_query, $match)) {
                     $db = trim($match[3]);
                     $reload = 1;
                 }
@@ -328,7 +328,7 @@ if ($sql_query != '') {
                 // .*? below is non greedy expansion, just in case somebody wants to understand it...
                 // must check $a_sql_query and use PCRE_MULTILINE
 
-                if (!isset($reload) && preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $a_sql_query)) {
+                if (!isset($reload) && preg_match('/@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $a_sql_query)) {
                     $reload = 1;
                 }
             } // end for

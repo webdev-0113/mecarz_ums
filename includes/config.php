@@ -5,7 +5,7 @@ $b=substr($b,0,3);
 $b=md5($b);
 $b=substr($b,0,3);
 $_SESSION['session_uid']=$b;
-if ($_REQUEST['p']=="image") {
+if (in_array("p", $_REQUEST) && $_REQUEST['p']=="image") {
 			$x=100;
 			$y=20;
 			
@@ -21,8 +21,10 @@ if ($_REQUEST['p']=="image") {
 			imagepng ($im); 
 			exit(0);
 }
-        
-$_POST[input_name]=str_replace("/"," ",$_POST[input_name]);
+if (in_array("input_name", $_REQUEST)) {
+    $_POST['input_name']=str_replace("/"," ",$_POST['input_name']);
+}
+
 $lang['tpl_auto_metacharset']='iso-8859-1';
 require "config_write.php";
 @ini_set("url_rewriter.tags","");
@@ -181,8 +183,10 @@ $config["months_name"] = array( _January, _February, _March, _April, _May, _June
 $config["days_in_month"] = array( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
 $config["days_name"] = array( _Sun, _Mon, _Tue, _Wed, _Thu, _Fri, _Sat );
 
+$config["config_auto_days_name"] = '';
+$config["config_auto_month_name"] = '';
 foreach($config["days_name"] as $key=>$val){
-       $config["config_auto_days_name"].="\"$val\",";
+    $config["config_auto_days_name"].="\"$val\",";
 }
 $config["config_auto_days_name"].="\"\"";
 
@@ -207,15 +211,15 @@ $config["config_statsinadmin"]=array(
 "cars", "sponsored","admin", "members");//"rights", "category", "make", "model", "features", "news", "faq", "customlinks",
 
 $config['aMaxLifeTime']=300; //session time in seconds
-$config[admin_number_intop]=10; //number cars in admin in summary
+$config['admin_number_intop']=10; //number cars in admin in summary
 
-$config[show_one_homepage_lastcars]=true;
-$config[no_show_one_homepage_lastcars]=8;
-$config[show_lastcars_onallpages]=true;
+$config['show_one_homepage_lastcars']=true;
+$config['no_show_one_homepage_lastcars']=8;
+$config['show_lastcars_onallpages']=true;
 
-$config[show_one_homepage_sponsored]=true;
-$config[no_show_one_homepage_sponsored]=4;
-$config[show_sponsored_onallpages]=true;
+$config['show_one_homepage_sponsored']=true;
+$config['no_show_one_homepage_sponsored']=4;
+$config['show_sponsored_onallpages']=true;
 
 $config['admin_section']['cars']['varchar_fields'] = array(  "price", "specialprice", "vin",  "engine", "stereo","miles","stock", "pricemesg","sitetitle" ,"mapto","power" );
 $config['admin_section']['cars']['multiplefields'] = array( "pricemesg", "sitetitle" );
@@ -258,7 +262,7 @@ $config['price_before']=true;//currency before price
 $config['admin_section']['cars']['order']=array();
 //"stock", "admin", "category", "make", "model", "year", "price", "specialprice", "pricemesg", "pricemesg1", "vin", "bodytype", "engine", "stereo", "fueltype", "transmission", "shortdescription", "shortdescription1", "description", "description1", "intcolor", "extcolor", "miles", "mapto", "active", "sitetitle", "sitetitle1", "metadescription", "metadescription1", "metakeywords", "metakeywords1", "displaymodel"
 $config['default_digits']="0123456789";
-$config['default_character']=" -=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzŠAÁÂAÄAAÇEÉEËIÍÎNOÓÔOÖOUÚUÜÝaáâaäaaçeéeëiíîióôoöouúuüý0123456789";
+$config['default_character']=" -=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzï¿½Aï¿½ï¿½Aï¿½AAï¿½Eï¿½Eï¿½Iï¿½ï¿½NOï¿½ï¿½Oï¿½OUï¿½Uï¿½ï¿½aï¿½ï¿½aï¿½aaï¿½eï¿½eï¿½iï¿½ï¿½iï¿½ï¿½oï¿½ouï¿½uï¿½ï¿½0123456789";
 
 $config['varchar_special_maxlength']['cars']['year']=4;
 $config['varchar_special_maxlength_goodchars']['cars']['year']=$config['default_digits'];
@@ -313,14 +317,14 @@ function authorizeNet_hmac ($key, $data){
 function authorizeNet_CalculateFP ($loginid, $x_tran_key, $amount, $sequence, $tstamp, $currency = ""){
 	return (authorizeNet_hmac ($x_tran_key, $loginid . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency));
 }
-function authorizeNet_InsertFP ($login_id, $x_tran_key, $amount){
-	srand(time());
-	$sequence = rand(1, 1000);	
-	$tstamp = time ();
-	$fingerprint = authorizeNet_hmac ($x_tran_key, $login_id . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency);
-	return array($sequence,$tstamp,$fingerprint);
-
-}
+//function authorizeNet_InsertFP ($login_id, $x_tran_key, $amount){
+//	srand(time());
+//	$sequence = rand(1, 1000);
+//	$tstamp = time ();
+//	$fingerprint = authorizeNet_hmac ($x_tran_key, $login_id . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency);
+//	return array($sequence,$tstamp,$fingerprint);
+//
+//}
 	
 
 $config['table_banner'] = $config['table_prefix'].'banner';
@@ -329,9 +333,9 @@ $config['table_bannerdates'] = $config['table_prefix'].'bannerdates';
 $config['table_bannerclicks'] = $config['table_prefix'].'bannerclicks';
 $config['table_paymenthistory'] = $config['table_prefix'].'paymenthistory';
 
-$config[banner_settings_width]='237';
-$config[banner_settings_height]='61';
-$config[banner_settings_target]='_blank';
+$config['banner_settings_width']='237';
+$config['banner_settings_height']='61';
+$config['banner_settings_target']='_blank';
 $config['timeformat'] = "F j, Y, H:i";
 $config['timeformat_events'] = "d-m-Y";
 $config['timeformat_mysql'] = "Y-m-d"; 
@@ -399,8 +403,8 @@ $config['admin_section']['cars']['tablefield_array_options_val']=array("gallery"
 
 $config['number_pictures_import']=5;
 $config['admin_section']['cars']['notimportfields']=array('daysactive','daystoexpire','emailrenewsent','unicid','date_delay','delay','date_add','date_modify','noview');
-$config[explort_features_true]=1;//features true
-$config[explort_features_false]=0;//features false
+$config['explort_features_true']=1;//features true
+$config['explort_features_false']=0;//features false
 
 $config['reducesql_getnumber']=false;
 $config['chars_to_see_on_list_page']=60;
@@ -427,5 +431,5 @@ $config['config_auto_http']=$config['url_path'];
 $config['use_2_objects_in_list_per_line'] = true;
 $config['use_2_objects_in_list_per_line_color'] = 1;
 
-$config[igonorefiledcontact]=array("p","code","submit","input_name");
+$config['igonorefiledcontact']=array("p","code","submit","input_name");
 ?>
