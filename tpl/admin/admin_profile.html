@@ -1,0 +1,49 @@
+
+       <FORM  action="index.php" method="POST">
+        <input type=hidden name=p value="{{p}}">
+         <table border=0 width="45%" class="tabel" CELLPADDING="2" CELLSPACING="2">
+          <tr>
+             <td colspan="2" align="center">
+              {{tpl_auto_Admin}} <b>{{username}}</b> {{tpl_auto_profile}}
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr>
+             <td width="40%">
+             {{tpl_auto_Username}}
+             </td>
+             <td>
+             <input type=text name=username size=25 value={{username}}>
+             </td>
+          </tr>
+          <tr>
+             <td width="40%">
+               {{tpl_auto_Password}}
+             </td>
+             <td>
+               <input type=password size=25 name=password1>
+             </td>
+          </tr>
+          <tr>
+             <td width="40%">
+               {{tpl_auto_Retype_Password}}
+             </td>
+             <td>
+               <input type=password size=25 name=password2>
+             </td>
+          </tr>
+
+          <tr>
+             <td colspan=2 align="center">
+             <p class="submit">
+               <input type=submit name=submit value="{{tpl_auto_Change_Password}}">
+               <input type=reset name=submit value="{{tpl_auto_Reset}}">
+             </p>               
+             </td>
+          </tr>
+         </table>
+       </FORM>

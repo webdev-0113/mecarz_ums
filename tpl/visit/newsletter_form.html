@@ -1,0 +1,97 @@
+<script type="text/javascript">
+<!--
+function verifyFormSubscribe(theForm){
+    var msg='';
+    if (theForm.input_subscribe[0].checked ==true) {
+            if((theForm.input_name.value=='blank')||(theForm.input_name.value=='')){
+                    msg='{{tpl_auto_please_type_name}}'
+                    theForm.input_name.focus();
+            }
+    }
+    if (msg=='') {
+            if((theForm.input_email.value=='blank')||(theForm.input_email.value=='')){
+                    msg='{{tpl_auto_please_type_email_address}}'
+                    theForm.input_email.focus();
+            }else
+            if((theForm.input_email.value.indexOf('@')<1)||
+            (theForm.input_email.value.indexOf('@')>(theForm.input_email.value.length - 5))||
+            (theForm.input_email.value.indexOf('.')<1)){
+                    msg='{{tpl_auto_please_type_email_address_valid}}'
+                    theForm.input_email.focus();
+            }
+           }
+
+
+    if(msg!=''){
+            alert(msg);
+            return false
+    }else{
+                                    return true;
+
+    }
+}
+// -->
+</script>
+  <form method=POST action=index.php name=form_subscribe id=form_subscribe onSubmit="return verifyFormSubscribe(this);"> 
+<TABLE cellSpacing=2 cellPadding=2 width="100%" border=0 class="menu">
+    <TBODY>
+      <tr>
+        <td colspan=2 align=center class="menutop"><B>{{tpl_auto_Newsletter}}</B></td>
+      </tr>
+      <TR>
+        <TD colspan=2  align=center  valign="middle"><B>&nbsp;{{error}}</B> </TD>
+      </TR>
+      <tr>
+        <td><strong>{{tpl_auto_Name}}</strong> <br> <input type="text" name="input_name" size="17" value="{{input_name_val}}" style="width:140px;"></td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_email}}</strong> <br> <input type="text" name="input_email" size="17" value="{{input_email_val}}" style="width:140px;"></td>
+      </tr>
+      <tr>
+        <td> <input type="radio" name="input_subscribe" value=1 checked>
+          {{tpl_auto_Subscribe}} <br> <input type="radio" name="input_subscribe" value=0>
+          {{tpl_auto_Unsubscribe}} </td>
+      </tr>
+      <tr>
+        <td ALIGN=CENTER> <input type="submit" name="submit" value="{{tpl_auto_Update}}" style="width:140px;"></td>
+      </tr>
+      <tr>
+        <td height=10></td>
+      </tr>
+    </TBODY>
+</TABLE>
+    <input type=hidden name=p value=subscribe>
+  </form>
+  
+ <form method=POST action="admin/index.php"> 
+<TABLE cellSpacing=2 cellPadding=2 width="100%" border=0 class="menu">
+    <TBODY>
+      <tr>
+        <td colspan=2 align=center class="menutop"><B>{{tpl_auto_Admin_Login}}</B></td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_username}}</strong> <br> <input type="text" name="username" size="17" value="{{username}}" style="width:140px;"></td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_Password}}</strong> <br> <input type="password" name="password" size="17" value="{{password}}" style="width:140px;"></td>
+      </tr>
+      <tr>
+        <td><strong>{{tpl_auto_Text_you_see}}</strong><br />
+        <TABLE cellSpacing=0 cellPadding=0 width="100%">
+        	<tr>
+        	<td align="right" width="50%"><img src="admin/index.php?p=image" alt=""></td>
+        	<td align="left" width="50%"><input type="password" name="code" size="5" value="{{code}}"></td>
+        	</tr>
+        </TABLE>
+        </td>
+      </tr>      
+      <tr>
+        <td ALIGN=CENTER> <input type="submit" name="submit" value="{{tpl_auto_Login}}" style="width:165px;"></td>
+      </tr>
+      <tr>
+        <td height=10></td>
+      </tr>
+    </TBODY>
+</TABLE>
+    <input type=hidden name=p value=login1>
+  </form>  

@@ -1,0 +1,44 @@
+         <FORM  action="index.php" method="POST" name="formarticle" enctype="multipart/form-data">
+         <input type=hidden name=p value="{{p}}">
+         <input type=hidden name=o value="{{o}}">
+         <input type=hidden name=oid value="{{config_auto_oid}}">
+         
+         <table width="100%" border="0" class="tabel" cellpadding="2" cellspacing="2">
+          <tr class="class_temp1">
+             <td colspan="2" align="center" class="msg">
+              {{tpl_auto_tpl}}
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr>
+             <td height=1 width="30%" align="center">
+             </td>
+             <td height=1 align="center">
+             </td>
+          </tr>
+
+          <tr class="class_temp1">
+             <td colspan="2" align="left">
+              {{options}}
+             </td>
+          </tr>
+
+          <tr class="class_temp2">
+             <td colspan="2" align="center">
+             <p class="submit">
+               <input type="submit" name="search" value="{{tpl_auto_cancel}}" onclick="window.location='index.php?page=0';return false;">
+
+             </p>
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="left">
+              {{explain}}
+             </td>
+          </tr>
+         </table>
+         </FORM>

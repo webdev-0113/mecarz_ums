@@ -1,0 +1,33 @@
+<?php
+
+
+
+ if ($_REQUEST['make']==5 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
+
+$lang['tpl_auto_Pragraph'] =<<<END
+<br>Welcome to our Acura section. At this page you will find a great collection of Acura used cars for sales by their owners directly or the dealership, so you can obtain your dream Acura from your desired source. At this page you will find many deals on the most wanted Acura cars including the Acura mdx.</br><br> You have just arrived to the place where you can get all the Acura cars you are craving for including Acura Integra, Acura CL, Acura RL, Acura TL, Acura TSX, Acura ZDX, Acura MDX, Acura RDX. 
+We believe you can not find a better place to buy your next Acura from, as we don't charge car owners to post their cars neither charge buyers any fees eliminating the man in the middle cost. We are glad that we can help you find your next lovely Acura!! </br>
+END;
+
+}
+
+if ($_REQUEST['p']=='signup'){
+$lang['tpl_auto_Pragraph'] =<<<END
+
+<br><b>Selling your car on <a href="http://www.MECarz.com">MECarz.com</a> is free and only involve three straight forward steps below:</b></br>
+<br>1- Register by filling the forum below with your information (Used Car Seller Information)</br>
+<br>2- Login at the following link: <a href="http://www.mecarz.com/admin/index.php"> Login Link</a></br>
+<br>3- Post the used car you are aiming to sell information & wait buyers calls!!!</br>
+
+
+
+
+END;
+
+}
+
+
+
+
+
+?>

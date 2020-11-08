@@ -1,0 +1,115 @@
+  <script banner="JavaScript">
+  <!--
+  function delete_banner() {
+                          if (!check()){
+                alert("{{tpl_auto_nothing_to_delete}}");
+                                return false;
+            }
+            if (confirm("{{tpl_auto_Are_you_sure_you_want_to_delete_all}}")) {
+                                document.form_search.o.value='delete';
+                return true;
+            }else{
+                return false;
+            }
+  }
+  function add_banner() {
+                                document.form_search.o.value='add';
+                return true;
+  }
+  function check() {
+     list=document.form_search.elements;
+     nrMAX=list.length-1;
+     var cond=false;;
+     for (i=0;i<nrMAX;i++)
+             {
+                if (list[i].checked==true)
+                    cond=true;
+        }
+     return cond;
+  }
+  function set_filter(){
+                   document.form_search.setfilter.value='1';
+                   document.form_search.o.value='';
+           return true;
+  }
+  function clear_filter(){
+               document.form_search.setfilter.value='1';
+               document.form_search.o.value='';
+           document.form_search.input_filter.value='';
+               return true;
+  }
+  // -->
+  </script>
+  <div align=left  class=defaultBold><strong>{{location_top}}</strong> <font color=red><b>{{mesg_input_filter_val}}<b></font></div>
+
+    <table width="100%" border="0" cellpadding="2" cellspacing="2">
+       <FORM method="POST" name="form_search">
+       <input type=hidden name=p value={{p}}>
+       <input type=hidden name=p1 value={{p1}}>
+       <input type=hidden name=p2 value={{p2}}>
+       <input type=hidden name=o value={{o}}>
+       <input type=hidden name=setfilter>
+      <tr>
+        <td width="779" valign="top"><TABLE class=tableBorder cellSpacing=0 cellPadding=0
+      border=0>
+          <TBODY>
+            <TR>
+              <TD class=tablePad>
+                <TABLE cellSpacing=0 cellPadding=0 border=0>
+                  <TBODY>
+                          <tr>
+                            <TD COLSPAN=12 class=tableHeadingBold>
+                        {{pages}}
+                        </TD>
+                    </tr>
+                    <TR>
+                      <TD class=tableHeadingBold>&nbsp;</TD>
+                      <TD class=tableHeadingBold><A href="{{url_id}}">{{tpl_auto_id}}</a>{{signsort_id}}</TD>
+                      <TD class=tableHeadingBold><A href="{{url_title}}">{{tpl_auto_bannertitle}}</a>{{signsort_title}}</TD>
+                      <TD class=tableHeadingBold><A href="{{url_type}}">{{tpl_auto_type}}</a>{{signsort_type}}</TD>
+                      <TD class=tableHeadingBold><A href="{{url_noviews}}">{{tpl_auto_Noviews}}</a>{{signsort_noviews}}</TD>
+                      <TD class=tableHeadingBold><A href="{{url_noclicks}}">{{tpl_auto_Noclicks}}</a>{{signsort_noclicks}}</TD>
+                      <TD class=tableHeadingBold><A href="{{url_published}}">{{tpl_auto_Published}}</a>{{signsort_published}}</TD>
+                      <TD class=tableHeadingBold>{{tpl_auto_Modify}}</TD>
+                    </TR>
+                    {{banner_banner_list_repeat}}
+                  </TBODY>
+                </TABLE>
+              </TD>
+            </TR>
+          </TBODY>
+        </TABLE></td>
+        <td width="299" valign="top"><div class=publishBorder>
+          <div class=publishPad>
+            <div class=itemTitle>
+              <p>{{tpl_auto_Options}}</p>
+              <p>{{error}}</p>
+              </div>
+          </div>
+        </div>
+          <div class=publishPad>
+              <hr size="-1">
+              <INPUT type=text id=title4 maxLength=100 name=input_filter value="{{input_filter_val}}">
+              <INPUT name=submit class=submit type=submit onClick="return set_filter();" value="{{tpl_auto_search}}">
+                          <INPUT name=submit1 type=submit class="submit"  onClick="return clear_filter();" value="{{tpl_auto_Clear_Filter}}">
+              <hr size="-1">
+            <p>
+              <INPUT name=submit type=submit class=submit onClick="return add_banner();" value="{{tpl_auto_Add_new_Banner}}">
+</p>
+            <p>
+              <INPUT class=submit type=submit value="{{tpl_auto_Delete_Banner}}" name=submit onClick="return delete_banner();">
+</p>
+          </div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><span class="default">{{tpl_auto_Click_on_icon_to_toggle_state}}</span><br>          <br>
+          <span class="default">
+                  <img src="images/publish_y.png" width="12" height="12"> {{tpl_auto_Published_and_is_Current}} |
+                  <img src="images/publish_x.png" width="12" height="12"> {{tpl_auto_Not_Published}}
+          </span></td>
+      </tr>
+
+      </FORM>
+    </table>
+
+

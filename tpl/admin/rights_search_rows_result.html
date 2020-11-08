@@ -1,0 +1,68 @@
+  <script type="text/javascript">
+  <!--
+  function Mody_check(val) {
+     list=document.form_search.elements;
+     nrMAX=list.length-1;
+     if (val==-1) for (i=0;i<nrMAX;i++) list[i].checked = !list[i].checked;
+     if (val== 0) for (i=0;i<nrMAX;i++) list[i].checked = false;
+     if (val== 1) for (i=0;i<nrMAX;i++) list[i].checked = true;
+  }
+  // -->
+  </script>
+       <FORM method="POST" name="form_search" action="index.php">
+       <input type=hidden name=p value={{p}}>
+       <input type=hidden name=o value={{o}}>
+
+         <table align="center" border=0 width="60%" cellpadding="2" cellspacing="2" class="tabel">
+          <tr align="center">
+             <td colspan="4" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr align="center">
+             <td colspan="4" align="center" class="msg">
+              {{tpl_auto_View_Edit_Delete}} {{tpl_auto_rights}}:
+             </td>
+          </tr>
+          <tr>
+          <td colspan="4">
+              {{resultnr}}
+              {{pageout}}
+          </td>
+          </tr>
+          <tr class="class_temp1">
+             <td width="2%" align="center">
+               {{tpl_auto_Select}}
+             </td>
+             <td align="center" width="2%">
+               {{id}}
+             </td>
+             <td align="center" width="10%">
+               {{name}}
+             </td>
+             <td align="center" width="8%">
+               {{tpl_auto_Edit}}
+             </td>
+          </tr>
+          {{result}}
+          <tr>
+          <td colspan="4">
+              {{pageout}}
+              {{resultnr}}
+          </td>
+          </tr>
+            <td colspan="3">
+              <a href="javascript:Mody_check(1) ">{{tpl_auto_Select_All}}</a>&nbsp;
+              <a href="javascript:Mody_check(0) ">{{tpl_auto_Select_None}}</a>&nbsp;
+              <a href="javascript:Mody_check(-1)">{{tpl_auto_Invert_Selection}}</a>&nbsp;
+            </td>
+          <tr>
+             <td colspan="3" align="left">
+             <p class="submit">
+               <input type=submit name=submit value="{{tpl_auto_Delete}}">
+               <input type=reset name=submit value="{{tpl_auto_Reset}}">
+             </p>
+             </td>
+          </tr>
+         </table>
+       </FORM>

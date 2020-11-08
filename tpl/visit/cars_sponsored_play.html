@@ -1,0 +1,28 @@
+                                <TR>
+                                <TD style="height:200px;" >
+                    <TABLE width="100%" border="0" cellpadding="2" cellspacing="0" >
+                     <TR>
+                       <TD align=CENTER>
+                       <a id=pictureUrl1 href="{{language_set}}index.php?p=details&id={{id}}{{language_session}}">{{year}} - {{make}} - {{model}}</A>
+                       </TD>
+                     </TR>
+                     <TR>
+                       <TD valign="middle" align="center" height="120" width="40%">
+                               <a id=pictureUrl href="{{language_set}}{{id}}_car_{{year}}_{{make}}_{{model}}.html">
+                               <IMG src="{{thumbnail}}" border=0 id=pictureName name=pictureName alt="">
+                               </A>
+                       </TD>
+                     </TR>
+                     <TR>
+                      <Td height="35" align=center id=pictureText>
+                        &nbsp;{{shortdescription}}
+                       </TD>
+                     </TR>
+                    </TABLE>
+<script type="text/javascript">
+<!--
+RunSlideShow("{{Images}}","{{Url}}","{{Title}}","{{Text}}",5);
+//-->
+</script>                    
+                 </TD>
+                 </TR>

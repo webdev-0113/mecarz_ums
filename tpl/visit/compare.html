@@ -1,0 +1,61 @@
+                    <TABLE width="100%" border="0" cellpadding="5" cellspacing="2" class="{{listingclass}}">
+                     <TR>
+                       <TD colspan=3 align=center>
+<form name="compare" onsubmit="return false;" action="index.php">
+<input type="hidden" name="number" value="">
+<input type="hidden" name="compareid" value="">
+<input type="hidden" name="compareid1" value="">
+<input type="hidden" name="p" value="compare">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function wishadd(val,valoare){
+        var i=document.compare.number.value;        
+        if (i==0){
+        	if (val.checked==true){
+        	document.compare.number.value++;
+        	document.compare.compareid.value=valoare;
+        	}else{
+        		
+        	}
+        }else
+        if(i==1){
+        	if (val.checked==true){
+        	document.compare.number.value++;
+        	document.compare.compareid1.value=valoare;        	
+        	}else{
+        	document.compare.number.value--;
+        	document.compare.compareid.value='';        	        		
+        	}
+        }else{
+        	if (val.checked==true){
+            val.checked=false;
+        	alert(' {{tpl_auto_You_already_have_chosen_2_listing}}');
+        	}else{
+        	document.compare.number.value--;
+        	document.compare.compareid1.value='';        	        		
+        	}        	       	
+        }
+}        
+function checklisting(theForm){
+        var msg='';
+        var cond=0;
+        var i;
+        if (document.compare.number.value!=2){
+        	msg=' {{tpl_auto_You_must_select_2_listing}}';
+        }
+
+        if(msg!=''){
+                alert(msg);
+                return false
+        }  
+        return true;      
+        
+        
+}
+//-->
+</script>  
+                       <input id="submit" name="submit" value="{{tpl_auto_Compare}}" type="submit" onClick="if (checklisting(document.compare)) {OpenWindow('index.php?p=compare&compareid='+document.compare.compareid.value+'&compareid1='+document.compare.compareid1.value,'compare', '1000', '650','yes');return false;} else return false;"> 	
+</form>                       
+                       </TD>
+                     </TR>
+                    </TABLE><br />

@@ -1,0 +1,17 @@
+
+          <tr class="{{class_temp}}">
+             <td width="30%">
+               <b>{{tpl_name}}</b>
+             </td>
+             <td>
+            <input type="text" name="{{tpl_input_date}}" value="{{tpl_input_date_val}}">
+            <a href="javascript:cal{{tpl_input_date}}.popup();"><img src="../images/cal.gif" width="16" height="16" border="0" alt="{{tpl_auto_Click_Here_to_Pick_up_the_date}}"></a>
+             </td>
+          </tr>
+<script type="text/javascript">
+<!--
+        var cal{{tpl_input_date}} = new calendar1(document.forms['formarticle'].elements['{{tpl_input_date}}']);
+        cal{{tpl_input_date}}.year_scroll = true;
+        cal{{tpl_input_date}}.time_comp = false;
+//-->
+</script>

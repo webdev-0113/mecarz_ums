@@ -1,0 +1,226 @@
+BODY {
+text-align: center;
+padding: 0px;
+margin: 0px;
+font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-size: 0.85em;
+color: #ffffff;
+line-height:1.1em;
+margin: 0px;
+height: 100%;
+width: 100%;
+background:  #000000;
+}
+a:link   {
+text-decoration: underline;
+color: #ffffff;
+font-size:12px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+a:visited {
+text-decoration: underline;
+color: #ffffff;
+font-size:12px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+a:hover   {
+text-decoration: none;
+color: #0c6400;
+font-size:12px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+a:active  {
+text-decoration: underline;
+color: #A9A9A9;
+font-size:12px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+
+
+TABLE,tr,td {
+FONT-SIZE: 12px;  font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+
+INPUT {
+FONT-SIZE: 12px;  font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+SELECT {
+FONT-SIZE: 12px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+HR {
+BORDER-RIGHT: #444444 dashed; BORDER-TOP: #444444 dashed; BORDER-LEFT: #444444 dashed; BORDER-BOTTOM: #444444 dashed
+}
+
+.cars-titlu {
+FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #06275c; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+.head-page{
+FONT-WEIGHT: bold; FONT-SIZE: 12px; VERTICAL-ALIGN: middle; COLOR: #000000; BORDER: #cccccc 1px solid; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif; HEIGHT: 20px
+}
+.specialprice{
+COLOR: red;
+FONT-WEIGHT: bold;
+}
+
+.cars-tabel-mic {
+background: #000000;
+BORDER: #e5e5e5 1px solid; BORDER-TOP: #e5e5e5 1px solid; BORDER-LEFT: #e5e5e5 1px solid; BORDER-BOTTOM: #e5e5e5 1px solid
+}
+
+.hand {
+ cursor:pointer; cursor:hand;
+ border: 1px solid #000000;
+ padding-left: 2px;
+ padding-right: 2px;
+ padding-top: 2px;
+ padding-bottom: 2px;
+}
+
+.soldsmall{
+        COLOR: red;
+        FONT-WEIGHT: bold;
+}
+.sold{
+        COLOR: red;
+        FONT-WEIGHT: bold;
+        FONT-SIZE: 20px;
+}
+.carslisting1{
+background: #000000;
+BORDER: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-BOTTOM: #cccccc 1px solid
+}
+.carslisting0{
+background: #000000;
+BORDER: #F53D00; 1px solid; BORDER-TOP: #F53D00; 1px solid; BORDER-LEFT: #F53D00; 1px solid; BORDER-BOTTOM: #F53D00; 1px solid
+}
+.menu1{
+        background:  #000000;
+        border: 1px solid #F53D00;
+}
+.menu {
+        BORDER-RIGHT: #F53D00; 1px solid; BORDER-TOP: #F53D00;  1px solid; BACKGROUND: #000000; BORDER-LEFT: #F53D00;  1px solid; BORDER-BOTTOM: #F53D00;  1px solid
+}
+.menuborder {
+        BORDER-RIGHT: #F53D00;  1px solid; BORDER-TOP: #F53D00;  1px solid; BORDER-LEFT: #F53D00;  1px solid; BORDER-BOTTOM: #F53D00;  1px solid
+}
+.menutop{
+background: #333333;
+color: #F53D00;
+height:20px;
+}
+.menutop1:link,.menutop1:visited,.menutop1:hover,.menutop1:active{
+        color: black;
+}
+.gohome{
+        font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+        font-size: 13px;
+        color: #F53D00;
+}
+.textGray {
+        COLOR: #F53D00;
+}
+.stepnoactive {
+FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR:  #32CD32; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+.stepactive {
+FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #06275c; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+.selected:link    {
+text-decoration: underline;
+color: #FFFFBB;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+.selected:visited {
+text-decoration: underline;
+color: #FFFFBB;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+.selected:hover   {
+text-decoration: none;
+color: #FFFFBB;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+.selected:active  {
+text-decoration: underline;
+color: #FFFFBB;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+
+.noselected:link    {
+text-decoration: underline;
+color: #999999;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+.noselected:visited {
+text-decoration: underline;
+color: #999999;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+.noselected:hover   {
+text-decoration: none;
+color: #000000;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+font-weight: bold;
+}
+.noselected:active  {
+text-decoration: underline;
+color: #999999;
+font-size:10px; font-family: Trebuchet MS, Arial, Verdana, Helvetica, sans-serif;
+}
+
+.sold{
+background:url('http://www.mecarz.com/images/sold.gif') no-repeat 0 0;
+position:absolute;
+z-index:1000;
+font-size:0;
+text-indent: -40px;
+cursor:pointer;
+overflow:hidden;
+width: 100px;
+height: 75px;
+}
+
+h1 {
+font-size: 16pt;
+font-weight: bold;
+display: inline;
+}
+
+.button {
+   border-top: 1px solid #000000;
+   border-left: 1px solid #000000;
+   border-right: 1px solid #000000;
+   border-bottom: 1px solid #000000;
+   background: #000000;
+   background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#000000));
+   background: -webkit-linear-gradient(top, #000000, #000000);
+   background: -moz-linear-gradient(top, #000000, #000000);
+   background: -ms-linear-gradient(top, #000000, #000000);
+   background: -o-linear-gradient(top, #000000, #000000);
+   padding: 7.5px 10px;
+   -webkit-border-radius: 1px;
+   -moz-border-radius: 1px;
+   border-radius: 1px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #ff5100;
+   background: #ff5100;
+   color: #ffffff;
+   }
+.button:active {
+   border-top-color: #ff5100;
+   background: #ff5100;
+   }

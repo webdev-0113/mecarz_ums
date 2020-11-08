@@ -1,0 +1,360 @@
+  <script banner="JavaScript">
+  <!--
+  function checkbanner() {
+        var formname=document.form_search;
+        if (formname.input_type.value==1){
+         if (formname.input_destination1.value==''){
+           alert('{{tpl_auto_Destination_URL}}?');
+           formname.input_destination1.focus();
+           return false;
+         }else
+         if (formname.input_title1.value==''){
+           alert('{{tpl_auto_Alt_text}}?');
+           formname.input_title1.focus();
+           return false;
+         }
+        }else
+        if (formname.input_type.value==2){
+         if (formname.input_bannersourcecode.value==''){
+           alert('{{tpl_auto_HTML_banner}}?');
+           formname.input_bannersourcecode.focus();
+           return false;
+         }else
+         if (formname.input_destination2.value==''){
+           alert('{{tpl_auto_Destination_URL}}?');
+           formname.input_destination2.focus();
+           return false;
+         }else
+         if (formname.input_title2.value==''){
+           alert('{{tpl_auto_Alt_text}}?');
+           formname.input_title2.focus();
+           return false;
+         }
+        }else
+        if (formname.input_type.value==3){
+         if (formname.input_title.value==''){
+           alert('{{tpl_auto_Headline}}?');
+           formname.input_title.focus();
+           return false;
+         }else
+         if (formname.input_desc1.value==''){
+           alert('{{tpl_auto_Description_line_1}}?');
+           formname.input_desc1.focus();
+           return false;
+         }else
+         if (formname.input_url1.value==''){
+           alert('{{tpl_auto_Display_URL}}?');
+           formname.input_url1.focus();
+           return false;
+         }else
+         if (formname.input_url2.value==''){
+           alert('{{tpl_auto_Destination_URL}}?');
+           formname.input_url2.focus();
+           return false;
+         }
+        }
+        return true;
+  }
+
+  function changetypebanner(valoare){
+
+    for (var i=1;i<=3;i++){
+       if (i!=valoare){
+        var aa='hidden';
+        var bb='none';
+       }else{
+        var aa='visible';
+        var bb='block';
+       }
+
+       document.getElementById('type'+i).style.visibility=aa;
+       document.getElementById('type'+i).style.display=bb;
+    }
+
+  }
+  function updateini(){
+           var newname,newname1;
+           varname = new Array();
+
+           varname[0]='input_title|Acc Autos';
+           varname[1]='input_desc1|Professional solution';
+           varname[2]='input_desc2|for a car dealership website';
+           varname[3]='input_url1|www.accscripts.com'
+           varname[4]='input_url2|www.accscripts.com/autos/';
+
+           var arrayLength = varname.length;
+           for (var i=0;i<arrayLength;i++)
+           {
+              var splitArray = varname[i].split("|");
+              newname1 = splitArray[0];
+              newname = newname1.replace("input_","");
+
+              if (document.getElementById(newname1).value==''){
+                 if (newname!='url2'){
+                 document.getElementById('bannerex'+newname).innerHTML=splitArray[1];
+                 }else{
+                 document.getElementById('bannerex'+newname).href=document.getElementById('httptype').value+splitArray[1];
+                 }
+              }
+           }
+
+  }
+
+  function updatebanner(obiect,lungime){
+           var newname;
+           newname = obiect.name.replace("input_","");
+           if (obiect.value==''){
+
+           }
+           obiect.value=obiect.value.substring(0,lungime);
+           if (newname!='url2'){
+           document.getElementById('bannerex'+newname).innerHTML=obiect.value;
+           }else{
+           document.getElementById('bannerex'+newname).href=document.getElementById('httptype').value+obiect.value;
+           }
+           updateini();
+  }
+
+
+  // -->
+  </script>
+    <div align=left  class=defaultBold><strong>{{location_top}}</strong></div>
+    <table width="100%" align=center border="0" cellpadding="2" cellspacing="2">
+       <FORM method="POST" name="form_search"  enctype="multipart/form-data">
+       <input type=hidden name=p value={{p}}>
+       <input type=hidden name=p1 value={{p1}}>
+       <input type=hidden name=p2 value={{p2}}>
+       <input type=hidden name=o value={{o}}>
+       <input type=hidden name=id value={{id}}>
+       <input type=hidden name=edit value=true>
+      <tr>
+        <td width="75%"><TABLE width=100% class=tableBorder cellSpacing=0 cellPadding=0
+      border=0>
+          <TBODY>
+            <TR>
+              <TD class=tablePad>
+                <TABLE cellSpacing=0 cellPadding=0 border=0 width=100% >
+                  <TBODY>
+                    <tr><Td colspan=2>{{showbanner}}</td></tr>
+                    <TR>
+                      <TD width=40%  nowrap class=tableHeadingBold>{{tpl_auto_Add_new_Banner}}</TD>
+                      <TD class=tableHeadingBold> </TD>
+                    </TR>
+
+                    <TR>
+                      <TD class=tableCellOne>
+                        <DIV class=defaultBold>{{tpl_auto_Select_Type}}</DIV>
+                      </TD>
+                      <TD nowrap class=tableCellOne>
+                      <SELECT name=input_type class=select onchange="changetypebanner(this.value);";>
+                      {{input_type_val}}
+                      </SELECT></TD>
+                    </TR>
+
+
+                    <TR>
+                      <TD class=tableCellTwo colspan=2>
+                           <div  id="type1">
+                           <TABLE width="100%" class=tableBorder cellSpacing=0 cellPadding=0 border=0>
+                           <TR>
+                             <TD class=tableCellTwo>
+                               <DIV class=defaultBold>{{tpl_auto_Select_the_image_you_want_to_use_for_this_banner}}</DIV>
+                             </TD>
+                             <TD class=tableCellTwo>
+                             {{input_banner_val}}
+                             <INPUT type=file class=input name=input_banner><BR>
+                             <img src="{{input_image_val}}" name=input_image_show id=input_image_show>
+                             </TD>
+                           </TR>
+                           <TR>
+                             <TD class=tableCellTwo>
+                               <DIV class=defaultBold>{{tpl_auto_Destination_URL}}</DIV>
+                             </TD>
+                             <TD class=tableCellTwo><INPUT class=input size=50 name=input_destination1 value="{{input_destination1_val}}">
+                             </TD>
+                           </TR>
+
+                           <TR>
+                             <TD class=tableCellTwo>
+                               <DIV class=defaultBold>{{tpl_auto_Alt_text}}</DIV>
+                             </TD>
+                             <TD class=tableCellTwo><INPUT class=input name=input_title1 value="{{input_title1_val}}">
+                             </TD>
+                           </TR>
+                           </table>
+                           </div>
+                           <div id="type2"  style="visibility:hidden;display:none;">
+                           <TABLE width="100%" class=tableBorder cellSpacing=0 cellPadding=0 border=0>
+                           <TR>
+                             <TD class=tableCellTwo>
+                               <DIV class=defaultBold>{{tpl_auto_HTML_banner}}</DIV>
+                             </TD>
+                             <TD class=tableCellTwo>
+                             {{input_banner_val}}
+                             <textarea cols='55' rows='8' name='input_bannersourcecode' wrap='off' dir='ltr'>{{input_bannersourcecode_val}}</textarea>
+                             </TD>
+                           </TR>
+                           <TR>
+                             <TD class=tableCellTwo>
+                               <DIV class=defaultBold>{{tpl_auto_Destination_URL}}</DIV>
+                             </TD>
+                             <TD class=tableCellTwo><INPUT class=input size=50 name=input_destination2 value="{{input_destination2_val}}">
+                             </TD>
+                           </TR>
+
+                           <TR>
+                             <TD class=tableCellTwo>
+                               <DIV class=defaultBold>{{tpl_auto_Alt_text}}</DIV>
+                             </TD>
+                             <TD class=tableCellTwo><INPUT class=input name=input_title2 value="{{input_title2_val}}">
+                             </TD>
+                           </TR>
+                           </table>
+                           </div>
+                           <div id="type3"  style="visibility:hidden;display:none;">
+                           <TABLE width="100%" class=tableBorder cellSpacing=0 cellPadding=0 border=0>
+                           <TR>
+                             <TD class=tableCellTwo colspan=2>
+                                     <strong>{{tpl_auto_Example_ad}}</strong>
+                                     <TABLE width="237" class=tableBorder cellSpacing=0 cellPadding=0 border=0>
+                                     <tr>
+                                     <td style="color:blue"><a id="bannerexurl2" href="http://{{input_url2_val}}"><span id="bannerextitle">{{input_title_val}}</span></a><br /></td>
+                                     </tr>
+                                     <tr>
+                                     <td id="bannerexdesc1">{{input_desc1_val}}<br /></td>
+                                     </tr>
+                                     <tr>
+                                     <td id="bannerexdesc2">{{input_desc2_val}}<br /></td>
+                                     </tr>
+                                     <tr>
+                                     <td id="bannerexurl1" style="color:green">{{input_url1_val}}<br /></td>
+                                     </tr>
+                                     </table>
+
+                                     <TABLE width=100% class=tableBorder cellSpacing=0 cellPadding=0 border=0>
+                                     <tr>
+                                     <td width=23%>{{tpl_auto_Headline}}</td>
+                                     <td><INPUT class=input size="35" name=input_title id="input_title" value="{{input_title_val}}" onkeyup="updatebanner(this,25);" onKeyPress="updatebanner(this,25);">{{tpl_auto_Max_25_characters}}</td>
+                                     </tr>
+                                     <tr>
+                                     <td>{{tpl_auto_Description_line_1}}</td>
+                                     <td><INPUT class=input size="35" name=input_desc1 id="input_desc1" value="{{input_desc1_val}}" onkeyup="updatebanner(this,35);" onKeyPress="updatebanner(this,35);">{{tpl_auto_Max_35_characters}}</td>
+
+                                     </tr>
+                                     <tr>
+                                     <td>{{tpl_auto_Description_line_2}}</td>
+                                     <td><INPUT class=input size="35" name=input_desc2 id="input_desc2" value="{{input_desc2_val}}" onkeyup="updatebanner(this,35);" onKeyPress="updatebanner(this,35);">{{tpl_auto_Max_35_characters}}</td>
+
+                                     </tr>
+                                     <tr>
+                                     <td>{{tpl_auto_Display_URL}}&nbsp;http://</td>
+                                     <td><INPUT class=input size="35" name=input_url1 id="input_url1" value="{{input_url1_val}}" onkeyup="updatebanner(this,35);" onKeyPress="updatebanner(this,35);">{{tpl_auto_Max_35_characters}}</td>
+
+                                     </tr>
+                                     <tr>
+                                     <td>{{tpl_auto_Destination_URL}}</td>
+                                     <td><select name="input_httptype" id="httptype" onchange="updatebanner(document.getElementById('input_url2'),250);">
+                                     {{input_httptype_val}}
+                                     </select>
+                                     <INPUT class=input size="35" name=input_url2  id="input_url2" value="{{input_url2_val}}" onkeyup="updatebanner(this,250);" onKeyPress="updatebanner(this,250);">{{tpl_auto_Max_250_characters}}</td>
+
+                                     </tr>
+                                     </table>
+
+                             </TD>
+                           </TR>
+                           </table>
+                           </div>
+                      </td>
+                    </tr>
+
+
+
+
+
+
+
+
+
+                    <TR {{addstyle}}>
+                      <TD class=tableCellOne>
+                        <DIV class=defaultBold>{{tpl_auto_Views}}</DIV>
+                      </TD>
+                      <TD class=tableCellOne>
+
+                        <table width=100%>
+                         <tr>
+                          <Td>
+                         <DIV class=defaultBold>&nbsp;{{input_noviews_val}}</DIV>
+                          </td>
+                         </tr>
+                        </table>
+
+                      </TD>
+                    </TR>
+
+                    <TR {{addstyle}}>
+                      <TD class=tableCellOne>
+                        <DIV class=defaultBold>{{tpl_auto_Clicks}}</DIV>
+                      </TD>
+                      <TD class=tableCellOne>
+                        <table width=100%>
+                         <tr>
+                          <Td>
+                         <DIV class=defaultBold>&nbsp;{{input_noclicks_val}}</DIV>
+                          </td>
+                         </tr>
+                        </table>
+
+                      </TD>
+                    </TR>
+                    <TR {{addstyle}}>
+                        <TD colspan="2" class=tableCellOne>
+                            <a href="javascript:void(0);" onClick="window.open('index.php?p=banner&p1=bannermonths&id={{id}}','bannerdates','width=500,height=550,resizable=yes,scrollbars=yes,  location=yes,status=yes, screenX=200,screenY=200,left=100,top=100')">{{tpl_auto_Show_Monthly_Report}}</a>
+                        </TD>
+                      </TR>
+                    <TR>
+                    <TR>
+                      <TD class={{class_body2}}>
+                        <DIV class=defaultBold>{{tpl_auto_Published}}</DIV>
+                      </TD>
+                      <TD class={{class_body2}}><select name=input_published>
+                              {{input_published_val}}
+                      </select>
+                      </TD>
+                    </TR>
+
+                    {{global_edit_mtime_ctime}}
+                  </TBODY>
+                </TABLE>
+              </TD>
+            </TR>
+          </TBODY>
+        </TABLE></td>
+        <td width="297" valign="top"><div class=publishBorder>
+          <div class=publishPad>
+            <div class=itemTitle>
+              <p>{{tpl_auto_Options}}</p>
+              <p>{{error}}</p>
+            </div>
+          </div>
+        </div>
+          <div class=publishPad>
+            <p>
+              <div {{styleedit}}><input name=preview type=submit class=submit  value="{{tpl_auto_Save}}" onClick="return checkbanner();"></div>
+            </p>
+            <p>
+              <input name=preview class=submit type=button onClick="javascript:window.location ='{{urlreturn}}';" value="{{tpl_auto_Back}}">
+            </p>
+            <p>  </p>
+        </div></td>
+      </tr>
+      <input type=hidden name=input_price value="{{input_price_val}}">
+      </FORM>
+</table>
+<script banner="JavaScript">
+<!--
+updateini();
+changetypebanner({{type_val}});
+// -->
+</script>

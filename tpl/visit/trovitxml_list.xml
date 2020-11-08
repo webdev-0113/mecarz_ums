@@ -1,0 +1,23 @@
+<ad> 
+	<id><![CDATA[{{id}}]]></id>
+	<url><![CDATA[{{url}}]]></url>
+	<title><![CDATA[{{year}} {{make}} {{model}} {{price}} {{state}}]]></title>
+	<content><![CDATA[{{description}}]]></content>
+	<price currency="USD"><![CDATA[{{price}}]]></price>
+	<make><![CDATA[{{make}}]]></make>
+	<model><![CDATA[{{model}}]]></model>
+	<color><![CDATA[{{extcolor}}]]></color>
+	<year><![CDATA[{{year}}]]></year>
+	<city><![CDATA[{{city}}]]></city>
+	<city_area><![CDATA[{{state}}]]></city_area>
+	<postcode><![CDATA[V6B 1A7]]></postcode>
+	<region><![CDATA[BC]]></region>
+	<mileage><![CDATA[{{miles}}]]></mileage>
+	<doors><![CDATA[5]]></doors>
+	<fuel><![CDATA[{{fueltype}}]]></fuel>
+	<transmission><![CDATA[{{transmission}}]]></transmission>
+	    {{gallery}}
+	<date><![CDATA[{{dateadd}}]]></date>
+	<car_type><![CDATA[{{bodytype}}]]></car_type>
+	<vin_database><![CDATA[{{vin}}]]></vin_database>    
+</ad>

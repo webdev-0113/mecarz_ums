@@ -1,0 +1,309 @@
+
+RewriteEngine On
+
+
+# Fixing duplicate pages after other languages has been removed and to improve seo
+
+RewriteCond %{HTTP_HOST} ^mecarz\.com [nc]
+RewriteRule (.*) http://www.mecarz.com/$1 [R=301,L]
+
+RewriteRule ^([0-9]{1,2})-index.html http://www.mecarz.com/   [R=301,L]
+RewriteRule ^([0-9]{1,2})-index.htm http://www.mecarz.com/   [R=301,L]
+RewriteRule index.html http://www.mecarz.com/   [R=301,L]
+RewriteRule index.htm http://www.mecarz.com/   [R=301,L]
+
+
+
+
+# index page
+
+         RewriteRule index.html index.php
+         RewriteRule index.htm index.php
+
+# cars
+
+         RewriteRule ^([0-9]{1,2})-([0-9]{1,9})_car_(.*).html index.php?language_session=0&p=details&id=$2
+         RewriteRule ^([0-9]{1,2})-vehicle_information_sheet_([0-9]{1,9})_(.*).html index.php?language_session=0&p=vehicle_information&id=$2
+         RewriteRule ^([0-9]{1,2})-signup.html index.php?language_session=0&p=signup
+         RewriteRule ^([0-9]{1,2})-news.html index.php?language_session=0&p=news
+         RewriteRule ^([0-9]{1,2})-faq.html index.php?language_session=0&p=faq
+         RewriteRule ^([0-9]{1,2})-customlinks_([0-9]{1,9})_(.*).html index.php?language_session=0&p=customlinks&id=$2
+         RewriteRule ^([0-9]{1,2})-contact_([0-9]{1,9})_([0-9]{1,9}).html index.php?language_session=0&p=contact&admin=$2&id=$3
+         RewriteRule ^([0-9]{1,2})-search_agent_([0-9]{1,9}).html index.php?language_session=0&submit=Search&p=search&agent=$2
+         RewriteRule ^([0-9]{1,2})-logout.html index.php?language_session=0&p=logout
+         RewriteRule ^([0-9]{1,2})-search_cars_([0-9]{1,9})_(.*).html index.php?language_session=0&p=search&category=$2&name=$3&submit=yes
+         RewriteRule ^([0-9]{1,2})-index-view-cars.html index.php?language_session=0&p=view&reset=1
+         RewriteRule ^([0-9]{1,2})-simplesearch-cars.html index.php?language_session=0&p=search&reset=1
+         RewriteRule ^([0-9]{1,2})-search-cars.html index.php?language_session=0&p=advsearch&o=advsearch1&reset=1&o=advsearch1
+         RewriteRule ^([0-9]{1,2})-all-cars.html index.php?language_session=0&p=search&&submit=Search&reset=2
+         RewriteRule ^([0-9]{1,2})-pagesearch-([0-9]{1,9}).html index.php?language_session=0&p=search&submit=Search&reset=2&page=$2
+         RewriteRule ^([0-9]{1,2})-pageadvsearch-([0-9]{1,9}).html index.php?language_session=0&p=search&submit=Search&reset=2&page=$2
+
+
+         RewriteRule ^index-([0-9]{1,9})-(.*).html index.php?language_session=0
+         RewriteRule ^([0-9]{1,9})_car_(.*).html index.php?p=details&id=$1
+         RewriteRule ^vehicle_information_sheet_([0-9]{1,9})_(.*).html index.php?p=vehicle_information&id=$1
+         RewriteRule ^signup.html index.php?p=signup
+         RewriteRule ^news.html index.php?p=news
+         RewriteRule ^faq.html index.php?p=faq
+         RewriteRule ^customlinks_([0-9]{1,9})_(.*).html index.php?p=customlinks&id=$1
+         RewriteRule ^contact_([0-9]{1,9})_([0-9]{1,9}).html index.php?p=contact&admin=$1&id=$2
+         RewriteRule ^search_agent_([0-9]{1,9}).html index.php?&submit=Search&p=search&agent=$1
+         RewriteRule ^logout.html index.php?p=logout
+         RewriteRule ^search_cars_([0-9]{1,9})_(.*).html index.php?p=search&category=$1&name=$2&submit=yes
+         RewriteRule ^index-view-cars.html index.php?p=view&reset=1
+         RewriteRule ^simplesearch-cars.html index.php?p=search&reset=1
+         RewriteRule ^search-cars.html index.php?p=advsearch&reset=1&o=advsearch1
+         RewriteRule ^all-cars.html index.php?p=search&submit=Search&reset=2
+         RewriteRule ^pagesearch-([0-9]{1,9}).html index.php?p=search&submit=Search&reset=2&page=$1
+         RewriteRule ^pageadvsearch-([0-9]{1,9}).html index.php?p=search&submit=Search&reset=2&page=$1
+         
+         RewriteRule ^([0-9]{1,2})-view_wishlist.html index.php?language_session=0&p=mycars
+         RewriteRule ^view_wishlist.html index.php?p=mycars         
+         
+         RewriteRule ^([0-9]{1,2})-contactus.html index.php?language_session=0&p=contactus
+         RewriteRule ^contactus.html index.php?p=contactus         
+                  
+		 RewriteRule ^sitemap.xml index.php?p=sitemapxml
+
+		 RewriteRule ^searchyear-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&year=$1
+         RewriteRule ^([0-9]{1,2})-searchyear-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&year=$2
+         
+		 RewriteRule ^searchcategory-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&category=$1
+         RewriteRule ^([0-9]{1,2})-searchcategory-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&category=$2
+         
+		 RewriteRule ^searchmake-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&make=$1
+         RewriteRule ^([0-9]{1,2})-searchmake-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&make=$2
+         
+		 RewriteRule ^searchmodel-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&model=$1
+         RewriteRule ^([0-9]{1,2})-searchmodel-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&model=$2  
+                
+		 RewriteRule ^searchcity-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&city=$1
+         RewriteRule ^([0-9]{1,2})-searchcity-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&city=$2         
+         
+		 RewriteRule ^searchcountry-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&country=$1
+         RewriteRule ^([0-9]{1,2})-searchcountry-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&country=$2
+
+	RewriteRule ^([0-9]{1,2})-acura.html /index.php?language_session=0&make=5&submit1=1&p=search
+	RewriteRule ^acura.html /index.php?language_session=0&make=5&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-alfa-romeo.html /index.php?language_session=0&make=6&submit1=1&p=search
+	RewriteRule ^alfa-romeo.html /index.php?language_session=0&make=6&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-ac.html /index.php?language_session=0&make=4&submit1=1&p=search
+	RewriteRule ^ac.html /index.php?language_session=0&make=4&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-skoda.html /index.php?language_session=0&make=100&submit1=1&p=search
+	RewriteRule ^skoda.html /index.php?language_session=0&make=100&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-american-motors.html /index.php?language_session=0&make=8&submit1=1&p=search
+	RewriteRule ^american-motors.html /index.php?language_session=0&make=8&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-aston-martin.html /index.php?language_session=0&make=9&submit1=1&p=search
+	RewriteRule ^aston-martin.html /index.php?language_session=0&make=9&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-audi.html /index.php?language_session=0&make=10&submit1=1&p=search
+	RewriteRule ^audi.html /index.php?language_session=0&make=10&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-austin.html /index.php?language_session=0&make=11&submit1=1&p=search
+	RewriteRule ^austin.html /index.php?language_session=0&make=11&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-avanti.html /index.php?language_session=0&make=13&submit1=1&p=search
+	RewriteRule ^avanti.html /index.php?language_session=0&make=13&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-bentley.html /index.php?language_session=0&make=14&submit1=1&p=search
+	RewriteRule ^bentley.html /index.php?language_session=0&make=14&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-bmw.html /index.php?language_session=0&make=15&submit1=1&p=search
+	RewriteRule ^bmw.html /index.php?language_session=0&make=15&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-bugatti.html /index.php?language_session=0&make=16&submit1=1&p=search
+	RewriteRule ^bugatti.html /index.php?language_session=0&make=16&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-buick.html /index.php?language_session=0&make=17&submit1=1&p=search
+	RewriteRule ^buick.html /index.php?language_session=0&make=17&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-cadillac.html /index.php?language_session=0&make=18&submit1=1&p=search
+	RewriteRule ^cadillac.html /index.php?language_session=0&make=18&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-checker.html /index.php?language_session=0&make=19&submit1=1&p=search
+	RewriteRule ^checker.html /index.php?language_session=0&make=19&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-chevrolet.html /index.php?language_session=0&make=20&submit1=1&p=search
+	RewriteRule ^chevrolet.html /index.php?language_session=0&make=20&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-chrysler.html /index.php?language_session=0&make=21&submit1=1&p=search
+	RewriteRule ^chrysler.html /index.php?language_session=0&make=21&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-citroen.html /index.php?language_session=0&make=22&submit1=1&p=search
+	RewriteRule ^citroen.html /index.php?language_session=0&make=22&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-daewoo.html /index.php?language_session=0&make=23&submit1=1&p=search
+	RewriteRule ^daewoo.html /index.php?language_session=0&make=23&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-daihatsu.html /index.php?language_session=0&make=24&submit1=1&p=search
+	RewriteRule ^daihatsu.html /index.php?language_session=0&make=24&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-datsun.html /index.php?language_session=0&make=25&submit1=1&p=search
+	RewriteRule ^datsun.html /index.php?language_session=0&make=25&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-detomaso.html /index.php?language_session=0&make=26&submit1=1&p=search
+	RewriteRule ^detomaso.html /index.php?language_session=0&make=26&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-delorean.html /index.php?language_session=0&make=27&submit1=1&p=search
+	RewriteRule ^delorean.html /index.php?language_session=0&make=27&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-dodge.html /index.php?language_session=0&make=29&submit1=1&p=search
+	RewriteRule ^dodge.html /index.php?language_session=0&make=29&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-eagle.html /index.php?language_session=0&make=30&submit1=1&p=search
+	RewriteRule ^eagle.html /index.php?language_session=0&make=30&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-edsel.html /index.php?language_session=0&make=31&submit1=1&p=search
+	RewriteRule ^edsel.html /index.php?language_session=0&make=31&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-ferrari.html /index.php?language_session=0&make=33&submit1=1&p=search
+	RewriteRule ^ferrari.html /index.php?language_session=0&make=33&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-fiat.html /index.php?language_session=0&make=34&submit1=1&p=search
+	RewriteRule ^fiat.html /index.php?language_session=0&make=34&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-ford.html /index.php?language_session=0&make=35&submit1=1&p=search
+	RewriteRule ^ford.html /index.php?language_session=0&make=35&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-gmc.html /index.php?language_session=0&make=37&submit1=1&p=search
+	RewriteRule ^gmc.html /index.php?language_session=0&make=37&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-geo.html /index.php?language_session=0&make=39&submit1=1&p=search
+	RewriteRule ^geo.html /index.php?language_session=0&make=39&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-honda.html /index.php?language_session=0&make=40&submit1=1&p=search
+	RewriteRule ^honda.html /index.php?language_session=0&make=40&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-hummer.html /index.php?language_session=0&make=42&submit1=1&p=search
+	RewriteRule ^hummer.html /index.php?language_session=0&make=42&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-hyundai.html /index.php?language_session=0&make=44&submit1=1&p=search
+	RewriteRule ^hyundai.html /index.php?language_session=0&make=44&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-infiniti.html /index.php?language_session=0&make=45&submit1=1&p=search
+	RewriteRule ^infiniti.html /index.php?language_session=0&make=45&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-international.html /index.php?language_session=0&make=46&submit1=1&p=search
+	RewriteRule ^international.html /index.php?language_session=0&make=46&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-isuzu.html /index.php?language_session=0&make=47&submit1=1&p=search
+	RewriteRule ^isuzu.html /index.php?language_session=0&make=47&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-jaguar.html /index.php?language_session=0&make=48&submit1=1&p=search
+	RewriteRule ^jaguar.html /index.php?language_session=0&make=48&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-jeep.html /index.php?language_session=0&make=49&submit1=1&p=search
+	RewriteRule ^jeep.html /index.php?language_session=0&make=49&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-jensen.html /index.php?language_session=0&make=50&submit1=1&p=search
+	RewriteRule ^jensen.html /index.php?language_session=0&make=50&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-kia.html /index.php?language_session=0&make=52&submit1=1&p=search
+	RewriteRule ^kia.html /index.php?language_session=0&make=52&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-lamborghini.html /index.php?language_session=0&make=54&submit1=1&p=search
+	RewriteRule ^lamborghini.html /index.php?language_session=0&make=54&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-land-rover.html /index.php?language_session=0&make=55&submit1=1&p=search
+	RewriteRule ^land-rover.html /index.php?language_session=0&make=55&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-lexus.html /index.php?language_session=0&make=56&submit1=1&p=search
+	RewriteRule ^lexus.html /index.php?language_session=0&make=56&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-lincoln.html /index.php?language_session=0&make=57&submit1=1&p=search
+	RewriteRule ^lincoln.html /index.php?language_session=0&make=57&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-lotus.html /index.php?language_session=0&make=58&submit1=1&p=search
+	RewriteRule ^lotus.html /index.php?language_session=0&make=58&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-maserati.html /index.php?language_session=0&make=60&submit1=1&p=search
+	RewriteRule ^maserati.html /index.php?language_session=0&make=60&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-maybach.html /index.php?language_session=0&make=61&submit1=1&p=search
+	RewriteRule ^maybach.html /index.php?language_session=0&make=61&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-mazda.html /index.php?language_session=0&make=62&submit1=1&p=search
+	RewriteRule ^mazda.html /index.php?language_session=0&make=62&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-mercedesbenz.html /index.php?language_session=0&make=63&submit1=1&p=search
+	RewriteRule ^mercedesbenz.html /index.php?language_session=0&make=63&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-mercury.html /index.php?language_session=0&make=64&submit1=1&p=search
+	RewriteRule ^mercury.html /index.php?language_session=0&make=64&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-merkur.html /index.php?language_session=0&make=65&submit1=1&p=search
+	RewriteRule ^merkur.html /index.php?language_session=0&make=65&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-mini.html /index.php?language_session=0&make=66&submit1=1&p=search
+	RewriteRule ^mini.html /index.php?language_session=0&make=66&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-mitsubishi.html /index.php?language_session=0&make=67&submit1=1&p=search
+	RewriteRule ^mitsubishi.html /index.php?language_session=0&make=67&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-morgan.html /index.php?language_session=0&make=68&submit1=1&p=search
+	RewriteRule ^morgan.html /index.php?language_session=0&make=68&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-morris.html /index.php?language_session=0&make=69&submit1=1&p=search
+	RewriteRule ^morris.html /index.php?language_session=0&make=69&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-nissan.html /index.php?language_session=0&make=71&submit1=1&p=search
+	RewriteRule ^nissan.html /index.php?language_session=0&make=71&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-oldsmobile.html /index.php?language_session=0&make=72&submit1=1&p=search
+	RewriteRule ^oldsmobile.html /index.php?language_session=0&make=72&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-opel.html /index.php?language_session=0&make=73&submit1=1&p=search
+	RewriteRule ^opel.html /index.php?language_session=0&make=73&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-panoz.html /index.php?language_session=0&make=75&submit1=1&p=search
+	RewriteRule ^panoz.html /index.php?language_session=0&make=75&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-peugeot.html /index.php?language_session=0&make=76&submit1=1&p=search
+	RewriteRule ^peugeot.html /index.php?language_session=0&make=76&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-plymouth.html /index.php?language_session=0&make=77&submit1=1&p=search
+
+	RewriteRule ^plymouth.html /index.php?language_session=0&make=77&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-pontiac.html /index.php?language_session=0&make=78&submit1=1&p=search
+	RewriteRule ^pontiac.html /index.php?language_session=0&make=78&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-porsche.html /index.php?language_session=0&make=79&submit1=1&p=search
+	RewriteRule ^porsche.html /index.php?language_session=0&make=79&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-qvale.html /index.php?language_session=0&make=80&submit1=1&p=search
+	RewriteRule ^qvale.html /index.php?language_session=0&make=80&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-renault.html /index.php?language_session=0&make=81&submit1=1&p=search
+	RewriteRule ^renault.html /index.php?language_session=0&make=81&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-rollsroyce.html /index.php?language_session=0&make=82&submit1=1&p=search
+	RewriteRule ^rollsroyce.html /index.php?language_session=0&make=82&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-rover.html /index.php?language_session=0&make=83&submit1=1&p=search
+	RewriteRule ^rover.html /index.php?language_session=0&make=83&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-saab.html /index.php?language_session=0&make=84&submit1=1&p=search
+	RewriteRule ^saab.html /index.php?language_session=0&make=84&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-saleen.html /index.php?language_session=0&make=85&submit1=1&p=search
+	RewriteRule ^saleen.html /index.php?language_session=0&make=85&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-saturn.html /index.php?language_session=0&make=86&submit1=1&p=search
+	RewriteRule ^saturn.html /index.php?language_session=0&make=86&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-scion.html /index.php?language_session=0&make=87&submit1=1&p=search
+	RewriteRule ^scion.html /index.php?language_session=0&make=87&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-smart.html /index.php?language_session=0&make=88&submit1=1&p=search
+	RewriteRule ^smart.html /index.php?language_session=0&make=88&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-sterling.html /index.php?language_session=0&make=89&submit1=1&p=search
+	RewriteRule ^sterling.html /index.php?language_session=0&make=89&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-subaru.html /index.php?language_session=0&make=91&submit1=1&p=search
+	RewriteRule ^subaru.html /index.php?language_session=0&make=91&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-sunbeam.html /index.php?language_session=0&make=92&submit1=1&p=search
+	RewriteRule ^sunbeam.html /index.php?language_session=0&make=92&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-suzuki.html /index.php?language_session=0&make=93&submit1=1&p=search
+	RewriteRule ^suzuki.html /index.php?language_session=0&make=93&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-toyota.html /index.php?language_session=0&make=94&submit1=1&p=search
+	RewriteRule ^toyota.html /index.php?language_session=0&make=94&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-volkswagen.html /index.php?language_session=0&make=96&submit1=1&p=search
+	RewriteRule ^volkswagen.html /index.php?language_session=0&make=96&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-volvo.html /index.php?language_session=0&make=97&submit1=1&p=search
+	RewriteRule ^volvo.html /index.php?language_session=0&make=97&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-yugo.html /index.php?language_session=0&make=99&submit1=1&p=search
+	RewriteRule ^yugo.html /index.php?language_session=0&make=99&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-seat.html /index.php?language_session=0&make=101&submit1=1&p=search
+	RewriteRule ^seat.html /index.php?language_session=0&make=101&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-uae.html /index.php?language_session=0&country=1&submit1=1&p=search
+	RewriteRule ^uae.html /index.php?language_session=0&country=1&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-jordan.html /index.php?language_session=0&country=2&submit1=1&p=search
+	RewriteRule ^jordan.html /index.php?language_session=0&country=2&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-kuwait.html /index.php?language_session=0&country=3&submit1=1&p=search
+	RewriteRule ^kuwait.html /index.php?language_session=0&country=3&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-egypt.html /index.php?language_session=0&country=4&submit1=1&p=search
+	RewriteRule ^egypt.html /index.php?language_session=0&country=4&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-qatar.html /index.php?language_session=0&country=5&submit1=1&p=search
+	RewriteRule ^qatar.html /index.php?language_session=0&country=5&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-bahrain.html /index.php?language_session=0&country=6&submit1=1&p=search
+	RewriteRule ^bahrain.html /index.php?language_session=0&country=6&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-algeria.html /index.php?language_session=0&country=7&submit1=1&p=search
+	RewriteRule ^algeria.html /index.php?language_session=0&country=7&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-saudi-arabia.html /index.php?language_session=0&country=8&submit1=1&p=search
+	RewriteRule ^saudi-arabia.html /index.php?language_session=0&country=8&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-lebanon.html /index.php?language_session=0&country=9&submit1=1&p=search
+	RewriteRule ^lebanon.html /index.php?language_session=0&country=9&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-syria.html /index.php?language_session=0&country=10&submit1=1&p=search
+	RewriteRule ^syria.html /index.php?language_session=0&country=10&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-oman.html /index.php?language_session=0&country=11&submit1=1&p=search
+	RewriteRule ^oman.html /index.php?language_session=0&country=11&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-iraq.html /index.php?language_session=0&country=12&submit1=1&p=search
+	RewriteRule ^iraq.html /index.php?language_session=0&country=12&submit1=1&p=search
+
+	RewriteRule ^([0-9]{1,2})-iran.html /index.php?language_session=0&country=13&submit1=1&p=search
+	RewriteRule ^iran.html /index.php?language_session=0&country=13&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-libya.html /index.php?language_session=0&country=14&submit1=1&p=search
+	RewriteRule ^libya.html /index.php?language_session=0&country=14&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-morocco.html /index.php?language_session=0&country=15&submit1=1&p=search
+	RewriteRule ^morocco.html /index.php?language_session=0&country=15&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-palestine.html /index.php?language_session=0&country=16&submit1=1&p=search
+	RewriteRule ^palestine.html /index.php?language_session=0&country=16&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-tunisia.html /index.php?language_session=0&country=17&submit1=1&p=search
+	RewriteRule ^tunisia.html /index.php?language_session=0&country=17&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-yemen.html /index.php?language_session=0&country=18&submit1=1&p=search
+	RewriteRule ^yemen.html /index.php?language_session=0&country=18&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-italy.html /index.php?language_session=0&country=19&submit1=1&p=search
+	RewriteRule ^italy.html /index.php?language_session=0&country=19&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-united-kingdom.html /index.php?language_session=0&country=20&submit1=1&p=search
+	RewriteRule ^united-kingdom.html /index.php?language_session=0&country=20&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-germany.html /index.php?language_session=0&country=21&submit1=1&p=search
+	RewriteRule ^germany.html /index.php?language_session=0&country=21&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-france.html /index.php?language_session=0&country=22&submit1=1&p=search
+	RewriteRule ^france.html /index.php?language_session=0&country=22&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-spain.html /index.php?language_session=0&country=23&submit1=1&p=search
+	RewriteRule ^spain.html /index.php?language_session=0&country=23&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-usa.html /index.php?language_session=0&country=24&submit1=1&p=search
+	RewriteRule ^usa.html /index.php?language_session=0&country=24&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-canada.html /index.php?language_session=0&country=25&submit1=1&p=search
+	RewriteRule ^canada.html /index.php?language_session=0&country=25&submit1=1&p=search
+	RewriteRule ^([0-9]{1,2})-india.html /index.php?language_session=0&country=26&submit1=1&p=search
+	RewriteRule ^india.html /index.php?language_session=0&country=26&submit1=1&p=search
+
+
+ 
+
+         

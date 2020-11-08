@@ -1,0 +1,60 @@
+         <table border=0 width="100%" class="tabel" cellpadding="2" cellspacing="2">
+         <FORM  action="index.php" method="POST" name="formarticle" enctype="multipart/form-data">
+         <input type=hidden name=p value="{{p}}">
+         <input type=hidden name=o value="{{o}}">
+          <tr class="class_temp1">
+             <td colspan="2" align="center" class="msg">
+              {{tpl_auto_Importall}}
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr>
+             <td height=1 width="30%" align="center">
+             </td>
+             <td height=1 align="center">
+             </td>
+          </tr>
+          <tr class="class_temp1">
+             <td width="30%">
+             <b>{{tpl_auto_Ignore_first_line}}</b>
+             </td>
+             <td>
+               <input type="checkbox" value=1 name="input_ignorefirst" {{ignorefirst}}>
+             </td>
+          </tr>
+          <tr class="class_temp2">
+             <td width="30%">
+             <b>{{tpl_auto_Fields_terminated_by}}</b>
+             </td>
+             <td>
+               <input type="text" name="input_terminatedby" size="40" value="{{terminatedby}}">
+             </td>
+          </tr>
+          <tr class="class_temp1">
+             <td width="30%">
+             <b>{{tpl_auto_Fields_enclosed_by}}</b>
+             </td>
+             <td>
+               <input type="text" name="input_enclosedby" size="40" value="{{enclosedby}}">
+             </td>
+          </tr>          
+          <tr class="class_temp2">
+             <td width="30%">
+             <b>{{tpl_auto_File}}</b>
+             </td>
+             <td>
+              <input type=file name="input_importfile" size=35>
+             </td>
+          </tr>
+          <tr class="class_temp1">
+             <td colspan="2" align="center">
+               <input type=submit name=submit value="{{tpl_auto_Import}}">
+               <input type=reset name=submit value="{{tpl_auto_Reset}}">
+             </td>
+          </tr>
+          </FORM>
+         </table>

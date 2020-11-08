@@ -1,0 +1,47 @@
+<script language="JavaScript">
+<!--
+  function change{{tpl_input_name}}(selected_model_id,makevar) {
+    modelsID = new Array();
+    modelsArray = new Array();
+    {{modelsArray}}
+    myArray=modelsArray;
+    myForm=document.formarticle;
+    var arrayLength = modelsID.length;
+    var selMakeIndex = makevar.selectedIndex;
+    var selMake = makevar.options[selMakeIndex].value;
+    var modelIndex=0;
+    document.formarticle.{{tpl_input_name}}.options.length = 0;
+    for (var i=0;i<arrayLength;i++)  //For all makes
+    {
+      var mkSplitArray =  modelsID[i];
+      if (selMake == mkSplitArray)  // For the choosen make
+      {
+        for (var j=0;j<myArray[mkSplitArray].length;j++) //For all the models within
+        {
+          var splitArray = myArray[mkSplitArray][j].split("|");
+          var modelName = splitArray[1];
+          var modelId = splitArray[0];
+
+            myForm.{{tpl_input_name}}.options[modelIndex] =   new Option (modelName, modelId);
+            if (selected_model_id == modelId)
+            {
+              myForm.{{tpl_input_name}}.selectedIndex = modelIndex;
+            }
+            modelIndex++;
+        } // for j
+        break;
+      }
+    } // for i
+  }
+//-->
+</script>
+          <tr class="{{class_temp}}">
+             <td width="30%">
+               <b>{{tpl_name}}</b>
+             </td>
+             <td>
+               <select name="{{tpl_input_name}}" size="1" {{onchange}}>
+               {{tpl_input_name_val}}
+               </select>
+             </td>
+          </tr>

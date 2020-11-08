@@ -1,0 +1,102 @@
+<script type="text/javascript">
+<!--
+function Mody_check(val) {
+list=document.form_search.elements;
+nrMAX=list.length-1;
+if (val==-1) for (i=0;i<nrMAX;i++) list[i].checked = !list[i].checked;
+if (val== 0) for (i=0;i<nrMAX;i++) list[i].checked = false;
+if (val== 1) for (i=0;i<nrMAX;i++) list[i].checked = true;
+}
+function submit_form() {
+   if (confirm("{{tpl_auto_Are_you_sure_you_want_to_delete_all}}")) {
+                       document.form_search.o.value='{{o}}';
+       return true;
+   }else{
+       return false;
+   }
+}
+function activate_form() {
+   if (confirm("{{tpl_auto_Are_you_sure_you_want_to_activate_all}}")) {
+                       document.form_search.o.value='activate';
+       return true;
+   }else{
+       return false;
+   }
+}
+function deactivate_form() {
+   if (confirm("{{tpl_auto_Are_you_sure_you_want_to_deactivate_all}}")) {
+                       document.form_search.o.value='deactivate';
+       return true;
+   }else{
+       return false;
+   }
+}
+function sold_form() {
+   if (confirm("{{tpl_auto_Are_you_sure_you_want_to_activate_all_as_sold}}")) {
+                       document.form_search.o.value='sold';
+       return true;
+   }else{
+       return false;
+   }
+}
+
+// -->
+</script>
+<FORM method="POST" name="form_search" action="index.php">
+<input type=hidden name=p value={{p}}>
+<input type=hidden name=o>
+<input type=hidden name=oid value="{{config_auto_oid}}">
+<input type=hidden name='{{searchfor}}' value="{{searchforvalue}}">
+
+      <table align="center" cellpadding="2" cellspacing="2" class="tabel">
+          <tr align="center">
+             <td colspan="{{colspan}}" align="center">
+              {{error}}
+              {{error1}}
+             </td>
+          </tr>
+          <tr align="center">
+             <td colspan="{{colspan}}" align="center" class="msg">
+              {{tpl_auto_View_Edit_Delete}} {{auto_option}}:
+             </td>
+          </tr>
+          <tr>
+          <td colspan="{{colspan}}">
+              {{resultnr}}
+              {{pageout}}
+          </td>
+          </tr>
+          <tr class="class_temp1"{{class}}>
+             <td width="2%" align="center"{{class}}>
+               {{tpl_auto_Select}}
+             </td>
+             {{option_fields}}
+          </tr>
+          {{result}}
+          <tr>
+          <td colspan="{{colspan}}">
+              {{pageout}}
+              {{resultnr}}
+          </td>
+          </tr>
+          <tr>
+            <td colspan="{{colspan}}">
+              <a href="javascript:Mody_check(1) " class="submit"><B>{{tpl_auto_Mark_All}}</B></a>&nbsp;::
+              <a href="javascript:Mody_check(0) " class="submit"><B>{{tpl_auto_Unmark_all}}</B></a>&nbsp;
+            </td>
+          <tr>
+             <td colspan="{{colspan}}" align="left">
+             <p class="submit">
+               <input type=submit name=submit value="{{tpl_auto_Delete}}" onClick="return submit_form();"{{config_auto_deletedelete}}>
+               {{multiple_options}}
+               <input type=reset name=submit value="{{tpl_auto_Reset}}">
+             </p>
+             </td>
+          </tr>
+          <tr>
+             <td colspan="{{colspan}}" align="left">
+              {{explain}}
+             </td>
+          </tr>
+         </table>
+</form>

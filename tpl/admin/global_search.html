@@ -1,0 +1,49 @@
+<script type="text/javascript">
+<!--
+function searchshowmeall(ii) {
+ for(var i=1;i<ii;i++){
+ 	document.getElementById('idsearch'+i).style.display='';
+ }
+ document.getElementById('idsearch').style.display='none';
+}
+//-->
+</script>
+<FORM  action="index.php" method="POST" action="" name="formarticle" >
+<input type=hidden name=p value="{{p}}">
+<input type=hidden name=o value="{{o}}">
+<input type=hidden name=oid value="{{config_auto_oid}}">
+      
+<table width="90%" border="0" cellpadding="5" cellspacing="5" class="tabel">
+<tr>
+  <td>
+    <table width="100%" border="0"  cellspacing="2" cellpadding="3">
+      <tr class="class_temp1">
+        <td  colspan="2" align="center" class="msg">
+          <b>{{tpl_auto_Search}}</b>
+        </td>
+      </tr>
+          <tr>
+             <td height=1 width="40%" align="center">
+             </td>
+             <td height=1 align="center">
+             </td>
+          </tr>
+      {{option}}
+      {{enddivsearch}}
+      <tr class="class_temp2" id="idsearch" {{startdivsearch}}>
+        <td colspan="2" align="center">
+            <a href="javascript:void(0);" onclick="searchshowmeall('{{i}}')">{{tpl_auto_show_me_alloptions}}</a>
+        </td>
+      </tr>      
+      <tr class="class_temp2"  >
+        <td colspan="2" align="center">
+            <input type="submit" name="search" value="{{tpl_auto_Search}}">
+            <input type="submit" name="search" value="{{tpl_auto_Clear_Filter}}" 
+onclick="window.location='index.php?p={{p}}&amp;o=search&amp;page=0';return false;">
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</form>

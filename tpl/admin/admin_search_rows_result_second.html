@@ -1,0 +1,37 @@
+       <FORM method="POST" name="form_search">
+       <input type=hidden name=p value={{p}}>
+       <input type=hidden name=o value={{o}}>
+         <input type=hidden name=oid value="{{config_auto_oid}}">
+
+         <table align="center" border=0 width="60%" cellpadding="2" cellspacing="2" class="tabel">
+          <tr align="center">
+             <td colspan="5" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr align="center">
+             <td colspan="5" align="center" class="msg">
+              {{tpl_auto_View_Edit_Delete}} {{tpl_auto_admin}}:
+             </td>
+          </tr>
+
+          <tr class="class_temp1">
+             <td width="2%" align="center">
+               {{tpl_auto_Select}}
+             </td>
+             <td align="center" width="2%">
+               {{id}}
+             </td>
+             <td align="center" width="10%">
+               {{right}}
+             </td>
+             <td align="center" width="10%">
+               {{username}}
+             </td>
+             <td align="center" width="8%">
+               {{tpl_auto_Edit}}
+             </td>
+          </tr>
+          {{result}}
+         </table>
+       </FORM>         

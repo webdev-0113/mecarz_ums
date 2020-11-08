@@ -1,0 +1,91 @@
+<!--hide-->
+<form method=get action=index.php name="formarticle1" id="formarticle1">
+ <table cellspacing=1 cellpadding=1 align="right" border=0>
+    <tr>
+      <td><strong>{{tpl_auto_orderby}}</strong>&nbsp;
+        <select name="orderby" size="1" onchange="document.getElementById('formarticle1').submit();">
+         {{orderby}}
+        </select>
+      </td>
+      <td><strong>{{tpl_auto_method}}</strong>&nbsp;
+       <select name="method" size="1" onchange="document.getElementById('formarticle1').submit();">
+        {{method}}
+        </select>
+       </td>
+    </tr>
+    <tr style="display:none;visibility:hidden;">
+     <td style="display:none;visibility:hidden;">
+      <select name="country" size="1" style="display:none;visibility:hidden;">
+            <option value="">...</option>
+            {{country}}
+      </select>
+      <select name="state" size="1" style="display:none;visibility:hidden;">
+            <option value="">...</option>
+            {{state}}
+      </select>
+      <select name="city" size="1" style="display:none;visibility:hidden;">
+            <option value="">...</option>
+            {{city}}
+      </select>  
+      <select name="admin" size="1" style="display:none;visibility:hidden;">
+            <option value="">...</option>
+            {{admin}}
+      </select>           
+      <select name="category" size="1" style="display:none;visibility:hidden;">
+            <option>...</option>
+            {{category}}
+      </select>
+      <select name="make" size="1" style="display:none;visibility:hidden;">
+            <option>...</option>
+            {{make}}
+      </select>
+      <select name="model" size="1" style="display:none;visibility:hidden;">
+      <option>...</option>
+        {{model}}
+      </select>
+      <select name="fueltype" size="1" style="display:none;visibility:hidden;">
+      <option>...</option>
+        {{fueltype}}
+      </select>
+
+      <select name="typeofvehicle" size="1" style="display:none;visibility:hidden;">
+      <option>...</option>
+        {{typeofvehicle}}
+      </select>
+      <select name="doors" size="1" style="display:none;visibility:hidden;">
+      <option>...</option>
+        {{doors}}
+      </select>
+      <select name="classifyemissions" size="1" style="display:none;visibility:hidden;">
+      <option>...</option>
+        {{classifyemissions}}
+      </select>
+      <select name="gearbox" size="1" style="display:none;visibility:hidden;">
+      <option>...</option>
+        {{gearbox}}
+      </select>
+      <select name="climaticcontrol" size="1" style="display:none;visibility:hidden;">
+      <option>...</option>
+        {{climaticcontrol}}
+      </select>                              
+
+      <select name="year" size="1" style="display:none;visibility:hidden;">
+      <option value=''>...</option>
+        {{year}}
+      </select> 
+
+      <input type="hidden" name="price" value="{{price}}">
+      <input type="hidden" name="price1" value="{{price1}}">
+      <input type="hidden" name="miles" value="{{miles}}">
+      <input type="hidden" name="miles1" value="{{miles1}}">
+      <input type="hidden" name="power" value="{{power}}">
+      <input type="hidden" name="id" value="{{id}}">
+      <input type="hidden" name="features" value="{{features}}">
+      <input type="hidden" name="submit1" value="search">
+      <input type="hidden" name="p" value="{{p}}">
+      <input type="checkbox" name="gallery" {{gallery}} value="checked" style="display:none;visibility:hidden;">
+     </td>
+    </tr>
+</table>
+</form>
+<!--hide-->

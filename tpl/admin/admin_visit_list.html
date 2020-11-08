@@ -1,0 +1,23 @@
+ <TABLE  cellSpacing=0 cellPadding=0 border=0 width="100%"><TBODY>
+  <TR> 
+    <TD class=tableHeadingBold>{{tpl_auto_Referrers}}</TD>
+    <TD class=tableHeadingBold align="right" style="font-size:9px;"> <a href="javascript:void(0);" onclick="funcaccstats('referrers&orderby=unique','idReferrers',this,'{{tpl_auto_Loading}}');"{{signsort_unique}}>{{tpl_auto_Unique}}</a>&nbsp; 
+      <a href="javascript:void(0);" onclick="funcaccstats('referrers&orderby=recent','idReferrers',this,'{{tpl_auto_Loading}}');"{{signsort_recent}}>{{tpl_auto_Most_Recent}}</a>&nbsp; 
+      <a href="javascript:void(0);" onclick="funcaccstats('referrers&orderby=repeat','idReferrers',this,'{{tpl_auto_Loading}}');"{{signsort_repeat}}>{{tpl_auto_Repeat}}</a> 
+    </TD>
+  </TR>
+  <TR> 
+    <TD colspan="2" width="100%"> <TABLE  cellSpacing=0 cellPadding=0 width="100%"
+					      border=0><TBODY>
+        <TR> 
+          <TD> <TABLE cellSpacing=0 cellPadding=0 border=0 width="100%">
+              <TBODY>
+                <TR> 
+                  <TD class=tableHeadingBold>{{tpl_auto_fromreferer}}</TD>
+                  <TD class=tableHeadingBold>{{tpl_auto_info}}</TD>
+                </TR>
+              {{repeats}} </TBODY> </TABLE></TD>
+        </TR></TBODY>
+      </TABLE></TD>
+  </TR></TBODY>
+</TABLE>

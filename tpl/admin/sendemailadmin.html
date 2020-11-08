@@ -1,0 +1,162 @@
+
+<script type="text/javascript">
+<!--
+  function verifyForm(theForm) {
+                var msg='';
+
+                if ( (theForm.input_send.value=='') && (theForm.send_to_all.checked==false) ){
+                      msg='{{tpl_auto_please_and_email_to_send_or_check_to_send_to_all_admin}}'
+                      theForm.input_send.focus();
+                }else
+            if ( (theForm.send_to_all.checked==false) && ((theForm.input_send.value.indexOf('@')<1)||
+            (theForm.input_send.value.indexOf('@')>(theForm.input_send.value.length - 5))||
+            (theForm.input_send.value.indexOf('.')<1)) ){
+                    msg='{{tpl_auto_please_type_email_address_valid}}'
+                    theForm.input_send.focus();
+            }
+                else
+                if ( (theForm.send_to_all.checked) && (theForm.sendtoadmin.value=='') ){
+                      msg='{{tpl_auto_please_select_a_group}}'
+                      theForm.input_send.focus();
+                }else
+                if(theForm.input_from.value==''){
+                      msg='{{tpl_auto_please_type_from_name}}'
+                      theForm.input_from.focus();
+                }else
+                if(theForm.input_fromemail.value==''){
+                      msg='{{tpl_auto_please_type_fromemail}}'
+                      theForm.input_fromemail.focus();
+                }else
+            if ( (theForm.input_fromemail.value!='') && ((theForm.input_fromemail.value.indexOf('@')<1)||
+            (theForm.input_fromemail.value.indexOf('@')>(theForm.input_fromemail.value.length - 5))||
+            (theForm.input_fromemail.value.indexOf('.')<1)) ){
+                    msg='{{tpl_auto_please_type_email_address_valid}}'
+                    theForm.input_fromemail.focus();
+            }
+                else
+                if(theForm.input_subject.value==''){
+                      msg='{{tpl_auto_please_type_subject}}'
+                      theForm.input_subject.focus();
+                }
+
+          if(msg!=''){
+                  alert(msg);
+                  return false
+          }
+  }
+
+// -->
+</script>
+<FORM  action="index.php" method="POST" name="formsendemail" enctype="multipart/form-data" onSubmit="return verifyForm(this);">
+         <input type=hidden name=p value="sendemailadmin">
+         <input type=hidden name=o value="sendemailadmin1">
+         <table border=0 width="100%" class="tabel">
+          <tr class="class_temp1">
+             <td colspan="2" align="center" class="msg">
+              {{tpl_auto_Send_Email_Admin}}
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+              {{tpl_auto_message_send_email_attention}}
+             </td>
+          </tr>
+          <tr>
+             <td colspan="2" align="center">
+              {{error}}
+             </td>
+          </tr>
+          <tr>
+             <td height=1 width="30%" align="center">
+             </td>
+             <td height=1 align="center">
+             </td>
+          </tr>
+
+                                        <tr class="class_temp1">
+                                                <td>
+                                                        <b>{{tpl_auto_Send_to}}</b>
+                                                </td>
+                                                <td>
+                                                        <input type="text" name="input_send" size="40" value="{{input_send_val}}">
+                                                        <input type="checkbox" value=1 name="send_to_all"> {{tpl_auto_Check_this_to_send_to_all_admin}}
+
+                                                </td>
+                                        </tr>
+                                        <tr class="class_temp2">
+                                                <td>
+                                                        <b>{{tpl_auto_group}}</b>
+                                                </td>
+                                                <td>
+                                                        <select name="sendtoadmin">
+                                                        <option value=''>{{tpl_auto_Select}}</option>
+                                                        <option value="alllisting">{{tpl_auto_send_a_e_mail_to_all_users_}}</option>
+                                                        <option value="nolisting">{{tpl_auto_send_a_e_mail_to_the_users_without_listing}}</option>
+                                                        <option value="withlisting">{{tpl_auto_send_a_e_mail_to_the_users_with_listing}}</option>
+                                                        <option value="profilelisting">{{tpl_auto_send_a_e_mail_to_the_users_from_profile}}</option>
+                                                        <option value="rights">{{tpl_auto_send_a_e_mail_to_the_users_from_profile}} {{tpl_auto_rights}}</option>
+                                                        </select>
+
+                                                </td>
+                                        </tr>
+                                        <tr class="class_temp1">
+                                                <td>
+                                                        <b>{{tpl_auto_adprofiles}}</b>
+                                                </td>
+                                                <td>
+                                                        <select name="profiles">
+                                                        <option value=''>{{tpl_auto_Select}}</option>
+                                                        {{profiles}}</select>
+
+                                                </td>
+                                        </tr> 
+                                        <tr class="class_temp1">
+                                                <td>
+                                                        <b>{{tpl_auto_rights}}</b>
+                                                </td>
+                                                <td>
+                                                        <select name="rights">
+                                                        <option value=''>{{tpl_auto_Select}}</option>
+                                                        {{rights}}</select>
+
+                                                </td>
+                                        </tr> 
+                                        <tr class="class_temp2">
+                                                <td>
+                                                        <b>{{tpl_auto_From_Name}}</b>
+                                                </td>
+                                                <td>
+                                                        <input type="text" name="input_from" size="40" value="{{input_from_val}}">
+                                                </td>
+                                        </tr>
+
+                                        <tr class="class_temp1">
+                                                <td>
+                                                        <b>{{tpl_auto_From_Emal}}</b>
+                                                </td>
+                                                <td>
+                                                        <input type="text" name="input_fromemail" size="40" value="{{input_fromemail_val}}">
+                                                </td>
+                                        </tr>
+
+                                        <tr class="class_temp2">
+                                                <td>
+                                                        <b>{{tpl_auto_Subject}}</b>
+                                                </td>
+                                                <td>
+                                                        <input type="text" name="input_subject" size="40" value="{{input_subject_val}}">
+                                                </td>
+                                        </tr>
+
+          {{textarea}}
+
+          <tr class="class_temp2">
+             <td colspan="2" align="center">
+             <p class="submit">
+               <input type=submit name=submit value="{{tpl_auto_Send_Email_Admin}}">
+               <input type=reset name=submit value="{{tpl_auto_Reset}}">
+             </p>
+             </td>
+          </tr>
+         </table>
+          </FORM>

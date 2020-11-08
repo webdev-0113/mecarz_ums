@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html;charset={{tpl_auto_metacharset}}">
+  <title>{{titlesite}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="Keywords" content="{{keywords}}">
+  <link rel='stylesheet' href='{{tpl_auto_css}}' type='text/css'>
+  <script type="text/javascript" src="javascript/common.js"></script>
+  <script src="{{config_auto_http}}js.php" type="text/javascript" language="javascript"></script>  
+<script type="text/javascript">
+<!--
+function format(val, len, decimal){
+ var scale = 1;
+        if (decimal == null){
+        decimal = 1;
+        }
+        for (i = 0; i <= decimal; i++){
+        scale *= 10;
+        }
+ var str = "" + Math.round(parseFloat(val) * scale);
+        if (str.length == 0 || str == "0") {
+        str = "000";
+        }
+ i = len - str.length;
+        if (scale != 1){
+        i--;
+                while (0 < i--){
+                str = " " + str;
+                }
+        }
+        if (scale != 1) {
+        var p = len - decimal - 2;
+        var a = str.substring(0, p);
+        var b = str.substring(p, len);
+        return a + "." + b;
+        }
+        return str;
+}
+
+function func_payment(form){
+ var msrp = (document.forms[0].price.value)
+ //msrp = msrp.replace(/,/, ""); msrp = msrp.replace(/\{{currency}}/, "");
+ var months = (document.forms[0].payments.options[document.forms[0].payments.selectedIndex].value)
+ //months = months.replace(/,/, ""); months = months.replace(/\{{currency}}/, "");
+ var i = (document.forms[0].interest.options[document.forms[0].interest.selectedIndex].value)
+        if (i > 1.0) {
+        i = i / 100.0;
+        }
+ i /= 12;
+ var downPmt = (document.forms[0].downPmt.value)
+ //downPmt = downPmt.replace(/,/, ""); downPmt = downPmt.replace(/\{{currency}}/, "");
+
+ var loanAmount = (msrp - downPmt)
+ var pv = 1;
+        for (var month = 0; month < months; month++){
+        pv = pv * (1 + i);
+        n = (loanAmount * pv * i) / (pv - 1);
+        }
+// document.forms[0].payment.value = format(n, 7, 1);
+newPayment = format(n, 20, 1);
+payment.innerHTML=newPayment;
+}
+
+// -->
+  </script>
+</head>
+<body bgcolor="#ffffff" onload="self.focus;func_payment(document.formpayment)">
+<center>
+{{header}}
+<form name="formpayment" action="index.php">
+<table class="carslisting1" width="97%" border="0" cellpadding="5" cellspacing="5" >
+ <tr>
+  <td height="30"><div align="center"><font size=5 style="font-weight: bold;">{{tpl_auto_Payment_Calculator}}</font></div></td>
+ </tr>
+ <tr>
+  <td>
+                 <table width="100%" border="0" cellpadding="5" cellspacing="5">
+
+                  <tr>
+                   <td height="20" colspan=2 align=center><strong><font size=2>{{tpl_auto_Variables}}</font></strong></td>
+                  </tr>
+
+                  <tr>
+                   <td height="30" width="50%" align=right>
+                   {{currency}}<input type=text name="price" value="{{price}}" size="10" onChange=func_payment(this) onKeyUp=func_payment(this)></td>
+                    <td>{{tpl_auto_Asking_Price}}</td>
+                  </tr>
+
+                  <tr>
+                   <td  align=right>
+                    {{currency}}<INPUT TYPE=TEXT NAME="downPmt" SIZE=10 value="{{down_payment}}" onChange=func_payment(this) onKeyUp=func_payment(this)>
+                    </td><TD>{{tpl_auto_Down_Payment}}</td>
+                  </tr>
+
+                  <tr>
+                   <td height="30"  align=right>
+                    <SELECT name=payments onChange=func_payment(this)>
+                        <OPTION value=12>1 {{tpl_auto_year}}
+                        <OPTION value=24>2 {{tpl_auto_years}}
+                        <OPTION value=36>3 {{tpl_auto_years}}
+                        <OPTION value=48>4 {{tpl_auto_years}}
+                        <OPTION value=60 selected>5 {{tpl_auto_years}}
+                        <OPTION value=72>6 {{tpl_auto_years}}
+                        <OPTION value=84>7 {{tpl_auto_years}}
+                        <OPTION value=96>8 {{tpl_auto_years}}
+                        <OPTION value=108>9 {{tpl_auto_years}}
+                        <OPTION value=120>10 {{tpl_auto_years}}
+                        <OPTION value=180>15 {{tpl_auto_years}}
+                        <OPTION value=240>20 {{tpl_auto_years}}
+                        </SELECT>
+                        </td><TD>{{tpl_auto_Loan_Term}}</td>
+                  </tr>
+
+                  <tr>
+                   <td  align=right>
+                    <SELECT name=interest onChange=func_payment(this)>
+                <OPTION value=2>2
+                <OPTION value=2.5>2.5
+                <OPTION value=3>3
+                <OPTION value=3.5>3.5
+                <OPTION value=4>4
+                <OPTION value=4.5>4.5
+                <OPTION value=5>5
+                <OPTION value=5.5>5.5
+                <OPTION value=6>6
+                <OPTION value=6.5>6.5
+                <OPTION value=7>7
+                <OPTION value=7.5>7.5
+                <OPTION value=8>8
+                <OPTION value=8.5>8.5
+                <OPTION value=9>9
+                <OPTION value=9.5>9.5
+                <OPTION value=10>10
+                <OPTION value=10.5>10.5
+                <OPTION value=11>11
+                <OPTION value=12>12
+                <OPTION value=13>13
+                <OPTION value=14 selected>14
+                <OPTION value=15>15
+                <OPTION value=20>20
+                </SELECT></td><TD>% {{tpl_auto_Interest_Rate}}
+                    </td>
+                  </tr>
+                  <tr>
+                   <td height="20" colspan=2><div align="center" class="textGray">{{tpl_auto_All_payments_are_approximate_and_may_not_reflect_taxes_or_loan_fees}}<br>
+                    </div></td>
+                  </tr>
+                  <tr>
+                   <td height="40" colspan=2><div align="center"><font size=4 color=red  style="font-weight: bold;">{{tpl_auto_Monthly_Payment}} = {{currency}}<span id="payment">0</span></font></div></td>
+                  </tr>
+                  <tr>
+                   <td height="19" colspan=2 align="center"><a href="#" onclick="javascript:window.close();">{{tpl_auto_close}}</a></td>
+                  </tr>
+                 </table>
+
+   </td>
+   </tr>
+  </table>
+  </form>
+  </center>
+  
+ <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2837123-2";
+urchinTracker();
+</script>
+ 
+ </body>
+</html>

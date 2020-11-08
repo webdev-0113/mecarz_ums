@@ -1,0 +1,51 @@
+<script type="text/javascript">
+<!--
+function show_(val)
+{
+document.getElementById(val).style.visibility = "visible";
+var cx=window.event.x+100;
+var cy=window.event.y;
+document.getElementById(val).style.className="styleadmin";
+document.getElementById(val).style.top=cy;
+document.getElementById(val).style.left=cx;
+
+}
+
+function hide_(val)
+{
+document.getElementById(val).style.visibility = "hidden";
+}
+-->
+</script>  
+<table width=100% height=110% cellpadding="2" cellspacing="0">
+        <tr>
+                <td width=144 valign=top>
+                <div align=center><B>{{tpl_auto_menu}}</B><div>
+                            <table width=144 cellpadding="2" cellspacing="2" class=menu>
+                            <tr><td>
+                            <a href=index.php><img src="../images/sign.gif" border=0>{{tpl_auto_Home}}</a>
+                            </td></tr>
+                            <tr><td>
+                            <a href="../index.php" target="_new"><img src="../images/sign.gif" border=0>{{tpl_auto_Front_End}}</a>
+
+                            </td></tr>
+                            <tr><td height=3>
+                            </td></tr>
+                            {{menu}}
+                            <tr><td height=3>
+                            </td></tr>
+                            <tr><td>
+                            <a href=index.php?p=change><img src="../images/sign.gif" border=0>{{tpl_auto_Change_Password}}</a>  <BR>
+                            </td></tr>
+                            <tr><td>
+                            <a href=index.php?p=logout><img src="../images/sign.gif" border=0>(<b>{{username}}</b>) {{tpl_auto_Logout}}</a> <BR>
+                            </td></tr>
+                            </table>
+                            <div align=left>{{menuexpl}}<div>
+                </td>
+                <td width=85% valign=top align=center>
+                        <table width=100% cellpadding="0" border=0 cellspacing="0">
+                        <tr><td align=center height=14>
+                        </td></tr>
+                        <tr><td width=100% align=center>
+                        {{home_page}}

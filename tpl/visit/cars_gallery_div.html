@@ -1,0 +1,130 @@
+<script type="text/javascript">
+<!--
+var number={{number}}
+var picturenow=0;
+var timerID = 0;
+function show_picturebig(picture,locate)
+{
+if (parseInt(picture)>=number) picture=0;
+if (parseInt(picture)<0) picture=number-1;
+picturenow=picture;
+document.getElementById('bigpicture0').src=picture_array[picture];
+document.getElementById('description0').innerHTML=picturestring_array[picture];
+}
+function show_picture(picture,locate)
+{
+if (parseInt(picture)>=number) picture=0;
+if (parseInt(picture)<0) picture=number-1;
+picturenow=picture;
+var cx=310;
+var cy=150;
+if (locate==1){
+document.getElementById('galleryid').style.top=cy;
+document.getElementById('galleryid').style.left=cx;
+}
+hideform(0);
+document.getElementById('galleryid').style.visibility='visible';
+document.getElementById('picture_layer').src=picture_array[picture];
+document.getElementById('picturenow').innerHTML=String(picture+1);
+document.getElementById('picture_string').innerHTML=picturestring_array[picture];
+}
+function start_slides(picture)
+{
+             var browserinfos=navigator.userAgent
+             var ns4=document.layers
+             var ns6=document.getElementById&&!document.all&&!browserinfos.match(/Opera/)
+             var ie=document.all&&!browserinfos.match(/Opera/)
+             var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/)
+             var opera=browserinfos.match(/Opera/)
+
+if (parseInt(picture)>=number) picture=0;
+if (parseInt(picture)<0) picture=number-1;
+picturenow=picture;
+var cx=430;
+var cy=150;
+
+       if (ie || ie5)
+       {
+         document.getElementById('picture_layer').style.filter="blendTrans(duration=1)";
+         document.getElementById('picture_layer').filters.blendTrans.Apply();
+
+       }
+hideform(0);
+document.getElementById('galleryid').style.visibility='visible';
+document.getElementById('picture_layer').src=picture_array[picture];
+document.getElementById('picturenow').innerHTML=String(parseInt(picture)+1);
+document.getElementById('picture_string').innerHTML=picturestring_array[picture];
+
+       if (ie || ie5)
+       {
+         document.getElementById('picture_layer').filters.blendTrans.Play();
+       }
+
+var picturenew=parseInt(picture)+1;
+       timerID = setTimeout("start_slides('"+picturenew+"')",
+         1000*document.getElementById('slides_speed').value);
+}
+function stop_slides()
+{
+   clearTimeout(timerID);
+   timerID  = 0;
+}
+function hideform(j)
+{
+ var valoare;
+ if (j==0) valoare = 'visible';
+ else valoare = 'visible';
+ for(var i=0;i<document.formarticle.length;i++){
+  document.formarticle[i].style.visibility=valoare;
+ }
+}
+//-->
+</script>
+<div id="galleryid" style="BORDER-TOP: #ffffff 1px solid; BORDER-RIGHT: #ffffff 1px solid; Z-INDEX: 100; VISIBILITY: hidden; BORDER-LEFT: #ffffff 1px solid; WIDTH: {{width_div}}px; BORDER-BOTTOM: #ffffff 1px solid; POSITION: absolute; HEIGHT: {{height_div}}px; BACKGROUND-COLOR: #333333; layer-background-color: #333333;LEFT: 50px;TOP: 50px">
+       <table width="60%" style="height:70%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height=30><b>{{title}} {{tpl_auto_gallery}}</b>&nbsp;<br>{{tpl_auto_Pic}}&nbsp;<span id="picturenow"></span>&nbsp;{{tpl_auto_of}}&nbsp;{{number}}</td>
+        </tr>
+        <tr>
+          <td height="80%" align=center><img src="images/spacer.gif" id="picture_layer"></td>
+        </tr>
+        <tr>
+          <td align=center><b><span id="picture_string"></span></b></td>
+        </tr>
+        <tr>
+         <td height="40" nowrap>
+             <table cellspacing=0 cellpadding=0 width="100%">
+                    <tr>
+                     <td align=center>
+                         <table width="100%" cellspacing=5 cellpadding=5>
+                          <tr>
+                           <td align="right" class="hand" onClick="stop_slides();start_slides(picturenow)">{{tpl_auto_Start}}</td>
+                           <td align="right" class="hand">
+                           <table width="100%">
+                            <tr>
+                             <td align="right">
+                             {{tpl_auto_Speed}}
+                             </td>
+                             <td align="center">
+                             <select name="slides_speed" id="slides_speed">
+                             <option value="2">{{tpl_auto_Fast2s}}</option>
+                             <option value="4" selected>{{tpl_auto_Medium4s}}</option>
+                             <option value="6">{{tpl_auto_Slow6s}}</option>
+                             </select>
+                             </td>
+                            </tr>
+                           </table>                           
+                           </td>
+                           <td align="right" class="hand" onClick="stop_slides()">{{tpl_auto_Stop}}</td>
+                           <td align="right" class="hand" onClick="stop_slides();show_picture(picturenow-1)">{{tpl_auto_previous}}</td>
+                           <td align="right" class="hand" onClick="stop_slides();show_picture(picturenow+1)">{{tpl_auto_next}}</td>
+                           <td align="right" class="hand" onClick="stop_slides();hideform(1);document.getElementById('galleryid').style.visibility='hidden';">{{tpl_auto_exit}}</td>
+                          </tr>
+                         </table>
+                     </td>
+                    </tr>
+             </table>
+         </td>
+       </tr>
+  </table>
+</div>
