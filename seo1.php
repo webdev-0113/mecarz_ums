@@ -29,9 +29,9 @@ $numbercars = $Global_Class -> getnumrows( $_REQUEST[country], "cars", "country"
 
 
 
-$sql = "SELECT * FROM `{$config[table_prefix]}state` where countryid={$_REQUEST['country']} order by name";
+$sql = "SELECT * FROM `{$config['table_prefix']}state` where countryid={$_REQUEST['country']} order by name";
               $result = $db -> query( $sql );
-              $num_rows = mysql_num_rows( $result );
+              $num_rows = mysqli_num_rows( $result );
               $contor=0;
               $looper=0;
               if ( $num_rows > 0 ) {
@@ -113,9 +113,9 @@ $numbercars = $Global_Class -> getnumrows( $_REQUEST[state], "cars", "state"," a
 
 
 
-$sql = "SELECT * FROM `{$config[table_prefix]}city` where stateid={$_REQUEST['state']} order by name";
+$sql = "SELECT * FROM `{$config['table_prefix']}city` where stateid={$_REQUEST['state']} order by name";
               $result = $db -> query( $sql );
-              $num_rows = mysql_num_rows( $result );
+              $num_rows = mysqli_num_rows( $result );
               $contor=0;
               $looper=0;
 
@@ -152,9 +152,9 @@ $sql = "SELECT * FROM `{$config[table_prefix]}city` where stateid={$_REQUEST['st
  // Below is the code for states that does not have cities for smaller countries like Kuwait Start here.
               else{
               
-                     $sql = "SELECT * FROM `{$config[table_prefix]}make` where 1 order by name";
+                     $sql = "SELECT * FROM `{$config['table_prefix']}make` where 1 order by name";
                      $result = $db -> query( $sql );
-                     $num_rows = mysql_num_rows( $result );
+                     $num_rows = mysqli_num_rows( $result );
                      $contor=0;
                      $looper=0;
                      if ( $num_rows > 0 ) {
@@ -234,9 +234,9 @@ $numbercars = $Global_Class -> getnumrows( $_REQUEST[city], "cars", "city"," and
 
 
 
-$sql = "SELECT * FROM `{$config[table_prefix]}make` where 1 order by name";
+$sql = "SELECT * FROM `{$config['table_prefix']}make` where 1 order by name";
               $result = $db -> query( $sql );
-              $num_rows = mysql_num_rows( $result );
+              $num_rows = mysqli_num_rows( $result );
               $contor=0;
               $looper=0;
               if ( $num_rows > 0 ) {
@@ -308,7 +308,7 @@ END;
 if ($_REQUEST['country']==0 and $_REQUEST['state']==0 and $_REQUEST['city']>0 and $_REQUEST['category']==0 and $_REQUEST['make']>0 and $_REQUEST['model']==0 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
 
 $category_profile = $Global_Class -> getprofile( $_REQUEST[city], "city", 'id' );
-$make_profile = $Global_Class -> getprofile( $_REQUEST[make], "make", 'id' );
+$make_profile = $Global_Class -> getprofile( $_REQUEST['make'], "make", 'id' );
 
 $lang['tpl_auto_Pragraph'] =<<<END
 

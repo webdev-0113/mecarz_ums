@@ -81,72 +81,72 @@ $count=0;
 
 //print_r($_SESSION);
 $array_lang[]=0;
-if ($settings_profile[language1]!=-1){
+if ($settings_profile['language1']!=-1){
     $count++;
-    if ($_SESSION[language_session]=='' and $settings_profile[languageadmin]==$settings_profile[language1]) {
+    if ($_SESSION['language_session']=='' and $settings_profile['languageadmin']==$settings_profile['language1']) {
         $language_set=1;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language1],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language1'],0,-4));
     $array_lang[]=$count;
 
 }
-if ($settings_profile[language2]!=-1){
+if ($settings_profile['language2']!=-1){
     $count++;
-    if ($_SESSION[language_session]=='' and $settings_profile[languageadmin]==$settings_profile[language2]) {
+    if ($_SESSION['language_session']=='' and $settings_profile['languageadmin']==$settings_profile['language2']) {
         $language_set=2;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language2],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language2'],0,-4));
     $array_lang[]=$count;
 }
-if ($settings_profile[language3]!=-1){
+if ($settings_profile['language3']!=-1){
     $count++;
-    if ($_SESSION[language_session]=='' and $settings_profile[languageadmin]==$settings_profile[language3]) {
+    if ($_SESSION['language_session']=='' and $settings_profile['languageadmin']==$settings_profile['language3']) {
         $language_set=3;
     }
-    $multiplelanguage[$count] = ucfirst(substr($settings_profile[language3],0,-4));
+    $multiplelanguage[$count] = ucfirst(substr($settings_profile['language3'],0,-4));
     $array_lang[]=$count;
 }
 if (!is_array($multiplelanguage)) {
    $multiplelanguage = array();
 }
-if ($_REQUEST[language_session] != '') {
- $_SESSION[language_session] = $_REQUEST[language_session];
+if ($_REQUEST['language_session'] != '') {
+ $_SESSION['language_session'] = $_REQUEST['language_session'];
  $_SESSION[language_sessionset]=1;
- $language_set = $_SESSION[language_session];
- if ($_SESSION[language_session]==0) {
+ $language_set = $_SESSION['language_session'];
+ if ($_SESSION['language_session']==0) {
       $language_set = '';
  }
 }elseif ($_SESSION[language_sessionset]==''){
- $_SESSION[language_session]=$language_set;
+ $_SESSION['language_session']=$language_set;
  $_SESSION[language_sessionset]=1;
 }
 if ($_SESSION[language_sessionset]==1) {
-  $language_set = $_SESSION[language_session];
+  $language_set = $_SESSION['language_session'];
 }
 if ($language_set==0) $language_set="";
 if ($count>0) {
   $found=0;
   $var_lang[path]="p=".$_REQUEST['p']."&amp;";
   foreach ($multiplelanguage as $key=>$val){
-            $class_ = ($_SESSION[language_session] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
-            $found = ($_SESSION[language_session] == $key ) ? 1: $found;
+            $class_ = ($_SESSION['language_session'] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
+            $found = ($_SESSION['language_session'] == $key ) ? 1: $found;
             $var_lang['key']=$key;
             $var_lang['val']=strtolower($val);
             $var_lang['class']=strtolower($class_);
-            $settings_profile[languagedropdown1] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
+            $settings_profile['languagedropdown1'] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
   }
-  if ($found==0) $_SESSION[language_session]='';
-  $class_ = ($_SESSION[language_session] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
+  if ($found==0) $_SESSION['language_session']='';
+  $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
   $var_lang['key']=0;
   $var_lang['val']=strtolower(substr($settings_profile[language],0,-4));
   $var_lang['class']=strtolower($class_);
-  $settings_profile[languagedropdown] = $tpl->replace($var_lang,"urllanguge.html");
+  $settings_profile['languagedropdown'] = $tpl->replace($var_lang,"urllanguge.html");
 
-  $settings_profile[languagedropdown] .= $settings_profile[languagedropdown1];
+  $settings_profile['languagedropdown'] .= $settings_profile['languagedropdown1'];
 }
 /*
-if (file_exists($config['path'].'language/'.$settings_profile[languageadmin]) ) {
-    require $config['path'].'language/'.$settings_profile[languageadmin];
+if (file_exists($config['path'].'language/'.$settings_profile['languageadmin']) ) {
+    require $config['path'].'language/'.$settings_profile['languageadmin'];
 }
 */
 
@@ -161,22 +161,22 @@ checkbanned_ips();
 if ($settings_profile[nrpageadmin]>0) {
     $config['nrresult'] = $settings_profile[nrpageadmin];
 }
-if ($settings_profile[picture_width]>0) {
-    $IMG_WIDTH_BIG = $settings_profile[picture_width];
+if ($settings_profile['picture_width']>0) {
+    $IMG_WIDTH_BIG = $settings_profile['picture_width'];
 }
-if ($settings_profile[picture_height]>0) {
-    $IMG_HEIGHT_BIG = $settings_profile[picture_height];
+if ($settings_profile['picture_height']>0) {
+    $IMG_HEIGHT_BIG = $settings_profile['picture_height'];
 }
-if ($settings_profile[thumbnail_width]>0) {
-    $IMG_WIDTH = $settings_profile[thumbnail_width];
+if ($settings_profile['thumbnail_width']>0) {
+    $IMG_WIDTH = $settings_profile['thumbnail_width'];
 }
-if ($settings_profile[thumbnail_height]>0) {
-    $IMG_HEIGHT = $settings_profile[thumbnail_height];
+if ($settings_profile['thumbnail_height']>0) {
+    $IMG_HEIGHT = $settings_profile['thumbnail_height'];
 }
 
-if ($settings_profile[logo]=="") $settings_profile[logo]="../images/spacer.gif";
-if ($settings_profile[thumbnail]=="") $settings_profile[thumbnail]="../images/spacer.gif";
-if ($settings_profile[picture]=="") $settings_profile[picture]="../images/spacer.gif";
+if ($settings_profile['logo']=="") $settings_profile['logo']="../images/spacer.gif";
+if ($settings_profile['thumbnail']=="") $settings_profile['thumbnail']="../images/spacer.gif";
+if ($settings_profile['picture']=="") $settings_profile['picture']="../images/spacer.gif";
 
 
 $lang["tpl_auto_css"] = $config['tpl_path_admin'] . "style.css";
@@ -187,14 +187,14 @@ if ( $redirect == "" ) $redirect = $_SERVER['QUERY_STRING'];
 $username = $_POST['username'];
 $var = $settings_profile;
 $var["url_path_tpl_admin"] = $config['url_path_tpl_admin'] ;
-$var[languagedropdown] = $settings_profile[languagedropdown];
+$var[languagedropdown] = $settings_profile['languagedropdown'];
 $javascript_profile = $Global_Class -> getprofile( "1","javascript","id" );
 foreach ($javascript_profile as $key=>$val){
         $config["javascriptprofiles"][$key]=unserialize(stripslashes($val));
 }        
 
 $lang['tpl_auto_load_calendar_js'] = $tpl -> replace( array(), "calendar1.js", "js" );
-switch($_REQUEST[p]){
+switch($_REQUEST['p']){
 
         case "banner":
                 $banner_settings_profile = $Global_Class -> getprofile( "1","bannersettings","id" );
@@ -238,7 +238,7 @@ switch($_REQUEST[p]){
         break;
 
 }
-switch($_REQUEST[p]){
+switch($_REQUEST['p']){
 
        case "showbanner":
            require $path . "banner.class.php";
@@ -255,7 +255,7 @@ switch($_REQUEST[p]){
 
 
 }
-switch($_REQUEST[p]){
+switch($_REQUEST['p']){
         case "renew":
                 switch($_REQUEST[p1]){
                         default:
@@ -309,7 +309,7 @@ if ( $_COOKIE['username_cookie'] == "" )
                         break;
                 case "forgot1":
                         $email = $_POST['email'];
-						if (!eregi( "^[a-z0-9]+([_.-][a-z0-9]+)*([_])*@([a-z0-9]+([.-][a-z0-9]+)*)+\\.[a-z]{2,4}$", $email ) )
+						if (!preg_match( "^[a-z0-9]+([_.-][a-z0-9]+)*([_])*@([a-z0-9]+([.-][a-z0-9]+)*)+\\.[a-z]{2,4}$", $email ) )
                         {
                                 $outputdefault .= $admin -> forgot( "forgot1", $redirect, $lang["erroremail"] );
                         }else{                        
@@ -329,19 +329,19 @@ if ( $_COOKIE['username_cookie'] == "" )
                                              $sql_unic_id = ", `unic_id` = '$unic_id'";
                                             }
                                             $email_var['link'] = $config['url_path']."index.php?p=confirm&amp;id=".$email_var[unic_id];
-                                            $settings_template[signup_subject] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template[signup_subject] );
-                                            $settings_template[signup_body] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template[signup_body] );
-                                            $sendresult = $Email_class -> emailsend(  $email_var[email], $email_var[username],$settings_template[email], $settings_template[from], $settings_template[signup_subject], $settings_template[signup_body] );
-                                            $sendresult = $Email_class -> emailsend(  $settings_template[email], $settings_template[from] , $settings_template[email], $settings_template[from], $settings_template[signup_subject], $settings_template[signup_body] );
+                                            $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template['signup_subject'] );
+                                            $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template['signup_body'] );
+                                            $sendresult = $Email_class -> emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                                            $sendresult = $Email_class -> emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
                               }
-                              $settings_template[signup_subject] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_subject'] );
-                              $settings_template[signup_body] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_body'] );
+                              $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_subject'] );
+                              $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_body'] );
 
-                              $sql="UPDATE `{$config[table_prefix]}admin` SET password='".md5($password)."'{$sql_unic_id} where `email` = '$email' limit 1";
+                              $sql="UPDATE `{$config['table_prefix']}admin` SET password='".md5($password)."'{$sql_unic_id} where `email` = '$email' limit 1";
                               $result = $db -> query($sql,__FILE__,__LINE__);
 
-                              $sendresult = $Email_class -> emailsend(  $email_var[email], $email_var[username],$settings_template[email], $settings_template[from], $settings_template[signup_subject], $settings_template[signup_body] );
-                              $sendresult = $Email_class -> emailsend(  $settings_template[email], $settings_template[from] , $settings_template[email], $settings_template[from], $settings_template[signup_subject], $settings_template[signup_body] );
+                              $sendresult = $Email_class -> emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                              $sendresult = $Email_class -> emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                               $outputtoscreen .= $admin -> login( $username, "login1", $redirect, $lang['tpl_auto_You_will_receive'] );
                         }
@@ -396,17 +396,17 @@ if ( $_COOKIE['username_cookie'] == "" )
                                 {
                                         $profile_ = $admin -> getadminprofile( $username );
 
-                                        if ($profile_[active]==0){
+                                        if ($profile_['active']==0){
                                         $var = array ( "error" => $lang["error10"]
                                                 );
                                         }
-                                        elseif ($profile_[active]==2){
+                                        elseif ($profile_['active']==2){
                                         $var = array ( "error" => $lang["error11"]
                                                 );
-                                        }elseif ($profile_[active]==1)
+                                        }elseif ($profile_['active']==1)
                                         $var = array ( "error" => $lang["error4"]
                                                 );
-                                        elseif ($profile_[active]==3)
+                                        elseif ($profile_['active']==3)
                                         $var = array ( "error" => $lang["error12"]
                                                 );
                                 }
@@ -494,7 +494,7 @@ else
          if ($p == ''  or $p == 'summary') {
              if (1){
 					 if (!$right_cookie['view_all_cars']) {
-                           $sql_default_global = " and {$config[table_prefix]}cars.admin = '".$_COOKIE['id_cookie']."' ";
+                           $sql_default_global = " and {$config['table_prefix']}cars.admin = '".$_COOKIE['id_cookie']."' ";
                      }
                      $userstat['val']=$val."&f=inactivestock";
                      $var[inactivecars]=$Global_Class->getnumber("cars"," and active=0 $sql_default_global");;                         							 
@@ -828,7 +828,7 @@ else
                           $count1++;
                         }
                         if (!$right_cookie['view_all_cars']) {
-                           $sql_default_global = " and {$config[table_prefix]}cars.admin = '".$_COOKIE['id_cookie']."' ";
+                           $sql_default_global = " and {$config['table_prefix']}cars.admin = '".$_COOKIE['id_cookie']."' ";
                         }else{
                            $dropdown_fields[]="admin";
                         }
@@ -1096,7 +1096,7 @@ else
                                 $session_parent="cars";
                         }
 
-                        $sql_default_global = " and {$config[table_prefix]}carsfeatures.carsid = '".$_SESSION['option_oid1']."' ";
+                        $sql_default_global = " and {$config['table_prefix']}carsfeatures.carsid = '".$_SESSION['option_oid1']."' ";
 
                         $varchar_fields = array( );
                         $text_fields = array();
@@ -1114,7 +1114,7 @@ else
                            $HTTP_POST_VARS[error]=$lang['msg1'];
 
                         }else{
-                           $_REQUEST[o]="add";
+                           $_REQUEST['o']="add";
                         }
 
                         $lang["tpl_auto_View_Edit_Delete"] = "";
@@ -1158,7 +1158,7 @@ else
                         $config['config2_multiple_options'][1] = $Global_Class -> getcheckbox($_SESSION['option_oid1'],"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
                         $outputtoscreen .= $Global_Class -> choose_option();
                         if ($o=="add1" or $o=="edit1") {
-                           $sql1="update `{$config[table_prefix]}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
+                           $sql1="update `{$config['table_prefix']}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
                            $result1 = $db -> query($sql1);
                         }
                         break;
@@ -1199,7 +1199,7 @@ else
 						        	$config['auto_multiple'][gallery]=$admin_profile[nopictures]=0;
 						        }                                
                         }
-                        $sql_default_global = " and {$config[table_prefix]}gallery.carsid = '".$_SESSION['option_oid1']."' ";
+                        $sql_default_global = " and {$config['table_prefix']}gallery.carsid = '".$_SESSION['option_oid1']."' ";
 						if (!is_array($config['admin_section']['gallery']['varchar_fields'])) {
                         	$config['admin_section']['gallery']['varchar_fields']=array();
                         	$varchar_fields = array( "description", "order" );
@@ -1272,7 +1272,7 @@ else
                                                
                         $outputtoscreen .= $Global_Class -> choose_option();
                         if ($o=="add1" or $o=="edit1") {
-                           $sql1="update `{$config[table_prefix]}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
+                           $sql1="update `{$config['table_prefix']}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
                            $result1 = $db -> query($sql1);
                         }
                         break;
@@ -1302,7 +1302,7 @@ else
                                 $session_parent="cars";
                         }
 
-                        $sql_default_global = " and {$config[table_prefix]}messages.carsid = '".$_SESSION['option_oid1']."' ";
+                        $sql_default_global = " and {$config['table_prefix']}messages.carsid = '".$_SESSION['option_oid1']."' ";
 
                         $varchar_fields = array( "name", "email", "phone" );
                         $multiplefields = array(  );
@@ -1422,7 +1422,7 @@ else
                         {
                                 $outputtoscreen .= $lang["error_permission"];
                         }else {
-                                switch($_REQUEST[o]){
+                                switch($_REQUEST['o']){
                                         case "sendemail1":
 
                                                 $outputtoscreen .= $Global_Class -> sendemail1();
@@ -1441,7 +1441,7 @@ else
                         {
                                 $outputtoscreen .= $lang["error_permission"];
                         }else {
-                                switch($_REQUEST[o]){
+                                switch($_REQUEST['o']){
                                         case "sendemailadmin1":
 
                                                 $outputtoscreen .= $Global_Class -> sendemailadmin1();
@@ -1491,7 +1491,7 @@ else
                                    if ($permission_denied) {
                                    break;
                                    }
-                                    $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;<a href=\"index.php?p=renew\">{$lang['tpl_auto_Renew_account']}</a>&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Payment_options']}";
+                                    $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;<a href=\"index.php?p=renew\">{$lang['tpl_auto_Renew_account']}</a>&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Payment_options']}";
                                  $outputtoscreen .= $renewclass->renewclass1();
                               break;
                               case "renew2":
@@ -1504,11 +1504,11 @@ else
                                    if ($permission_denied) {
                                    break;
                                    }
-                                   $o=$_REQUEST[o];
+                                   $o=$_REQUEST['o'];
                                    if ($o=="" or $o=="delete") {
-                                       $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Renew_account']}";
+                                       $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Renew_account']}";
                                    }else{
-                                       $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;<a href=\"index.php?p=renew\">{$lang['tpl_auto_Renew_account']}</a>";
+                                       $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;<a href=\"index.php?p=renew\">{$lang['tpl_auto_Renew_account']}</a>";
                                    }
 
                                    $outputtoscreen .= $renewclass->renewclass($error);
@@ -1552,7 +1552,7 @@ else
                                 break;
                         }else{
 
-                                switch($_REQUEST[o]){
+                                switch($_REQUEST['o']){
                                                 case "backup1":
                                                                                   $pathsearch=$config['mysqldump_pathtosearch'];
                                                                                   $open_basedir=@ini_get('open_basedir');
@@ -1615,25 +1615,25 @@ else
             }
             // 2. browser and version
             // (must check everything else before Mozilla)
-            if (preg_match('@Opera(/| )([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            if (preg_match('/@Opera(/| )([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
                 define('PMA_USR_BROWSER_VER', $log_version[2]);
                 define('PMA_USR_BROWSER_AGENT', 'OPERA');
-            } else if (preg_match('@MSIE ([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            } else if (preg_match('/@MSIE ([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
                 define('PMA_USR_BROWSER_VER', $log_version[1]);
                 define('PMA_USR_BROWSER_AGENT', 'IE');
-            } else if (preg_match('@OmniWeb/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            } else if (preg_match('/@OmniWeb/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
                 define('PMA_USR_BROWSER_VER', $log_version[1]);
                 define('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
                 // } else if (ereg('Konqueror/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
                 // Konqueror 2.2.2 says Konqueror/2.2.2
                 // Konqueror 3.0.3 says Konqueror/3
-            } else if (preg_match('@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
+            } else if (preg_match('/@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
                 define('PMA_USR_BROWSER_VER', $log_version[2]);
                 define('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
-            } else if (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version) && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)) {
+            } else if (preg_match('/@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version) && preg_match('/@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)) {
                 define('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
                 define('PMA_USR_BROWSER_AGENT', 'SAFARI');
-            } else if (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            } else if (preg_match('/@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
                 define('PMA_USR_BROWSER_VER', $log_version[1]);
                 define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
             } else {
@@ -1686,7 +1686,7 @@ else
                                 break;
                         }else{
 
-                                switch($_REQUEST[o]){
+                                switch($_REQUEST['o']){
                                                 case "tpl1":
                                                                 $var[p]="tpl";
                                                                     $var[o]="tpl2";
@@ -1746,7 +1746,7 @@ else
                                 break;
                         }else{
 
-                                switch($_REQUEST[o]){
+                                switch($_REQUEST['o']){
                                                 case "language1":
                                                                 $var[p]="language";
                                                                     $var[o]="language2";
@@ -1819,39 +1819,39 @@ else
 
                      $p1=$_REQUEST[p1];
                      if ($p1=="") {
-                     $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Banner_Functions']}";
+                     $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Banner_Functions']}";
                      }else{
-                     $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;<a href=\"index.php?p=banner\">{$lang['tpl_auto_Banner_Functions']}</a>";
+                     $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;<a href=\"index.php?p=banner\">{$lang['tpl_auto_Banner_Functions']}</a>";
                      }
                      switch ($p1){
                               case "banner":
                                    if ($permission_denied) {
                                    break;
                                    }
-                                   $o=$_REQUEST[o];
+                                   $o=$_REQUEST['o'];
                                    if ($o=="" or $o=="delete") {
-                                       $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Banner']}";
+                                       $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Banner']}";
                                    }else{
-                                       $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;<a href=\"index.php?p=banner&p1=banner\">{$lang['tpl_auto_Banner']}</a>";
+                                       $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;<a href=\"index.php?p=banner&p1=banner\">{$lang['tpl_auto_Banner']}</a>";
                                    }
                                    switch ($o){
                                             case "delete":
                                                   $outputbanners .= $banner_class->deletebanner();
                                             break;
                                             case "add":
-                                                  $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Add_new_Banner']}";
+                                                  $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Add_new_Banner']}";
                                                   $outputbanners .= $banner_class->addbanner();
                                             break;
                                             case "add1":
-                                                  $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Add_new_Banner']}";
+                                                  $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Add_new_Banner']}";
                                                   $outputbanners .= $banner_class->addbanner1();
                                             break;
                                             case "edit":
-                                                  $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Edit_Banner']}";
+                                                  $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Edit_Banner']}";
                                                   $outputbanners .= $banner_class->editbanner();
                                             break;
                                             case "edit1":
-                                                  $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Edit_Banner']}";
+                                                  $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Edit_Banner']}";
                                                   $outputbanners .= $banner_class->editbanner1();
                                             break;
                                             default:
@@ -1866,11 +1866,11 @@ else
                                    if ($permission_denied) {
                                    break;
                                    }
-                                   $o=$_REQUEST[o];
+                                   $o=$_REQUEST['o'];
                                    if ($o=="" or $o=="delete") {
-                                       $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;{$lang['tpl_auto_Banner_stats']}";
+                                       $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;{$lang['tpl_auto_Banner_stats']}";
                                    }else{
-                                       $var_header[location_top].="&nbsp;&nbsp;›&nbsp;&nbsp;<a href=\"index.php?p=banner&p1=bannerstats\">{$lang['tpl_auto_Banner_stats']}</a>";
+                                       $var_header[location_top].="&nbsp;&nbsp;ï¿½&nbsp;&nbsp;<a href=\"index.php?p=banner&p1=bannerstats\">{$lang['tpl_auto_Banner_stats']}</a>";
                                    }
                                    switch ($o){
                                             default:
@@ -1895,7 +1895,7 @@ else
                                 $outputtoscreen .= $lang["error_permission"];
                                 break;
                         }else{
-	                     $o1=$_REQUEST[o];
+	                     $o1=$_REQUEST['o'];
 	                     switch ($o1){
 	                              case "importsettings1":	
 									if (!is_array($_REQUEST['importsettings'])) $_REQUEST['importsettings']=array();
@@ -1962,23 +1962,23 @@ else
 	                        		$tablefield_array_rallname=array();
 			                        $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
 			                        $result = $db -> query($sql);
-			                        while ($tablefield_array_r = mysql_fetch_array($result)){
+			                        while ($tablefield_array_r = mysqli_fetch_array($result)){
 			                        	if ($tablefield_array_r['Field']!='id' and !in_array($tablefield_array_r['Field'],$notusedarray) and !in_array($tablefield_array_r['Field'],$config['admin_section']['cars']['notimportfields']) ){
 			                               $tablefield_array_rall[]="cars__".$tablefield_array_r['Field'];
 			                               $tablefield_array_rallname["cars__".$tablefield_array_r['Field']]=$lang["tpl_auto_cars"]." ".$lang['tabel_cars'][$tablefield_array_r['Field']];
 			                        	}
 			                        }                         
 	
-									$sql = "SELECT {$config[table_prefix]}features.* FROM `{$config[table_prefix]}features` where 1 order by {$config[table_prefix]}features.name{$language_set}";
+									$sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name{$language_set}";
 								    $result = $db -> query( $sql );
-								    $num_rows = mysql_num_rows( $result );
+								    $num_rows = mysqli_num_rows( $result );
 								    $contor=0;
 								    if ( $num_rows > 0 ) {
 								      while ( $var_features = mysql_fetch_assoc( $result ) ) {
 								           $tablefield_array_rall[]="features__".$var_features[id];
 								           $tablefield_array_rallname["features__".$var_features[id]]=$lang["tpl_auto_features"]." ".$var_features["name$language_set"];
 								      } // while
-								      @mysql_free_result($result);
+								      @mysqli_free_result($result);
 								    }
 							    
 								    for($i=1;$i<=$config['number_pictures_import'];$i++){
@@ -1988,16 +1988,16 @@ else
 	
 			                        $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
 			                        $result = $db -> query($sql);
-			                        $num_rows = mysql_num_rows( $result );
+			                        $num_rows = mysqli_num_rows( $result );
 			                        $arrayallresults=$arrayallresultskey=array();
 			                        $ct=0;		                        
 			                        if ( $num_rows > 0 ) {
-			                         while ($userprofiles = mysql_fetch_array($result)){
+			                         while ($userprofiles = mysqli_fetch_array($result)){
 			                         	$ct++;
 			                         	$arrayallresults[$ct]=$userprofiles;
 			                         	$arrayallresultskey[$ct]=$userprofiles[field];
 			                         }
-			                         @mysql_free_result($result);
+			                         @mysqli_free_result($result);
 	                        		}
 		                        		
 	                        		foreach ($tablefield_array_rall as $key=>$val){
@@ -2024,9 +2024,9 @@ else
 					                    $var['tpl_name']=$tablefield_array_rallname[$valarray[field]];
 					                    $var['tpl_input_name']="importsettings[".$valarray[field]."]";
 					                    $var['tpl_input_name_val']=$valarray[relation];
-					                    if (eregi("features__",$valarray[field])){
+					                    if (preg_match("/features__",$valarray[field])){
 					                    $var['tpl_input_name_explain']=$lang['tpl_auto_features_importexpl'];	
-					                    }elseif (eregi("gallery__",$valarray[field])){
+					                    }elseif (preg_match("/gallery__",$valarray[field])){
 					                    $var['tpl_input_name_explain']=$lang['tpl_auto_gallery_importexpl'];	
 					                    }else{
 					                    $var['tpl_input_name_explain']=$lang['tpl_auto_'.$valarray[field]];
@@ -2046,7 +2046,7 @@ else
 									$var['options']=$out1;
 	                                $outputtoscreen.=$tpl->replace($var, "global_edit.html");
 	                        		
-			                        @mysql_free_result($result);
+			                        @mysqli_free_result($result);
 	                        		break;
 	                     }
 	                     break;		                        		
@@ -2061,7 +2061,7 @@ else
                              break; 
                         }else{
                         	
-		                     $o1=$_REQUEST[o];
+		                     $o1=$_REQUEST['o'];
 		                     switch ($o1){
 		                              case "fixtoolsremake":	
 									   require $path . "image1.class.php";
@@ -2094,7 +2094,7 @@ else
                         }else{
                         $var[p]="import";
                         $var[o]="import1";
-                        if ($_REQUEST[o]!='import1'){
+                        if ($_REQUEST['o']!='import1'){
                         	$aa=explode("__",$_COOKIE['autocars_import']);
                         	//print_R($aa);
                         	//exit;
@@ -2129,24 +2129,24 @@ else
 
                         $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
                         $result = $db -> query($sql);
-                        $num_rows = mysql_num_rows( $result );
+                        $num_rows = mysqli_num_rows( $result );
                         $arrayallresults=$arrayallresultskey=array();
                         $ct=0;		                        
                         if ( $num_rows > 0 ) {
-                         while ($userprofiles = mysql_fetch_array($result)){
+                         while ($userprofiles = mysqli_fetch_array($result)){
                          	$userprofiles[relation]=($userprofiles[relation]==999999)?-1:$userprofiles[relation]-1;
                          	$config['import_relation'][$userprofiles[field]]=$userprofiles[relation];
                          	$config['import_relation_defaultvalue'][$userprofiles[field]]=$userprofiles[defaultvalue];
-                         	if (eregi("features__",$userprofiles[field])){
+                         	if (preg_match("/features__",$userprofiles[field])){
                          	$config['import_relationfeatures'][$userprofiles[field]]=$userprofiles[relation];
                          	$config['import_relationfeatures_defaultvalue'][$userprofiles[field]]=$userprofiles[defaultvalue];
                          	}
-                         	if (eregi("gallery__",$userprofiles[field])){
+                         	if (preg_match("/gallery__",$userprofiles[field])){
                          	$config['import_relationgallery'][$userprofiles[field]]=$userprofiles[relation];
                          	$config['import_relationgallery_defaultvalue'][$userprofiles[field]]=$userprofiles[defaultvalue];
                          	}                         	
                          }
-                         @mysql_free_result($result);
+                         @mysqli_free_result($result);
                 		}
 	                        		                        
                         if ($_REQUEST[repeat]==0){
@@ -2174,7 +2174,7 @@ else
 
                         $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
                         $result = $db -> query($sql);
-                        while ($tablefield_array_r = mysql_fetch_array($result)){
+                        while ($tablefield_array_r = mysqli_fetch_array($result)){
                                $tablefield_array_rall[]=$tablefield_array_r;
                         }
                         //$filename = 'test.txt';
@@ -2268,7 +2268,7 @@ else
                                                       ." VALUES ( "
                                                       ." '',{$sqlmodel1} '".$arraye[$config['import_relation']['cars__'.$tablefield_array_r['Field']]]."' );";
                                              $result1 = $db -> query($sql1);
-                                             $valoare=mysql_insert_id();
+                                             $valoare=mysqli_insert_id();
                                            }
                                            $valoaresave='valoare'.$tablefield_array_r['Field'];
                                            $$valoaresave=$valoare;
@@ -2284,7 +2284,7 @@ else
                                      $sql_input.=" , `".$tablefield_array_r['Field']."` = ";
                                      $sql_input.=" '".$valoare."' ";
                                      }
-                                     @mysql_free_result($result1);
+                                     @mysqli_free_result($result1);
                                      }
 
                            }
@@ -2294,7 +2294,7 @@ else
                                     ." VALUES ( '' "
                                     ." $sql_input_val );";
                            $result = $db -> query($sql);
-                           $user_profile[id]=mysql_insert_id();
+                           $user_profile[id]=mysqli_insert_id();
                            $count++;
                            }else{
                            $sql = "UPDATE `{$config['table_prefix']}cars` SET `id`='{$user_profile[id]}' "
@@ -2302,12 +2302,12 @@ else
                            $result = $db -> query($sql);
                            $count1++;
                            }
-                           @mysql_free_result($result);
+                           @mysqli_free_result($result);
                            
-					      $sql = "SELECT * FROM `{$config[table_prefix]}gallery` where carsid='{$user_profile[id]}' ";
+					      $sql = "SELECT * FROM `{$config['table_prefix']}gallery` where carsid='{$user_profile[id]}' ";
 					      $result2 = $db -> query($sql);
-					      $num_rows_gallery2 = mysql_num_rows($result2);
-					      @mysql_free_result($result);
+					      $num_rows_gallery2 = mysqli_num_rows($result2);
+					      @mysqli_free_result($result);
 					
 					
 					      $countimage = 0;
@@ -2322,7 +2322,7 @@ else
 			                        	$imagine = $Image_Class1->resizer_main($arraye[$config['import_relationgallery'][$kkkf]],$IMG_HEIGHT,$IMG_WIDTH,$user_profile[id]);
 			                        	$imagine1 = $Image_Class1->resizer_main($arraye[$config['import_relationgallery'][$kkkf]],$IMG_HEIGHT_BIG,$IMG_WIDTH_BIG,$user_profile[id]);
 				                        if ($imagine and $imagine1){
-			                        	$sql = "insert into `{$config[table_prefix]}gallery` VALUES ('','{$user_profile[id]}','$imagine1','$imagine','','','','','$countimage');";
+			                        	$sql = "insert into `{$config['table_prefix']}gallery` VALUES ('','{$user_profile[id]}','$imagine1','$imagine','','','','','$countimage');";
 				                        $result1 = $db -> query($sql,__FILE__,__LINE__);	                        	
 				                        }
 				                        
@@ -2335,20 +2335,20 @@ else
 					         
 		                  
 	                                                 
-                          $sql = "delete from `{$config[table_prefix]}carsfeatures` where `carsid`='{$user_profile[id]}'";
+                          $sql = "delete from `{$config['table_prefix']}carsfeatures` where `carsid`='{$user_profile[id]}'";
                           $result_ = $db -> query($sql,__FILE__,__LINE__);
 		                  foreach  ($config['import_relationfeatures'] as $kkkf=>$vvvf){
 		                  	    if ($vvvf==-1) $arraye[$vvvf]=$config['import_relationfeatures_defaultvalue'][$kkkf];
 		                        if ($arraye[$vvvf]>0) {
 		                        	   $kkkf1=str_replace("features__","",$kkkf);
-		                               $sql = "insert into `{$config[table_prefix]}carsfeatures` VALUES ('','{$user_profile[id]}','$kkkf1');";
+		                               $sql = "insert into `{$config['table_prefix']}carsfeatures` VALUES ('','{$user_profile[id]}','$kkkf1');";
 		                               $result1 = $db -> query($sql,__FILE__,__LINE__);
 		
 		                        }
 		                  }
                                              
                           //$coot++;
-                          @mysql_free_result($result);                           
+                          @mysqli_free_result($result);
 $somecontent = $key."\n";
 //@fwrite($handle, $somecontent);
 
@@ -2376,11 +2376,11 @@ $somecontent = $key."\n";
                         }else{
                         $var[p]="export";
                         $var[o]="export1";
-                        if ($_REQUEST[o]=='export1' and $_REQUEST['input_terminatedby']==''){
+                        if ($_REQUEST['o']=='export1' and $_REQUEST['input_terminatedby']==''){
                         	$var['error']=$lang['tpl_auto_Export_error'];
-                        	$_REQUEST[o]='';
+                        	$_REQUEST['o']='';
                         }
-                        if ($_REQUEST[o]!='export1'){
+                        if ($_REQUEST['o']!='export1'){
 					        foreach ($config['admin_section']['cars']['dropdown_fields'] as $key1=>$val1){
 					
 					           $var[$val1] = $Global_Class -> getdropdown( $_REQUEST['input_'.$val1], "$val1", "name{$language_set}", "id", "name{$language_set}",0 );
@@ -2424,19 +2424,19 @@ $somecontent = $key."\n";
 	                    		$tablefield_array_rallname=array();								
 		                        $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
 		                        $result = $db -> query($sql);
-		                        while ($tablefield_array_r = mysql_fetch_array($result)){
+		                        while ($tablefield_array_r = mysqli_fetch_array($result)){
 		                               $tablefield_array_rallname["cars__".$tablefield_array_r['Field']]=$lang["tpl_auto_cars"]." ".$lang['tabel_cars'][$tablefield_array_r['Field']];
 		                        }                         
 
-								$sql = "SELECT {$config[table_prefix]}features.* FROM `{$config[table_prefix]}features` where 1 order by {$config[table_prefix]}features.name{$language_set}";
+								$sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name{$language_set}";
 							    $result = $db -> query( $sql );
-							    $num_rows = mysql_num_rows( $result );
+							    $num_rows = mysqli_num_rows( $result );
 							    $contor=0;
 							    if ( $num_rows > 0 ) {
 							      while ( $var_features = mysql_fetch_assoc( $result ) ) {
 							           $tablefield_array_rallname["features__".$var_features[id]]=$lang["tpl_auto_features"]." ".$var_features["name$language_set"];
 							      } // while
-							      @mysql_free_result($result);
+							      @mysqli_free_result($result);
 							    }
 						    
 							    for($i=1;$i<=$config['number_pictures_import'];$i++){
@@ -2448,12 +2448,12 @@ $somecontent = $key."\n";
                         	
 	                        $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
 	                        $result = $db -> query($sql);
-	                        $num_rows = mysql_num_rows( $result );
+	                        $num_rows = mysqli_num_rows( $result );
 	                        $arrayallresults=$arrayallresultskey=array();
 	                        $ct=0;	
 	                        $max__=0;	                        
 	                        if ( $num_rows > 0 ) {
-	                         while ($userprofiles = mysql_fetch_array($result)){
+	                         while ($userprofiles = mysqli_fetch_array($result)){
 	
 	                         	$userprofiles[relation]=($userprofiles[relation]==999999)?-1:$userprofiles[relation]-1;
 	                         	if ($userprofiles[relation]>$max__) $max__=$userprofiles[relation];
@@ -2461,16 +2461,16 @@ $somecontent = $key."\n";
 	                         	$config['import_relation'][$userprofiles[field]]=$userprofiles[relation];
 	                         	$config['import_relation_defaultvalue'][$userprofiles[field]]=$userprofiles[defaultvalue];
 	                         	
-	                         	if (eregi("features__",$userprofiles[field])){
+	                         	if (preg_match("/features__",$userprofiles[field])){
 	                         	$config['import_relationfeatures'][$userprofiles[field]]=$userprofiles[relation];
 	                         	$config['import_relationfeatures_defaultvalue'][$userprofiles[field]]=$userprofiles[defaultvalue];
 	                         	}
-	                         	if (eregi("gallery__",$userprofiles[field])){
+	                         	if (preg_match("/gallery__",$userprofiles[field])){
 	                         	$config['import_relationgallery'][$userprofiles[field]]=$userprofiles[relation];
 	                         	$config['import_relationgallery_defaultvalue'][$userprofiles[field]]=$userprofiles[defaultvalue];
 	                         	}                         	
 	                         }
-	                         @mysql_free_result($result);
+	                         @mysqli_free_result($result);
 	                		}
 	                		
 	         				if ($_REQUEST[input_admin] != "" and $_REQUEST[input_admin] != "..."){
@@ -2486,9 +2486,9 @@ $somecontent = $key."\n";
 	             			$arrayexport=array();        
 	
 	
-					        $sql = "SELECT * FROM `{$config[table_prefix]}cars` WHERE 1 $sql_cond";
+					        $sql = "SELECT * FROM `{$config['table_prefix']}cars` WHERE 1 $sql_cond";
 					        $result = $db -> query($sql);
-					        $num_rows = mysql_num_rows($result);
+					        $num_rows = mysqli_num_rows($result);
 					        $contor = 0;
 			        
 					        if ($num_rows > 0){
@@ -2503,7 +2503,7 @@ $somecontent = $key."\n";
 
 			                                    if (in_array($kkcar,$config['admin_section']['cars']['dropdown_fields'] )){
 			                                        $category_profile = $Global_Class -> getprofile(  $vvcars, $kkcar, 'id' );
-			                                        $value = $category_profile[name];
+			                                        $value = $category_profile['name'];
 			                                    }
 		                         			 	if ($config['import_relation_defaultvalue']['cars__'.$kkcar]!='') {
 		                         			 		$value=$config['import_relation_defaultvalue']['cars__'.$kkcar];
@@ -2517,22 +2517,22 @@ $somecontent = $key."\n";
 		
 		                           }
 
-					                 $sql = "SELECT * FROM `{$config[table_prefix]}carsfeatures` WHERE carsid='{$user[id]}' ";
+					                 $sql = "SELECT * FROM `{$config['table_prefix']}carsfeatures` WHERE carsid='{$user[id]}' ";
 							         $resultfea = $db -> query($sql);
-							         $num_rowsfea = mysql_num_rows($resultfea);
+							         $num_rowsfea = mysqli_num_rows($resultfea);
 							         $userfeanew=array();
 							         if ($num_rowsfea > 0){
 							             while ($userfea = mysql_fetch_assoc($resultfea)){             			             		
 							                	$userfeanew[$userfea[featuresid]]=1;
 							             } // while
 							         }
-							         @mysql_free_result($resultfea);
+							         @mysqli_free_result($resultfea);
 							         //print_r($userfeanew);
 							         //exit;
 					                  foreach  ($config['import_relationfeatures'] as $kkkf=>$vvvf){
 					                  	    if ($vvvf!=-1) {
 					                  	    	$kkkf11=str_replace("features__","",$kkkf);
-					                  	    	$value=$config[explort_features_true];
+					                  	    	$value=$config['explort_features_true'];
 					                  	    	$cond1=0;
 					                  	    	if ($config['import_relationfeatures_defaultvalue'][$kkkf]!='') {
 					                  	    		$value=$config['import_relationfeatures_defaultvalue'][$kkkf];
@@ -2541,15 +2541,15 @@ $somecontent = $key."\n";
 					                  	    	if ($userfeanew[$kkkf11] or $cond1) {
 					                        	   $arrayexport[$vvvf]=$value;				
 					                        	}else{
-					                        	   $arrayexport[$vvvf]=$config[explort_features_false];
+					                        	   $arrayexport[$vvvf]=$config['explort_features_false'];
 					                        	}
 					                        	$arrayexporttitle[$vvvf]=$kkkf;
 					                  	    }				                        
 					                  }	
 					                  
-					                 $sql = "SELECT * FROM `{$config[table_prefix]}gallery` WHERE carsid='{$user[id]}' order by `order`";
+					                 $sql = "SELECT * FROM `{$config['table_prefix']}gallery` WHERE carsid='{$user[id]}' order by `order`";
 							         $resultfea = $db -> query($sql);
-							         $num_rowsfea = mysql_num_rows($resultfea);
+							         $num_rowsfea = mysqli_num_rows($resultfea);
 							         $userfeagal=array();
 							         $ctgal=0;
 							         if ($num_rowsfea > 0){
@@ -2557,7 +2557,7 @@ $somecontent = $key."\n";
 							             		$ctgal++;
 							                	$userfeagal['gallery__'.$ctgal]=$config['url_path']."temp/".$userfea['picture'];
 							             } // while
-							             @mysql_free_result($resultfea);
+							             @mysqli_free_result($resultfea);
 							         }
 							         
 					                  foreach  ($config['import_relationgallery'] as $kkkf=>$vvvf){
@@ -2579,7 +2579,7 @@ $somecontent = $key."\n";
 									  $sendback = substr($sendback, 0, -1); //chop last ,
 									  $sendback .= "\n";					                  
 					             } // while
-					             @mysql_free_result($result);
+					             @mysqli_free_result($result);
 					             
 					        }
 							 $filename=($_REQUEST[input_filename]=='')?"export_".date('Y-m-j_h-i-s').".csv":$_REQUEST[input_filename];
@@ -2690,7 +2690,7 @@ $somecontent = $key."\n";
 						break;
 			
 			        }
-					if ($_REQUEST[p]==''){
+					if ($_REQUEST['p']==''){
 				     $var_header['sistem'] = $tpl -> replace( $var_header, "sistem.html" );
 					}
 			        $output_header = $tpl -> replace( $var_header, "stats_header.html" ); //read header
@@ -2710,7 +2710,7 @@ $somecontent = $key."\n";
                         }
                         if ($right_cookie['view_all_cars']) {
 	                        if ($_REQUEST[o1]=='reset'){
-	                        	$sql="UPDATE `{$config[table_prefix]}admin` SET `date_delay`=NOW(),`daystoexpire` = `delay`,`daysactive`=0,`active`=1,`emailrenewsent`=0 where `id` = '{$_REQUEST[id]}' limit 1";
+	                        	$sql="UPDATE `{$config['table_prefix']}admin` SET `date_delay`=NOW(),`daystoexpire` = `delay`,`daysactive`=0,`active`=1,`emailrenewsent`=0 where `id` = '{$_REQUEST['id']}' limit 1";
 	                            $result = $db -> query($sql,__FILE__,__LINE__);
 	                        }
                         }
@@ -2780,7 +2780,7 @@ $somecontent = $key."\n";
                          if ($o=="add1" OR $o=="edit1") {
                          if ($o=="add1"){
                           $value_toexplode_array=array();
-                          if (eregi(",",$_POST["input_".$varchar_fields[0]]) and count($varchar_fields)==1){
+                          if (preg_match("/,",$_POST["input_".$varchar_fields[0]]) and count($varchar_fields)==1){
                                 $value_toexplode=explode(",",$_POST["input_".$varchar_fields[0]]);
                                 foreach ($value_toexplode as $keytemp=>$valtemp){
                                  $valtemp = trim($valtemp);
@@ -3032,7 +3032,7 @@ $somecontent = $key."\n";
                         if ($default_tabel=='rights'){
                                 $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                                 $result = $db -> query($sql,__FILE__,__LINE__);
-                                while ($tablefield_array_r = mysql_fetch_array($result)){
+                                while ($tablefield_array_r = mysqli_fetch_array($result)){
                                         $key = $tablefield_array_r['Field'];
                                         if ( !in_array( $key, array( "id", "name" ) ) ){
                                               $checkbox_fields[]=$key;

@@ -45,7 +45,7 @@ require_once('./libraries/bookmark.lib.php');
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
-function PMA_multimerge(&$stack, &$table) {
+function PMA_multimerge($stack, $table) {
 global $list_item, $table_item;
 
     $key = array_shift($table);
@@ -63,7 +63,7 @@ global $list_item, $table_item;
 
 /* This will take a 1-dimensional array, and shift as many elemnts off
  * the end, until the allowed maximum level is reached */
-function PMA_reduceNest(&$_table) {
+function PMA_reduceNest($_table) {
     if ($GLOBALS['cfg']['LeftFrameTableLevel'] > 0) {
         $elements = count($_table);
         for ($ti = $elements; $ti > $GLOBALS['cfg']['LeftFrameTableLevel']; $ti--) {

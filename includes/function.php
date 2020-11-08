@@ -46,12 +46,12 @@ function addlogging( $row )
  		$cookie=$_COOKIE['username_cookie'];
         if ($cookie!='thebestrealestate' and $row[admin]!='thebestrealestate'){
             	
-        $sql="SHOW FIELDS FROM `{$config[table_prefix]}logging` ";
+        $sql="SHOW FIELDS FROM `{$config['table_prefix']}logging` ";
         $result = $db -> query($sql);
         $array_not = array("ctime");
 
-        $sql = "insert into `{$config[table_prefix]}logging` values (";
-        while ($tablefield_array_r = mysql_fetch_array($result)){
+        $sql = "insert into `{$config['table_prefix']}logging` values (";
+        while ($tablefield_array_r = mysqli_fetch_array($result)){
              if (!in_array($tablefield_array_r['Field'],$array_not)) {
                      $sql .= " '".addslashes($row[$tablefield_array_r['Field']])."', " ;
              }
@@ -397,11 +397,11 @@ function checkbanned_ips(){
 	 $ip=get_user_ip();
 
 
-     $sql = "SELECT count(*) FROM `{$config[table_prefix]}logging` WHERE `admin`='$ip' and `ctime` LIKE CONCAT(SUBSTRING(NOW(),1,13),'%')";
+     $sql = "SELECT count(*) FROM `{$config['table_prefix']}logging` WHERE `admin`='$ip' and `ctime` LIKE CONCAT(SUBSTRING(NOW(),1,13),'%')";
      $result = $db -> query( $sql );
      
-     $row=mysql_fetch_array($result);
-     @mysql_free_result($result);
+     $row=mysqli_fetch_array($result);
+     @mysqli_free_result($result);
 
 	 if ( $row[0] >=$config['banned_ip_after_try_to_loggin'] and $config['banned_ip_after_try_to_loggin']>0)  
 	 {  
@@ -483,15 +483,15 @@ function banned_ips(){
 
              
 			          foreach ($config['admin_section']['cars']['dropdown_fields'] as $key=>$val) {
-					         $sql = "SELECT * from {$config[table_prefix]}$val where 1";
+					         $sql = "SELECT * from {$config['table_prefix']}$val where 1";
 					         $result = $db -> query($sql);
-					         $num_rows = mysql_num_rows($result);
+					         $num_rows = mysqli_num_rows($result);
 					         $javascript_profile[$val."javascript"]=array();
 					         if ($num_rows > 0){
 					             while ($user = mysql_fetch_assoc($result)){
 					                 $javascript_profile[$val."javascript"][$user[id]]=$user;
 					            }
-					            @mysql_free_result($result);
+					            @mysqli_free_result($result);
 				             }
 			          }
 			          $sql1__="";
@@ -504,7 +504,7 @@ function banned_ips(){
 	                      writetofile($config['path'].'temp/makemodel'.$language_set1.'.txt',$somecontent);
 			          }
 			          }
-             $sql = "UPDATE `{$config[table_prefix]}javascript` SET
+             $sql = "UPDATE `{$config['table_prefix']}javascript` SET
 categoryjavascript='".addslashes(serialize($javascript_profile["categoryjavascript"]))."',
 makejavascript='".addslashes(serialize($javascript_profile["makejavascript"]))."',
 modeljavascript='".addslashes(serialize($javascript_profile["modeljavascript"]))."',

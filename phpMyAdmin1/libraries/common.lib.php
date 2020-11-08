@@ -768,7 +768,7 @@ if ($is_minimum_common == FALSE) {
      *
      * @access  public
      */
-    function PMA_isInto($toFind = '', &$in)
+    function PMA_isInto($toFind = '', $in)
     {
         $max = count($in);
         for ($i = 0; $i < $max && ($toFind != $in[$i]); $i++) {
@@ -1748,7 +1748,7 @@ if (typeof(document.getElementById) != 'undefined'
 
             // TODO: use the parser instead of preg_match()
 
-            if (preg_match('@^SELECT[[:space:]]+@i', $query_base)
+            if (preg_match('/@^SELECT[[:space:]]+@i', $query_base)
              && isset($GLOBALS['sql_limit_to_append'])) {
                 $query_base .= $GLOBALS['sql_limit_to_append'];
             }
@@ -1817,9 +1817,9 @@ if (typeof(document.getElementById) != 'undefined'
                               . $explain_link_validate
                               . '&amp;sql_query=';
 
-                if (preg_match('@^SELECT[[:space:]]+@i', $local_query)) {
+                if (preg_match('/@^SELECT[[:space:]]+@i', $local_query)) {
                     $explain_link .= urlencode('EXPLAIN ' . $local_query) . '">' . $GLOBALS['strExplain'];
-                } else if (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $local_query)) {
+                } else if (preg_match('/@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $local_query)) {
                     $explain_link .= urlencode(substr($local_query, 8)) . '">' . $GLOBALS['strNoExplain'];
                 } else {
                     $explain_link = '';
@@ -1863,7 +1863,7 @@ if (typeof(document.getElementById) != 'undefined'
             // Refresh query
             if (isset($cfg['SQLQuery']['Refresh'])
                 && $cfg['SQLQuery']['Refresh']
-                && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $local_query)) {
+                && preg_match('/@^(SELECT|SHOW)[[:space:]]+@i', $local_query)) {
 
                 $refresh_link = '&nbsp;[<a href="read_dump.php'
                           . $url_qpart
@@ -2535,7 +2535,7 @@ if (typeof(document.getElementById) != 'undefined'
 
         $query = PMA_backquote($oldcol) . ' ' . PMA_backquote($newcol) . ' '
             . $full_field_type;
-        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR\(\d+\)|CHAR\(\d+\))$@i', $full_field_type)) {
+        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('/@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR\(\d+\)|CHAR\(\d+\))$@i', $full_field_type)) {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 

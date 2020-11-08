@@ -629,17 +629,17 @@ $settings_profile['description'] ="MECarz.com list used cars, trucks, crossover 
 if ($_REQUEST['country']==0 and $_REQUEST['state']==0 and $_REQUEST['city']>0 and $_REQUEST['category']==0 and $_REQUEST['make']>0 and $_REQUEST['model']==0 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
 
 $category_profile = $Global_Class -> getprofile( $_REQUEST[city], "city", 'id' );
-$make_profile = $Global_Class -> getprofile( $_REQUEST[make], "make", 'id' );
+$make_profile = $Global_Class -> getprofile( $_REQUEST['make'], "make", 'id' );
 
 
 /**** This code is used to retrieve the state name to include it in the title & Description to avoid duplicates Start ****/
 //finding state ID
-$sql = "SELECT * FROM `{$config[table_prefix]}city` where id={$_REQUEST['city']} order by name";
+$sql = "SELECT * FROM `{$config['table_prefix']}city` where id={$_REQUEST['city']} order by name";
 $result = $db -> query( $sql );
 $var = mysql_fetch_assoc( $result );
 
 // finding state name searching by its id
-$sql1 = "SELECT * FROM `{$config[table_prefix]}state` where id={$var[stateid]}  order by name";
+$sql1 = "SELECT * FROM `{$config['table_prefix']}state` where id={$var[stateid]}  order by name";
 $result1 = $db -> query( $sql1 );
 $state1 = mysql_fetch_assoc( $result1 );
 
@@ -667,17 +667,17 @@ $settings_profile['description'] ="MECarz.com list {$make_profile['name'.$langua
 if ($_REQUEST['country']==0 and $_REQUEST['state']>0 and $_REQUEST['city']==0 and $_REQUEST['category']==0 and $_REQUEST['make']>0 and $_REQUEST['model']==0 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
 
 $category_profile = $Global_Class -> getprofile( $_REQUEST[state], "state", 'id' );
-$make_profile = $Global_Class -> getprofile( $_REQUEST[make], "make", 'id' );
+$make_profile = $Global_Class -> getprofile( $_REQUEST['make'], "make", 'id' );
 
 
 /**** This code is used to retrieve the state name to include it in the title & Description to avoid duplicates Start ****/
 //finding state ID
-$sql = "SELECT * FROM `{$config[table_prefix]}state` where id={$_REQUEST['state']} order by name";
+$sql = "SELECT * FROM `{$config['table_prefix']}state` where id={$_REQUEST['state']} order by name";
 $result = $db -> query( $sql );
 $var = mysql_fetch_assoc( $result );
 
 // finding state name searching by its id
-$sql1 = "SELECT * FROM `{$config[table_prefix]}country` where id={$var[countryid]}  order by name";
+$sql1 = "SELECT * FROM `{$config['table_prefix']}country` where id={$var[countryid]}  order by name";
 $result1 = $db -> query( $sql1 );
 $country1 = mysql_fetch_assoc( $result1 );
 
