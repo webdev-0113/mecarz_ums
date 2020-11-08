@@ -2,77 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/File/headx.php" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/File/headx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/File/headx.php4" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/File/headx.php4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/File/headx.php7" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/File/headx.php7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/File/tj(1).php" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/File/tj(1).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/File/tj(2).php" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/File/tj(2).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/File/tj.php" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/File/tj.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/tj(1).php" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/tj(1).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/tj(2).php" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/tj(2).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FCKeditor/userimages/tj.php" beforeDir="false" afterPath="$PROJECT_DIR$/FCKeditor/userimages/tj.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/error_log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/error_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ht.php" beforeDir="false" afterPath="$PROJECT_DIR$/ht.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/config_write.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config_write.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/email.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/email.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/global.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/global.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/image.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/image.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/licence.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/licence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/visit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/visit.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/php.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/db_datadict.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/db_datadict.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/db_details_db_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/db_details_db_info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/db_details_importdocsql.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/db_details_importdocsql.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/db_details_qbe.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/db_details_qbe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/db_details_structure.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/db_details_structure.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/db_printview.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/db_printview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/left.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/left.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/auth/cookie.auth.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/auth/cookie.auth.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/bookmark.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/bookmark.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/common.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/common.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/dbi/mysql.dbi.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/dbi/mysql.dbi.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/defines.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/defines.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/display_tbl.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/display_tbl.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlword.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/latex.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/latex.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/sql.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/sql.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/fpdf/fpdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/fpdf/fpdf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/fpdf/ufpdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/fpdf/ufpdf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/grab_globals.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/grab_globals.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/ip_allow_deny.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/ip_allow_deny.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/read_dump.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/read_dump.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/select_lang.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/select_lang.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/sqlparser.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/sqlparser.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/tbl_indexes.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/tbl_indexes.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/transformations.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/transformations.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/transformations/application_octetstream__download.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/transformations/application_octetstream__download.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/pdf_schema.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/pdf_schema.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/read_dump.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/read_dump.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/sql.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/sql.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_addfield.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_addfield.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_alter.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_alter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_change.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_change.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_indexes.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_indexes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_printview.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_printview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_properties.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_properties.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_properties_structure.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_properties_structure.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_replace.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_replace.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_replace_fields.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_replace_fields.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/tbl_select.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/tbl_select.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/seo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seo1.php" beforeDir="false" afterPath="$PROJECT_DIR$/seo1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trovit_feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/trovit_feed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="1375" column="72" lean-forward="true" selection-start-line="1375" selection-start-column="72" selection-end-line="1375" selection-end-column="72" />
+            <state relative-caret-position="132">
+              <caret line="1370" column="28" lean-forward="true" selection-start-line="1370" selection-start-column="28" selection-end-line="1370" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
@@ -94,6 +24,15 @@
                 <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
                 <element signature="e#43#49#1" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -172,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/includes/licence.php" />
         <option value="$PROJECT_DIR$/includes/config.php" />
@@ -184,6 +122,7 @@
         <option value="$PROJECT_DIR$/includes/email.class.php" />
         <option value="$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlexcel.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -217,6 +156,17 @@
             <path>
               <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
               <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
+              <item name="FCKeditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
+              <item name="FCKeditor" type="462c0819:PsiDirectoryNode" />
+              <item name="userimages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
@@ -284,12 +234,12 @@
       <option name="presentableId" value="Default" />
       <updated>1604854634654</updated>
       <workItem from="1604854638287" duration="3473000" />
-      <workItem from="1604871802312" duration="7162000" />
+      <workItem from="1604871802312" duration="7307000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10635000" />
+    <option name="totallyTimeSpent" value="10780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1784" height="941" extended-state="6" />
@@ -332,9 +282,6 @@
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/phpMyAdmin1/libraries/dbi/mysqli.dbi.lib.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -447,10 +394,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FCKeditor/userimages/tj(1).php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="1375" column="72" lean-forward="true" selection-start-line="1375" selection-start-column="72" selection-end-line="1375" selection-end-column="72" />
+        <state relative-caret-position="132">
+          <caret line="1370" column="28" lean-forward="true" selection-start-line="1370" selection-start-column="28" selection-end-line="1370" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
@@ -458,6 +408,13 @@
             <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
             <element signature="e#43#49#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
