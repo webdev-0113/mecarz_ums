@@ -26,10 +26,10 @@ function replace($var=array(),$file,$path="",$condtemplates=1) {
          if ( preg_match( "{{tpl_auto_", $val ) )
          {
 
-                 $val = eregi_replace( "{{|}}", "", $val );
-                 //$val = eregi_replace( "\_\&\_", "_", $val );
-                 $val1 = eregi_replace( "tpl_auto_", "", $val );
-                 $val1 = eregi_replace( "_", " ", $val1 );
+                 $val = preg_replace( "{{|}}", "", $val );
+                 //$val = preg_replace( "\_\&\_", "_", $val );
+                 $val1 = preg_replace( "tpl_auto_", "", $val );
+                 $val1 = preg_replace( "_", " ", $val1 );
                  $val1 = ucwords( $val1 );
                  if ($lang[$val]=='') {
                      $msg_global .= "\$lang['$val'] = \"$val1\";\n";
@@ -46,12 +46,12 @@ function replace($var=array(),$file,$path="",$condtemplates=1) {
  if (is_array($var) and preg_match("/{{",$output)) {
   foreach ($var as $key => $value) {
        if ($key=="error")
-          $output=eregi_replace ("({{error}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
+          $output=preg_replace ("({{error}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
        if ($key=="error1")
-          $output=eregi_replace ("({{error1}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
+          $output=preg_replace ("({{error1}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
           
        if ($key=="tpl_msg")
-          $output=eregi_replace ("({{tpl_msg}})", "<font class=\"msg\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
+          $output=preg_replace ("({{tpl_msg}})", "<font class=\"msg\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
 
        $value=stripslashes($value);
        $output=str_replace("{{".$key."}}",$value,$output);
@@ -72,7 +72,7 @@ function replace($var=array(),$file,$path="",$condtemplates=1) {
   $output = preg_replace("/{{language_session}}/e", "\$language_session1", $output);
 
 
-  $output = preg_replace("/<a href=\"(.*).html\">/e", "'<a href=\"'.eregi_replace(' ','-','\\1').'.html\">'", $output);
+  $output = preg_replace("/<a href=\"(.*).html\">/e", "'<a href=\"'.preg_replace(' ','-','\\1').'.html\">'", $output);
   $output = preg_replace("/{{tpl_auto_(\w+)}}/e", "\$lang['tpl_auto_\\1']", $output);
   $output = preg_replace("/{{config_auto_(\w+)}}/e", "\$config['config_auto_\\1']", $output);
   $output = preg_replace("/{{input_(\w+)_val}}/e", "PrepareForWrite(\$_REQUEST['input_\\1'])", $output);

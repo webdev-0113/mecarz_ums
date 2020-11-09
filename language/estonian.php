@@ -2,8 +2,8 @@
 
 
 
-$lang['Sorrythisimagetypeisnotsupportedyet'] = "Vabandame, sellist tüüpi pilti ei saa lisada";
-$lang['Failedtocreatedestinationimage'] = 'Pildi salvestamine ebaõnnestus';
+$lang['Sorrythisimagetypeisnotsupportedyet'] = "Vabandame, sellist tï¿½ï¿½pi pilti ei saa lisada";
+$lang['Failedtocreatedestinationimage'] = 'Pildi salvestamine ebaï¿½nnestus';
 
 $lang["tpl_auto_Admin_Login"] = "Administreerimine";
 $lang["tpl_auto_Username"] = "Kasutajanimi";
@@ -19,7 +19,7 @@ Kasutajanimi: {username}<br>
 Parool: {password}<br>
 Email: {email}<br>
 <br>
-Tänan.";
+Tï¿½nan.";
 
 $lang["tpl_auto_You_will_receive"] = "Sinu e-mailile saadeti uus parool";
 
@@ -28,7 +28,7 @@ $lang["tpl_auto_Login"] = "Logi sisse";
 $lang["tpl_auto_Back"] = "Tagasi";
 
 $lang["tpl_auto_Change_Password"] = "Muuda profiili";
-$lang["tpl_auto_Logout"] = "Logi välja";
+$lang["tpl_auto_Logout"] = "Logi vï¿½lja";
 
 $lang["tpl_auto_Admin"] = "Admin";
 $lang["tpl_auto_profile"] = "profiil";
@@ -40,27 +40,27 @@ $lang["error1"] = "Kasutajanimi puudub";
 $lang["error2"] = "Parool puudub";
 $lang["error3"] = "Sellist kasutajanime ei ole andmebaasis!";
 $lang["error4"] = "Vale parool";
-$lang["error5"] = "Parool on liiga lühike (4 - 20 tähemärki)";
-$lang["error6"] = "Kasutajanimi on liiga ühike (4 - 20 tähemärki)";
+$lang["error5"] = "Parool on liiga lï¿½hike (4 - 20 tï¿½hemï¿½rki)";
+$lang["error6"] = "Kasutajanimi on liiga ï¿½hike (4 - 20 tï¿½hemï¿½rki)";
 $lang["error7"] = "Korda samat parooli";
 $lang["error8"] = "Ei ole midagi kustutada!";
 $lang["error9"] = "Selline kasutajanimi on juba olemas!";
-$lang["error10"] = "Kasutajanimi ei ole aktiivne! võta administraatoriga ühendust!";
-$lang["error11"] = "See kasutajanimi ei ole aktiivne! Kontrolli oma e-maili ja aktiveeri oma kasutajanimi või võta administraatoriga ühendust!";
+$lang["error10"] = "Kasutajanimi ei ole aktiivne! vï¿½ta administraatoriga ï¿½hendust!";
+$lang["error11"] = "See kasutajanimi ei ole aktiivne! Kontrolli oma e-maili ja aktiveeri oma kasutajanimi vï¿½i vï¿½ta administraatoriga ï¿½hendust!";
 $lang["error12"] = "Sa ei teosta makset";
 
 $lang["erroremail"] = "Vale e-amil";
 
-$lang["tpl_Select_Page"] = "Vali lehekülg: ";
+$lang["tpl_Select_Page"] = "Vali lehekï¿½lg: ";
 $lang["tpl_auto_found"] = " Leiti {{nr}} autot {{nr_total}}-st ";
 $lang["tpl_Edit"] = "Muuda";
 
 
 $lang['error_change1']['username_exist'] = "Selline kasutajanimi on juba kasutusel! Vabandame!<br>";
 $lang['error_change1']['email_exist'] = "Sellin e-mail on juba kasutusel! Vabandame!<br>";
-$lang['error_change1']['password_not_equal'] = "Paroolid ei ühti<br>";
-$lang['error_change1']['password_short'] = "Parool on liiga lühika (4 - 20 tähemärki)<br>";
-$lang['error_change1']['username_short'] = "Kasutajanimi on liiga lühike (4 - 20 tähemärki)<br>";
+$lang['error_change1']['password_not_equal'] = "Paroolid ei ï¿½hti<br>";
+$lang['error_change1']['password_short'] = "Parool on liiga lï¿½hika (4 - 20 tï¿½hemï¿½rki)<br>";
+$lang['error_change1']['username_short'] = "Kasutajanimi on liiga lï¿½hike (4 - 20 tï¿½hemï¿½rki)<br>";
 $lang["tpl_Profile_updated"] = "Profiil uuendatud!";
 
 // auto fill
@@ -70,8 +70,8 @@ $lang["tpl_auto_View_Edit_Delete"] = "Vaata/Muuda/Kustuta";
 
 $lang["tpl_auto_Edit"] = "Muuda";
 $lang["tpl_auto_Delete"] = "Kustuta";
-$lang["tpl_auto_Select_All"] = "Vali kõik";
-$lang["tpl_auto_Select_None"] = "Ära vali midagi";
+$lang["tpl_auto_Select_All"] = "Vali kï¿½ik";
+$lang["tpl_auto_Select_None"] = "ï¿½ra vali midagi";
 $lang["tpl_auto_Invert_Selection"] = "Valikuline selekteerimine";
 $lang["tpl_auto_Select"] = "Vali";
 $lang["tpl_auto_Delete"] = "Kustuta";
@@ -89,18 +89,18 @@ $lang["tpl_auto_Search"] = "Otsi &raquo; ";
 // auto fill
 $lang["errorstyle"] = "<font color='#FF0000'>{{error}}</font>"; //this will be displayed when a errror appeares change the color only
 $lang["foundstyle"] = "<font color='#FF0000'><b>\\1</b></font>"; //this will be displayed when a word whose was found change the color only and bold you cand add <i>,<u>,etc.
-$lang["msg_result_nr"] = "<br>There are <b>{{nr}}</b> tulemust otsingule<br>Lehekülgi <b>{{nr1}}</b> / <b>{{nr2}}</b><br>";
+$lang["msg_result_nr"] = "<br>There are <b>{{nr}}</b> tulemust otsingule<br>Lehekï¿½lgi <b>{{nr1}}</b> / <b>{{nr2}}</b><br>";
 // eror
 $lang["error_name"] = "Palun sisesta nimi!<br>";
 
 
 // rights
 $lang["msg1_rights"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_rights"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_rights"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
-$lang["tpl_auto_rights"] = "õigused";
-$lang["tpl_rights_add"] = "Lisa õigusi";
-$lang["tpl_rights_modify"] = "Muuda õigusi";
+$lang["tpl_auto_rights"] = "ï¿½igused";
+$lang["tpl_rights_add"] = "Lisa ï¿½igusi";
+$lang["tpl_rights_modify"] = "Muuda ï¿½igusi";
 
 $lang['tabel_rights']['id'] = "ID";
 $lang['tabel_rights']['name'] = "Nimi";
@@ -109,7 +109,7 @@ $lang['tabel_rights']['settings'] = "Seaded";
 
 $lang['tabel_rights']['admin_edit'] = "Admin";
 
-$lang['tabel_rights']['rights_edit'] = "Õigused";
+$lang['tabel_rights']['rights_edit'] = "ï¿½igused";
 
 $lang['tabel_rights']['category_edit'] = "Kategooria";
 
@@ -121,13 +121,13 @@ $lang['tabel_rights']['features_edit'] = "Lisavarystus";
 
 $lang['tabel_rights']['cars_edit'] = "Autod";
 
-$lang['tabel_rights']['dealers_edit'] = "Edasimüüjad";
+$lang['tabel_rights']['dealers_edit'] = "Edasimï¿½ï¿½jad";
 
 
-$lang['tabel_rights']['carsdealer_edit'] = "Autode edaimüüjad";
+$lang['tabel_rights']['carsdealer_edit'] = "Autode edaimï¿½ï¿½jad";
 
 
-$lang['tabel_rights']['view_all_cars'] = "Näita kõiki autosid (ainult administraatorile)";
+$lang['tabel_rights']['view_all_cars'] = "Nï¿½ita kï¿½iki autosid (ainult administraatorile)";
 
 
 $lang['tabel_rights']['news_edit'] = "Uudised";
@@ -144,7 +144,7 @@ $lang['tabel_rights']['template'] = "Kujundus";
 
 $lang['tabel_rights']['sendemail'] = "Saada liikmetele e-mail";
 
-$lang['tabel_rights']['homepage'] = "Kodulehekülg";
+$lang['tabel_rights']['homepage'] = "Kodulehekï¿½lg";
 
 $lang['tabel_rights']['sendemailadmin'] = "Saada administraatorile e-mail";
 
@@ -163,14 +163,14 @@ $lang['error_rights']['name'] = "Palun sisesta nimi<br>";
 // admin
 
 $lang["msg1_admin"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_admin"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_admin"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_admin"] = "Admin";
 $lang["tpl_admin_add"] = "Lisa admin";
 $lang["tpl_admin_modify"] = "Muuda admini";
 
 $lang['tabel_admin']['id'] = "ID";
-$lang['tabel_admin']['right'] = "Õigused";
+$lang['tabel_admin']['right'] = "ï¿½igused";
 $lang['tabel_admin']['username'] = "Kasutajanimi";
 $lang['tabel_admin']['password'] = "Parool";
 $lang['tabel_admin']['password1'] = "Korda parooli";
@@ -188,11 +188,11 @@ $lang['tabel_admin']['nopictures'] = "Piltide arv";
 $lang['tabel_admin']['active'] = "Aktiivne";
 $lang['tabel_admin']['adprofiles'] = "Reklaami profiilid";
 
-$lang["tpl_auto_explain_admin"]="( Näidis:<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne / <img src='../images/active2.gif' border=0> kinnitamata / <img src='../images/active3.gif' border=0> ootab tasumist)";
+$lang["tpl_auto_explain_admin"]="( Nï¿½idis:<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne / <img src='../images/active2.gif' border=0> kinnitamata / <img src='../images/active3.gif' border=0> ootab tasumist)";
 
 
 $lang['error_admin']['id'] = "Plaun sisesta ID<br>";
-$lang['error_admin']['right'] = "Plaun lisa õigused<br>";
+$lang['error_admin']['right'] = "Plaun lisa ï¿½igused<br>";
 $lang['error_admin']['username'] = "Palun sisesta kasutajanimi<br>";
 $lang['error_admin']['password'] = "Palun sisesta parool<br>";
 $lang['error_admin']['password1'] = "Palun korda parooli<br>";
@@ -202,15 +202,15 @@ $lang['error_admin']['email'] = "Palun sisesta e-mail<br>";
 
 
 $lang['error_admin']['username_exist'] = "Selline kasutajanimi on juba kasutuses! Vabandame!<br>";
-$lang['error_admin']['password_not_equal'] = "Paroolid ei ühti.<br>";
-$lang['error_admin']['password_short'] = "Parool on liiga lühike (Peab olema 4 - 20 tähemärki)<br>";
-$lang['error_admin']['username_short'] = "Kasutajanimi on liiga lühike (Peab olema 4 - 20 tähemärki)<br>";
+$lang['error_admin']['password_not_equal'] = "Paroolid ei ï¿½hti.<br>";
+$lang['error_admin']['password_short'] = "Parool on liiga lï¿½hike (Peab olema 4 - 20 tï¿½hemï¿½rki)<br>";
+$lang['error_admin']['username_short'] = "Kasutajanimi on liiga lï¿½hike (Peab olema 4 - 20 tï¿½hemï¿½rki)<br>";
 
 
-$lang["error_permission"] = "<center><font syle='color:red;size=20px;'>Puuduvad õigused!</font></center>";
+$lang["error_permission"] = "<center><font syle='color:red;size=20px;'>Puuduvad ï¿½igused!</font></center>";
 
 $lang['tabel_change1']['id'] = "ID";
-$lang['tabel_change1']['right'] = "Õigused";
+$lang['tabel_change1']['right'] = "ï¿½igused";
 $lang['tabel_change1']['username'] = "Kasutajanimi";
 $lang['tabel_change1']['password'] = "Parool";
 $lang['tabel_change1']['password1'] = "Korda parooli";
@@ -226,7 +226,7 @@ $lang['tabel_change1']['description'] = "Kirjeldus";
 $lang['tabel_change1']['nocars'] = "Puuduvad krdiitkaardid";
 
 $lang['error_change1']['id'] = "Palun sisesta ID<br>";
-$lang['error_change1']['right'] = "Palun sisesta õigused<br>";
+$lang['error_change1']['right'] = "Palun sisesta ï¿½igused<br>";
 $lang['error_change1']['username'] = "Palun sisesta kasutajanimi<br>";
 $lang['error_change1']['password'] = "Palun sisesta parool<br>";
 $lang['error_change1']['password1'] = "Palun sisesta parool uuesti<br>";
@@ -238,17 +238,17 @@ $lang["tpl_auto_home"] = "Avaleht";
 $lang["tpl_auto_new_user"] = "Uus kasutaja";
 $lang["tpl_auto_email"] = "E-mail";
 $lang["tpl_auto_Retype_Password"] = "Korda parooli";
-$lang["tpl_auto_dates"] = "Kuupäevad";
-$lang["tpl_dates"] = "Kuupäevad";
+$lang["tpl_auto_dates"] = "Kuupï¿½evad";
+$lang["tpl_dates"] = "Kuupï¿½evad";
 $lang["tpl_auto_price"] = "Hind";
 
 
-$lang["tpl_day"] = "Päev";
+$lang["tpl_day"] = "Pï¿½ev";
 $lang["tpl_month"] = "Kuu";
 $lang["tpl_year"] = "Aasta";
-$lang["tpl_auto_today"] = "TÄNA";
+$lang["tpl_auto_today"] = "Tï¿½NA";
 
-$lang["error_date"] = "Vale kuupäev!<br>";
+$lang["error_date"] = "Vale kuupï¿½ev!<br>";
 
 $lang['tpl_auto_for'] = " ";
 
@@ -260,7 +260,7 @@ $lang['tpl_auto_to'] = "-";
 
 
 $lang["msg1_category"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_category"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_category"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_category"] = "Kategooria";
 $lang["tpl_category_add"] = "Lisa kategooria";
@@ -276,7 +276,7 @@ $lang['error_category']['name'] = "Palun sisesta nimi<br>";
 
 //make
 $lang["msg1_make"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_make"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_make"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_make"] = "Tootja";
 $lang["tpl_make_add"] = "Lisa";
@@ -290,7 +290,7 @@ $lang['error_make']['name'] = "Palun sisesta nimi<br>";
 
 //cars
 $lang["msg1_cars"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_cars"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_cars"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_cars"] = "Autod";
 $lang["tpl_cars_add"] = "Lisa auto";
@@ -304,31 +304,31 @@ $lang['tabel_cars']['model'] = "Mudel";
 $lang['tabel_cars']['year'] = "Aasta";
 $lang['tabel_cars']['price'] = "Hind";
 $lang['tabel_cars']['specialprice'] = "Soodushind";
-$lang['tabel_cars']['dealerprice'] = "Edasimüüja hind";
+$lang['tabel_cars']['dealerprice'] = "Edasimï¿½ï¿½ja hind";
 
 
 $lang['tabel_cars']['vin'] = "VIN";
-$lang['tabel_cars']['bodytype'] = "Keretüüp";
+$lang['tabel_cars']['bodytype'] = "Keretï¿½ï¿½p";
 $lang['tabel_cars']['engine'] = "Mootor";
 $lang['tabel_cars']['stereo'] = "Stereo";
-$lang['tabel_cars']['fueltype'] = "Kütus";
-$lang['tabel_cars']['transmission'] = "Käigukast";
+$lang['tabel_cars']['fueltype'] = "Kï¿½tus";
+$lang['tabel_cars']['transmission'] = "Kï¿½igukast";
 $lang['tabel_cars']['description'] = "Kirjeldus";
-$lang['tabel_cars']['shortdescription'] = "Lühikirjeldus";
+$lang['tabel_cars']['shortdescription'] = "Lï¿½hikirjeldus";
 $lang['tabel_cars']['stock'] = "Laos #";
-$lang['tabel_cars']['pricemesg'] = "Hinna sõnum: (Näidis: Tellimisel) (kui sa siia midagi trükid siis hinda ei kuvata)";
+$lang['tabel_cars']['pricemesg'] = "Hinna sï¿½num: (Nï¿½idis: Tellimisel) (kui sa siia midagi trï¿½kid siis hinda ei kuvata)";
 
-$lang['tabel_cars']['sitetitle'] = "Lehekülje pealkiri (Otsingumootor)";
+$lang['tabel_cars']['sitetitle'] = "Lehekï¿½lje pealkiri (Otsingumootor)";
 $lang['tabel_cars']['metadescription'] = "META kirjeldus (Otsingumootor)";
-$lang['tabel_cars']['metakeywords'] = "Meta märksõnad (Ostingumootor)";
+$lang['tabel_cars']['metakeywords'] = "Meta mï¿½rksï¿½nad (Ostingumootor)";
 
-$lang['tabel_cars']['intcolor'] = "Sisemuse värvus";
-$lang['tabel_cars']['extcolor'] = "välis värvus";
-$lang['tabel_cars']['miles'] = "Läbisõit";
+$lang['tabel_cars']['intcolor'] = "Sisemuse vï¿½rvus";
+$lang['tabel_cars']['extcolor'] = "vï¿½lis vï¿½rvus";
+$lang['tabel_cars']['miles'] = "Lï¿½bisï¿½it";
 $lang['tabel_cars']['noview'] = "Vaatamisi";
 $lang['tabel_cars']['active'] = "Aktiivne";
-$lang['tabel_cars']['date_add'] = "Lisamis kuupäev";
-$lang['tabel_cars']['date_modify'] = "Muutmis kuupäev";
+$lang['tabel_cars']['date_add'] = "Lisamis kuupï¿½ev";
+$lang['tabel_cars']['date_modify'] = "Muutmis kuupï¿½ev";
 
 $lang['error_cars']['admin'] = "Palun sisesta admin<br>";
 $lang['error_cars']['category'] = "Palun sisesta kategooria<br>";
@@ -337,16 +337,16 @@ $lang['error_cars']['model'] = "Palun sisesta mudel<br>";
 $lang['error_cars']['year'] = "Palun sisesta aasta<br>";
 $lang['error_cars']['price'] = "Palun sisesta hind<br>";
 
-$lang['fuelltype']=array("Diisel","Gaas","Bensiin","Elekter","Hübriid","LPG, CNG või Biokütus");
+$lang['fuelltype']=array("Diisel","Gaas","Bensiin","Elekter","Hï¿½briid","LPG, CNG vï¿½i Biokï¿½tus");
 $lang["tpl_auto_array_option_gallery"]="Galerii";
 $lang["tpl_auto_array_option_carsfeatures"]="Lisavarustus";
 
-$lang["tpl_auto_explain_cars"]="Näidis:<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne  / <img src='../images/active2.gif' border=0> Müüdud";
+$lang["tpl_auto_explain_cars"]="Nï¿½idis:<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne  / <img src='../images/active2.gif' border=0> Mï¿½ï¿½dud";
 //finish cars
 
 //features
 $lang["msg1_features"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_features"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_features"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_features"] = "Lisavarustus";
 $lang["tpl_features_add"] = "Lisa";
@@ -361,7 +361,7 @@ $lang['error_features']['name'] = "Palun sisesta lisavarustus<br>";
 
 //carsfeatures
 $lang["msg1_carsfeatures"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_carsfeatures"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_carsfeatures"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_carsfeatures"] = "Autode lisavarustus";
 $lang["tpl_carsfeatures_add"] = "Lisa";
@@ -378,7 +378,7 @@ $lang['error_carsfeatures']['carsid'] = "Palun sisesta auto ID<br>";
 
 //gallery
 $lang["msg1_gallery"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_gallery"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_gallery"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_gallery"] = "Galerii";
 $lang["tpl_gallery_add"] = "Lisa";
@@ -387,16 +387,16 @@ $lang["tpl_gallery_modify"] = "Muuda";
 $lang['tabel_gallery']['id'] = "ID";
 $lang['tabel_gallery']['carsid'] = "Auto ID";
 $lang['tabel_gallery']['picture'] = "Pilt";
-$lang['tabel_gallery']['thumbnail'] = "Väikepilt";
+$lang['tabel_gallery']['thumbnail'] = "Vï¿½ikepilt";
 $lang['tabel_gallery']['description'] = "Kirjeldus";
-$lang['tabel_gallery']['order'] = "Järjestus";
+$lang['tabel_gallery']['order'] = "Jï¿½rjestus";
 
 $lang['error_gallery']['picture'] = "Palun lisa pilt<br>";
 //end gallery
 
 //news
 $lang["msg1_news"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_news"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_news"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_news"] = "Uudised";
 $lang["tpl_news_add"] = "Lisa uudis";
@@ -405,15 +405,15 @@ $lang["tpl_news_modify"] = "Muuda uudiseid";
 $lang['tabel_news']['id'] = "ID";
 $lang['tabel_news']['title'] = "Pealkiri";
 $lang['tabel_news']['content'] = "Sisu";
-$lang['tabel_news']['date'] = "Kuupäev";
+$lang['tabel_news']['date'] = "Kuupï¿½ev";
 
-$lang['error_news']['title'] = "Palun sisesta kuupäev<br>";
+$lang['error_news']['title'] = "Palun sisesta kuupï¿½ev<br>";
 
 //ends news
 
 //customlinks
 $lang["msg1_customlinks"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_customlinks"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_customlinks"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_customlinks"] = "Lingid";
 $lang["tpl_customlinks_add"] = "Lisa link";
@@ -422,13 +422,13 @@ $lang["tpl_customlinks_modify"] = "Muuda linke";
 $lang['tabel_customlinks']['id'] = "ID";
 $lang['tabel_customlinks']['name'] = "Nimi";
 $lang['tabel_customlinks']['content'] = "URL";
-$lang['tabel_customlinks']['order'] = "Järjestus";
+$lang['tabel_customlinks']['order'] = "Jï¿½rjestus";
 
 //ends customlinks
 
 //faq
 $lang["msg1_faq"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_faq"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_faq"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_faq"] = "KKK";
 $lang["tpl_faq_add"] = "Lisa KKK";
@@ -437,72 +437,72 @@ $lang["tpl_faq_modify"] = "Muuda KKK-d";
 $lang['tabel_faq']['id'] = "ID";
 $lang['tabel_faq']['name'] = "Nimi";
 $lang['tabel_faq']['content'] = "Sisu";
-$lang['tabel_faq']['order'] = "Järjestus";
+$lang['tabel_faq']['order'] = "Jï¿½rjestus";
 
 //ends faq
 
 //settings
 $lang["msg1_settings"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_settings"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_settings"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_settings"] = "Seaded";
 $lang["tpl_settings_add"] = "Lisa";
 $lang["tpl_settings_modify"] = "Muuda";
 
 $lang['tabel_settings']['id'] = "ID";
-$lang['tabel_settings']['nrpageuser'] = "Autode arv leheküljel, koduleheküljel";
-$lang['tabel_settings']['nrpageadmin'] = "Autode arv leheküljel, admini lehel";
+$lang['tabel_settings']['nrpageuser'] = "Autode arv lehekï¿½ljel, kodulehekï¿½ljel";
+$lang['tabel_settings']['nrpageadmin'] = "Autode arv lehekï¿½ljel, admini lehel";
 $lang['tabel_settings']['currency'] = "Valuuta";
 $lang['tabel_settings']['nocars'] = "Maksimaalselt autosid kasutaja kohta (0:limiidita)";
 $lang['tabel_settings']['short_nocars'] = "Maksimaalselt autosid";
 $lang['tabel_settings']['nopictures'] = "Maksimaalselt pilte kasutaja kohta(0:limiidita)";
 $lang['tabel_settings']['short_nopictures'] = "Maksimaalselt pilte";
 
-$lang['tabel_settings']['rights_signupuser'] = "Kasutaja õigused peale registreerimist";
-$lang['tabel_settings']['titlesite'] = "Kodulehekülje nimi";
+$lang['tabel_settings']['rights_signupuser'] = "Kasutaja ï¿½igused peale registreerimist";
+$lang['tabel_settings']['titlesite'] = "Kodulehekï¿½lje nimi";
 $lang['tabel_settings']['description'] = "Kirjeldus";
-$lang['tabel_settings']['keywords'] = "Märksõnad";
-$lang['tabel_settings']['header'] = "Kodulehekülje päis";
-$lang['tabel_settings']['footer'] = "Kodulehekülje jaluse";
-$lang['tabel_settings']['wysiwyg'] = "Luba editori kasutamine (töötab ainult IE 5.5+)";
+$lang['tabel_settings']['keywords'] = "Mï¿½rksï¿½nad";
+$lang['tabel_settings']['header'] = "Kodulehekï¿½lje pï¿½is";
+$lang['tabel_settings']['footer'] = "Kodulehekï¿½lje jaluse";
+$lang['tabel_settings']['wysiwyg'] = "Luba editori kasutamine (tï¿½ï¿½tab ainult IE 5.5+)";
 $lang['tabel_settings']['adprofiles'] = "Luba reklaami profiilid kasutaja registreerimisel";
 
 
 $lang['tabel_settings']['picture_width'] = "Pildi laius";
-$lang['tabel_settings']['picture_height'] = "Pildid kõrgus";
-$lang['tabel_settings']['thumbnail_width'] = "Väikepildi laius";
-$lang['tabel_settings']['thumbnail_height'] = "Väikepildi kõrgus";
+$lang['tabel_settings']['picture_height'] = "Pildid kï¿½rgus";
+$lang['tabel_settings']['thumbnail_width'] = "Vï¿½ikepildi laius";
+$lang['tabel_settings']['thumbnail_height'] = "Vï¿½ikepildi kï¿½rgus";
 
 $lang['tabel_settings']['picture'] = "Vaike pilt";
 $lang['tabel_settings']['thumbnail'] = "Vaike pilt";
-$lang['tabel_settings']['logo'] = "Lehekülje logo";
+$lang['tabel_settings']['logo'] = "Lehekï¿½lje logo";
 
 $lang['error_settings']['id'] = "Palun sisesta ID<br>";
-$lang['error_settings']['nrpageuser'] = "Palun sisesta autod arv leheküljel, koduleheküljel<br>";
-$lang['error_settings']['nrpageadmin'] = "Palun sisesta autode arv leheküljel, admini lehel<br>";
+$lang['error_settings']['nrpageuser'] = "Palun sisesta autod arv lehekï¿½ljel, kodulehekï¿½ljel<br>";
+$lang['error_settings']['nrpageadmin'] = "Palun sisesta autode arv lehekï¿½ljel, admini lehel<br>";
 $lang['error_settings']['nocars'] = "Palun sisesta maksimaalne autode arv kasutaja registreerimisel <br>";
 $lang['error_settings']['nopictures'] = "Palun sisesta maksimaalne piltide arv kasutaja kohta.<br>";
 
-$lang['error_settings']['rights_signupuser'] = "Palun sisesta õigused kasutaja registreerimisel<br>";
-$lang['error_settings']['titlesite'] = "Palun sisesta kodulehekülje nimi<br>";
-$lang['error_settings']['description'] = "Palun sisesta kodulehekülje kirjeldus<br>";
-$lang['error_settings']['keywords'] = "Palun sisesta kodulehekülje märksõnad<br>";
-$lang['error_settings']['header'] = "Palun sisesta kodulehekülje päis<br>";
-$lang['error_settings']['footer'] = "Palun sisesta koduleheküje jalus<br>";
+$lang['error_settings']['rights_signupuser'] = "Palun sisesta ï¿½igused kasutaja registreerimisel<br>";
+$lang['error_settings']['titlesite'] = "Palun sisesta kodulehekï¿½lje nimi<br>";
+$lang['error_settings']['description'] = "Palun sisesta kodulehekï¿½lje kirjeldus<br>";
+$lang['error_settings']['keywords'] = "Palun sisesta kodulehekï¿½lje mï¿½rksï¿½nad<br>";
+$lang['error_settings']['header'] = "Palun sisesta kodulehekï¿½lje pï¿½is<br>";
+$lang['error_settings']['footer'] = "Palun sisesta kodulehekï¿½je jalus<br>";
 
 $lang['error_settings']['picture_width'] = "Palun sisesta pildi laius<br>";
-$lang['error_settings']['picture_height'] = "Palun sisesta pildi kõrgus<br>";
-$lang['error_settings']['thumbnail_width'] = "Palun sisesta väikepildi laius<br>";
-$lang['error_settings']['thumbnail_height'] = "Palun sisesta väikepildi kõrgus<br>";
+$lang['error_settings']['picture_height'] = "Palun sisesta pildi kï¿½rgus<br>";
+$lang['error_settings']['thumbnail_width'] = "Palun sisesta vï¿½ikepildi laius<br>";
+$lang['error_settings']['thumbnail_height'] = "Palun sisesta vï¿½ikepildi kï¿½rgus<br>";
 
 $lang["tpl_Q"] = "Q";
 $lang["tpl_A"] = "A";
-$lang["tpl_auto_details"] = "Täpsemalt";
+$lang["tpl_auto_details"] = "Tï¿½psemalt";
 
 $lang['tpl_auto_vin'] = "VIN";
 $lang['tpl_auto_engine'] = "Mootor";
-$lang['tpl_auto_extcolor'] = "välis värv";
-$lang['tpl_auto_miles'] = "Läbisõit";
+$lang['tpl_auto_extcolor'] = "vï¿½lis vï¿½rv";
+$lang['tpl_auto_miles'] = "Lï¿½bisï¿½it";
 
 
 //ends settings
@@ -510,7 +510,7 @@ $lang['tpl_auto_miles'] = "Läbisõit";
 //template
 
 $lang["msg1_template"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_template"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_template"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_template"] = "Kujundus elemendid";
 $lang["tpl_template_add"] = "Lisa";
@@ -521,8 +521,8 @@ $lang['tabel_template']['email'] = "E-mail<br>";
 $lang['tabel_template']['from'] = "Kellelt";
 $lang['tabel_template']['signup_subject'] = "E-maili pealkiri registreeritud kasutajatele";
 
-$lang['tabel_template']['signup_body'] = "E-maili sisu registreeritud kasutajatele<br>Näiteks:<Br>Tere {username}<br>
-Palun kliki kirja lõpus olevat linki, et oma kasutajanimi aktiveerida:<br>
+$lang['tabel_template']['signup_body'] = "E-maili sisu registreeritud kasutajatele<br>Nï¿½iteks:<Br>Tere {username}<br>
+Palun kliki kirja lï¿½pus olevat linki, et oma kasutajanimi aktiveerida:<br>
 {link}<br>
 <br>
 Andmed:<br>
@@ -530,42 +530,42 @@ Kasutajanimi: {username}<br>
 Parool: {password}<br>
 E-mail: {email}<br>
 <br>
-Täname.";
+Tï¿½name.";
 $lang['tabel_template']['short_signup_body'] = "E-maili sisu registreeritud kasutajatele";
 
-$lang['tabel_template']['contact_subject'] = "E-maili pealkiri kontakti võtmiseks (saadavad külastajad)<br><br>Näiteks: Uus sõnum auto {model}-#{id} kohta";
+$lang['tabel_template']['contact_subject'] = "E-maili pealkiri kontakti vï¿½tmiseks (saadavad kï¿½lastajad)<br><br>Nï¿½iteks: Uus sï¿½num auto {model}-#{id} kohta";
 $lang['tabel_template']['short_contact_subject'] = "E-maili pealkiri kontakti vormile";
-$lang['tabel_template']['contact_body'] = "E-maili sisu kontakti vormile (saadavad külastajd)<br><br>.<br> Tere {name}<br>
-Sulle saadeti just infopäring järgmise auto kohta:<br>
+$lang['tabel_template']['contact_body'] = "E-maili sisu kontakti vormile (saadavad kï¿½lastajd)<br><br>.<br> Tere {name}<br>
+Sulle saadeti just infopï¿½ring jï¿½rgmise auto kohta:<br>
 {model}-#{id}<br>
 saatja:<br>
 ______<br>
 Nimi: {guest_name}<br>
 Telefon: {guest_phone}<br>
 E-mail: {guest_email}<br>
-Sõnum: {guest_message}<br>";
+Sï¿½num: {guest_message}<br>";
 $lang['tabel_template']['short_contact_body'] = "E-maili sisu kontakti vormilt";
 $lang['tabel_template']['signupmembers_subject'] = "E-mail pealkiri registreeritud kasutajatelt";
 $lang['tabel_template']['short_signupmembers_body'] = "E-mail sisu registreeritud kasutajtelt";
-$lang['tabel_template']['signupmembers_body'] = "E-maili sisu registreeritud kasutajatelt<br>Näidis:<Br>Tere {name}<br>
-Palun kliki kirja lõpus olevat linki, et oma kasutajanimi aktiveerida:<br>
+$lang['tabel_template']['signupmembers_body'] = "E-maili sisu registreeritud kasutajatelt<br>Nï¿½idis:<Br>Tere {name}<br>
+Palun kliki kirja lï¿½pus olevat linki, et oma kasutajanimi aktiveerida:<br>
 {link}<br>
 <br>
 Andmed:<br>
 Nimi: {name}<br>
 E-mail: {email}<br>
 <br>
-Täname.";
+Tï¿½name.";
 
 
 $lang['tabel_template']['payment_subject'] = "E-maili pealkiri tasumise kinnitamisel";
 $lang['tabel_template']['short_payment_body'] = "E-maili sisu tasumise kinnitamisel";
-$lang['tabel_template']['payment_body'] = "E-maili sisu tasumise kinnitamisel<br>Näidis:<Br>
-Lugupeetud klient,<br> Täname Sind tellimuse eest.<br>
-Me oleme saanud kätte Sinu tasumise ja sinu konto on aktiveeritud.<br>
+$lang['tabel_template']['payment_body'] = "E-maili sisu tasumise kinnitamisel<br>Nï¿½idis:<Br>
+Lugupeetud klient,<br> Tï¿½name Sind tellimuse eest.<br>
+Me oleme saanud kï¿½tte Sinu tasumise ja sinu konto on aktiveeritud.<br>
 <br>
-Kui Sul on mingeid probleeme, palun võta meiega ühendust: \n\ninfo\@tabilogistik.com
-Täname.";
+Kui Sul on mingeid probleeme, palun vï¿½ta meiega ï¿½hendust: \n\ninfo\@tabilogistik.com
+Tï¿½name.";
 
 $lang['error_template']['id'] = "Palun sisesta ID<br>";
 $lang['error_template']['email'] = "Palun sisesta e-mail<br>";
@@ -584,20 +584,20 @@ $lang['error_template']['payment_body'] = "Palun sisesta e-maili sisu makse kinn
 
 //7 iunie 2004
 $lang['msg1']="Valitud andmed on uuendatud!";
-$lang["tpl_auto_Are_you_sure_you_want_to_activate_all"] = "Oled Sa kindel, et soovid kõik valitud andmed aktiveerida?";
-$lang["tpl_auto_Are_you_sure_you_want_to_deactivate_all"] = "Oled Sa kindel, et soovid kõik valitud andmed deaktiveerida?";
+$lang["tpl_auto_Are_you_sure_you_want_to_activate_all"] = "Oled Sa kindel, et soovid kï¿½ik valitud andmed aktiveerida?";
+$lang["tpl_auto_Are_you_sure_you_want_to_deactivate_all"] = "Oled Sa kindel, et soovid kï¿½ik valitud andmed deaktiveerida?";
 
 $lang['tpl_auto_Activate']="Aktiivne";
 $lang['tpl_auto_Deactivate']="Deaktiivne";
 $lang['tpl_auto_vehicle_information_sheet']="Auto informatsioon";
 
-$lang['tpl_auto_Print']="Trüki";
+$lang['tpl_auto_Print']="Trï¿½ki";
 $lang['tpl_auto_Close']="Sulge";
 
 
 //members
 $lang["msg1_members"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_members"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_members"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_members"] = "Liikmed";
 $lang["tpl_members_add"] = "Lisa";
@@ -607,7 +607,7 @@ $lang['tabel_members']['id'] = "ID";
 $lang['tabel_members']['name'] = "Nimi";
 $lang['tabel_members']['email'] = "E-mail";
 $lang['tabel_members']['active'] = "Aktiivne";
-$lang['tabel_members']['date_add'] = "Liitumis kuupäev";
+$lang['tabel_members']['date_add'] = "Liitumis kuupï¿½ev";
 
 
 $lang['error_members']['id'] = "Palun sisesta ID<br>";
@@ -615,12 +615,12 @@ $lang['error_members']['name'] = "Palun sisesta nimi<br>";
 $lang['error_members']['email'] = "Palun sisesta e-mail<br>";
 $lang['error_members']['email_exist'] = "Selline e-mail on juba kasutusel! Vabandme!<br>";
 $lang['error_members']['email_notexist'] = "Sellist e-amili ei ole meie andmebaasis! <br>";
-$lang["tpl_auto_explain_members"]="( Näidis.<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne / <img src='../images/active2.gif' border=0> kinnitamata )";
+$lang["tpl_auto_explain_members"]="( Nï¿½idis.<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne / <img src='../images/active2.gif' border=0> kinnitamata )";
 //ends members
-$lang['tpl_auto_thanks_signupmembers'] = "Täname! Sulle saadetakse e-mail!!";
-$lang['tpl_auto_thanks_unsubcribemembers'] = "Täname! Sulle ei saaetake mitte mingisugust e-maili";
+$lang['tpl_auto_thanks_signupmembers'] = "Tï¿½name! Sulle saadetakse e-mail!!";
+$lang['tpl_auto_thanks_unsubcribemembers'] = "Tï¿½name! Sulle ei saaetake mitte mingisugust e-maili";
 
-$lang['tpl_auto_thanks_confirmmembers'] = "Täname!\\nSinu kasutajanimi on kinnitatud.\\n";
+$lang['tpl_auto_thanks_confirmmembers'] = "Tï¿½name!\\nSinu kasutajanimi on kinnitatud.\\n";
 
 $lang['tpl_auto_signupmembers_message'] = "Uudiskiri";
 $lang['tpl_auto_Home'] = "Avaleht";
@@ -628,7 +628,7 @@ $lang['tpl_auto_Home'] = "Avaleht";
 
 //sponsored
 $lang["msg1_sponsored"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_sponsored"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_sponsored"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_sponsored"] = "Sponsorid";
 $lang["tpl_sponsored_add"] = "Lisa";
@@ -636,12 +636,12 @@ $lang["tpl_sponsored_modify"] = "Muuda";
 
 $lang['tabel_sponsored']['id'] = "ID";
 $lang['tabel_sponsored']['carid'] = "Auto";
-$lang['tabel_sponsored']['date_start'] = "Algus kuupäev";
-$lang['tabel_sponsored']['date_ends'] = "Lõpu kuupäev";
+$lang['tabel_sponsored']['date_start'] = "Algus kuupï¿½ev";
+$lang['tabel_sponsored']['date_ends'] = "Lï¿½pu kuupï¿½ev";
 
 $lang['error_sponsored']['carid'] = "Palun sisesta auto<br>";
-$lang['error_sponsored']['date_start'] = "Palun sisesta algus kuupäev<br>";
-$lang['error_sponsored']['date_ends'] = "Palun sisesta lõpu kuupäev<br>";
+$lang['error_sponsored']['date_start'] = "Palun sisesta algus kuupï¿½ev<br>";
+$lang['error_sponsored']['date_ends'] = "Palun sisesta lï¿½pu kuupï¿½ev<br>";
 
 //ends sponsored
 $lang[tpl_auto_carsid] = "CID";
@@ -650,40 +650,40 @@ $lang[tpl_auto_carsid] = "CID";
 //newsletter send
 $lang['tpl_auto_Send_Email'] = "Saada e-mail liikmele";
 $lang['tpl_auto_Send_to'] = "Kellele";
-$lang['tpl_auto_Check_this_to_send_to_all_members'] = "Vali see, et saada kõigile kasutajatele";
+$lang['tpl_auto_Check_this_to_send_to_all_members'] = "Vali see, et saada kï¿½igile kasutajatele";
 $lang['tpl_auto_From_Name'] = "Saataja nimi";
 $lang['tpl_auto_From_Emal'] = "FSaatja e-mail";
 $lang['tpl_auto_Subject'] = "Pealkiri";
-$lang['tpl_auto_Message'] = "Sõnum";
+$lang['tpl_auto_Message'] = "Sï¿½num";
 
 $lang["tpl_auto_sendemail"] = "Saada e-mail liikmetele";
 
-$lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'] = "Palun sisesta e-mail või vali kõik kasutajad";
+$lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'] = "Palun sisesta e-mail vï¿½i vali kï¿½ik kasutajad";
 $lang['tpl_auto_please_type_from_name'] = "Palun sisesta saatja nimi";
 $lang['tpl_auto_please_type_fromemail'] = "Palun sisesta saatja e-mail";
 $lang['tpl_auto_please_type_subject'] = "Palun sisesta pealkiri";
 
 $lang['tpl_auto_Email_send'] = "<font color=green>E-mail saadetud {email}</font><BR>";
-$lang['tpl_auto_Email_not_send'] = "<font color=red>E-maili saatmine ebbaõnestus {email}</font><BR>";
+$lang['tpl_auto_Email_not_send'] = "<font color=red>E-maili saatmine ebbaï¿½nestus {email}</font><BR>";
 
 $lang["tpl_auto_Send_Email_Results"] = "E-maili saatmise tulemus";
-$lang["tpl_auto_message_send_email_attention"] = "<font style='color:red;font-size:15px;'><B>Palun oota peale Saada nupu vajutamist (vajuta ainult ühe korra). Ära vajuta Uuenda nuppu. <BR>
-(See süteem saadab 100 e-maili sekundis. Kui sa soovid saata rohkem kui 300 e-maili siis palun võta meiega ühendust: info@abilogistik.com)
+$lang["tpl_auto_message_send_email_attention"] = "<font style='color:red;font-size:15px;'><B>Palun oota peale Saada nupu vajutamist (vajuta ainult ï¿½he korra). ï¿½ra vajuta Uuenda nuppu. <BR>
+(See sï¿½teem saadab 100 e-maili sekundis. Kui sa soovid saata rohkem kui 300 e-maili siis palun vï¿½ta meiega ï¿½hendust: info@abilogistik.com)
 <font>";
 //newsletter end
 
 //newsletter send  admin
 $lang['tpl_auto_Send_Email_Admin'] = "Saada e-mail adminile/agendile";
-$lang['tpl_auto_Check_this_to_send_to_all_admin'] = "Vali, et saata kõigile adminidele/agentidele";
+$lang['tpl_auto_Check_this_to_send_to_all_admin'] = "Vali, et saata kï¿½igile adminidele/agentidele";
 
 $lang["tpl_auto_sendemailadmin"] = "Saada e-mail adminile/agendile";
 
-$lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_admin'] = "Palun sisesta e-mail või vali Saada kõigile admindele/agentidele";
+$lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_admin'] = "Palun sisesta e-mail vï¿½i vali Saada kï¿½igile admindele/agentidele";
 //newsletter end
 
 //ad_profiles
 $lang["msg1_adprofiles"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_adprofiles"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_adprofiles"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_adprofiles"] = "Reklaami profiilid";
 $lang["tpl_adprofiles_add"] = "Lisa";
@@ -695,35 +695,35 @@ $lang['tabel_adprofiles']['description'] = "Kirjeldus";
 $lang['tabel_adprofiles']['price'] = "Hind";
 $lang['tabel_adprofiles']['nocars'] = "Autod arv";
 $lang['tabel_adprofiles']['nopictures'] = "Piltide arv";
-$lang['tabel_adprofiles']['order'] = "Järejestus";
+$lang['tabel_adprofiles']['order'] = "Jï¿½rejestus";
 $lang['tabel_adprofiles']['active'] = "Aktiivne";
 
 
 $lang['error_adprofiles']['name'] = "Palun sisesta nimi<br>";
-$lang["tpl_auto_explain_adprofiles"]="( Näidis:<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne )";
+$lang["tpl_auto_explain_adprofiles"]="( Nï¿½idis:<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne )";
 //finish ad_profiles
 //orders
 $lang["msg1_orders"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_orders"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_orders"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_orders"] = "Tellimused";
 $lang["tpl_orders_add"] = "Lisa";
 $lang["tpl_orders_modify"] = "Muuda";
 
 $lang['tabel_orders']['id'] = "ID";
-$lang['tabel_orders']['receiver_email'] = "Vastuvõtja e-mail";
+$lang['tabel_orders']['receiver_email'] = "Vastuvï¿½tja e-mail";
 $lang['tabel_orders']['item_name'] = "Nimi";
 $lang['tabel_orders']['item_number'] = "Number";
 $lang['tabel_orders']['quantity'] = "Kogus";
 $lang['tabel_orders']['payment_status'] = "Tasumise staatus";
-$lang['tabel_orders']['pending_reason'] = "Põhjus";
-$lang['tabel_orders']['payment_date'] = "Tasumise kuupäev";
+$lang['tabel_orders']['pending_reason'] = "Pï¿½hjus";
+$lang['tabel_orders']['payment_date'] = "Tasumise kuupï¿½ev";
 $lang['tabel_orders']['mc_gross'] = "Mc Gross";
 $lang['tabel_orders']['mc_fee'] = "Tasu";
-$lang['tabel_orders']['tax'] = "Käibemaks";
+$lang['tabel_orders']['tax'] = "Kï¿½ibemaks";
 $lang['tabel_orders']['mc_currency'] = "Valuuta";
 $lang['tabel_orders']['txn_id'] = "ID";
-$lang['tabel_orders']['txn_type'] = "Tüüp";
+$lang['tabel_orders']['txn_type'] = "Tï¿½ï¿½p";
 $lang['tabel_orders']['first_name'] = "Eesnimi";
 $lang['tabel_orders']['last_name'] = "Perekonnanimi";
 $lang['tabel_orders']['address_street'] = "Aadress";
@@ -734,7 +734,7 @@ $lang['tabel_orders']['address_country'] = "Riik";
 $lang['tabel_orders']['address_status'] = "Aadressi staatus";
 $lang['tabel_orders']['payer_email'] = "Maksja e-mail";
 $lang['tabel_orders']['payer_status'] = "Maksja staatus";
-$lang['tabel_orders']['payment_type'] = "Tasumise tüüp";
+$lang['tabel_orders']['payment_type'] = "Tasumise tï¿½ï¿½p";
 $lang['tabel_orders']['notify_version'] = "Notify Version";
 $lang['tabel_orders']['verify_sign'] = "Kinnita";
 $lang['tabel_orders']['referrer_id'] = "Auto ID";
@@ -743,7 +743,7 @@ $lang['tabel_orders']['referrer_id'] = "Auto ID";
 $lang['auto_meniu_expl']['settings'] = "Muuda seadeid";
 $lang['auto_meniu_expl']['template'] = "Muuda kujunduse seadeid";
 $lang['auto_meniu_expl']['admin'] = "Halda admine/agente";
-$lang['auto_meniu_expl']['rights'] = "Halda õiguste profiile";
+$lang['auto_meniu_expl']['rights'] = "Halda ï¿½iguste profiile";
 $lang['auto_meniu_expl']['category'] = "Halda kategooriaid";
 $lang['auto_meniu_expl']['make'] = "Halda tootjaid";
 $lang['auto_meniu_expl']['features'] = "Halda lisavarustust";
@@ -751,24 +751,24 @@ $lang['auto_meniu_expl']['cars'] = "Halda autosid";
 $lang['auto_meniu_expl']['news'] = "Halda uudiseid";
 $lang['auto_meniu_expl']['faq'] = "Halda KKK-d";
 $lang['auto_meniu_expl']['customlinks'] = "Halda linke";
-$lang['auto_meniu_expl']['dealers'] = "Sa saad lisada edasimüüjaid, kes peale sisse logimist saavad oma autosid ise hallata. Nende autod peaksid olema soodushinnaga.";
-$lang['auto_meniu_expl']['carsdealer'] = "Halda edasimüüja autosid";
+$lang['auto_meniu_expl']['dealers'] = "Sa saad lisada edasimï¿½ï¿½jaid, kes peale sisse logimist saavad oma autosid ise hallata. Nende autod peaksid olema soodushinnaga.";
+$lang['auto_meniu_expl']['carsdealer'] = "Halda edasimï¿½ï¿½ja autosid";
 $lang['auto_meniu_expl']['members'] = "Halda uudiskirja tellijaid";
 $lang['auto_meniu_expl']['sponsored'] = "Halda sponsori autosid";
-$lang['auto_meniu_expl']['sendemail'] = "e-maili saatmine ühele või kõigile kasutajatele";
-$lang['auto_meniu_expl']['sendemailadmin'] = "E-maili saatmine ühele või kõigile agentidele";
+$lang['auto_meniu_expl']['sendemail'] = "e-maili saatmine ï¿½hele vï¿½i kï¿½igile kasutajatele";
+$lang['auto_meniu_expl']['sendemailadmin'] = "E-maili saatmine ï¿½hele vï¿½i kï¿½igile agentidele";
 $lang['auto_meniu_expl']['homepage'] = "Loo esileht";
 $lang['auto_meniu_expl']['adprofiles'] = "Halda reklaami profiile registreeritud kasutajatele";
-$lang['auto_meniu_expl']['payment'] = "Halda tasumise meetode edasimüüja regitreerimisel";
+$lang['auto_meniu_expl']['payment'] = "Halda tasumise meetode edasimï¿½ï¿½ja regitreerimisel";
 $lang['auto_meniu_expl']['orders'] = "Halda tellimusi";
 
 
-$lang['tpl_auto_Front_End'] = "Kodulehekülg";
+$lang['tpl_auto_Front_End'] = "Kodulehekï¿½lg";
 
 
 //23 oct 2004
 $lang['tpl_auto_Language'] = "Keel";
-$lang['tabel_settings']['language'] = "Palun vali keel (kodulehekülg)";
+$lang['tabel_settings']['language'] = "Palun vali keel (kodulehekï¿½lg)";
 $lang['tabel_settings']['language1'] = "Palun vali keel 1";
 $lang['tabel_settings']['language2'] = "Palun vali keel 2";
 $lang['tabel_settings']['language3'] = "Palun vali keel 3";
@@ -780,9 +780,9 @@ $lang['language_notuse'] = "Keel ei ole kasutuses";
 //homepage
 
 $lang["msg1_homepage"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_homepage"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_homepage"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
-$lang["tpl_auto_homepage"] = "Kodulehekülg";
+$lang["tpl_auto_homepage"] = "Kodulehekï¿½lg";
 $lang["tpl_homepage_add"] = "Lisa";
 $lang["tpl_homepage_modify"] = "Muuda";
 
@@ -796,7 +796,7 @@ $lang['error_homepage']['name'] = "Palun sisesta nimi<br>";
 //payment
 
 $lang["msg1_payment"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_payment"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_payment"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_payment"] = "Tasumine";
 $lang["tpl_payment_add"] = "Lisa";
@@ -820,17 +820,17 @@ $lang['error_payment']['business'] = "Palun sisesta firma<br>";
 
 $lang["tpl_auto_Pic"] = "Pilt";
 $lang["tpl_auto_of"] = "/";
-$lang["tpl_auto_previous"] = "« Eelmine";
-$lang["tpl_auto_back"] = "« Tagasi";
-$lang["tpl_auto_next"] = "Järgmine »";
-$lang["tpl_auto_exit"] = "välju ×";
+$lang["tpl_auto_previous"] = "ï¿½ Eelmine";
+$lang["tpl_auto_back"] = "ï¿½ Tagasi";
+$lang["tpl_auto_next"] = "Jï¿½rgmine ï¿½";
+$lang["tpl_auto_exit"] = "vï¿½lju ï¿½";
 $lang["tpl_auto_year"] = "aasta";
 $lang["tpl_auto_model"] = "Mudel";
 $lang["tpl_auto_stereo"] = "Stereo";
-$lang["tpl_auto_bodytype"] = "Kere tüüp";
-$lang["tpl_auto_transmission"] = "Käigukast";
-$lang["tpl_auto_fueltype"] = "Kütus";
-$lang["tpl_auto_intcolor"] = "sisu värv";
+$lang["tpl_auto_bodytype"] = "Kere tï¿½ï¿½p";
+$lang["tpl_auto_transmission"] = "Kï¿½igukast";
+$lang["tpl_auto_fueltype"] = "Kï¿½tus";
+$lang["tpl_auto_intcolor"] = "sisu vï¿½rv";
 $lang["tpl_auto_Vehicle_Features"] = "Lisavarustus";
 $lang["tpl_auto_Contact_Information"] = "Kontakt";
 $lang["tpl_auto_Car_Information"] = "Muu info";
@@ -840,44 +840,44 @@ $lang["tpl_auto_phone"] = "Telefon";
 $lang["tpl_auto_country"] = "Riik";
 $lang["tpl_auto_state"] = "Maakond";
 $lang["tpl_auto_city"] = "Linn";
-$lang["tpl_auto_Send_email"] = "võta müüjaga ühendust";
+$lang["tpl_auto_Send_email"] = "vï¿½ta mï¿½ï¿½jaga ï¿½hendust";
 $lang["tpl_auto_email"] = "E-mail";
 $lang["tpl_auto_Additional_Information"] = "Lisa informatsioon";
-$lang["tpl_auto_write_message"] = "Sõnum";
+$lang["tpl_auto_write_message"] = "Sï¿½num";
 
 $lang['tpl_auto_your_car'] = "Auto andmed";
 $lang['tpl_auto_your_name'] = "Sinu nimi";
 $lang['tpl_auto_your_email'] = "Sinu e-mail";
 $lang['tpl_auto_your_phone'] = "Sinu teleofn";
-$lang['tpl_auto_your_message'] = "Sinu sõnum";
+$lang['tpl_auto_your_message'] = "Sinu sï¿½num";
 $lang["tpl_auto_send"] = "Saada e-mail";
 
 $lang['tpl_auto_please_type_name'] = "Palun sisesta oma nimi";
 $lang['tpl_auto_please_type_email_address'] = "Palun sisesta oma e-mail";
 $lang['tpl_auto_please_type_email_address_valid'] = "palun sisesta korrektne e-mail";
 $lang['tpl_auto_please_type_phone'] = "Palun sisesta telefon";
-$lang['tpl_auto_please_type_message'] = "Palun sisesta sõnum";
-$lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "Sõnum on liiga suur või liiga väike ";
+$lang['tpl_auto_please_type_message'] = "Palun sisesta sï¿½num";
+$lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "Sï¿½num on liiga suur vï¿½i liiga vï¿½ike ";
 
-$lang['tpl_auto_thanks'] = "Täname sind sõnumi eest. Me võtame Sinu esimesel võimalusel ühendust!";
-$lang["tpl_auto_close"] = "Sulge ×";
+$lang['tpl_auto_thanks'] = "Tï¿½name sind sï¿½numi eest. Me vï¿½tame Sinu esimesel vï¿½imalusel ï¿½hendust!";
+$lang["tpl_auto_close"] = "Sulge ï¿½";
 $lang["tpl_auto_signup"] = "Agendi registreerimine";
 
 $lang['tpl_auto_please_type_username'] = "Palun sisesta aksutajanimi";
-$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "Sõnum on liiga suur või liiga väike";
+$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "Sï¿½num on liiga suur vï¿½i liiga vï¿½ike";
 $lang['tpl_auto_please_type_email_address'] = "Palun sisesta e-mail";
 $lang['tpl_auto_please_type_email_address_valid'] = "Palun sisesta korrektne e-mail ";
 $lang['tpl_auto_please_type_password'] = "Palun sisesta parool";
-$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "Kasutajanimi on liiga suur või liiga väike";
+$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "Kasutajanimi on liiga suur vï¿½i liiga vï¿½ike";
 $lang['tpl_auto_please_retype_password'] = "Palun korda parooli";
 $lang['tpl_auto_signup_message'] = "Registreerimis teade";
 $lang['tpl_auto_your_username'] = "Sinu kasutajanimi";
 $lang['tpl_auto_your_email'] = "Sinu e-mail";
 $lang['tpl_auto_your_password'] = "Sinu parool";
 $lang['tpl_auto_your_retype_password'] = "Korda parooli";
-$lang['tpl_auto_thanks_signup'] = "Täname! Sulle saadetakse e-mail!!";
-$lang['tpl_auto_thanks_confirm'] = "Täname! Sinu e-mail on kinnitatud.";
-$lang['tpl_auto_thanks_confirm1'] = "<BR><BR>Palun vajuta Logi sisse, et pääseda administreerimis leheküljele!<center><a href='admin/index.php'>Admin</a></center>";
+$lang['tpl_auto_thanks_signup'] = "Tï¿½name! Sulle saadetakse e-mail!!";
+$lang['tpl_auto_thanks_confirm'] = "Tï¿½name! Sinu e-mail on kinnitatud.";
+$lang['tpl_auto_thanks_confirm1'] = "<BR><BR>Palun vajuta Logi sisse, et pï¿½ï¿½seda administreerimis lehekï¿½ljele!<center><a href='admin/index.php'>Admin</a></center>";
 $lang['tpl_auto_thanks_confirm2'] = "<BR><BR>Palun vajuta allpool toodud linki, et teha sissemakse ja konto aktiveerida!";
 
 $lang['tpl_auto_orderby'] = "Tellija";
@@ -887,26 +887,26 @@ $lang['tpl_auto_asc'] = "A-Z";
 $lang['tpl_auto_desc'] = "Z-A";
 
 //18 iunie 2004
-$lang[tpl_auto_Sold]="Müüdud";
-$lang[sold]="Müüdud";
+$lang[tpl_auto_Sold]="Mï¿½ï¿½dud";
+$lang[sold]="Mï¿½ï¿½dud";
 $lang[yes]="Jah";
 $lang[no]="Ei";
 
-$lang["tpl_auto_Are_you_sure_you_want_to_activate_all_as_sold"] = "Oled Sa kindle, et soovid kõigile valitutele märkida MÜÜDUD?";
+$lang["tpl_auto_Are_you_sure_you_want_to_activate_all_as_sold"] = "Oled Sa kindle, et soovid kï¿½igile valitutele mï¿½rkida Mï¿½ï¿½DUD?";
 
 $lang[BRANDNEW] = "UUS";
 $lang[EXDEMO] = "EX DEMO";
 
-$lang[array_types] = array(2=>$lang[sold],3=>$lang[BRANDNEW],4=>$lang[EXDEMO]);
+$lang['array_types'] = array(2=>$lang[sold],3=>$lang[BRANDNEW],4=>$lang[EXDEMO]);
 
 
 //10 iulie
 
 $lang['tpl_auto_stock'] = "Ladu";
-$lang['tpl_auto_Top_of_page'] = "Ülesse";
+$lang['tpl_auto_Top_of_page'] = "ï¿½lesse";
 
-$lang['tpl_auto_Click_here_to_see_this_Dealer_complete_inventory'] = "vajuta siia, et näha edasimüüja kõiki pakkumisi";
-$lang['tpl_auto_menu'] = "Menüü";
+$lang['tpl_auto_Click_here_to_see_this_Dealer_complete_inventory'] = "vajuta siia, et nï¿½ha edasimï¿½ï¿½ja kï¿½iki pakkumisi";
+$lang['tpl_auto_menu'] = "Menï¿½ï¿½";
 $lang['tpl_auto_Find_Your_Vehicle'] = "Otsi autot";
 
 $lang['tpl_auto_Newsletter'] = "Uudiskiri";
@@ -914,11 +914,11 @@ $lang['tpl_auto_Subscribe'] = "Liitu";
 $lang['tpl_auto_Unsubscribe'] = "Lahku";
 $lang['tpl_auto_Update'] = "Uuenda";
 
-$lang['tpl_auto_Mark_All'] = "Märgi kõik";
-$lang['tpl_auto_Unmark_all'] = "Demärgi kõik";
+$lang['tpl_auto_Mark_All'] = "Mï¿½rgi kï¿½ik";
+$lang['tpl_auto_Unmark_all'] = "Demï¿½rgi kï¿½ik";
 
-$lang["tpl_auto_view_all_category"] = "Vaata kõiki kategooriaid";
-$lang["tpl_auto_Advanced_search"] = "Täpsem otsing";
+$lang["tpl_auto_view_all_category"] = "Vaata kï¿½iki kategooriaid";
+$lang["tpl_auto_Advanced_search"] = "Tï¿½psem otsing";
 $lang["tpl_auto_cars_found"] = "autot leitud";
 
 
@@ -936,9 +936,9 @@ $lang['tpl_auto_your_city'] = "Sinu linn";
 
 
 $lang['tpl_auto_Confirm_email_address'] = "Kinnita e-maili aadress";
-$lang['tpl_auto_Make_payments_with_PayPal_its_fast_freeand_secure'] = "Teosta makse üle PayPal süsteemi - see on kiire, tasuta ja turvaline!";
+$lang['tpl_auto_Make_payments_with_PayPal_its_fast_freeand_secure'] = "Teosta makse ï¿½le PayPal sï¿½steemi - see on kiire, tasuta ja turvaline!";
 
-$lang['tpl_auto_Click_on_a_picture_to_view_the_gallery'] = "Vajuta pildid, et näha veel pilte";
+$lang['tpl_auto_Click_on_a_picture_to_view_the_gallery'] = "Vajuta pildid, et nï¿½ha veel pilte";
 
 //18 jan 2005
 $lang['tpl_auto_Payment_Calculator'] = "Makse kalkulaator";
@@ -949,35 +949,35 @@ $lang["tpl_auto_years"] = "Aastad";
 
 $lang['tpl_auto_Loan_Term'] = "Laenu tingimused";
 $lang['tpl_auto_Interest_Rate'] = "Intress";
-$lang['tpl_auto_All_payments_are_approximate_and_may_not_reflect_taxes_or_loan_fees'] = "Kõik maksed on umbkaudseid ja nad ei sisalda erinevaid makse ja lepingu tasusid.";
+$lang['tpl_auto_All_payments_are_approximate_and_may_not_reflect_taxes_or_loan_fees'] = "Kï¿½ik maksed on umbkaudseid ja nad ei sisalda erinevaid makse ja lepingu tasusid.";
 $lang['tpl_auto_Monthly_Payment'] = "Iga kuine makse";
 $lang['tpl_auto_Down_Payment'] = "Sissemaks";
 //2.1 version
 
-$lang['tpl_auto_friend_name'] = "Sõbra nimi";
-$lang['tpl_auto_friend_email'] = "Sõbra e-amil";
-$lang['tpl_auto_Send_To_a_Friend'] = "Saada sõbrale";
+$lang['tpl_auto_friend_name'] = "Sï¿½bra nimi";
+$lang['tpl_auto_friend_email'] = "Sï¿½bra e-amil";
+$lang['tpl_auto_Send_To_a_Friend'] = "Saada sï¿½brale";
 
-$lang['tpl_auto_please_type_friendname'] = "Palun sisesta sõbra nimi";
-$lang['tpl_auto_please_type_friendemail_address'] = "Palun sisesta sõbra e-mail";
+$lang['tpl_auto_please_type_friendname'] = "Palun sisesta sï¿½bra nimi";
+$lang['tpl_auto_please_type_friendemail_address'] = "Palun sisesta sï¿½bra e-mail";
 $lang['tpl_auto_please_type_friendemail_address_valid'] = "Palun sisesta korrektne e-mail";
 
 $lang['tabel_template']['friend_subject'] = "E-maili peakiri";
 $lang['tabel_template']['short_friend_body'] = "E-maili sisu";
-$lang['tabel_template']['friend_body'] = "E-maili sisu<br>Näidis:<Br>
+$lang['tabel_template']['friend_body'] = "E-maili sisu<br>Nï¿½idis:<Br>
 Tere {friendname}<br>
 Sulle saatsi kirja {guest_name} ( {guest_email} ) :<br>
 ______<br>
-Sõnumi sisu: {guest_message}<br>
-Lehekülje vaatamiseks kliki lingil:<BR>
+Sï¿½numi sisu: {guest_message}<br>
+Lehekï¿½lje vaatamiseks kliki lingil:<BR>
 {url}<BR>";
-$lang['tpl_auto_thanksfriend'] = "Täname,<BR>Sinu e-mail on saadetud.";
+$lang['tpl_auto_thanksfriend'] = "Tï¿½name,<BR>Sinu e-mail on saadetud.";
 $lang['tabel_cars']['mapto'] = "URL";
-$lang['tabel_cars']['displaymodel'] = "Näita mudelit";
+$lang['tabel_cars']['displaymodel'] = "Nï¿½ita mudelit";
 
 //model
 $lang["msg1_model"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_model"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_model"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_model"] = "Mudel";
 $lang["tpl_model_add"] = "Lisa";
@@ -997,7 +997,7 @@ $lang['tabel_rights']['rentcars_edit'] = "Rendi autod";
 
 //cars
 $lang["msg1_rentcars"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_rentcars"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_rentcars"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_rentcars"] = "Rendi autod";
 $lang["tpl_rentcars_add"] = "Lisa";
@@ -1011,31 +1011,31 @@ $lang['tabel_rentcars']['model'] = "Mudel";
 $lang['tabel_rentcars']['year'] = "Aasta";
 $lang['tabel_rentcars']['price'] = "Hind";
 $lang['tabel_rentcars']['specialprice'] = "Soodushind";
-$lang['tabel_rentcars']['dealerprice'] = "Edasimüüja hind";
+$lang['tabel_rentcars']['dealerprice'] = "Edasimï¿½ï¿½ja hind";
 
 
 $lang['tabel_rentcars']['vin'] = "VIN";
-$lang['tabel_rentcars']['bodytype'] = "Kere tüüp";
+$lang['tabel_rentcars']['bodytype'] = "Kere tï¿½ï¿½p";
 $lang['tabel_rentcars']['engine'] = "Mootor";
 $lang['tabel_rentcars']['stereo'] = "Stereo";
-$lang['tabel_rentcars']['fueltype'] = "Kütusd";
-$lang['tabel_rentcars']['transmission'] = "Käigukast";
+$lang['tabel_rentcars']['fueltype'] = "Kï¿½tusd";
+$lang['tabel_rentcars']['transmission'] = "Kï¿½igukast";
 $lang['tabel_rentcars']['description'] = "Kirjeldus";
-$lang['tabel_rentcars']['shortdescription'] = "Lühi kirjeldus";
+$lang['tabel_rentcars']['shortdescription'] = "Lï¿½hi kirjeldus";
 $lang['tabel_rentcars']['stock'] = "Laos #";
-$lang['tabel_rentcars']['pricemesg'] = "Hinna sõnum (Näidus: Tellimisel) (kui siis on midagi kirjutatud siis hinda ei kuvata)";
+$lang['tabel_rentcars']['pricemesg'] = "Hinna sï¿½num (Nï¿½idus: Tellimisel) (kui siis on midagi kirjutatud siis hinda ei kuvata)";
 
-$lang['tabel_rentcars']['sitetitle'] = "Lehekülje pealkiri (Otsingu mootor)";
+$lang['tabel_rentcars']['sitetitle'] = "Lehekï¿½lje pealkiri (Otsingu mootor)";
 $lang['tabel_rentcars']['metadescription'] = "Meta kirjeldus (Otsingu mootor)";
-$lang['tabel_rentcars']['metakeywords'] = "Meta märksõnad (Otsingu mootor)";
+$lang['tabel_rentcars']['metakeywords'] = "Meta mï¿½rksï¿½nad (Otsingu mootor)";
 
-$lang['tabel_rentcars']['intcolor'] = "sisemuse värv";
-$lang['tabel_rentcars']['extcolor'] = "välis värv";
-$lang['tabel_rentcars']['miles'] = "Läbisõit";
+$lang['tabel_rentcars']['intcolor'] = "sisemuse vï¿½rv";
+$lang['tabel_rentcars']['extcolor'] = "vï¿½lis vï¿½rv";
+$lang['tabel_rentcars']['miles'] = "Lï¿½bisï¿½it";
 $lang['tabel_rentcars']['noview'] = "Vaatamisi";
 $lang['tabel_rentcars']['active'] = "Aktiivne";
-$lang['tabel_rentcars']['date_add'] = "Lisamis kuupäev";
-$lang['tabel_rentcars']['date_modify'] = "Muutmis kuupäev";
+$lang['tabel_rentcars']['date_add'] = "Lisamis kuupï¿½ev";
+$lang['tabel_rentcars']['date_modify'] = "Muutmis kuupï¿½ev";
 
 $lang['error_rentcars']['admin'] = "Palun sisesta admin<br>";
 $lang['error_rentcars']['category'] = "Palun sisesta kategooria<br>";
@@ -1044,19 +1044,19 @@ $lang['error_rentcars']['model'] = "Palun sisesta mudel<br>";
 $lang['error_rentcars']['year'] = "Palun sisesta aasta<br>";
 $lang['error_rentcars']['price'] = "Palun sisesta hind<br>";
 
-$lang['fuelltype']=array("Diisel","Gaas","Bensiin","Elekter","Hübriid","LPG, CNG or Biokütus");
+$lang['fuelltype']=array("Diisel","Gaas","Bensiin","Elekter","Hï¿½briid","LPG, CNG or Biokï¿½tus");
 $lang["tpl_auto_array_option_rentcarsgallery"]="Galerii";
 $lang["tpl_auto_array_option_rentcarsfeatures"]="Lisavarustus";
 
-$lang["tpl_auto_explain_rentcars"]="Näidis.<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne  / <img src='../images/active2.gif' border=0> Müüdud";
+$lang["tpl_auto_explain_rentcars"]="Nï¿½idis.<br> <img src='../images/active1.gif' border=0> aktiivne / <img src='../images/active0.gif' border=0> mitte aktiivne  / <img src='../images/active2.gif' border=0> Mï¿½ï¿½dud";
 $lang['tabel_rentcars']['mapto'] = "URL";
-$lang['tabel_rentcars']['displaymodel'] = "Näita mudelit";
+$lang['tabel_rentcars']['displaymodel'] = "Nï¿½ita mudelit";
 //finish cars
 $lang['auto_meniu_expl']['rentcars'] = "Halda rendi autosid";
 
 //rentcarsfeatures
 $lang["msg1_rentcarsfeatures"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_rentcarsfeatures"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_rentcarsfeatures"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_rentcarsfeatures"] = "Rendi autode lisavarustus";
 $lang["tpl_rentcarsfeatures_add"] = "Lisa";
@@ -1072,7 +1072,7 @@ $lang['error_rentcarsfeatures']['rentcarsid'] = "Palun lisa rendi auto<br>";
 
 //gallery
 $lang["msg1_gallery"] = "{{name}} ... kustutatud<br>";
-$lang["msg2_gallery"] = "{{name}} ... <font color=red>ebaõnnestus</font><br>";
+$lang["msg2_gallery"] = "{{name}} ... <font color=red>ebaï¿½nnestus</font><br>";
 
 $lang["tpl_auto_gallery"] = "Galerii";
 $lang["tpl_gallery_add"] = "Lisa";
@@ -1081,23 +1081,23 @@ $lang["tpl_gallery_modify"] = "Muuda";
 $lang['tabel_gallery']['id'] = "ID";
 $lang['tabel_gallery']['rentcarsid'] = "Auto rendi ID";
 $lang['tabel_gallery']['picture'] = "Pilt";
-$lang['tabel_gallery']['thumbnail'] = "Väikepilt";
+$lang['tabel_gallery']['thumbnail'] = "Vï¿½ikepilt";
 $lang['tabel_gallery']['description'] = "Kirjeldus";
-$lang['tabel_gallery']['order'] = "Järjestus";
+$lang['tabel_gallery']['order'] = "Jï¿½rjestus";
 
 $lang['error_gallery']['picture'] = "Palun sisesta pilt<br>";
 //end gallery
 
-$lang["tpl_auto_previouscar"] = "« Eelmine";
-$lang["tpl_auto_nextcar"] = "Järgmine »";
+$lang["tpl_auto_previouscar"] = "ï¿½ Eelmine";
+$lang["tpl_auto_nextcar"] = "Jï¿½rgmine ï¿½";
 
 
-$lang['tpl_auto_View_all_cars'] = "Vaata kõiki autosid";
+$lang['tpl_auto_View_all_cars'] = "Vaata kï¿½iki autosid";
 
-$lang['tpl_auto_guess']="külaline";
+$lang['tpl_auto_guess']="kï¿½laline";
 $lang['tpl_auto_LastUpdated'] = "Viimati uuendatud";
 $lang['tpl_auto_ip'] = "IP";
-$lang['tpl_auto_Summary'] = "Kokkuvõte";
+$lang['tpl_auto_Summary'] = "Kokkuvï¿½te";
 $lang['tpl_auto_Who_s_Online'] = "Kes on lehel (viimased 300 sekundit)";
 $lang['tpl_auto_Statistics'] = "statistika";
 $lang['tpl_auto_Top_by_hits'] = "Vaatamiste TOP";
@@ -1105,15 +1105,15 @@ $lang['tpl_auto_user_online'] = "Kasutajad lehel:";
 $lang['tpl_auto_See'] = "Vaata";
 
 $lang['tpl_auto_Contact_Information'] = "Kontakt informatsioon";
-$lang['tpl_auto_Send_This_To_a_Friend'] = "Saada sõbrale";
+$lang['tpl_auto_Send_This_To_a_Friend'] = "Saada sï¿½brale";
 $lang['tpl_auto_Calculate_Mortgage'] = "Arvuta laen";
-$lang['tpl_auto_Print_This'] = "Trüki";
+$lang['tpl_auto_Print_This'] = "Trï¿½ki";
 $lang['tpl_auto_Simple_search'] = "Tava otsing";
 
 $lang['error_OVERAPPING_PERIODS'] = "OVERAPPING PERIODS";
-$lang['error_From_Date_must_be_before_To_Date'] = "Algus kuupäev peab olema enne lõpu kuupäeva";
+$lang['error_From_Date_must_be_before_To_Date'] = "Algus kuupï¿½ev peab olema enne lï¿½pu kuupï¿½eva";
 $lang['tabel_rights']['summary'] = "Summary";
-$lang['tpl_auto_summary'] = "kokkuvõte";
+$lang['tpl_auto_summary'] = "kokkuvï¿½te";
 
 //not translated
 

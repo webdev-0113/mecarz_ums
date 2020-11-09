@@ -95,7 +95,7 @@ session_set_save_handler("sessao_open", "sessao_close", "sessao_read", "sessao_w
         $contor=1;
         $out = '';
         if ( $num_rows > 0 ) {
-            while ( $user = mysql_fetch_assoc( $result ) ) {
+            while ( $user = mysqli_fetch_assoc( $result ) ) {
                 if ($user[username]=='-') $user[username]=$lang['tpl_auto_guess'];
                 $user['location']=urldecode($user['location']);
                 if ($contor%2) $user['class_temp']="class_temp1";
@@ -126,7 +126,7 @@ session_set_save_handler("sessao_open", "sessao_close", "sessao_read", "sessao_w
         $contor=1;
         $out = '';
         if ( $num_rows > 0 ) {
-            while ( $user = mysql_fetch_assoc( $result ) ) {
+            while ( $user = mysqli_fetch_assoc( $result ) ) {
 
             	$user = $VisitClass->prepareuser($user); 
 

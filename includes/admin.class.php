@@ -33,7 +33,7 @@ class Admin
                 $num_rows = mysqli_num_rows( $result );
                 if ( $num_rows > 0 )
                 {
-                        $user = mysql_fetch_assoc( $result );
+                        $user = mysqli_fetch_assoc( $result );
                         @mysqli_free_result($result);
                         return ( $user );
                 }
@@ -58,7 +58,7 @@ class Admin
                 $num_rows = mysqli_num_rows( $result );
                 if ( $num_rows > 0 )
                 {
-                        $user = mysql_fetch_assoc( $result );
+                        $user = mysqli_fetch_assoc( $result );
                         @mysqli_free_result($result);
                         return ( $user );
                 }

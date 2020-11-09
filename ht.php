@@ -274,11 +274,11 @@ foreach ($javascript_profile as $key=>$val){
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {
-                  while ( $var_features = mysql_fetch_assoc( $result ) ) {
+                  while ( $var_features = mysqli_fetch_assoc( $result ) ) {
                     $name=makeurl($var_features['name']);
                   	echo <<<END
-\tRewriteRule ^([0-9]{1,2})-$name.html /index.php?language_session=$1&make=$var_features[id]&submit1=1&p=search
-\tRewriteRule ^$name.html /index.php?language_session=0&make=$var_features[id]&submit1=1&p=search
+\tRewriteRule ^([0-9]{1,2})-$name.html /index.php?language_session=$1&make=$var_features['id']&submit1=1&p=search
+\tRewriteRule ^$name.html /index.php?language_session=0&make=$var_features['id']&submit1=1&p=search
 
 END;
 
@@ -291,11 +291,11 @@ END;
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {
-                  while ( $var_features = mysql_fetch_assoc( $result ) ) {
+                  while ( $var_features = mysqli_fetch_assoc( $result ) ) {
                     $name=makeurl($var_features['name']);
                   	echo <<<END
-\tRewriteRule ^([0-9]{1,2})-$name.html /index.php?language_session=$1&country=$var_features[id]&submit1=1&p=search
-\tRewriteRule ^$name.html /index.php?language_session=0&country=$var_features[id]&submit1=1&p=search
+\tRewriteRule ^([0-9]{1,2})-$name.html /index.php?language_session=$1&country=$var_features['id']&submit1=1&p=search
+\tRewriteRule ^$name.html /index.php?language_session=0&country=$var_features['id']&submit1=1&p=search
 
 END;
 

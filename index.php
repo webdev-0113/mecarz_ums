@@ -508,7 +508,7 @@ switch ($p){
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {
-                  while ( $var_features = mysql_fetch_assoc( $result ) ) {
+                  while ( $var_features = mysqli_fetch_assoc( $result ) ) {
                            if ($contor%2==1) {
                             $var=1;
                            }else{
@@ -1284,7 +1284,7 @@ VALUES
 		                srand((double)microtime() * 1000000);
 		                $unic_id = @md5(rand(0, 999999));
 		
-		                $sql = "UPDATE `{$config['table_prefix']}cars` SET `date_delay` = INTERVAL {$_REQUEST['days']} DAY+`date_delay`, unicid='{$unic_id}',daystoexpire=0,daysactive=0 where id='{$user[id]}' limit 1;";
+		                $sql = "UPDATE `{$config['table_prefix']}cars` SET `date_delay` = INTERVAL {$_REQUEST['days']} DAY+`date_delay`, unicid='{$unic_id}',daystoexpire=0,daysactive=0 where id='{$user['id']}' limit 1;";
 		                $result = $db -> query( $sql );
 		
 		      }else{

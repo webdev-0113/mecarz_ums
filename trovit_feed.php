@@ -153,7 +153,7 @@ $num_rows = mysqli_num_rows( $result );
 
 $contor=0;
 if ( $num_rows > 0 ) {
-    while ( $user = mysql_fetch_assoc( $result ) ) {
+    while ( $user = mysqli_fetch_assoc( $result ) ) {
     	$config[$keyy.'profile'][$user['id']]=$user;
     }
 }
@@ -172,16 +172,16 @@ switch ($p){
 		                      "agent"=>$_REQUEST['agent']
 		        );
 		        $consearch=false;
-		        if ($_SESSION[orderby]==""){
+		        if ($_SESSION['orderby']==""){
 		            $orderby="date_add";
 		        }else{
-		            $orderby=$_SESSION[orderby];
+		            $orderby=$_SESSION['orderby'];
 		            $consearch=true;
 		        }
-		        if ($_SESSION[method]==""){
+		        if ($_SESSION['method']==""){
 		            $method="desc";
 		        }else{
-		            $method=$_SESSION[method];
+		            $method=$_SESSION['method'];
 		            $consearch=true;
 		        }
 		
@@ -200,7 +200,7 @@ if ($_REQUEST['country']>0){
 
 		        $contor=0;
 		        if ( $num_rows > 0 ) {
-		            while ( $user = mysql_fetch_assoc( $result ) ) {
+		            while ( $user = mysqli_fetch_assoc( $result ) ) {
 
 						foreach ($arraytabels as $keyy){
 					        $cate_profile	= $config[$keyy.'profile'][$user[$keyy]];
@@ -230,12 +230,12 @@ if ($_REQUEST['country']>0){
         }
         */
         
-        $user[year1]=makeurl($user[year]);
-        $user[make1]=makeurl($user[make]);
-        $user[model1]=makeurl($user[model]);
+        $user[year1]=makeurl($user['year']);
+        $user[make1]=makeurl($user['make']);
+        $user[model1]=makeurl($user['model']);
 		if ($user['specialprice']>0) $user['price']=$user['specialprice'];
 		
-        $user['url']=$config['url_path']."{$user[id]}_car_{$user[year1]}_{$user[make1]}_{$user[model1]}.html";
+        $user['url']=$config['url_path']."{$user['id']}_car_{$user[year1]}_{$user[make1]}_{$user[model1]}.html";
         $user['price']=round($user['price'],0);
         //$user['shortdescription']=htmlspecialchars(str_replace(array("\n","\r\n","\r")," ",$user['shortdescription']));
         //$user['shortdescription']=str_replace(array("&"),"&amp;",$user['shortdescription']);
@@ -266,9 +266,9 @@ if ($_REQUEST['country']>0){
 		
 		if (1){
 		//if (1){
-		$user[language_set1]=$language_set1;
+		$user['language_set1']=$language_set1;
 		
-        $sql = "SELECT description,picture FROM `{$config['table_prefix']}gallery` where carsid='{$user[id]}' order by `order`";
+        $sql = "SELECT description,picture FROM `{$config['table_prefix']}gallery` where carsid='{$user['id']}' order by `order`";
         $result123 = $db -> query( $sql );
         $num_rows_gallery = mysqli_num_rows( $result123 );
 
@@ -280,8 +280,8 @@ if ($_REQUEST['country']>0){
 <pictures>
 END;
 
-            while ( $var_gallery = mysql_fetch_assoc( $result123 ) ) {
-                                //$img_sz =  @getimagesize( $config['temp'] . $var_gallery[thumbnail] );
+            while ( $var_gallery = mysqli_fetch_assoc( $result123 ) ) {
+                                //$img_sz =  @getimagesize( $config['temp'] . $var_gallery['thumbnail'] );
                                 if ($var_gallery[picture]!='') {
                                 		 //$var_gallery['description'] = iconvnew("ISO-8859-1", "UTF-8", $var_gallery['description']);
                                          $user['gallery'].=<<<END

@@ -23,7 +23,7 @@ if(!extension_loaded('ionCube Loader')){
             }
         }
     }
-    @dl($__ln);
+    return true;
 }else{
     die('The file '.__FILE__." is corrupted.\n");
 }

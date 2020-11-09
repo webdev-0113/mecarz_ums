@@ -325,9 +325,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             $zerofill     = 0;
         } else {
             $type_nowrap  = ' nowrap="nowrap"';
-            $type         = eregi_replace('BINARY', '', $type);
-            $type         = eregi_replace('ZEROFILL', '', $type);
-            $type         = eregi_replace('UNSIGNED', '', $type);
+            $type         = preg_replace('BINARY', '', $type);
+            $type         = preg_replace('ZEROFILL', '', $type);
+            $type         = preg_replace('UNSIGNED', '', $type);
             if (empty($type)) {
                 $type     = '&nbsp;';
             }

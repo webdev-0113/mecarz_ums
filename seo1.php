@@ -37,7 +37,7 @@ $sql = "SELECT * FROM `{$config['table_prefix']}state` where countryid={$_REQUES
               if ( $num_rows > 0 ) {
 
 $out.="<pre></tr>"; 
-                  while ( $var = mysql_fetch_assoc( $result ) ) {
+                  while ( $var = mysqli_fetch_assoc( $result ) ) {
 $number = $Global_Class -> getnumrows( $var[id], "cars", "state" ," and active>=1 ") ;
 $url=makeurl($var["name".$language_set]);
 $out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/searchstate-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars ({$number})</a></td>";
@@ -130,7 +130,7 @@ $sql = "SELECT * FROM `{$config['table_prefix']}city` where stateid={$_REQUEST['
                     $out.="<pre>"; 
 
 
-                    while ( $var = mysql_fetch_assoc( $result ) ) {
+                    while ( $var = mysqli_fetch_assoc( $result ) ) {
                          $number = $Global_Class -> getnumrows( $var[id], "cars", "city" ," and active>=1 ") ;
                          $url=makeurl($var["name".$language_set]);
                          $out.="<td><font color=\"F53D00\"size=\"2\">@</font> <a href='/searchcity-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars ({$number})</a></td>";
@@ -164,7 +164,7 @@ $sql = "SELECT * FROM `{$config['table_prefix']}city` where stateid={$_REQUEST['
                            $out.="<pre>"; 
 
 
-                           while ( $var = mysql_fetch_assoc( $result ) ) {
+                           while ( $var = mysqli_fetch_assoc( $result ) ) {
                                  $url=makeurl($var["name".$language_set]);
                                  $out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/statemake-{$_REQUEST['state']}-{$category_profile['name'.$language_set]}-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars in {$category_profile['name'.$language_set]}</a></td>";
                                  //$var["name".$language_set]
@@ -248,7 +248,7 @@ $out.="<tr><font size=\"2\" color=\"F53D00\" > Which Used Cars in {$category_pro
 $out.="<pre>"; 
 
 
-                  while ( $var = mysql_fetch_assoc( $result ) ) {
+                  while ( $var = mysqli_fetch_assoc( $result ) ) {
 $url=makeurl($var["name".$language_set]);
 $out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/citymake-{$_REQUEST['city']}-{$category_profile['name'.$language_set]}-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars in {$category_profile['name'.$language_set]}</a></td>";
                            //$var["name".$language_set]

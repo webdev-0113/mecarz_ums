@@ -885,7 +885,7 @@ else
                            $copy_from_id_value["date_delay"] = date("Y-m-d");
                          }else{
                            if ($o=="edit" and $config['delay_How_many_days_this_object_will_be_active']>0) {
-                           $lang['tabel_cars']['active'].=eregi_replace("{{days}}",$user_profile['daystoexpire'],$lang['tpl_auto_expire_in_days']);
+                           $lang['tabel_cars']['active'].=preg_replace("{{days}}",$user_profile['daystoexpire'],$lang['tpl_auto_expire_in_days']);
                            }
                            $copy_from_id[]="delay";
                            $copy_from_id_value["date_delay"] = $user_profile["date_delay"];
@@ -926,8 +926,8 @@ else
                         
                         $field_activate = "active";
                         
-                        $config[config_second_multiple_show]=1;
-                        $config[config_sold_multiple_show]=1;
+                        $config['config_second_multiple_show']=1;
+                        $config['config_sold_multiple_show']=1;
 
 
                         $dropdownval["admin"] = $Global_Class -> getdropdown( $valoare_1, "admin", "username", "id", "username" );
@@ -1145,7 +1145,7 @@ else
                         $require_array = array(); //require array
                         $password = array(); // for md5 fields
                         $copy_from_id = array("carsid");
-                        $copy_from_id_value[carsid] = $_SESSION['option_oid1'];
+                        $copy_from_id_value['carsid'] = $_SESSION['option_oid1'];
 
                         $email_fields = array();
                         $date_fields = array();
@@ -1189,14 +1189,14 @@ else
                         if ($o=="add") {
                                 $admin_profile = $Global_Class -> getprofile(  $HTTP_COOKIE_VARS['id_cookie'], "admin", "id" );
                                 $nopictures = $Global_Class -> getnumrows( $HTTP_SESSION_VARS['option_oid1'], "gallery", "carsid");
-                                if ($admin_profile[nopictures]!=0 and $nopictures>=$admin_profile[nopictures]) {
+                                if ($admin_profile['nopictures']!=0 and $nopictures>=$admin_profile['nopictures']) {
                                     $_REQUEST['o']="view";
                                 }
-                                if($admin_profile[nopictures]>0  and $config['auto_multiple'][$default_tabel]>$admin_profile[nopictures]-$nopictures){
-                                 $config['auto_multiple'][$default_tabel]=$admin_profile[nopictures]-$nopictures;
+                                if($admin_profile['nopictures']>0  and $config['auto_multiple'][$default_tabel]>$admin_profile['nopictures']-$nopictures){
+                                 $config['auto_multiple'][$default_tabel]=$admin_profile['nopictures']-$nopictures;
                                 }
-						        if($admin_profile[nopictures]==0 ){
-						        	$config['auto_multiple'][gallery]=$admin_profile[nopictures]=0;
+						        if($admin_profile['nopictures']==0 ){
+						        	$config['auto_multiple']['gallery']=$admin_profile['nopictures']=0;
 						        }                                
                         }
                         $sql_default_global = " and {$config['table_prefix']}gallery.carsid = '".$_SESSION['option_oid1']."' ";
@@ -1242,7 +1242,7 @@ else
                         $require_array = array("picture"); //require array
                         $password = array(); // for md5 fields
                         $copy_from_id = array("carsid");
-                        $copy_from_id_value[carsid] = $_SESSION['option_oid1'];
+                        $copy_from_id_value['carsid'] = $_SESSION['option_oid1'];
 
                         $email_fields = array();
                         $date_fields = array();
@@ -1338,7 +1338,7 @@ else
                         $require_array = array(); //require array
                         $password = array(); // for md5 fields
                         $copy_from_id = array("carsid");
-                        $copy_from_id_value[carsid] = $_SESSION['option_oid1'];
+                        $copy_from_id_value['carsid'] = $_SESSION['option_oid1'];
 
                         $email_fields = array();
                         $date_fields = array("date_add");
@@ -1463,8 +1463,8 @@ else
                     $right_cookie['renew_delete']=1;
                     $right_cookie['renew_add']=1;
                     $o = $_REQUEST['o'];
-                    $oo = eregi_replace( "0|1|2|3", "", $o );
-                    $oo = eregi_replace( "activate|deactivate|sold", "edit", $oo );
+                    $oo = preg_replace( "0|1|2|3", "", $o );
+                    $oo = preg_replace( "activate|deactivate|sold", "edit", $oo );
                     $oo_bold=$oo;
 
 
@@ -1804,8 +1804,8 @@ else
 
                         $permission_denied =false;
                         $o = $_REQUEST['o'];
-                        $oo = eregi_replace( "0|1|2|3", "", $o );
-                        $oo = eregi_replace( "activate|deactivate|sold", "edit", $oo );
+                        $oo = preg_replace( "0|1|2|3", "", $o );
+                        $oo = preg_replace( "activate|deactivate|sold", "edit", $oo );
                         $oo_bold=$oo;
 
                         if ( $o == "search" or $o=="see") $oo = "view";
@@ -1974,9 +1974,9 @@ else
 								    $num_rows = mysqli_num_rows( $result );
 								    $contor=0;
 								    if ( $num_rows > 0 ) {
-								      while ( $var_features = mysql_fetch_assoc( $result ) ) {
-								           $tablefield_array_rall[]="features__".$var_features[id];
-								           $tablefield_array_rallname["features__".$var_features[id]]=$lang["tpl_auto_features"]." ".$var_features["name$language_set"];
+								      while ( $var_features = mysqli_fetch_assoc( $result ) ) {
+								           $tablefield_array_rall[]="features__".$var_features['id'];
+								           $tablefield_array_rallname["features__".$var_features['id']]=$lang["tpl_auto_features"]." ".$var_features["name$language_set"];
 								      } // while
 								      @mysqli_free_result($result);
 								    }
@@ -2433,8 +2433,8 @@ $somecontent = $key."\n";
 							    $num_rows = mysqli_num_rows( $result );
 							    $contor=0;
 							    if ( $num_rows > 0 ) {
-							      while ( $var_features = mysql_fetch_assoc( $result ) ) {
-							           $tablefield_array_rallname["features__".$var_features[id]]=$lang["tpl_auto_features"]." ".$var_features["name$language_set"];
+							      while ( $var_features = mysqli_fetch_assoc( $result ) ) {
+							           $tablefield_array_rallname["features__".$var_features['id']]=$lang["tpl_auto_features"]." ".$var_features["name$language_set"];
 							      } // while
 							      @mysqli_free_result($result);
 							    }
@@ -2492,7 +2492,7 @@ $somecontent = $key."\n";
 					        $contor = 0;
 			        
 					        if ($num_rows > 0){
-					             while ($user = mysql_fetch_assoc($result)){    
+					             while ($user = mysqli_fetch_assoc($result)){
 	
 						             		foreach  ($user as $kkcar=>$vvcars){
 		                                     if ($kkcar!='id'){
@@ -2517,12 +2517,12 @@ $somecontent = $key."\n";
 		
 		                           }
 
-					                 $sql = "SELECT * FROM `{$config['table_prefix']}carsfeatures` WHERE carsid='{$user[id]}' ";
+					                 $sql = "SELECT * FROM `{$config['table_prefix']}carsfeatures` WHERE carsid='{$user['id']}' ";
 							         $resultfea = $db -> query($sql);
 							         $num_rowsfea = mysqli_num_rows($resultfea);
 							         $userfeanew=array();
 							         if ($num_rowsfea > 0){
-							             while ($userfea = mysql_fetch_assoc($resultfea)){             			             		
+							             while ($userfea = mysqli_fetch_assoc($resultfea)){
 							                	$userfeanew[$userfea[featuresid]]=1;
 							             } // while
 							         }
@@ -2547,13 +2547,13 @@ $somecontent = $key."\n";
 					                  	    }				                        
 					                  }	
 					                  
-					                 $sql = "SELECT * FROM `{$config['table_prefix']}gallery` WHERE carsid='{$user[id]}' order by `order`";
+					                 $sql = "SELECT * FROM `{$config['table_prefix']}gallery` WHERE carsid='{$user['id']}' order by `order`";
 							         $resultfea = $db -> query($sql);
 							         $num_rowsfea = mysqli_num_rows($resultfea);
 							         $userfeagal=array();
 							         $ctgal=0;
 							         if ($num_rowsfea > 0){
-							             while ($userfea = mysql_fetch_assoc($resultfea)){             			             		
+							             while ($userfea = mysqli_fetch_assoc($resultfea)){
 							             		$ctgal++;
 							                	$userfeagal['gallery__'.$ctgal]=$config['url_path']."temp/".$userfea['picture'];
 							             } // while
@@ -2621,7 +2621,7 @@ $somecontent = $key."\n";
 					if ($config['ignore_domain']!=''){
 						foreach ($config['ignore_domainnew'] as $key=>$val){
 							$val=str_replace(array("http://www.","http://"),"",$val);
-							$val=eregi_replace("^www\.","",$val);
+							$val=preg_replace("^www\.","",$val);
 							$config['sql_ignore_domain']	.= " and `fromdomain`!='$val' ";
 						}
 					}
@@ -3012,8 +3012,8 @@ $somecontent = $key."\n";
                         }
 
                         $field_activate = $config['admin_section'][$default_tabel]['field_activate']; //for activat
-                        $config[config_second_multiple_show]=$config['admin_section'][$default_tabel]['config_second_multiple_show'];
-                        $config[config_sold_multiple_show]=$config['admin_section'][$default_tabel]['config_sold_multiple_show'];
+                        $config['config_second_multiple_show']=$config['admin_section'][$default_tabel]['config_second_multiple_show'];
+                        $config['config_sold_multiple_show']=$config['admin_section'][$default_tabel]['config_sold_multiple_show'];
 
                         if ($config['admin_section'][$default_tabel]['exist_onChange']){
                           if ($valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']]==-1){

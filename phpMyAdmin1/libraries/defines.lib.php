@@ -98,7 +98,8 @@ function PMA_dl($module) {
     }
     if ($GLOBALS['PMA_dl_allowed']) {
         if (!extension_loaded('gd')) {
-            return @dl($module . $suffix);
+//            return @dl($module . $suffix);
+            return true;
         } else {
             return false;
         }

@@ -7,8 +7,8 @@ $lang['Sorrythisimagetypeisnotsupportedyet'] = "Sorry, this image type is not su
 $lang['Failedtocreatedestinationimage'] = 'Failed to create destination image';
 
 $lang["tpl_auto_Admin_Login"] = "Admin/Agent Login";
-$lang["tpl_auto_Username"] = "ÇÓã ÇáãÓÊÎÏã";
-$lang["tpl_auto_username"] = "ÇÓã ÇáãÓÊÎÏã";
+$lang["tpl_auto_Username"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_username"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_auto_Admin_Forgot_Password"] = "Forgot password?";
 $lang["tpl_auto_Send_New_Password"] = "Send New Password";
 $lang["tpl_auto_Admin"] = "Admin/Agent";
@@ -24,17 +24,17 @@ Thanks.";
 
 $lang["tpl_auto_You_will_receive"] = "You will receive an e-mail with a new password";
 
-$lang["tpl_auto_Password"] = ":ßáãÉ ÇáãÑæÑ";
+$lang["tpl_auto_Password"] = ":ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_auto_Login"] = "Login";
 $lang["tpl_auto_Back"] = "Back";
 
-$lang["tpl_auto_Change_Password"] = "ÊÚÏíá Çáãáİ";
-$lang["tpl_auto_Logout"] = "ÇáÎÑæÌ";
+$lang["tpl_auto_Change_Password"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Logout"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang["tpl_auto_Admin"] = "ÇáãÓÄæá";
+$lang["tpl_auto_Admin"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_auto_profile"] = "profile";
-$lang["tpl_auto_Retype_Password"] = "ÇÚÏ ßÊÇÈÉ ßáãÉ ÇáãÑæÑ";
-$lang["tpl_auto_Reset"] = "ÅÚÇÏÉ ÇáÖÈØ";
+$lang["tpl_auto_Retype_Password"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Reset"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 // error
 $lang["error1"] = "Username empty";
@@ -52,9 +52,9 @@ $lang["error12"] = "You don't make the payment";
 
 $lang["erroremail"] = "Wrong email";
 
-$lang["tpl_Select_Page"] = "ÇÎÊÑ ÇáÕİÍÉ:";
-$lang["tpl_auto_found"] = " {{nr}} ÓíÇÑÇÊ æÌÏÊ ãä {{nr_total}} ";
-$lang["tpl_Edit"] = "ÊÚÏíá";
+$lang["tpl_Select_Page"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:";
+$lang["tpl_auto_found"] = " {{nr}} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ {{nr_total}} ";
+$lang["tpl_Edit"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 $lang['error_change1']['username_exist'] = "This username exists already! Sorry!<br>";
@@ -67,26 +67,26 @@ $lang["tpl_Profile_updated"] = "Profile updated!";
 // auto fill
 $lang["tpl_auto_id"] = "ID";
 $lang["tpl_auto_Save"] = "Save";
-$lang["tpl_auto_View_Edit_Delete"] = "ÚÑÖ/ÊÚÏíá/ãÓÍ";
+$lang["tpl_auto_View_Edit_Delete"] = "ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½";
 
-$lang["tpl_auto_Edit"] = "ÊÚÏíá";
-$lang["tpl_auto_Delete"] = "ãÓÍ";
-$lang["tpl_auto_Select_All"] = "ÇÎÊíÇÑ Çáßá";
-$lang["tpl_auto_Select_None"] = "ÚÏã ÇÎÊíÇÑ ÇáÌãíÚ";
-$lang["tpl_auto_Invert_Selection"] = "ÚßÓ ÇáÇÎÊíÇÑ";
-$lang["tpl_auto_Select"] = "ÅÎÊíÇÑ";
-$lang["tpl_auto_Delete"] = "ãÓÍ";
+$lang["tpl_auto_Edit"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Delete"] = "ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Select_All"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Select_None"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Invert_Selection"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Select"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Delete"] = "ï¿½ï¿½ï¿½";
 
-$lang["tpl_Delete_Image"] = "ãÓÍ ÇáÕæÑÉ";
+$lang["tpl_Delete_Image"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang["tpl_auto_Are_you_sure_you_want_to_delete_all"] = "Are you sure you want to delete all selected?";
 
 // lang
 
-$lang["tpl_auto_Name"] = "ÇáÇÓã";
-$lang["tpl_auto_Add"] = "ÅÖÇİÉ";
-$lang["tpl_auto_Reset"] = "ÅÚÇÏÉ ÇáÖÈØ";
-$lang["tpl_auto_Search"] = "ÈÍË &raquo; ";
+$lang["tpl_auto_Name"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Reset"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Search"] = "ï¿½ï¿½ï¿½ &raquo; ";
 // auto fill
 $lang["errorstyle"] = "<font color='#FF0000'>{{error}}</font>"; //this will be displayed when a errror appeares change the color only
 $lang["foundstyle"] = "<font color='#FF0000'><b>\\1</b></font>"; //this will be displayed when a word whose was found change the color only and bold you cand add <i>,<u>,etc.
@@ -108,19 +108,19 @@ $lang['tabel_rights']['name'] = "";
 
 $lang['tabel_rights']['settings'] = "Settings";
 
-$lang['tabel_rights']['admin_edit'] = "ÇáãÓÄæá";
+$lang['tabel_rights']['admin_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_rights']['rights_edit'] = "Rights";
 
-$lang['tabel_rights']['category_edit'] = "ÇáãÏíäÉ";
+$lang['tabel_rights']['category_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
-$lang['tabel_rights']['make_edit'] = "ÔÑßÉ ÇáÕäÚ";
+$lang['tabel_rights']['make_edit'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tabel_rights']['features_edit'] = "ÇáããíÒÇÊ";
+$lang['tabel_rights']['features_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
-$lang['tabel_rights']['cars_edit'] = "ÇáÓíÇÑÇÊ";
+$lang['tabel_rights']['cars_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_rights']['dealers_edit'] = "Dealers";
 
@@ -131,21 +131,21 @@ $lang['tabel_rights']['carsdealer_edit'] = "Cars Dealer";
 $lang['tabel_rights']['view_all_cars'] = "View all cars (only for the admin)";
 
 
-$lang['tabel_rights']['news_edit'] = "ÇáÇÎÈÇÑ";
+$lang['tabel_rights']['news_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_rights']['customlinks_edit'] = "Custom Links";
 
-$lang['tabel_rights']['faq_edit'] = "ÇáÇÓÆáÉ ÇáãßÑÑÉ";
+$lang['tabel_rights']['faq_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tabel_rights']['members_edit'] = "ÇáÇÚÖÇÁ";
+$lang['tabel_rights']['members_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tabel_rights']['sponsored_edit'] = "ÇáÓíÇÑÉ ÇáããíÒÉ";
+$lang['tabel_rights']['sponsored_edit'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_rights']['template'] = "Template";
 
-$lang['tabel_rights']['sendemail'] = "ÅÑÓÇá ÑÓÇáÉ ááÃÚÖÇÁ";
+$lang['tabel_rights']['sendemail'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tabel_rights']['homepage'] = "ÇáÕİÍÉ ÇáÑÆíÓíÉ";
+$lang['tabel_rights']['homepage'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_rights']['sendemailadmin'] = "Send Email to admin";
 
@@ -155,7 +155,7 @@ $lang['tabel_rights']['payment'] = "Payment";
 
 $lang['tabel_rights']['orders_edit'] = "Orders";
 
-$lang["tpl_auto_add"] = "ÅÖÇİÉ";
+$lang["tpl_auto_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_auto_edit"] = "Edit";
 $lang["tpl_auto_delete"] = "Delete";
 $lang["tpl_auto_view"] = "View";
@@ -166,27 +166,27 @@ $lang['error_rights']['name'] = "Please input name<br>";
 $lang["msg1_admin"] = "The {{name}} ... deleted<br>";
 $lang["msg2_admin"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_admin"] = "ÇáãÓÄæá";
-$lang["tpl_admin_add"] = "ÅÖÇİÉ ãÓÄæá";
-$lang["tpl_admin_modify"] = "ÊÚÏíá ãÓÄæá";
+$lang["tpl_auto_admin"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_admin_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_admin_modify"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_admin']['id'] = "Id";
 $lang['tabel_admin']['right'] = "Right";
-$lang['tabel_admin']['username'] = "ÇÓã ÇáãÓÊÎÏã";
-$lang['tabel_admin']['password'] = "ßáãÉ ÇáãÑæÑ";
-$lang['tabel_admin']['password1'] = "ÇÚÏ ßÊÇÈÉ ßáãÉ ÇáãÑæÑ";
-$lang['tabel_admin']['email'] = "ÇáÈÑíÏ ÇáÇáßÊÑæäí";
-$lang['tabel_admin']['noemail'] = "ÇÎİÇÁ ÈÑíÏí ÇáÇáßÊÑæäí";
-$lang['tabel_admin']['name'] = "ÇáÇÓã";
-$lang['tabel_admin']['phone'] = "ÑŞã ÇáåÇÊİ";
-$lang['tabel_admin']['country'] = "ÇáÏæáÉ";
-$lang['tabel_admin']['state'] = "ÇáãÏíäÉ";
-$lang['tabel_admin']['city'] = "ÇáãäØŞÉ";
-$lang['tabel_admin']['logo'] = "ÇáÔÚÇÑ";
-$lang['tabel_admin']['description'] = "æÕİ";
-$lang['tabel_admin']['nocars'] = "ÚÏÏ ÇáÓíÇÑÇÊ";
-$lang['tabel_admin']['nopictures'] = "ÚÏÏ ÇáÕæÑ";
-$lang['tabel_admin']['active'] = "ÇáİÚÇáíÉ";
+$lang['tabel_admin']['username'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['password'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['password1'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['email'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['noemail'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['phone'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['country'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['state'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['city'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['logo'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['description'] = "ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['nocars'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['nopictures'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_admin']['active'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tabel_admin']['adprofiles'] = "Ad profiles";
 
 $lang["tpl_auto_explain_admin"]="( Ex.<br> <img src='../images/active1.gif' border=0> active / <img src='../images/active0.gif' border=0> inactive / <img src='../images/active2.gif' border=0> not confirm / <img src='../images/active3.gif' border=0> wait for payment)";
@@ -212,18 +212,18 @@ $lang["error_permission"] = "<center><font syle='color:red;size=20px;'>Permissio
 
 $lang['tabel_change1']['id'] = "Id";
 $lang['tabel_change1']['right'] = "Right";
-$lang['tabel_change1']['username'] = "ÇÓã ÇáãÓÊÎÏã";
-$lang['tabel_change1']['password'] = "ßáãÉ ÇáãÑæÑ";
-$lang['tabel_change1']['password1'] = "ÇÚÏ ßÊÇÈÉ ßáãÉ ÇáãÑæÑ";
-$lang['tabel_change1']['email'] = "ÇáÈÑíÏ ÇáÇáßÊÑæäí";
-$lang['tabel_change1']['name'] = "ÇáÇÓã";
-$lang['tabel_change1']['phone'] = "ÑŞã ÇáåÇÊİ";
-$lang['tabel_change1']['country'] = "ÇáÏæáÉ";
-$lang['tabel_change1']['state'] = "ÇáãÏíäÉ";
-$lang['tabel_change1']['city'] = "ÇáãäØŞÉ";
-$lang['tabel_change1']['noemail'] = "ÇÎİÇÁ ÈÑíÏí ÇáÇáßÊÑæäí";
-$lang['tabel_change1']['logo'] = "ÇáÔÚÇÑ";
-$lang['tabel_change1']['description'] = "æÕİ";
+$lang['tabel_change1']['username'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['password'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['password1'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['email'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['phone'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['country'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['state'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['city'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['noemail'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['logo'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_change1']['description'] = "ï¿½ï¿½ï¿½";
 $lang['tabel_change1']['nocars'] = "No. cars";
 
 $lang['error_change1']['id'] = "Please input id<br>";
@@ -235,13 +235,13 @@ $lang['error_change1']['email'] = "Please input email<br>";
 
 
 // /user part
-$lang["tpl_auto_home"] = "ÇáÑÆíÓíÉ";
+$lang["tpl_auto_home"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_auto_new_user"] = "New User";
-$lang["tpl_auto_email"] = "ÇáÈÑíÏ ÇáÇáßÊÑæäí";
-$lang["tpl_auto_Retype_Password"] = "ÇÚÏ ßÊÇÈÉ ßáãÉ ÇáãÑæÑ";
+$lang["tpl_auto_email"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Retype_Password"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_auto_dates"] = "Dates";
 $lang["tpl_dates"] = "Dates";
-$lang["tpl_auto_price"] = "ÇáÓÚÑ";
+$lang["tpl_auto_price"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 $lang["tpl_day"] = "Day";
@@ -256,20 +256,20 @@ $lang['tpl_auto_for'] = "for";
 $lang['error_nosearch_result'] = "<center>No results!<center>";
 
 $lang['tpl_auto_back'] = "Back";
-$lang['tpl_auto_from'] = "ãä";
-$lang['tpl_auto_to'] = "Çáì";
+$lang['tpl_auto_from'] = "ï¿½ï¿½";
+$lang['tpl_auto_to'] = "ï¿½ï¿½ï¿½";
 
 
 $lang["msg1_category"] = "The {{name}} ... deleted<br>";
 $lang["msg2_category"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_category"] = "ÇáãÏíäÉ";
+$lang["tpl_auto_category"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_category_add"] = "Category add";
 $lang["tpl_category_modify"] = "Category modify";
 
 $lang['tabel_category']['id'] = "Id";
-$lang['tabel_category']['name'] = "ÇáÇÓã";
-$lang['tabel_category']['description'] = "æÕİ";
+$lang['tabel_category']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_category']['description'] = "ï¿½ï¿½ï¿½";
 
 $lang['tabel_category']['order'] = "Order";
 
@@ -279,12 +279,12 @@ $lang['error_category']['name'] = "Please input name<br>";
 $lang["msg1_make"] = "The {{name}} ... deleted<br>";
 $lang["msg2_make"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_make"] = "ÔÑßÉ ÇáÕäÚ";
+$lang["tpl_auto_make"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_make_add"] = "Make add";
 $lang["tpl_make_modify"] = "Make modify";
 
 $lang['tabel_make']['id'] = "Id";
-$lang['tabel_make']['name'] = "ÇáÇÓã";
+$lang['tabel_make']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['error_make']['name'] = "Please input name<br>";
 //finish make
@@ -293,43 +293,43 @@ $lang['error_make']['name'] = "Please input name<br>";
 $lang["msg1_cars"] = "The {{name}} ... deleted<br>";
 $lang["msg2_cars"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_cars"] = "ÇáÓíÇÑÇÊ";
-$lang["tpl_cars_add"] = "ÅÖÇİÉ ÇáÓíÇÑÇÊ";
-$lang["tpl_cars_modify"] = "ÊÚÏíá ÇáÓíÇÑÇÊ";
+$lang["tpl_auto_cars"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_cars_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_cars_modify"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tabel_cars']['id'] = "ÇáÑŞã";
-$lang['tabel_cars']['admin'] = "ÇáÚÖæ";
-$lang['tabel_cars']['category'] = "ÇáãÏíäÉ";
-$lang['tabel_cars']['make'] = "ÔÑßÉ ÇáÕäÚ";
-$lang['tabel_cars']['model'] = "äæÚ ÇáÓíÇÑå";
-$lang['tabel_cars']['year'] = "ÇáÓäå";
-$lang['tabel_cars']['price'] = "ÇáÓÚÑ";
-$lang['tabel_cars']['specialprice'] = "ÓÚÑ ÎÇÕ";
+$lang['tabel_cars']['id'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['admin'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['category'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['make'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['model'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['year'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['price'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['specialprice'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½";
 $lang['tabel_cars']['dealerprice'] = "Dealer price";
 
 
-$lang['tabel_cars']['vin'] = "ÑŞã ÇáÔÇÕí";
-$lang['tabel_cars']['bodytype'] = "äæÚ Çáåíßá";
-$lang['tabel_cars']['engine'] = "ÇáãÍÑß";
-$lang['tabel_cars']['stereo'] = "ÇáãÓÌá";
-$lang['tabel_cars']['fueltype'] = "äæÚ ÇáæŞæÏ";
-$lang['tabel_cars']['transmission'] = "äÇŞá ÇáÓÑÚÉ";
-$lang['tabel_cars']['description'] = "æÕİ";
-$lang['tabel_cars']['shortdescription'] = "æÕİ ãáÎÕ";
-$lang['tabel_cars']['stock'] = "ÑŞã#";
+$lang['tabel_cars']['vin'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['bodytype'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['engine'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['stereo'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['fueltype'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['transmission'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['description'] = "ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['shortdescription'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['stock'] = "ï¿½ï¿½ï¿½#";
 $lang['tabel_cars']['pricemesg'] = "Price Mesg (Like: Call For Special Sale Price) (if you type something here the price will not appears)";
 
 $lang['tabel_cars']['sitetitle'] = "Site title (Search Engine)";
 $lang['tabel_cars']['metadescription'] = "Meta description (Search Engine)";
 $lang['tabel_cars']['metakeywords'] = "Meta keywords (Search Engine)";
 
-$lang['tabel_cars']['intcolor'] = "Çááæä ÇáÏÇÎáí";
-$lang['tabel_cars']['extcolor'] = "Çááæä ÇáÎÇÑÌí";
-$lang['tabel_cars']['miles'] = "ÇáßíáæãÊÑ";
-$lang['tabel_cars']['noview'] = "ÚÏÏ ãÑÇÊ ÇáÚÑÖ";
-$lang['tabel_cars']['active'] = "ÇáİÚÇáíÉ";
-$lang['tabel_cars']['date_add'] = "ÊÇÑíÎ ÇáÚÑÖ";
-$lang['tabel_cars']['date_modify'] = "ÊÇÑíÎ ÇáÊÚÏíá";
+$lang['tabel_cars']['intcolor'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['extcolor'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['miles'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['noview'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['active'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['date_add'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_cars']['date_modify'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['error_cars']['admin'] = "Please input admin<br>";
 $lang['error_cars']['category'] = "Please input category<br>";
@@ -338,9 +338,9 @@ $lang['error_cars']['model'] = "Please input model<br>";
 $lang['error_cars']['year'] = "Please input year<br>";
 $lang['error_cars']['price'] = "Please input price<br>";
 
-$lang['fuelltype']=array("ÏíÒá","ÈÊÑæá","Petrol","Battery Electric","Hybrid Electric","LPG, CNG or BiFuel");
-$lang["tpl_auto_array_option_gallery"]="ãÚÑÖ ÇáÕæÑ";
-$lang["tpl_auto_array_option_carsfeatures"]="ÇáããíÒÇÊ";
+$lang['fuelltype']=array("ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½","Petrol","Battery Electric","Hybrid Electric","LPG, CNG or BiFuel");
+$lang["tpl_auto_array_option_gallery"]="ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_array_option_carsfeatures"]="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang["tpl_auto_explain_cars"]="Ex.<br> <img src='../images/active1.gif' border=0> active / <img src='../images/active0.gif' border=0> inactive  / <img src='../images/active2.gif' border=0> Sold";
 //finish cars
@@ -349,12 +349,12 @@ $lang["tpl_auto_explain_cars"]="Ex.<br> <img src='../images/active1.gif' border=
 $lang["msg1_features"] = "The {{name}} ... deleted<br>";
 $lang["msg2_features"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_features"] = "ÇáããíÒÇÊ";
-$lang["tpl_features_add"] = "ÅÖÇİÉ ããíÒÇÊ";
-$lang["tpl_features_modify"] = "ÊÚÏíá ÇáããíÒÇÊ";
+$lang["tpl_auto_features"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_features_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_features_modify"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_features']['id'] = "Id";
-$lang['tabel_features']['name'] = "ÇáÇÓã";
+$lang['tabel_features']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['error_features']['name'] = "Please input Name<br>";
 
@@ -364,13 +364,13 @@ $lang['error_features']['name'] = "Please input Name<br>";
 $lang["msg1_carsfeatures"] = "The {{name}} ... deleted<br>";
 $lang["msg2_carsfeatures"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_carsfeatures"] = "ããíÒÇÊ ÇáÓíÇÑÉ";
-$lang["tpl_carsfeatures_add"] = "ÇÖÇİÉ ããíÒÇÊ ÇáÓíÇÑÉ";
-$lang["tpl_carsfeatures_modify"] = "ÊÚÏíá ããíÒÇÊ ÇáÓíÇÑÉ";
+$lang["tpl_auto_carsfeatures"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_carsfeatures_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_carsfeatures_modify"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_carsfeatures']['id'] = "Id";
 $lang['tabel_carsfeatures']['carsid'] = "Carsid";
-$lang['tabel_carsfeatures']['featuresid'] = "ÇáããíÒÇÊ";
+$lang['tabel_carsfeatures']['featuresid'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['error_carsfeatures']['carsid'] = "Please input cars id<br>";
 
@@ -381,7 +381,7 @@ $lang['error_carsfeatures']['carsid'] = "Please input cars id<br>";
 $lang["msg1_gallery"] = "The {{name}} ... deleted<br>";
 $lang["msg2_gallery"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_gallery"] = "ãÚÑÖ ÇáÕæÑ";
+$lang["tpl_auto_gallery"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_gallery_add"] = "Gallery add";
 $lang["tpl_gallery_modify"] = "Gallery modify";
 
@@ -389,7 +389,7 @@ $lang['tabel_gallery']['id'] = "Id";
 $lang['tabel_gallery']['carsid'] = "Car ID";
 $lang['tabel_gallery']['picture'] = "Picture";
 $lang['tabel_gallery']['thumbnail'] = "Thumbnail";
-$lang['tabel_gallery']['description'] = "æÕİ";
+$lang['tabel_gallery']['description'] = "ï¿½ï¿½ï¿½";
 $lang['tabel_gallery']['order'] = "Order";
 
 $lang['error_gallery']['picture'] = "Please input picture<br>";
@@ -399,7 +399,7 @@ $lang['error_gallery']['picture'] = "Please input picture<br>";
 $lang["msg1_news"] = "The {{name}} ... deleted<br>";
 $lang["msg2_news"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_news"] = "ÇáÇÎÈÇÑ";
+$lang["tpl_auto_news"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_news_add"] = "News add";
 $lang["tpl_news_modify"] = "News modify";
 
@@ -416,12 +416,12 @@ $lang['error_news']['title'] = "Please input title<br>";
 $lang["msg1_customlinks"] = "The {{name}} ... deleted<br>";
 $lang["msg2_customlinks"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_customlinks"] = "ÑæÇÈØ ÅÖÇİíÉ";
-$lang["tpl_customlinks_add"] = "ÅÖÇİÉ ÑÇÈØ";
-$lang["tpl_customlinks_modify"] = "ÊÚÏíá ÑÇÈØ";
+$lang["tpl_auto_customlinks"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_customlinks_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_customlinks_modify"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_customlinks']['id'] = "Id";
-$lang['tabel_customlinks']['name'] = "ÇáÇÓã";
+$lang['tabel_customlinks']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tabel_customlinks']['content'] = "Content";
 $lang['tabel_customlinks']['order'] = "Order";
 
@@ -431,12 +431,12 @@ $lang['tabel_customlinks']['order'] = "Order";
 $lang["msg1_faq"] = "The {{name}} ... deleted<br>";
 $lang["msg2_faq"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_faq"] = "ÇáÇÓÆáÉ ÇáãßÑÑÉ";
+$lang["tpl_auto_faq"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_faq_add"] = "FAQ add";
 $lang["tpl_faq_modify"] = "FAQ modify";
 
 $lang['tabel_faq']['id'] = "Id";
-$lang['tabel_faq']['name'] = "ÇáÇÓã";
+$lang['tabel_faq']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tabel_faq']['content'] = "Content";
 $lang['tabel_faq']['order'] = "Order";
 
@@ -496,14 +496,14 @@ $lang['error_settings']['picture_height'] = "Please input Picture Height<br>";
 $lang['error_settings']['thumbnail_width'] = "Please input Thumbnail Width<br>";
 $lang['error_settings']['thumbnail_height'] = "Please input Thumbnail Height<br>";
 
-$lang["tpl_Q"] = "Ó";
-$lang["tpl_A"] = "Ì";
-$lang["tpl_auto_details"] = "ÊİÇÕíá";
+$lang["tpl_Q"] = "ï¿½";
+$lang["tpl_A"] = "ï¿½";
+$lang["tpl_auto_details"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_vin'] = "ÑŞã ÇáÔÇÕí";
-$lang['tpl_auto_engine'] = "ÇáãÍÑß";
-$lang['tpl_auto_extcolor'] = "Çááæä ÇáÎÇÑÌí";
-$lang['tpl_auto_miles'] = "ÇáßíáæãÊÑ";
+$lang['tpl_auto_vin'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_engine'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_extcolor'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_miles'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 //ends settings
@@ -588,26 +588,26 @@ $lang['msg1']="The selecteded was updated!";
 $lang["tpl_auto_Are_you_sure_you_want_to_activate_all"] = "Are you sure you want to activate all selected?";
 $lang["tpl_auto_Are_you_sure_you_want_to_deactivate_all"] = "Are you sure you want to deactivate all selected?";
 
-$lang['tpl_auto_Activate']="İÚøÇá";
-$lang['tpl_auto_Deactivate']="ÛíÑ İÚøÇá";
-$lang['tpl_auto_vehicle_information_sheet']="ÕİÍÉ ãæÇÕİÇÊ ÇáÓíÇÑÉ";
+$lang['tpl_auto_Activate']="ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Deactivate']="ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_vehicle_information_sheet']="ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_Print']="ÇØÈÚ";
-$lang['tpl_auto_Close']="ÇÛáŞ ÇáÕİÍå";
+$lang['tpl_auto_Print']="ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Close']="ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 //members
 $lang["msg1_members"] = "The {{name}} ... deleted<br>";
 $lang["msg2_members"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_members"] = "ÇáÇÚÖÇÁ";
-$lang["tpl_members_add"] = "ÅÖÇİÉ ÚÖæ";
-$lang["tpl_members_modify"] = "ÊÚÏíá ÚÖæ";
+$lang["tpl_auto_members"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_members_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½";
+$lang["tpl_members_modify"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½";
 
 $lang['tabel_members']['id'] = "Id";
-$lang['tabel_members']['name'] = "ÇáÇÓã";
-$lang['tabel_members']['email'] = "ÇáÈÑíÏ ÇáÇáßÊÑæäí";
-$lang['tabel_members']['active'] = "ÇáİÚÇáíÉ";
+$lang['tabel_members']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_members']['email'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_members']['active'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tabel_members']['date_add'] = "Subscribe date";
 
 
@@ -624,14 +624,14 @@ $lang['tpl_auto_thanks_unsubcribemembers'] = "Thanks! You will not receive any e
 $lang['tpl_auto_thanks_confirmmembers'] = "Thanks!\\nYour email address is confirm.\\n";
 
 $lang['tpl_auto_signupmembers_message'] = "Newsletter";
-$lang['tpl_auto_Home'] = "ÇáÑÆíÓíÉ";
+$lang['tpl_auto_Home'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 //sponsored
 $lang["msg1_sponsored"] = "The {{name}} ... deleted<br>";
 $lang["msg2_sponsored"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_sponsored"] = "ÇáÓíÇÑÉ ÇáããíÒÉ";
+$lang["tpl_auto_sponsored"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_sponsored_add"] = "Sponsored add";
 $lang["tpl_sponsored_modify"] = "Sponsored modify";
 
@@ -649,7 +649,7 @@ $lang[tpl_auto_carsid] = "CID";
 
 
 //newsletter send
-$lang['tpl_auto_Send_Email'] = "ÅÑÓÇá ÑÓÇáÉ ááÃÚÖÇÁ";
+$lang['tpl_auto_Send_Email'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_Send_to'] = "Send To";
 $lang['tpl_auto_Check_this_to_send_to_all_members'] = "Check This To Send To All Members";
 $lang['tpl_auto_From_Name'] = "From Name";
@@ -657,7 +657,7 @@ $lang['tpl_auto_From_Emal'] = "From Email";
 $lang['tpl_auto_Subject'] = "Subject";
 $lang['tpl_auto_Message'] = "Message";
 
-$lang["tpl_auto_sendemail"] = "ÅÑÓÇá ÑÓÇáÉ ááÃÚÖÇÁ";
+$lang["tpl_auto_sendemail"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'] = "Please type And Email To Send Or Check To Send To All Members";
 $lang['tpl_auto_please_type_from_name'] = "Please Type From Name";
@@ -674,10 +674,10 @@ $lang["tpl_auto_message_send_email_attention"] = "<font style='color:red;font-si
 //newsletter end
 
 //newsletter send  admin
-$lang['tpl_auto_Send_Email_Admin'] = "ÇÑÓÇá ÑÓÇáÉ ááãÓÄæáíä";
+$lang['tpl_auto_Send_Email_Admin'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_Check_this_to_send_to_all_admin'] = "Check This To Send To All admin/agent";
 
-$lang["tpl_auto_sendemailadmin"] = "ÇÑÓÇá ÑÓÇáÉ ááãÓÄæáíä";
+$lang["tpl_auto_sendemailadmin"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_admin'] = "Please type And Email To Send Or Check To Send To All Admin";
 //newsletter end
@@ -691,13 +691,13 @@ $lang["tpl_adprofiles_add"] = "Ad profiles add";
 $lang["tpl_adprofiles_modify"] = "Ad profiles modify";
 
 $lang['tabel_adprofiles']['id'] = "Id";
-$lang['tabel_adprofiles']['name'] = "ÇáÇÓã";
-$lang['tabel_adprofiles']['description'] = "æÕİ";
+$lang['tabel_adprofiles']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_adprofiles']['description'] = "ï¿½ï¿½ï¿½";
 $lang['tabel_adprofiles']['price'] = "Price";
 $lang['tabel_adprofiles']['nocars'] = "No. cars";
 $lang['tabel_adprofiles']['nopictures'] = "No. pictures";
 $lang['tabel_adprofiles']['order'] = "Order";
-$lang['tabel_adprofiles']['active'] = "ÇáİÚÇáíÉ";
+$lang['tabel_adprofiles']['active'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 $lang['error_adprofiles']['name'] = "Please input name<br>";
@@ -748,7 +748,7 @@ $lang['auto_meniu_expl']['rights'] = "Manage Rights Profiles <BR> <li> create/ m
 $lang['auto_meniu_expl']['category'] = "Manage Category <BR><li> create/ modify/ search ( Family/Sports/etc)";
 $lang['auto_meniu_expl']['make'] = "Manage Make <BR> <li> create/ modify/ search ( BMW/Ford/etc)";
 $lang['auto_meniu_expl']['features'] = "Manage Features <BR> <li> create/ modify/ search ( Cruise Control/Clock/Air Conditioning/etc)";
-$lang['auto_meniu_expl']['cars'] = "ÅÏÇÑÉ ÇáÓíÇÑÇÊ <BR> <li> ÅäÔÇÁ/ÊÚÏíá/ÈÍË";
+$lang['auto_meniu_expl']['cars'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <BR> <li> ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½";
 $lang['auto_meniu_expl']['news'] = "Manage News <BR> <li> create/ modify/ search;";
 $lang['auto_meniu_expl']['faq'] = "Manage FAQ <BR> <li> create/ modify/ search;";
 $lang['auto_meniu_expl']['customlinks'] = "Manage Customlinks <BR> <li> create/modify/search custom page (about us/contact us/etc);";
@@ -764,7 +764,7 @@ $lang['auto_meniu_expl']['payment'] = "Manage the payment method for the signup 
 $lang['auto_meniu_expl']['orders'] = "Manage the orders";
 
 
-$lang['tpl_auto_Front_End'] = "ÇáæÇÌåÉ";
+$lang['tpl_auto_Front_End'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 //23 oct 2004
@@ -783,13 +783,13 @@ $lang['language_notuse'] = "Language not use";
 $lang["msg1_homepage"] = "The {{name}} ... deleted<br>";
 $lang["msg2_homepage"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_homepage"] = "ÇáÕİÍÉ ÇáÑÆíÓíÉ";
-$lang["tpl_homepage_add"] = "ÅÖÇİÉ ÕİÍÉ ÑÆíÓíÉ";
-$lang["tpl_homepage_modify"] = "ÊÚÏíá ÇáÕİÍÉ ÇáÑÆíÓíÉ";
+$lang["tpl_auto_homepage"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_homepage_add"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_homepage_modify"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tabel_homepage']['id'] = "Id";
-$lang['tabel_homepage']['name'] = "ÇáÇÓã";
-$lang['tabel_homepage']['description'] = "æÕİ";
+$lang['tabel_homepage']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_homepage']['description'] = "ï¿½ï¿½ï¿½";
 
 $lang['error_homepage']['name'] = "Please input name<br>";
 //homepage ends
@@ -804,11 +804,11 @@ $lang["tpl_payment_add"] = "Payment add";
 $lang["tpl_payment_modify"] = "Payment modify";
 
 $lang['tabel_payment']['id'] = "Id";
-$lang['tabel_payment']['name'] = "ÇáÇÓã";
+$lang['tabel_payment']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tabel_payment']['business'] = "Business";
 $lang['tabel_payment']['item_name'] = "Item name";
 $lang['tabel_payment']['currency_code'] = "Currency code";
-$lang['tabel_payment']['active'] = "ÇáİÚÇáíÉ";
+$lang['tabel_payment']['active'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['error_payment']['business'] = "Please input business<br>";
 //payment ends
@@ -819,77 +819,77 @@ $lang['error_payment']['business'] = "Please input business<br>";
 //#########################################
 
 
-$lang["tpl_auto_Pic"] = "ÕæÑå";
-$lang["tpl_auto_of"] = "ãä";
-$lang["tpl_auto_previous"] = "« ÇáÓÇÈŞ";
-$lang["tpl_auto_back"] = "« ÑÌæÚ";
-$lang["tpl_auto_next"] = "ÇáÊÇáí »";
-$lang["tpl_auto_exit"] = "ÎÑæÌ ×";
-$lang["tpl_auto_year"] = "ÇáÓäÉ";
-$lang["tpl_auto_model"] = "äæÚ ÇáÓíÇÑÉ";
-$lang["tpl_auto_stereo"] = "ÇáãÓÌá";
-$lang["tpl_auto_bodytype"] = "äæÚ Çáåíßá";
-$lang["tpl_auto_transmission"] = "äÇŞá ÇáÓÑÚÉ";
-$lang["tpl_auto_fueltype"] = "äæÚ ÇáæŞæÏ";
-$lang["tpl_auto_intcolor"] = "Çááæä ÇáÏÇÎáí";
-$lang["tpl_auto_Vehicle_Features"] = "ããíÒÇÊ ÇáÓíÇÑÉ";
-$lang["tpl_auto_Contact_Information"] = "ãÚáæãÇÊ ÇáãÇáß";
-$lang["tpl_auto_Car_Information"] = "ãÚáæãÇÊ ÇáÓíÇÑÉ";
+$lang["tpl_auto_Pic"] = "ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_of"] = "ï¿½ï¿½";
+$lang["tpl_auto_previous"] = "ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_back"] = "ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_next"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½";
+$lang["tpl_auto_exit"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½";
+$lang["tpl_auto_year"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_model"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_stereo"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_bodytype"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_transmission"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_fueltype"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_intcolor"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Vehicle_Features"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Contact_Information"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Car_Information"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang["tpl_auto_name"] = "ÇáÃÓã";
-$lang["tpl_auto_phone"] = "ÑŞã ÇáåÇÊİ";
-$lang["tpl_auto_country"] = "ÇáÈáÏ";
-$lang["tpl_auto_state"] = "ÇáãÏíäÉ";
-$lang["tpl_auto_city"] = "ÇáãäØŞÉ";
-$lang["tpl_auto_Send_email"] = "ÇáÇÊÕÇá ÈÇáãÇáß";
-$lang["tpl_auto_email"] = "ÇáÈÑíÏ ÇáÇáßÊÑæäí";
-$lang["tpl_auto_Additional_Information"] = "ãÚáæãÇÊ ÇÖÇİíÉ";
-$lang["tpl_auto_write_message"] = "ÇßÊÈ ÑÓÇáå";
+$lang["tpl_auto_name"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_phone"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_country"] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_state"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_city"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Send_email"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_email"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Additional_Information"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_write_message"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_your_car'] = "ÊİÇÕíá ÇáÓíÇÑÉ";
-$lang['tpl_auto_your_name'] = "ÇÓãß";
-$lang['tpl_auto_your_email'] = "ÈÑíÏß ÇáÇáßÊÑæäí";
-$lang['tpl_auto_your_phone'] = "ÑŞã åÇÊİß";
-$lang['tpl_auto_your_message'] = "ÑÓÇáÊß";
-$lang["tpl_auto_send"] = "ÇÑÓá ÑÓÇáÉ ÇáßÊÑæäíÉ";
+$lang['tpl_auto_your_car'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_name'] = "ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_email'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_phone'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_message'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_send"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_please_type_name'] = "ÇßÊÈ ÇÓãß";
-$lang['tpl_auto_please_type_email_address'] = "ÇßÊÈ ÈÑíÏß ÇáÇáßÊÑæäí";
-$lang['tpl_auto_please_type_email_address_valid'] = "ÇßÊÈ ÈÑíÏß ÇáÇáßÊÑæäí ÇáÕÍíÍ";
-$lang['tpl_auto_please_type_phone'] = "ÇßÊÈ ÑŞã åÇÊİß";
-$lang['tpl_auto_please_type_message'] = "ÇßÊÈ ÑÓÇáÊß";
-$lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "ÇáÑÓÇáÉ ÇãÇ ŞÕíÑÉ Çæ ØæíáÉ";
+$lang['tpl_auto_please_type_name'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_email_address'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_email_address_valid'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_phone'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_message'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_thanks'] = "ÔßÑÇ áÇÑÓÇá ÇáÑÓÇáÉ";
-$lang["tpl_auto_close"] = "ÇÛáŞ ×";
-$lang["tpl_auto_signup"] = "ÇáÇÔÊÑÇß";
+$lang['tpl_auto_thanks'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_close"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½";
+$lang["tpl_auto_signup"] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_please_type_username'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÇÓã ÇáãÓÊÎÏã";
-$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "ÇÓã ÇáãÓÊÎÏã ÇãÇ ßÈíÑ Çæ ÕÛíÑ";
-$lang['tpl_auto_please_type_email_address'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÈÑíÏß ÇáÇáßÊÑæäí";
-$lang['tpl_auto_please_type_email_address_valid'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÈÑíÏß ÇáÇáßÊÑæäí ÇáÕÍíÍ";
-$lang['tpl_auto_please_type_password'] = "ÇáÑÌÇÁ ßÊÇÈÉ ßáãÉ ÇáãÑæÑ";
-$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "ßáãÉ ÇáãÑæÑ ÇãÇ ÕÛíÑÉ Çæ ßÈíÑÉ";
-$lang['tpl_auto_please_retype_password'] = "ÇáÑÌÇÁ ÇÚÇÏÉ ßÊÇÈÉ ßáãÉ ÇáãÑæÑ";
+$lang['tpl_auto_please_type_username'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_email_address'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_email_address_valid'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_password'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_retype_password'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_signup_message'] = "Signup Message";
-$lang['tpl_auto_your_username'] = "ÇÓã ÇáãÓÊÎÏã";
-$lang['tpl_auto_your_email'] = "ÈÑíÏß ÇáÇáßÊÑæäí";
-$lang['tpl_auto_your_password'] = "ßáãÉ ÇáãÑæÑ";
-$lang['tpl_auto_your_retype_password'] = "ÃÚÏ ßÊÇÈÉ ßáãÉ ÇáãÑæÑ";
+$lang['tpl_auto_your_username'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_email'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_password'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_retype_password'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_thanks_signup'] = "Thanks! You will receive an email!!";
 $lang['tpl_auto_thanks_confirm'] = "Thanks! Your email address is confirm.";
 $lang['tpl_auto_thanks_confirm1'] = "<BR><BR>Please click on login to go in admin area!<center><a href='admin/index.php'>Admin</a></center>";
 $lang['tpl_auto_thanks_confirm2'] = "<BR><BR>Please follow the link to make the payment to activate the account!";
 
-$lang['tpl_auto_orderby'] = "ÑÊÈ ÍÓÈ";
-$lang['tpl_auto_method'] = "ÇáØÑíŞÉ";
+$lang['tpl_auto_orderby'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½";
+$lang['tpl_auto_method'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_asc'] = "ÊÕÇÚÏí";
-$lang['tpl_auto_desc'] = "ÊäÇÒáí";
+$lang['tpl_auto_asc'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_desc'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 //18 iunie 2004
-$lang[tpl_auto_Sold]="ãÈÇÚÉ";
-$lang[sold]="ãÈÇÚÉ";
+$lang[tpl_auto_Sold]="ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang[sold]="ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang[yes]="Yes";
 $lang[no]="No";
 
@@ -898,48 +898,48 @@ $lang["tpl_auto_Are_you_sure_you_want_to_activate_all_as_sold"] = "Are you sure 
 $lang[BRANDNEW] = "BRAND NEW";
 $lang[EXDEMO] = "EX DEMO";
 
-$lang[array_types] = array(2=>$lang[sold],3=>$lang[BRANDNEW],4=>$lang[EXDEMO]);
+$lang['array_types'] = array(2=>$lang[sold],3=>$lang[BRANDNEW],4=>$lang[EXDEMO]);
 
 
 //10 iulie
 
-$lang['tpl_auto_stock'] = "ÑŞã";
+$lang['tpl_auto_stock'] = "ï¿½ï¿½ï¿½";
 $lang['tpl_auto_Top_of_page'] = "Top of page";
 
-$lang['tpl_auto_Click_here_to_see_this_Dealer_complete_inventory'] = "ÅÖÛØ åäÇ áÊÑì ÌãíÚ ÓíÇÑÇÊ åĞÇ ÇáÔÎÕ";
+$lang['tpl_auto_Click_here_to_see_this_Dealer_complete_inventory'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_menu'] = "Menu";
-$lang['tpl_auto_Find_Your_Vehicle'] = "ÇÈÍË Úä ÓíÇÑÉ";
+$lang['tpl_auto_Find_Your_Vehicle'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_Newsletter'] = "ÇáÇÎÈÇÑ ÚÈÑ ÇáÈÑíÏ";
-$lang['tpl_auto_Subscribe'] = "ÇáÇÔÊÑÇß";
-$lang['tpl_auto_Unsubscribe'] = "ÇáÛÇÁ ÇáÇÔÊÑÇß";
-$lang['tpl_auto_Update'] = "ÊÍÏíË";
+$lang['tpl_auto_Newsletter'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Subscribe'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Unsubscribe'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Update'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_Mark_All'] = "ÇÎÊíÇÑ Çáßá";
-$lang['tpl_auto_Unmark_all'] = "ÇáÛÇÁ ÇÎÊíÇÑ Çáßá";
+$lang['tpl_auto_Mark_All'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Unmark_all'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 
-$lang["tpl_auto_view_all_category"] = "ÚÑÖ ÍÓÈ ÇáãÏíäÉ";
-$lang["tpl_auto_Advanced_search"] = "ÈÍË ãÊŞÏã";
-$lang["tpl_auto_cars_found"] = "æÌÏÊ ÓíÇÑÇÊ";
+$lang["tpl_auto_view_all_category"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_Advanced_search"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_cars_found"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
-$lang['tpl_auto_please_select_adprofile'] = "ÇáÑÌÇÁ ÇÎÊíÇÑ äæÚ ÇáÇÔÊÑÇß";
-$lang['tpl_auto_please_type_name'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÇÓãß";
-$lang['tpl_auto_please_type_phone'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÑŞã åÇÊİß";
-$lang['tpl_auto_please_type_country'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÇÓã ÈáÏß";
-$lang['tpl_auto_please_type_state'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÇÓã ãÏíäÊß";
-$lang['tpl_auto_please_type_city'] = "ÇáÑÌÇÁ ßÊÇÈÉ ÇÓã ãäØŞÊß";
+$lang['tpl_auto_please_select_adprofile'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_phone'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_country'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_state'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_city'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_your_phone'] = "ÑŞã åÇÊİß";
-$lang['tpl_auto_your_country'] = "ÇÓã ÇáÏæáÉ";
-$lang['tpl_auto_your_state'] = "ÇÓã ÇáãÏíäÉ";
-$lang['tpl_auto_your_city'] = "ÇÓã ÇáãäØŞÉ";
+$lang['tpl_auto_your_phone'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_country'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_state'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_your_city'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 
 $lang['tpl_auto_Confirm_email_address'] = "Confirm email address";
-$lang['tpl_auto_Make_payments_with_PayPal_its_fast_freeand_secure'] = "Make payments with PayPal - it’s fast, freeand secure!";
+$lang['tpl_auto_Make_payments_with_PayPal_its_fast_freeand_secure'] = "Make payments with PayPal - itï¿½s fast, freeand secure!";
 
-$lang['tpl_auto_Click_on_a_picture_to_view_the_gallery'] = "ÅÖÛØ Úáì ÇáÕæÑå áÊÑì ÈÇŞí ÇáÕæÑ";
+$lang['tpl_auto_Click_on_a_picture_to_view_the_gallery'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 //18 jan 2005
 $lang['tpl_auto_Payment_Calculator'] = "Payment Calculator";
@@ -955,12 +955,12 @@ $lang['tpl_auto_Monthly_Payment'] = "Monthly Payment";
 $lang['tpl_auto_Down_Payment'] = "Down Payment";
 //2.1 version
 
-$lang['tpl_auto_friend_name'] = "ÇÓã ÕÏíŞß";
-$lang['tpl_auto_friend_email'] = "ÈÑíÏ ÕÏíŞß ÇáÇáßÊÑæäí";
-$lang['tpl_auto_Send_To_a_Friend'] = "ÇÑÓá";
+$lang['tpl_auto_friend_name'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_friend_email'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Send_To_a_Friend'] = "ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_please_type_friendname'] = "ÇßÊÈ ÇÓã ÕÏíŞß";
-$lang['tpl_auto_please_type_friendemail_address'] = "ÇßÊÈ ÈÑíÏ ÕÏíŞß ÇáÇáßÊÑæäí";
+$lang['tpl_auto_please_type_friendname'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_please_type_friendemail_address'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_please_type_friendemail_address_valid'] = "Please Type a Valid Email Address";
 
 $lang['tabel_template']['friend_subject'] = "Email Subject for Send To a Friend";
@@ -980,18 +980,18 @@ $lang['tabel_cars']['displaymodel'] = "Display Model";
 $lang["msg1_model"] = "The {{name}} ... deleted<br>";
 $lang["msg2_model"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_model"] = "äæÚ ÇáÓíÇÑÉ";
+$lang["tpl_auto_model"] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_model_add"] = "Model add";
 $lang["tpl_model_modify"] = "Model modify";
 
 $lang['tabel_model']['id'] = "Id";
-$lang['tabel_model']['name'] = "ÇáÇÓã";
-$lang['tabel_model']['makeid'] = "ÔÑßÉ ÇáÕäÚ";
+$lang['tabel_model']['name'] = "ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_model']['makeid'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['error_model']['name'] = "Please input name<br>";
 //finish model
 
-$lang['tabel_rights']['model_edit'] = "äæÚ ÇáÓíÇÑÉ";
+$lang['tabel_rights']['model_edit'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['auto_meniu_expl']['model'] = "Manage Model <BR> <li> create/ modify/ search ";
 
 $lang['tabel_rights']['rentcars_edit'] = "Cars for rent";
@@ -1006,9 +1006,9 @@ $lang["tpl_rentcars_modify"] = "Cars for rent modify";
 
 $lang['tabel_rentcars']['id'] = "Id";
 $lang['tabel_rentcars']['admin'] = "Admin";
-$lang['tabel_rentcars']['category'] = "ÇáãÏíäÉ";
-$lang['tabel_rentcars']['make'] = "ÔÑßÉ ÇáÕäÚ";
-$lang['tabel_rentcars']['model'] = "äæÚ ÇáÓíÇÑÉ";
+$lang['tabel_rentcars']['category'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_rentcars']['make'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tabel_rentcars']['model'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tabel_rentcars']['year'] = "Year";
 $lang['tabel_rentcars']['price'] = "";
 $lang['tabel_rentcars']['specialprice'] = "Specialprice";
@@ -1021,7 +1021,7 @@ $lang['tabel_rentcars']['engine'] = "Engine";
 $lang['tabel_rentcars']['stereo'] = "Stereo";
 $lang['tabel_rentcars']['fueltype'] = "Fueltype";
 $lang['tabel_rentcars']['transmission'] = "Transmission";
-$lang['tabel_rentcars']['description'] = "æÕİ";
+$lang['tabel_rentcars']['description'] = "ï¿½ï¿½ï¿½";
 $lang['tabel_rentcars']['shortdescription'] = "Short Description";
 $lang['tabel_rentcars']['stock'] = "Stock#";
 $lang['tabel_rentcars']['pricemesg'] = "Price Mesg (Like: Call For Special Sale Price) (if you type something here the price will not appears)";
@@ -1034,7 +1034,7 @@ $lang['tabel_rentcars']['intcolor'] = "Intcolor";
 $lang['tabel_rentcars']['extcolor'] = "Extcolor";
 $lang['tabel_rentcars']['miles'] = "Miles";
 $lang['tabel_rentcars']['noview'] = "Noview";
-$lang['tabel_rentcars']['active'] = "ÇáİÚÇáíÉ";
+$lang['tabel_rentcars']['active'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang['tabel_rentcars']['date_add'] = "Date Add";
 $lang['tabel_rentcars']['date_modify'] = "Date Modify";
 
@@ -1045,9 +1045,9 @@ $lang['error_rentcars']['model'] = "Please input model<br>";
 $lang['error_rentcars']['year'] = "Please input year<br>";
 $lang['error_rentcars']['price'] = "Please input price<br>";
 
-$lang['fuelltype']=array("ÏíÒá","ÈÊÑæá");
-$lang["tpl_auto_array_option_rentcarsgallery"]="ãÚÑÖ ÇáÕæÑ";
-$lang["tpl_auto_array_option_rentcarsfeatures"]="ÇáããíÒÇÊ";
+$lang['fuelltype']=array("ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½");
+$lang["tpl_auto_array_option_rentcarsgallery"]="ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang["tpl_auto_array_option_rentcarsfeatures"]="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang["tpl_auto_explain_rentcars"]="Ex.<br> <img src='../images/active1.gif' border=0> active / <img src='../images/active0.gif' border=0> inactive  / <img src='../images/active2.gif' border=0> Sold";
 $lang['tabel_rentcars']['mapto'] = "Map URL";
@@ -1075,7 +1075,7 @@ $lang['error_rentcarsfeatures']['rentcarsid'] = "Please input Cars for rent<br>"
 $lang["msg1_gallery"] = "The {{name}} ... deleted<br>";
 $lang["msg2_gallery"] = "The {{name}} ... <font color=red>failed</font><br>";
 
-$lang["tpl_auto_gallery"] = "ãÚÑÖ ÇáÕæÑ";
+$lang["tpl_auto_gallery"] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½";
 $lang["tpl_gallery_add"] = "Gallery add";
 $lang["tpl_gallery_modify"] = "Gallery modify";
 
@@ -1083,38 +1083,38 @@ $lang['tabel_gallery']['id'] = "Id";
 $lang['tabel_gallery']['rentcarsid'] = "Cars for rent ID";
 $lang['tabel_gallery']['picture'] = "Picture";
 $lang['tabel_gallery']['thumbnail'] = "Thumbnail";
-$lang['tabel_gallery']['description'] = "æÕİ";
+$lang['tabel_gallery']['description'] = "ï¿½ï¿½ï¿½";
 $lang['tabel_gallery']['order'] = "Order";
 
 $lang['error_gallery']['picture'] = "Please input picture<br>";
 //end gallery
 
-$lang["tpl_auto_previouscar"] = "« Previous";
-$lang["tpl_auto_nextcar"] = "Next »";
+$lang["tpl_auto_previouscar"] = "ï¿½ Previous";
+$lang["tpl_auto_nextcar"] = "Next ï¿½";
 
 
-$lang['tpl_auto_View_all_cars'] = "ÚÑÖ ÌãíÚ ÇáÓíÇÑÇÊ";
+$lang['tpl_auto_View_all_cars'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tpl_auto_guess']="guess";
 $lang['tpl_auto_LastUpdated'] = "LastUpdated";
 $lang['tpl_auto_ip'] = "Ip";
-$lang['tpl_auto_Summary'] = "ãáÎÕ";
+$lang['tpl_auto_Summary'] = "ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_Who_s_Online'] = "Who`s Online (last 300 seconds)";
 $lang['tpl_auto_Statistics'] = "Statistics";
 $lang['tpl_auto_Top_by_hits'] = "Top By Hits";
 $lang['tpl_auto_user_online'] = "user(s) online";
-$lang['tpl_auto_See'] = "ÅáŞÇÁ äÙÑÉ";
+$lang['tpl_auto_See'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 
-$lang['tpl_auto_Contact_Information'] = "ãÚáæãÇÊ ÇáãÇáß";
-$lang['tpl_auto_Send_This_To_a_Friend'] = "ÇÑÓá åĞå ÇáÕİÍå Çáì ÕÏíŞ";
+$lang['tpl_auto_Contact_Information'] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Send_This_To_a_Friend'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 $lang['tpl_auto_Calculate_Mortgage'] = "";
-$lang['tpl_auto_Print_This'] = "ÇØÈÚ åĞå ÇáÕİÍå";
-$lang['tpl_auto_Simple_search'] = "ÈÍË ÈÓíØ";
+$lang['tpl_auto_Print_This'] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_Simple_search'] = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 
 $lang['error_OVERAPPING_PERIODS'] = "OVERAPPING PERIODS";
 $lang['error_From_Date_must_be_before_To_Date'] = "Start Date must be before End Date";
-$lang['tabel_rights']['summary'] = "ãáÎÕ";
-$lang['tpl_auto_summary'] = "ãáÎÕ";
+$lang['tabel_rights']['summary'] = "ï¿½ï¿½ï¿½ï¿½";
+$lang['tpl_auto_summary'] = "ï¿½ï¿½ï¿½ï¿½";
 
 $lang['tpl_auto_meta_charset'] = "windows-1256";
 $lang['tpl_auto_meta_align_style'] = ' dir="rtl"';
