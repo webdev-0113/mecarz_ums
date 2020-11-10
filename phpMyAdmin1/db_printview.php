@@ -38,7 +38,7 @@ if ($cfg['SkipLockedTables'] == TRUE) {
     if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
         while ($tmp = PMA_DBI_fetch_row($result)) {
             // if in use memorize tablename
-            if (preg_match('/@in_use=[1-9]+@i', $tmp[0])) {
+            if (preg_match('@in_use=[1-9]+@i', $tmp[0])) {
                 $sot_cache[$tmp[0]] = TRUE;
             }
         }
@@ -136,7 +136,7 @@ else {
         if (isset($sts_data['Type'])) {
             if ($sts_data['Type'] == 'MRG_MyISAM') {
                 $mergetable = TRUE;
-            } else if (!preg_match('/@ISAM|HEAP@i', $sts_data['Type'])) {
+            } else if (!preg_match('@ISAM|HEAP@i', $sts_data['Type'])) {
                 $nonisam    = TRUE;
             }
         }

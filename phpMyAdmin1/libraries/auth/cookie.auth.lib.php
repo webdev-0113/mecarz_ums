@@ -38,7 +38,7 @@ if (function_exists('mcrypt_encrypt')) {
  *
  * @access  private
  */
-function PMA_cookie_cmp($a, $b)
+function PMA_cookie_cmp(&$a, $b)
 {
     return (strcmp($a[1], $b[1]));
 } // end of the 'PMA_cmp()' function
@@ -415,7 +415,7 @@ function PMA_auth_check()
     $from_cookie   = FALSE;
     $from_form     = FALSE;
 
-    // The user wants to be logged out->delete password cookie
+    // The user wants to be logged out -> delete password cookie
     if (!empty($old_usr)) {
         setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
     }
@@ -600,7 +600,7 @@ function PMA_auth_set_user()
 
 
 /**
- * User is not allowed to login to MySQL->authentication failed
+ * User is not allowed to login to MySQL -> authentication failed
  *
  * @return  boolean   always true (no return indeed)
  *

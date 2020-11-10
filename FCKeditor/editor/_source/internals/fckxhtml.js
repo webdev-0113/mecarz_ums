@@ -50,7 +50,7 @@ FCKXHtml.GetXHTML = function( node, includeNode, format )
 	if ( FCKBrowserInfo.IsGecko )
 		sXHTML = sXHTML.replace( /<br\/>$/, '' ) ;
 
-	// Add a space in the tags with no closing tags, like <br/>-><br />
+	// Add a space in the tags with no closing tags, like <br/> -> <br />
 	sXHTML = sXHTML.replace( FCKRegexLib.SpaceNoClose, ' />');
 
 	if ( FCKConfig.ForceSimpleAmpersand )

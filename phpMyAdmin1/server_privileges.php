@@ -1171,7 +1171,7 @@ if (empty($adduser) && empty($checkprivs)) {
 
     } else {
 
-        // A user was selected->display the user's properties
+        // A user was selected -> display the user's properties
 
         echo '<h2>' . "\n"
            . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )

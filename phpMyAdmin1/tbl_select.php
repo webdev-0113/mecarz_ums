@@ -31,7 +31,7 @@ if ($cfg['PropertiesIconic'] == true) {
 }
 
 /**
- * Not selection yet required->displays the selection form
+ * Not selection yet required -> displays the selection form
  */
 if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
@@ -71,7 +71,7 @@ if (!isset($param) || $param[0] == '') {
 
         // strip the "BINARY" attribute, except if we find "BINARY(" because
         // this would be a BINARY or VARBINARY field type
-            if (!preg_match('/@BINARY[\(]@i', $type)) {
+            if (!preg_match('@BINARY[\(]@i', $type)) {
                 $type         = preg_replace('@BINARY@i', '', $type);
             }
             $type         = preg_replace('@ZEROFILL@i', '', $type);
@@ -245,7 +245,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
                 echo "\n" . '                        '
                    . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
-        } elseif (preg_match('/@char|blob|text|set@i', $fields_type[$i])) {
+        } elseif (preg_match('@char|blob|text|set@i', $fields_type[$i])) {
             foreach ($GLOBALS['cfg']['TextOperators'] as $k => $fc) {
             echo "\n" . '                        '
                . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
@@ -336,7 +336,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
 
 
 /**
- * Selection criteria have been submitted->do the work
+ * Selection criteria have been submitted -> do the work
  */
 else {
     // Builds the query
@@ -413,7 +413,7 @@ else {
                 }
 
             } elseif ($fields[$i] != '') {
-                if (preg_match('/@char|binary|blob|text|set|date|time|year@i', $types[$i])) {
+                if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types[$i])) {
                     $quot = '\'';
                 } else {
                     $quot = '';
@@ -423,7 +423,7 @@ else {
                 // But if the field's type is VARBINARY, it has no charset
                 // and $charsets[$i] is empty, so we cannot generate a CONVERT
 
-                if (PMA_MYSQL_INT_VERSION >= 40101 && !empty($charsets[$i]) && $charsets[$i] != $charset_connection && preg_match('/@char|binary|blob|text|set@i', $types[$i])) {
+                if (PMA_MYSQL_INT_VERSION >= 40101 && !empty($charsets[$i]) && $charsets[$i] != $charset_connection && preg_match('@char|binary|blob|text|set@i', $types[$i])) {
                     $prefix = 'CONVERT(_utf8 ';
                     $suffix = ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
                 } else {

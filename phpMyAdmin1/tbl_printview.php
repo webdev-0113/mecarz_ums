@@ -44,7 +44,7 @@ PMA_DBI_select_db($db);
 
 
 /**
- * Multi-tables printview thanks to Christophe Geschï¿½ from the "MySQL Form
+ * Multi-tables printview thanks to Christophe Gesché from the "MySQL Form
  * Generator for PHPMyAdmin" (http://sourceforge.net/projects/phpmysqlformgen/)
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
@@ -166,7 +166,7 @@ foreach ($the_tables AS $key => $table) {
         $type             = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
         // loic1: set or enum types: slashes single quotes inside options
-        if (preg_match('/@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
+        if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
             $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
             $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
             $type_nowrap  = '';
@@ -227,7 +227,7 @@ foreach ($the_tables AS $key => $table) {
     if ($have_rel) {
         echo '    <td class="print">';
         if (isset($res_rel[$field_name])) {
-            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'] );
+            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] );
         }
         echo '&nbsp;</td>' . "\n";
     }
@@ -298,7 +298,7 @@ foreach ($the_tables AS $key => $table) {
      */
     if ($cfg['ShowStats']) {
         $nonisam     = FALSE;
-        if (isset($showtable['Type']) && !preg_match('/@ISAM|HEAP@i', $showtable['Type'])) {
+        if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
             $nonisam = TRUE;
         }
         if ($nonisam == FALSE) {

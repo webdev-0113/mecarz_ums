@@ -22,7 +22,7 @@ function PMA_getBookmarksParam()
 
     $cfgBookmark = '';
 
-    // No server selected->no bookmark table
+    // No server selected -> no bookmark table
     if ($server == 0) {
         return '';
     }
@@ -58,7 +58,7 @@ function PMA_listBookmarks($db, $cfgBookmark)
             . ' ORDER BY label';
     $result = PMA_DBI_query($query, $dbh, PMA_DBI_QUERY_STORE);
 
-    // There are some bookmarks->store them
+    // There are some bookmarks -> store them
     // use the unique id as the key
     if ($result > 0 && PMA_DBI_num_rows($result) > 0) {
         while ($row = PMA_DBI_fetch_row($result)) {
@@ -122,7 +122,7 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bo
  *
  * @access  public
  */
-function &PMA_queryDBBookmarks($db, $cfgBookmark, $table_array)
+function &PMA_queryDBBookmarks($db, $cfgBookmark, &$table_array)
 {
     global $dbh;
     $bookmarks = array();

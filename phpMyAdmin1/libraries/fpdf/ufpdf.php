@@ -35,7 +35,7 @@ function GetStringWidth($s)
   //Get width of a string in the current font
   $s = (string)$s;
   $codepoints=$this->utf8_to_codepoints($s);
-  $cw=$this->CurrentFont['cw'];
+  $cw=&$this->CurrentFont['cw'];
   $w=0;
   foreach($codepoints as $cp)
     $w+=isset($cw[$cp])?$cw[$cp]:0;
@@ -284,7 +284,7 @@ function _putinfo()
 
 // UTF-8 to UTF-16BE conversion.
 // Correctly handles all illegal UTF-8 sequences.
-function utf8_to_utf16be($txt, $bom = true) {
+function utf8_to_utf16be(&$txt, $bom = true) {
   $l = strlen($txt);
   $out = $bom ? "\xFE\xFF" : '';
   for ($i = 0; $i < $l; ++$i) {
@@ -386,7 +386,7 @@ function utf8_to_utf16be($txt, $bom = true) {
 
 // UTF-8 to codepoint array conversion.
 // Correctly handles all illegal UTF-8 sequences.
-function utf8_to_codepoints($txt) {
+function utf8_to_codepoints(&$txt) {
   $l = strlen($txt);
   $out = array();
   for ($i = 0; $i < $l; ++$i) {

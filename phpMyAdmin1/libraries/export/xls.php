@@ -115,7 +115,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $what;
     global $workbook;
 
-    $worksheet =$workbook->addWorksheet($table);
+    $worksheet =& $workbook->addWorksheet($table);
     $workbook->setTempDir(realpath($GLOBALS['cfg']['TempDir']));
 
     // Gets the data from the database

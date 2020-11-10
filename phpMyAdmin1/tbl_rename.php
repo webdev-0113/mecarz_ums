@@ -19,7 +19,7 @@ $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
 
 
 /**
- * A new name has been submitted->do the work
+ * A new name has been submitted -> do the work
  */
 if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE) {
     $old_name     = $table;

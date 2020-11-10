@@ -495,7 +495,7 @@ function CheckPageBreak($h)
 function NbLines($w,$txt)
 {
    // compute number of lines used by a multicell of width w
-   $cw=$this->CurrentFont['cw'];
+   $cw=&$this->CurrentFont['cw'];
    if ($w==0)
       $w=$this->w-$this->rMargin-$this->x;
    $wmax=($w-2*$this->cMargin)*1000/$this->FontSize;
@@ -686,7 +686,7 @@ class PMA_RT_Table
      * @see     PMA_PDF, PMA_RT_Table::PMA_RT_Table_setWidth,
      *          PMA_RT_Table::PMA_RT_Table_setHeight
      */
-    function PMA_RT_Table($table_name, $ff, $same_wide_width)
+    function PMA_RT_Table($table_name, $ff, &$same_wide_width)
     {
         global $pdf, $pdf_page_number, $cfgRelation, $db;
 
@@ -1439,7 +1439,7 @@ function PMA_RT_DOC($alltables ){
             $type             = $row['Type'];
             // reformat mysql query output - staybyte - 9. June 2001
             // loic1: set or enum types: slashes single quotes inside options
-            if (preg_match('/@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
+            if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
                 $tmp[2]       = substr(preg_replace("@([^,])''@", "\\1\\'", ',' . $tmp[2]), 1);
                 $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
                 $type_nowrap  = '';
@@ -1486,7 +1486,7 @@ function PMA_RT_DOC($alltables ){
                             ($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
                             ((isset($row['Default'])) ?  $row['Default'] : ''),
                             $row['Extra']  ,
-                            ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'] : ''),
+                            ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),
                             ((isset($comments[$field_name])) ? $comments[$field_name]  : '' ),
                             ((isset($mime_map) && isset($mime_map[$field_name])) ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])  : '' )
                             );
@@ -1508,7 +1508,7 @@ function PMA_RT_DOC($alltables ){
         $pdf->Cell(15,8,$row['Extra'],1,0,'L');
            if ($have_rel) {
                 if (isset($res_rel[$field_name])) {
-                    $pdf->Cell(30,8,$res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'],1,0,'L');
+                    $pdf->Cell(30,8,$res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'],1,0,'L');
                 }
             }
             if ($cfgRelation['commwork']) {

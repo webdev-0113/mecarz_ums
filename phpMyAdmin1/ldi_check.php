@@ -76,7 +76,7 @@ if (isset($btnLDI) && isset($local_textfile) && $local_textfile != '') {
 }
 
 /**
- * The form used to define the query has been submitted->do the work
+ * The form used to define the query has been submitted -> do the work
  */
 if (isset($btnLDI) && empty($textfile)) {
     $js_to_run = 'functions.js';
@@ -167,7 +167,7 @@ if (isset($btnLDI) && empty($textfile)) {
 
 
 /**
- * The form used to define the query hasn't been yet submitted->loads it
+ * The form used to define the query hasn't been yet submitted -> loads it
  */
 else {
     require('./ldi_table.php');

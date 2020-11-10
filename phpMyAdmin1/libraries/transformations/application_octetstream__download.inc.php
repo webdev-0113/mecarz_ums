@@ -2,7 +2,7 @@
 /* $Id: application_octetstream__download.inc.php,v 2.0 2003/12/29 17:48:40 rabus Exp $ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-function PMA_transformation_application_octetstream__download($buffer, $options = array(), $meta = '') {
+function PMA_transformation_application_octetstream__download(&$buffer, $options = array(), $meta = '') {
 global $row;
 
     if (isset($options[0]) && !empty($options[0])) {

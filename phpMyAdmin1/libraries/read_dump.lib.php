@@ -16,7 +16,7 @@
  *
  * @access  public
  */
-function PMA_splitSqlFile($ret, $sql, $release)
+function PMA_splitSqlFile(&$ret, $sql, $release)
 {
     // do not trim, see bug #1030644
     //$sql          = trim($sql);
@@ -36,14 +36,14 @@ function PMA_splitSqlFile($ret, $sql, $release)
         if ($in_string) {
             for (;;) {
                 $i         = strpos($sql, $string_start, $i);
-                // No end of string found->add the current substring to the
+                // No end of string found -> add the current substring to the
                 // returned array
                 if (!$i) {
                     $ret[] = array('query' => $sql, 'empty' => $nothing);
                     return TRUE;
                 }
                 // Backquotes or no backslashes before quotes: it's indeed the
-                // end of the string->exit the loop
+                // end of the string -> exit the loop
                 else if ($string_start == '`' || $sql[$i-1] != '\\') {
                     $string_start      = '';
                     $in_string         = FALSE;
@@ -59,7 +59,7 @@ function PMA_splitSqlFile($ret, $sql, $release)
                         $j++;
                     }
                     // ... if escaped backslashes: it's really the end of the
-                    // string->exit the loop
+                    // string -> exit the loop
                     if ($escaped_backslash) {
                         $string_start  = '';
                         $in_string     = FALSE;
@@ -118,7 +118,7 @@ function PMA_splitSqlFile($ret, $sql, $release)
     } // end for
 
     // add any rest to the returned array
-    if (!empty($sql) && preg_match('/@[^[:space:]]+@', $sql)) {
+    if (!empty($sql) && preg_match('@[^[:space:]]+@', $sql)) {
         $ret[] = array('query' => $sql, 'empty' => $nothing);
     }
 

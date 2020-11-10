@@ -44,7 +44,7 @@ if (empty($HTTP_HOST)) {
 /**
  * Defines the frameset
  */
-// loic1: If left light mode->urldecode the db name
+// loic1: If left light mode -> urldecode the db name
 if (isset($lightm_db)) {
 // no longer urlencoded because of html entities in the db name
 //    $db    = urldecode($lightm_db);

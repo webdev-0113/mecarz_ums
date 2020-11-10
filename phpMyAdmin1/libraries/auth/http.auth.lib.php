@@ -203,7 +203,7 @@ function PMA_auth_check()
         }
     } // end IIS
 
-    // User logged out->ensure the new username is not the same
+    // User logged out -> ensure the new username is not the same
     if (!empty($old_usr)
         && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)) {
         $PHP_AUTH_USER = '';
@@ -262,7 +262,7 @@ function PMA_auth_set_user()
 
 
 /**
- * User is not allowed to login to MySQL->authentication failed
+ * User is not allowed to login to MySQL -> authentication failed
  *
  * @return  boolean   always true (no return indeed)
  *

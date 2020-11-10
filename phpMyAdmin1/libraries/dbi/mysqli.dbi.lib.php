@@ -136,7 +136,7 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
     
     if (!defined('PMA_MYSQL_INT_VERSION') || PMA_MYSQL_INT_VERSION >= 40100
         || !(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
-        /* No recoding->return data as we got them */
+        /* No recoding -> return data as we got them */
         return $data;
     } else {
         $ret    = array();
@@ -145,11 +145,11 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
         $i = 0;
         for ($i = 0; $i < $num; $i++) {
             if (!$meta) {
-                /* No meta information available->we guess that it should be converted */
+                /* No meta information available -> we guess that it should be converted */
                 if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
                 if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
             } else {
-                /* Meta information available->check type of field and convert it according to the type */
+                /* Meta information available -> check type of field and convert it according to the type */
                 if (stristr($fields[$i]->type, 'BLOB') || stristr($fields[$i]->type, 'BINARY')) {
                     if (isset($data[$i])) $ret[$i] = $data[$i];
                     if (isset($data[$fields[$i]->name])) $ret[PMA_convert_display_charset($fields[$i]->name)] = $data[$fields[$i]->name];

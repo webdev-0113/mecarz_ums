@@ -249,7 +249,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $type        = $row['Type'];
     }
     // set or enum types: slashes single quotes inside options
-    if (preg_match('/@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
+    if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
         $type   = $tmp[1];
         $length = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
     } else {
@@ -306,12 +306,12 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length) . '" class="textfield" />' . "\n";
     $ci++;
 
-    if (preg_match('/@^(set|enum)$@i', $type)) {
+    if (preg_match('@^(set|enum)$@i', $type)) {
         $binary           = 0;
         $unsigned         = 0;
         $zerofill         = 0;
     } else {
-        if (!preg_match('/@BINARY[\(]@i', $row['Type']) && PMA_MYSQL_INT_VERSION < 40100) {
+        if (!preg_match('@BINARY[\(]@i', $row['Type']) && PMA_MYSQL_INT_VERSION < 40100) {
             $binary           = stristr($row['Type'], 'binary');
         } else {
             $binary           = FALSE;
@@ -525,7 +525,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] .= '    <option value="" title="' . $strNone . '"></option>' . "\n";
         if (is_array($available_mime['transformation'])) {
             foreach ($available_mime['transformation'] AS $mimekey => $transform) {
-                $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && (preg_match('/@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i', $mime_map[$row['Field']]['transformation'])) ? 'selected ' : '');
+                $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && (preg_match('@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i', $mime_map[$row['Field']]['transformation'])) ? 'selected ' : '');
                 $tooltip = 'strTransformation_' . strtolower(preg_replace('@(\.inc\.php3?)$@', '', $available_mime['transformation_file'][$mimekey]));
                 $tooltip = isset($$tooltip) ? $$tooltip : sprintf(str_replace('<br />', ' ', $strMIME_nodescription), 'PMA_transformation_' . $tooltip . '()');
                 $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . ' title="' . htmlspecialchars($tooltip) . '">' . htmlspecialchars($transform) . '</option>' . "\n";

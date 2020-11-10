@@ -510,8 +510,8 @@ if (!empty($asfile)) {
     if (isset($compression) && $compression == 'zip') {
         if (@function_exists('gzcompress')) {
             $zipfile = new zipfile();
-            $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
-            $dump_buffer = $zipfile->file();
+            $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
+            $dump_buffer = $zipfile -> file();
         }
     }
     // 2. as a bzipped file

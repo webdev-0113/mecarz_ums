@@ -173,7 +173,7 @@ if ($server > 0) {
 // can do a 'USE mysql' (even if they cannot see the tables)
     $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink, PMA_DBI_QUERY_STORE);
 
-function PMA_analyseShowGrant($rs_usr, $is_create_priv, $db_to_create, $is_reload_priv) {
+function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create, &$is_reload_priv) {
 
     $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
     $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
@@ -553,7 +553,7 @@ if (empty($cfg['Lang'])) {
      *
      * @access  private
      */
-    function PMA_cmp($a, $b)
+    function PMA_cmp(&$a, $b)
     {
         return (strcmp($a[1], $b[1]));
     } // end of the 'PMA_cmp()' function

@@ -88,7 +88,7 @@ if (isset($nopass)) {
 
 /**
  * If the "change password" form hasn't been submitted or the values submitted
- * aren't valid->displays the form
+ * aren't valid -> displays the form
  */
 // Loads the headers
 $js_to_run = 'user_password.js';

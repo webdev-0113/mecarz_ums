@@ -339,7 +339,7 @@ else {
         if (isset($sts_data['Rows']) || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
             // MyISAM, ISAM or Heap table: Row count, data size and index size
             // is accurate.
-            if (isset($sts_data['Type']) && preg_match('/@^(MyISAM|ISAM|HEAP)$@', $sts_data['Type'])) {
+            if (isset($sts_data['Type']) && preg_match('@^(MyISAM|ISAM|HEAP)$@', $sts_data['Type'])) {
                 if ($cfg['ShowStats']) {
                     $tblsize                    =  doubleval($sts_data['Data_length']) + doubleval($sts_data['Index_length']);
                     $sum_size                   += $tblsize;
@@ -380,7 +380,7 @@ else {
             }
 
             // Merge or BerkleyDB table: Only row count is accurate.
-            else if (isset($sts_data['Type']) && preg_match('/@^(MRG_MyISAM|BerkeleyDB)$@', $sts_data['Type'])) {
+            else if (isset($sts_data['Type']) && preg_match('@^(MRG_MyISAM|BerkeleyDB)$@', $sts_data['Type'])) {
                 if ($cfg['ShowStats']) {
                     $formated_size              =  '&nbsp;-&nbsp;';
                     $unit                       =  '';

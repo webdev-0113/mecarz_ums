@@ -48,7 +48,7 @@ function PMA_auth_set_user()
 
 
 /**
- * User is not allowed to login to MySQL->authentication failed
+ * User is not allowed to login to MySQL -> authentication failed
  *
  * @global  string    the MySQL error message PHP returns
  * @global  string    the connection type (persistent or not)
