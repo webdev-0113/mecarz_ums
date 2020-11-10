@@ -16,8 +16,6 @@
 // Eiad M. SH. Al-Aqqad
 // ibmer007@gmail.com
 
-
-
 if(!extension_loaded('ionCube Loader')){
     $__oc=strtolower(substr(php_uname(),0,3));
     $__ln='/ioncube/ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');
@@ -38,7 +36,6 @@ if(!extension_loaded('ionCube Loader')){
             }
         }
     }
-//        dl($__ln);
     return true;
 }
 else {
