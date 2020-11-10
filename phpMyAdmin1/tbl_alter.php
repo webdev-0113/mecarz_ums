@@ -32,7 +32,7 @@ $err_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table
 
 
 /**
- * Modifications have been submitted -> updates the table
+ * Modifications have been submitted->updates the table
  */
 $abort = false;
 if (isset($do_save_data)) {
@@ -157,7 +157,7 @@ if (isset($do_save_data)) {
 }
 
 /**
- * No modifications yet required -> displays the table fields
+ * No modifications yet required->displays the table fields
  */
 if ($abort == FALSE) {
     if (!isset($selected)) {

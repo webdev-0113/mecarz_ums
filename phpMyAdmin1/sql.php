@@ -269,7 +269,7 @@ else {
         $sql_query = '';
     }
     // Defines some variables
-    // A table has to be created or renamed -> left frame should be reloaded
+    // A table has to be created or renamed->left frame should be reloaded
     // TODO: use the parser/analyzer
 
     if ((!isset($reload) || $reload == 0)
@@ -611,7 +611,7 @@ else {
     } // end else "didn't ask to see php code"
 
 
-    // No rows returned -> move back to the calling page
+    // No rows returned->move back to the calling page
     if ($num_rows < 1 || $is_affected) {
         if ($is_delete) {
             $message = $strDeletedRows . '&nbsp;' . $num_rows;
@@ -689,7 +689,7 @@ else {
         exit();
     } // end no rows returned
 
-    // At least one row is returned -> displays a table with results
+    // At least one row is returned->displays a table with results
     else {
         // Displays the headers
         if (isset($show_query)) {

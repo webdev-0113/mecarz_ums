@@ -33,7 +33,7 @@ $Global_Class = new GlobalClass;
 $VisitClass = new VisitClass;
 $Email_class = new EmailClass;
 
-$settings_profile = $Global_Class -> getprofile( "1","settings","id" );
+$settings_profile = $Global_Class->getprofile( "1","settings","id" );
 
 $count = 0;
 if ($_REQUEST['language_session'] != '') {
@@ -136,7 +136,7 @@ $lang["tpl_auto_css"] = $config['tpl_path_visit'] . "style.css";
 $settings_profile['time']=dateformat($config["config_date_format"],strtotime ("now"));
 $lang["tpl_auto_separator_sign"]=$config["config_separator"];
 
-$settings_profile['customlinks'] = $VisitClass -> customlinks("other_menu_list.html");
+$settings_profile['customlinks'] = $VisitClass->customlinks("other_menu_list.html");
 
 if ($settings_profile['logo']=="") $settings_profile['logo']="../images/spacer.gif";
 if ($settings_profile['thumbnail']=="") $settings_profile['thumbnail']="../images/spacer.gif";
@@ -148,7 +148,7 @@ $arraytabels=array("country",'state',"city","year","category", "make", "model","
 foreach ($arraytabels as $keyy){
 $config[$keyy.'profile']=array();
 $sql = "SELECT * FROM `{$config['table_prefix']}{$keyy}` WHERE 1";
-$result = $db -> query( $sql );
+$result = $db->query( $sql );
 $num_rows = mysqli_num_rows( $result );
 
 $contor=0;
@@ -195,7 +195,7 @@ if ($_REQUEST['country']>0){
 	$limi= " limit 20";
 }
 		        $sql = "SELECT *,DATE_FORMAT({$config['table_prefix']}cars.date_add,'%d/%m/%Y') as dateadd  FROM `{$config['table_prefix']}cars` WHERE active >= 1 $sqlc order by id desc ".$limi;// LIMIT 5 and id = 2084
-		        $result = $db -> query( $sql );
+		        $result = $db->query( $sql );
 		        $num_rows = mysqli_num_rows( $result );
 
 		        $contor=0;
@@ -217,7 +217,7 @@ if ($_REQUEST['country']>0){
         //$user['category']=$config['categorytyperel'][$user[type]];//$cate_profile['name'.$language_set];
        
         if (!is_array($config[typeprofile][$user[type]])){
-        $t_profile = $Global_Class -> getprofile( $user[type], "type", 'id' );
+        $t_profile = $Global_Class->getprofile( $user[type], "type", 'id' );
         $config[typeprofile][$user[type]]=$t_profile;
         }else{
         $t_profile	= $config[typeprofile][$user[type]];
@@ -269,7 +269,7 @@ if ($_REQUEST['country']>0){
 		$user['language_set1']=$language_set1;
 		
         $sql = "SELECT description,picture FROM `{$config['table_prefix']}gallery` where carsid='{$user['id']}' order by `order`";
-        $result123 = $db -> query( $sql );
+        $result123 = $db->query( $sql );
         $num_rows_gallery = mysqli_num_rows( $result123 );
 
 
@@ -328,7 +328,7 @@ END;
         foreach ( $user as $k=>$v){
         	$user[$k] = iconvnew("ISO-8859-1", "UTF-8", $v);	
         }
-        $outxml.=$tpl -> replace( $user, "trovitxml_list.xml" );
+        $outxml.=$tpl->replace( $user, "trovitxml_list.xml" );
         //print_R($user);
         //exit(0);
 		}

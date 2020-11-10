@@ -41,8 +41,8 @@ if (isset($submit_search)) {
      *
      * @param   string   the table name
      * @param   string   the string to search
-     * @param   integer  type of search (1 -> 1 word at least, 2 -> all words,
-     *                                   3 -> exact string, 4 -> regexp)
+     * @param   integer  type of search (1->1 word at least, 2->all words,
+     *                                   3->exact string, 4->regexp)
      *
      * @return  array    3 SQL querys (for count, display and delete results)
      *

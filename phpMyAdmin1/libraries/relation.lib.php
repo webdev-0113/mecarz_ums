@@ -77,7 +77,7 @@ function PMA_getRelationsParam($verbose = FALSE)
     $cfgRelation['historywork'] = FALSE;
     $cfgRelation['allworks']    = FALSE;
 
-    // No server selected -> no bookmark table
+    // No server selected->no bookmark table
     // we return the array with the FALSEs in it,
     // to avoid some 'Unitialized string offset' errors later
     if ($server == 0

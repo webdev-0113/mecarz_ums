@@ -279,7 +279,7 @@ if ($server > 0) {
 //    or $cfg['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 if ($num_dbs > 1) {
-    // Light mode -> beginning of the select combo for databases
+    // Light mode->beginning of the select combo for databases
     // Note: When javascript is active, the frameset will be changed from
     // within left.php. With no JS (<noscript>) the whole frameset will
     // be rebuilt with the new target frame.

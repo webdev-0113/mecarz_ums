@@ -166,7 +166,7 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
         } else if (empty($me_funcs[$encoded_key])
             && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
             && ("'" . PMA_sqlAddslashes(urldecode($me_fields_prev[$encoded_key])) . "'" == $val)) {
-            // No change for this column and no MySQL function is used -> next column
+            // No change for this column and no MySQL function is used->next column
             continue;
         }
         else if (!empty($val)) {
@@ -180,7 +180,7 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
     // Builds the sql query
     if ($is_insert) {
         if (empty($query)) {
-            // first inserted row -> prepare template
+            // first inserted row->prepare template
             $fieldlist = preg_replace('@, $@', '', $fieldlist);
             $query = array('INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES ');
         }
@@ -201,7 +201,7 @@ if ($is_insert) {
 }
 
 if (empty($valuelist) && empty($query)) {
-    // No change -> move back to the calling script
+    // No change->move back to the calling script
     $message = $strNoModification;
     if ($is_gotofile) {
         $js_to_run = 'functions.js';

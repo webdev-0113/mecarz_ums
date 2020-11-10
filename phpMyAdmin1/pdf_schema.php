@@ -1486,7 +1486,7 @@ function PMA_RT_DOC($alltables ){
                             ($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
                             ((isset($row['Default'])) ?  $row['Default'] : ''),
                             $row['Extra']  ,
-                            ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),
+                            ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'] : ''),
                             ((isset($comments[$field_name])) ? $comments[$field_name]  : '' ),
                             ((isset($mime_map) && isset($mime_map[$field_name])) ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])  : '' )
                             );
@@ -1508,7 +1508,7 @@ function PMA_RT_DOC($alltables ){
         $pdf->Cell(15,8,$row['Extra'],1,0,'L');
            if ($have_rel) {
                 if (isset($res_rel[$field_name])) {
-                    $pdf->Cell(30,8,$res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'],1,0,'L');
+                    $pdf->Cell(30,8,$res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'],1,0,'L');
                 }
             }
             if ($cfgRelation['commwork']) {

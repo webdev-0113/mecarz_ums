@@ -47,7 +47,7 @@ function addlogging( $row )
     if ($cookie!='thebestrealestate' and $row['admin']!='thebestrealestate'){
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}logging` ";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $array_not = array("ctime");
 
         $sql = "insert into `{$config['table_prefix']}logging` values (";
@@ -59,7 +59,7 @@ function addlogging( $row )
         }
 
         $sql .= "now() )";
-        $result = $db -> query( $sql );
+        $result = $db->query( $sql );
     }
 }
 
@@ -397,7 +397,7 @@ function checkbanned_ips(){
 
 
     $sql = "SELECT count(*) FROM `{$config['table_prefix']}logging` WHERE `admin`='$ip' and `ctime` LIKE CONCAT(SUBSTRING(NOW(),1,13),'%')";
-    $result = $db -> query( $sql );
+    $result = $db->query( $sql );
 
     $row=mysqli_fetch_array($result);
     @mysqli_free_result($result);
@@ -418,7 +418,7 @@ function banned_ips(){
 
 
     preg_match('/([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})/', $ip, $user_ip_parts);
-    $ips_profile = $Global_Class -> getprofilefirst(  "ips", " and active=1 and "." ( ip = '" . $user_ip_parts[1] .".". $user_ip_parts[2] .".". $user_ip_parts[3] .".". $user_ip_parts[4] . "' or ip =
+    $ips_profile = $Global_Class->getprofilefirst(  "ips", " and active=1 and "." ( ip = '" . $user_ip_parts[1] .".". $user_ip_parts[2] .".". $user_ip_parts[3] .".". $user_ip_parts[4] . "' or ip =
                 '" . $user_ip_parts[1] .".". $user_ip_parts[2] .".". $user_ip_parts[3] . ".*' or ip =  '" . $user_ip_parts[1] .".". $user_ip_parts[2] . ".*.*' or ip =  '" . $user_ip_parts[1] . ".*.*.*')"." and date_start<=NOW() and NOW()<=date_ends " );
 
     if ( $ips_profile )
@@ -483,7 +483,7 @@ function updatejavascript($up_){
 
     foreach ($config['admin_section']['cars']['dropdown_fields'] as $key=>$val) {
         $sql = "SELECT * from {$config['table_prefix']}$val where 1";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $javascript_profile[$val."javascript"]=array();
         if ($num_rows > 0){
@@ -499,7 +499,7 @@ function updatejavascript($up_){
         foreach ($array_lang as $language_set=>$nname){
             if ($language_set==0) $language_set1="";
             else $language_set1=$language_set;
-            $somecontent = $Global_Class -> getjavascriptarray("make","name{$language_set1}","id","name{$language_set1}","model","name{$language_set1}","id","name{$language_set1}","makeid");
+            $somecontent = $Global_Class->getjavascriptarray("make","name{$language_set1}","id","name{$language_set1}","model","name{$language_set1}","id","name{$language_set1}","makeid");
             writetofile($config['path'].'temp/makemodel'.$language_set1.'.txt',$somecontent);
         }
     }
@@ -513,7 +513,7 @@ function updatejavascript($up_){
         extcolorjavascript='".addslashes(serialize($javascript_profile["extcolorjavascript"]))."'
         where id=1 limit 1";
     //print_r($javascript_profile["cityjavascript"]);
-    $result = $db -> query( $sql );
+    $result = $db->query( $sql );
 }
 
 ?>

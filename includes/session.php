@@ -89,7 +89,7 @@ function logs($onlineusers)
     $expired = time() - $exp;
     $sql = "select * from {$config['table_prefix']}sessions WHERE UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(LastUpdated) < '$exp' order by LastUpdated desc";
 
-    $result = $db -> query( $sql );
+    $result = $db->query( $sql );
     $num_rows = mysqli_num_rows( $result );
     $onlineusers=$num_rows;
     $contor=1;
@@ -101,7 +101,7 @@ function logs($onlineusers)
             if ($contor%2) $user['class_temp']="class_temp1";
             else $user['class_temp']="class_temp2";
 
-            $out .= $tpl -> replace( $user, "logs1.html" );
+            $out .= $tpl->replace( $user, "logs1.html" );
             $contor++;
         } // while
         @mysqli_free_result($result);
@@ -120,7 +120,7 @@ function top()
     $config['admin_number_intop']=($config['admin_number_intop']<=0)?5:$config['admin_number_intop'];
     $sql = "select * from {$config['table_prefix']}cars WHERE 1 order by noview desc limit {$config['admin_number_intop']}";
 
-    $result = $db -> query( $sql );
+    $result = $db->query( $sql );
     $num_rows = mysqli_num_rows( $result );
     $onlineusers=$num_rows;
     $contor=1;
@@ -133,7 +133,7 @@ function top()
             if ($contor%2) $user['class_temp']="class_temp1";
             else $user['class_temp']="class_temp2";
 
-            $out .= $tpl -> replace( $user, "logs3.html" );
+            $out .= $tpl->replace( $user, "logs3.html" );
             $contor++;
         } // while
         @mysqli_free_result($result);

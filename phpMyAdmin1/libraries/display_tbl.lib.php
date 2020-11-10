@@ -62,10 +62,10 @@ function PMA_setDisplayMode($the_disp_mode, $the_total)
     $do_display['text_btn']  = (string) $the_disp_mode[8];
     $do_display['pview_lnk'] = (string) $the_disp_mode[9];
 
-    // 2. Display mode is not "false for all elements" -> updates the
+    // 2. Display mode is not "false for all elements"->updates the
     // display mode
     if ($the_disp_mode != 'nnnn000000') {
-        // 2.0 Print view -> set all elements to FALSE!
+        // 2.0 Print view->set all elements to FALSE!
         if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
             $do_display['edit_lnk']  = 'nn'; // no edit link
             $do_display['del_lnk']   = 'nn'; // no delete link
@@ -102,7 +102,7 @@ function PMA_setDisplayMode($the_disp_mode, $the_total)
                 $do_display['del_lnk']  = 'kp'; // "kill process" type edit link
             }
             else {
-                // Default case -> no links
+                // Default case->no links
                 $do_display['edit_lnk'] = 'nn'; // no edit link
                 $do_display['del_lnk']  = 'nn'; // no delete link
             }
@@ -114,7 +114,7 @@ function PMA_setDisplayMode($the_disp_mode, $the_total)
             $do_display['text_btn']  = (string) '1';
             $do_display['pview_lnk'] = (string) '1';
         }
-        // 2.3 Other statements (ie "SELECT" ones) -> updates
+        // 2.3 Other statements (ie "SELECT" ones)->updates
         //     $do_display['edit_lnk'], $do_display['del_lnk'] and
         //     $do_display['text_btn'] (keeps other default values)
         else {
@@ -142,7 +142,7 @@ function PMA_setDisplayMode($the_disp_mode, $the_total)
                 $do_display['pview_lnk']    = (string) '1';
                 $prev_table = $fields_meta[$i]->table;
             } // end for
-        } // end if..elseif...else (2.1 -> 2.3)
+        } // end if..elseif...else (2.1->2.3)
     } // end if (2)
 
     // 3. Gets the total number of rows if it is unknown
@@ -1085,7 +1085,7 @@ function PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql)
 
         // 1. Prepares the row (gets primary keys to use)
         if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
-            // 1.1 Results from a "SELECT" statement -> builds the
+            // 1.1 Results from a "SELECT" statement->builds the
             //     "primary" key to use in links
             if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
                 $uva_condition     = urlencode(PMA_getUvaCondition($dt_result, $fields_cnt, $fields_meta, $row));
@@ -1346,7 +1346,7 @@ function PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql)
             } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && stristr($meta->type, 'BLOB')) {
                 // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type, however TEXT fields must be displayed
-                // even if $cfg['ShowBlob'] is false -> get the true type
+                // even if $cfg['ShowBlob'] is false->get the true type
                 // of the fields.
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {

@@ -45,7 +45,7 @@ class GlobalClass{
         if (!is_array($tablefield_array_options)) $tablefield_array_options=array();
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
             $variable[$tablefield_array_r['Field']]=$_REQUEST["input_".$tablefield_array_r['Field']];
@@ -98,7 +98,7 @@ class GlobalClass{
         }
         if ($_REQUEST['admin']!=''){
             $param.="&admin=".trim($_REQUEST['admin'])."";
-            $admin_profile = $this -> getprofile( $_REQUEST['admin'],"admin","id" );
+            $admin_profile = $this->getprofile( $_REQUEST['admin'],"admin","id" );
 
             switch ($_REQUEST['admin']){
                 default:
@@ -112,7 +112,7 @@ class GlobalClass{
 
         switch ($_REQUEST['f']){
             case "picturesstock":
-                $listin_array_id_gallery = $this -> getarrayid('gallery','carsid',$sqlini=' GROUP BY carsid');
+                $listin_array_id_gallery = $this->getarrayid('gallery','carsid',$sqlini=' GROUP BY carsid');
                 if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
 
                 $sql_default.=" AND ( FIND_IN_SET( id, '".implode(",",$listin_array_id_gallery)."' ) > 0 ) ";
@@ -120,7 +120,7 @@ class GlobalClass{
                 $var_header['error1']=$lang['tpl_auto_Filter'].$lang['tpl_auto_You_have_Picture_cars'];
                 break;
             case "inpicturesstock":
-                $listin_array_id_gallery = $this -> getarrayid('gallery','carsid',$sqlini=' GROUP BY carsid');
+                $listin_array_id_gallery = $this->getarrayid('gallery','carsid',$sqlini=' GROUP BY carsid');
                 if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
 
                 $sql_default.=" AND ( FIND_IN_SET( id, '".implode(",",$listin_array_id_gallery)."' ) = 0 ) ";
@@ -142,7 +142,7 @@ class GlobalClass{
         $sql = "SELECT {$config['table_prefix']}$default_tabel.* FROM {$config['table_prefix']}$default_tabel $sql_default_global_from $sql_table WHERE 1 $sql_default ";
 
         $sql.=$sql_cond1;
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows_ini = mysqli_num_rows($result);
         //list($num_rows_ini) = mysqli_fetch_row($result);
         @mysqli_free_result($result);
@@ -208,7 +208,7 @@ class GlobalClass{
         $page_ini=$variable['page'];
         $variable['page']=$variable['page']*$variable['nrresult'];
         $sql.= " ORDER BY {$config['table_prefix']}$default_tabel.{$variable['orderby']} {$variable['method']} LIMIT {$variable['page']},{$variable['nrresult']}";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
 
         $i=0;
@@ -225,7 +225,7 @@ class GlobalClass{
                 $id_ini = $var[$id_];
                 if ($default_tabel=='admin'){
 
-                    $number = $this -> getnumrows($var[id], "cars", 'admin');
+                    $number = $this->getnumrows($var[id], "cars", 'admin');
 
                     $var['email'].= " (<a href='index.php?p=cars&admin=".$var[id]."&page=0'>".$number."</a>) ";
 
@@ -241,7 +241,7 @@ class GlobalClass{
 
                 if ($default_tabel=='cars'){
 
-                    $var_gallery = $this -> getprofile_order($var[id], "gallery", "order", "carsid");
+                    $var_gallery = $this->getprofile_order($var[id], "gallery", "order", "carsid");
 
                     if ($var_gallery['thumbnail'] == ""){
                         $var_gallery['thumbnail'] = $settings_profile['thumbnail'];
@@ -256,7 +256,7 @@ class GlobalClass{
                 if ($default_tabel=='sponsored'){
 
                     global $settings_profile;
-                    $var_gallery = $this -> getprofile_order( $var['carid'], "gallery", "order", 'carsid' );
+                    $var_gallery = $this->getprofile_order( $var['carid'], "gallery", "order", 'carsid' );
 
                     if ($var_gallery['thumbnail']==""){
                         $var_gallery['thumbnail']=$settings_profile['thumbnail'];
@@ -268,12 +268,12 @@ class GlobalClass{
 
                 if ($default_tabel=='sponsored'){
 
-                    $cars_profile = $this -> getprofile($var['carid'], "cars", 'id');
+                    $cars_profile = $this->getprofile($var['carid'], "cars", 'id');
 
-                    $make_profile = $this -> getprofile($cars_profile[make], "make", 'id');
+                    $make_profile = $this->getprofile($cars_profile[make], "make", 'id');
                     $usertemp1['make'] = $make_profile["name{$language_set}"];
 
-                    $model_profile = $this -> getprofile($cars_profile[model], "model", 'id');
+                    $model_profile = $this->getprofile($cars_profile[model], "model", 'id');
                     $usertemp1['model'] = $model_profile["name{$language_set}"];
 
                     $var['carid']=$cars_profile[id]." - ".$usertemp1['make']." - ".$usertemp1['model']." - ".$cars_profile['year'];
@@ -487,7 +487,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $i=0;
         if (!is_array($config['admin_section'][$default_option]['radio_fields']))$config['admin_section'][$default_option]['radio_fields']=array();
         $out1 = '';
@@ -516,8 +516,8 @@ class GlobalClass{
                                     $var['tpl_input_day']="input_".$tablefield_array_r['Field']."_day";
                              $var['tpl_input_month']="input_".$tablefield_array_r['Field']."_month";
                              $var['tpl_input_year'] = "input_".$tablefield_array_r['Field']."_year";
-                             $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                             $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                             $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                             $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                              $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                              */
                     $var['tpl_input_date']="input_".$tablefield_array_r['Field'];
@@ -599,7 +599,7 @@ class GlobalClass{
 
         if ($default_tabel=='admin'){
 
-            $number = $this -> getnumrows($profile['id'], "cars", 'admin');
+            $number = $this->getnumrows($profile['id'], "cars", 'admin');
 
             if ($number>0) return false;
 
@@ -634,7 +634,7 @@ class GlobalClass{
         }
         if ($default_tabel=='cars'){
             $sql = "SELECT `picture`,`thumbnail` FROM `{$config['table_prefix']}gallery` WHERE `carsid`='$id'";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $num_rows = mysqli_num_rows($result);
             if ($num_rows>0){
                 while ($var = mysqli_fetch_assoc($result)){
@@ -645,17 +645,17 @@ class GlobalClass{
 
             }
             $sql = "delete from `{$config['table_prefix']}gallery` WHERE `carsid`='$id'";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $sql = "delete from `{$config['table_prefix']}carsfeatures` WHERE `carsid`='$id'";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $sql = "delete from `{$config['table_prefix']}sponsored` WHERE `carid`='$id'";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $sql = "delete from `{$config['table_prefix']}messages` WHERE `carsid`='$id'";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
         }
 
         $sql = "delete from `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id'";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         if ($default_tabel!='logging'){
 
             global $_COOKIE,$lang,$_REQUEST;
@@ -671,12 +671,12 @@ class GlobalClass{
         if ($result){
             /*
                   $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel`";
-                  $result = $db -> query($sql,__FILE__,__LINE__);
+                  $result = $db->query($sql,__FILE__,__LINE__);
                   $num_rows_ini = mysqli_num_rows($result);
                   @mysqli_free_result($result);
                   if ($num_rows_ini<1){
                       $sql = "TRUNCATE TABLE `{$config['table_prefix']}$default_tabel`";
-                      @$result = $db -> query($sql,__FILE__,__LINE__);
+                      @$result = $db->query($sql,__FILE__,__LINE__);
                   }
                   */
             return true;
@@ -709,7 +709,7 @@ class GlobalClass{
             $sql1.=" LIMIT 1";
         }
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sql1";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             $user = mysqli_fetch_assoc($result);
@@ -721,7 +721,7 @@ class GlobalClass{
         global $config;
         global $db; //database
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' AND `$id1_`='$id1'";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             $user = mysqli_fetch_assoc($result);
@@ -735,7 +735,7 @@ class GlobalClass{
         global $db; //database
         $sql = "select count(*) from `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql";
         //echo "<BR>";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         //$user = mysqli_fetch_assoc($result);
         list($num_rows) = mysqli_fetch_row($result);
         //$num_rows = mysqli_num_rows($result);
@@ -747,7 +747,7 @@ class GlobalClass{
         global $db; //database
         $sql = "select count(*) from `{$config['table_prefix']}$default_tabel` WHERE 1 $sql";
         //echo "<BR>";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         list($num_rows) = mysqli_fetch_row($result);
         @mysqli_free_result($result);
         return $num_rows;
@@ -757,7 +757,7 @@ class GlobalClass{
         global $db; //database
         /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-               $result = $db -> query($sql,__FILE__,__LINE__);
+               $result = $db->query($sql,__FILE__,__LINE__);
                while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
@@ -788,7 +788,7 @@ class GlobalClass{
          	   */
         $sql = "SELECT `$id_`,`$name_` FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini ORDER BY $orderby";//GROUP BY $id_
 
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         $out = '';
         if ($num_rows>0){
@@ -812,7 +812,7 @@ class GlobalClass{
         global $db; //database
         /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-               $result = $db -> query($sql,__FILE__,__LINE__);
+               $result = $db->query($sql,__FILE__,__LINE__);
                while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
@@ -822,17 +822,17 @@ class GlobalClass{
 
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini GROUP BY $id_ ORDER BY $orderby";
 
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         $out = '';
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
                 $out .= "<option";
                 $out .= ($user[$id_] == $id ) ? " selected": "";
-                $make_profile = $this -> getprofile($user['make'], "make", 'id');
+                $make_profile = $this->getprofile($user['make'], "make", 'id');
                 $user['make'] = $make_profile["name{$language_set}"];
 
-                $model_profile = $this -> getprofile($user['model'], "model", 'id');
+                $model_profile = $this->getprofile($user['model'], "model", 'id');
                 $user['model'] = $model_profile["name{$language_set}"];
                 $out .= " value='".$user[$id_]."'>".$user[$id_]." - ".$user[stock]." - ".$user['make']." - ".$user['model']." - ".$user['year']."</option>\n";
             }
@@ -856,7 +856,7 @@ class GlobalClass{
         return ($temp1[1]);
         /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-               $result = $db -> query($sql,__FILE__,__LINE__);
+               $result = $db->query($sql,__FILE__,__LINE__);
                while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
@@ -864,7 +864,7 @@ class GlobalClass{
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
                */
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` GROUP BY $id_ ORDER BY $orderby";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
@@ -934,7 +934,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -1083,8 +1083,8 @@ class GlobalClass{
                              $var['tpl_input_month']="input_".$tablefield_array_r['Field']."_month";
                              $var['tpl_input_year'] = "input_".$tablefield_array_r['Field']."_year";
 
-                             $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                             $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                             $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                             $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                              $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                              */
                 $var['tpl_input_date']="input_".$tablefield_array_r['Field'];
@@ -1096,8 +1096,8 @@ class GlobalClass{
                 $var['tpl_input_month']="input_".$tablefield_array_r['Field']."_month";
                 $var['tpl_input_year'] = "input_".$tablefield_array_r['Field']."_year";
                 $var['tpl_input_time'] = "input_".$tablefield_array_r['Field']."_time";
-                $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                 $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                 $var['tpl_input_time_val'] = $_POST[$var['tpl_input_time']];
                 $out1.=$tpl->replace($var,"global_add_datetime.html");
@@ -1121,11 +1121,11 @@ class GlobalClass{
                 $i++;
                 $config['config2_multiple_options'][0]=1;
                 global $language_set;
-                $config['config2_multiple_options'][1].=$this -> getcheckbox('',"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
+                $config['config2_multiple_options'][1].=$this->getcheckbox('',"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
             }
             $addg=true;
             if ($_REQUEST['o']=="add") {
-                $admin_profile = $this -> getprofile(  $_COOKIE['id_cookie'], "admin", "id" );
+                $admin_profile = $this->getprofile(  $_COOKIE['id_cookie'], "admin", "id" );
                 if ($admin_profile['nopictures']!=0 and 0>=$admin_profile['nopictures']) {
                     $_REQUEST['o']="view";
                     $addg=false;
@@ -1194,7 +1194,7 @@ class GlobalClass{
                 $config['config2_multiple_options'][1] .= $tpl->replace($var,"global_add_see.html");
                 $i++;
 
-                $config['config2_multiple_options'][1] .= $this -> addgallery( 'gallery', 'gallery',  "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,'',1 );
+                $config['config2_multiple_options'][1] .= $this->addgallery( 'gallery', 'gallery',  "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,'',1 );
                 $default_tabel='cars';
 
             }
@@ -1230,7 +1230,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         if (!is_array($fields)) $fields=array();
         if (!is_array($email_fields)) $email_fields=array();
         if (!is_array($date_fields)) $date_fields=array();
@@ -1349,7 +1349,7 @@ class GlobalClass{
                     //echo "<br />";
                     $sql_input_val="";
                     $sql_input="";
-                    $result = $db -> query($sql,__FILE__,__LINE__);
+                    $result = $db->query($sql,__FILE__,__LINE__);
                     //return ( $output.=$Global_Class->search($default_tabel,$default_option,"",0,$config['nrresult'],$relation,$relation_table,$default_option."_search_rows",$sql_default_global,$search_fields, $id_, $lang["tpl_".$default_option."_add"]) );
                     //echo count($varchar_fields);
                     //exit;
@@ -1367,11 +1367,11 @@ class GlobalClass{
                             $var_temp_return[1]=$lang["tpl_".$default_option."_add"];
                             $var_temp_return[2]=mysqli_insert_id();
                             if ($default_tabel=='cars'){
-                                $this -> insertcheckbox($var_temp_return[2],'features','name','id','name','carsfeatures','carsid','featuresid');
+                                $this->insertcheckbox($var_temp_return[2],'features','name','id','name','carsfeatures','carsid','featuresid');
 
                                 $addg=true;
                                 if ($o=="add") {
-                                    $admin_profile = $Global_Class -> getprofile(  $_COOKIE['id_cookie'], "admin", "id" );
+                                    $admin_profile = $Global_Class->getprofile(  $_COOKIE['id_cookie'], "admin", "id" );
                                     if ($admin_profile['nopictures']!=0 and 0>=$admin_profile['nopictures']) {
                                         $_REQUEST['o']="view";
                                         $addg=false;
@@ -1422,7 +1422,7 @@ class GlobalClass{
 
                                     $_POST['input_description']=$_POST['input_descriptiongallery'];
 
-                                    $output_add = $Global_Class -> addgallery1("gallery", "gallery", "", array("id"), $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $search_fields, $date_fields, $id_ );
+                                    $output_add = $Global_Class->addgallery1("gallery", "gallery", "", array("id"), $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $search_fields, $date_fields, $id_ );
                                 }
                             }
                             addlogging( $row );
@@ -1456,7 +1456,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -1606,8 +1606,8 @@ class GlobalClass{
                              $var['tpl_input_month']="input_".$tablefield_array_r['Field']."_month";
                              $var['tpl_input_year'] = "input_".$tablefield_array_r['Field']."_year";
 
-                             $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                             $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                             $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                             $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                              $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                              */
                     $var['tpl_input_date']="input_".$tablefield_array_r['Field'];
@@ -1618,8 +1618,8 @@ class GlobalClass{
                     $var['tpl_input_month']=$kmultiplenew."input_".$tablefield_array_r['Field']."_month";
                     $var['tpl_input_year'] = $kmultiplenew."input_".$tablefield_array_r['Field']."_year";
                     $var['tpl_input_time'] = $kmultiplenew."input_".$tablefield_array_r['Field']."_time";
-                    $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                    $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                    $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                    $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                     $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                     $var['tpl_input_time_val'] = $_POST[$var['tpl_input_time']];
                     $out1.=$tpl->replace($var,"global_add_datetime.html");
@@ -1664,7 +1664,7 @@ class GlobalClass{
 
 
             $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             if (!is_array($fields)) $fields=array();
             if (!is_array($email_fields)) $email_fields=array();
 
@@ -1784,7 +1784,7 @@ class GlobalClass{
             $sqlfinalarr=explode("||||",$sqlfinal);
             foreach ($sqlfinalarr as $sqlfinal){
                 if ($sqlfinal!=''){
-                    $result = $db -> query($sqlfinal);
+                    $result = $db->query($sqlfinal);
 
                     global $_COOKIE;
                     $row = array(
@@ -1820,7 +1820,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -1969,8 +1969,8 @@ class GlobalClass{
                     $var['tpl_input_day']=$kmultiplenew."input_".$tablefield_array_r['Field']."_day";
                     $var['tpl_input_month']=$kmultiplenew."input_".$tablefield_array_r['Field']."_month";
                     $var['tpl_input_year'] = $kmultiplenew."input_".$tablefield_array_r['Field']."_year";
-                    $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                    $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                    $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                    $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                     $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                     $out1.=$tpl->replace($var,"global_add_date.html");
                 }elseif (in_array($tablefield_array_r['Field'],$datetime_fields)){
@@ -1978,8 +1978,8 @@ class GlobalClass{
                     $var['tpl_input_month']=$kmultiplenew."input_".$tablefield_array_r['Field']."_month";
                     $var['tpl_input_year'] = $kmultiplenew."input_".$tablefield_array_r['Field']."_year";
                     $var['tpl_input_time'] = $kmultiplenew."input_".$tablefield_array_r['Field']."_time";
-                    $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                    $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                    $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                    $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                     $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                     $var['tpl_input_time_val'] = $_POST[$var['tpl_input_time']];
                     $out1.=$tpl->replace($var,"global_add_datetime.html");
@@ -2027,7 +2027,7 @@ class GlobalClass{
 
 
             $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             if (!is_array($fields)) $fields=array();
             if (!is_array($email_fields)) $email_fields=array();
             if (!is_array($date_fields)) $date_fields=array();
@@ -2049,9 +2049,9 @@ class GlobalClass{
                         $oid=$copy_from_id_value['carsid'];
 
 
-                        $oidp = $Global_Class -> getprofile( $oid,"cars","id" );
-                        $mak = $Global_Class -> getprofile( $oidp['make'],"make","id" );
-                        $mod = $Global_Class -> getprofile( $oidp['model'],"model","id" );
+                        $oidp = $Global_Class->getprofile( $oid,"cars","id" );
+                        $mak = $Global_Class->getprofile( $oidp['make'],"make","id" );
+                        $mod = $Global_Class->getprofile( $oidp['model'],"model","id" );
 
 
                         $namenew=makeurl2($oid."-".$mak['name']."-".$mod['name']."-".$namenew);
@@ -2148,7 +2148,7 @@ class GlobalClass{
             $sqlfinalarr=explode("||||",$sqlfinal);
             foreach ($sqlfinalarr as $sqlfinal){
                 if ($sqlfinal!=''){
-                    $result = $db -> query($sqlfinal);
+                    $result = $db->query($sqlfinal);
 
                     global $_COOKIE;
                     $row = array(
@@ -2186,7 +2186,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -2327,8 +2327,8 @@ class GlobalClass{
                              $var['tpl_input_month']="input_".$tablefield_array_r['Field']."_month";
                              $var['tpl_input_year'] = "input_".$tablefield_array_r['Field']."_year";
 
-                             $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                             $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                             $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                             $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                              $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                              */
                 $var['tpl_input_date']="input_".$tablefield_array_r['Field'];
@@ -2340,8 +2340,8 @@ class GlobalClass{
                 $var['tpl_input_month']="input_".$tablefield_array_r['Field']."_month";
                 $var['tpl_input_year'] = "input_".$tablefield_array_r['Field']."_year";
                 $var['tpl_input_time'] = "input_".$tablefield_array_r['Field']."_time";
-                $var['tpl_input_day_val'] = $this -> days($_POST[$var['tpl_input_day']]);
-                $var['tpl_input_month_val'] = $this -> months($_POST[$var['tpl_input_month']]);
+                $var['tpl_input_day_val'] = $this->days($_POST[$var['tpl_input_day']]);
+                $var['tpl_input_month_val'] = $this->months($_POST[$var['tpl_input_month']]);
                 $var['tpl_input_year_val'] = $this ->years($_POST[$var['tpl_input_year']]);
                 $var['tpl_input_time_val'] = $_POST[$var['tpl_input_time']];
                 $out1.=$tpl->replace($var,"global_add_datetime.html");
@@ -2378,7 +2378,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         if (!is_array($fields)) $fields=array();
         if (!is_array($email_fields)) $email_fields=array();
         if (!is_array($date_fields)) $date_fields=array();
@@ -2497,7 +2497,7 @@ class GlobalClass{
                     //echo "<br />";
                     $sql_input_val="";
                     $sql_input="";
-                    $result = $db -> query($sql,__FILE__,__LINE__);
+                    $result = $db->query($sql,__FILE__,__LINE__);
                     //return ( $output.=$Global_Class->search($default_tabel,$default_option,"",0,$config['nrresult'],$relation,$relation_table,$default_option."_search_rows",$sql_default_global,$search_fields, $id_, $lang["tpl_".$default_option."_add"]) );
                     //echo count($varchar_fields);
                     //exit;
@@ -2547,7 +2547,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -2734,9 +2734,9 @@ class GlobalClass{
                                     $var['tpl_input_month_val']=$days_month_year[1];
                                     $var['tpl_input_year_val']=$days_month_year[0];
                             }
-                             $var['tpl_input_day_val'] = $this -> days($var['tpl_input_day_val']);
-                             $var['tpl_input_month_val'] = $this -> months($var['tpl_input_month_val']);
-                             $var['tpl_input_year_val'] = $this -> years($var['tpl_input_year_val']);
+                             $var['tpl_input_day_val'] = $this->days($var['tpl_input_day_val']);
+                             $var['tpl_input_month_val'] = $this->months($var['tpl_input_month_val']);
+                             $var['tpl_input_year_val'] = $this->years($var['tpl_input_year_val']);
                                                         */
                 $var['tpl_input_date']="input_".$tablefield_array_r['Field'];
                 $var['tpl_input_date_val']=$_POST[$tablefield_array_r['Field']];
@@ -2766,9 +2766,9 @@ class GlobalClass{
                     $var['tpl_input_year_val']=$days_month_year[0];
                 }
 
-                $var['tpl_input_day_val'] = $this -> days($var['tpl_input_day_val']);
-                $var['tpl_input_month_val'] = $this -> months($var['tpl_input_month_val']);
-                $var['tpl_input_year_val'] = $this -> years($var['tpl_input_year_val']);
+                $var['tpl_input_day_val'] = $this->days($var['tpl_input_day_val']);
+                $var['tpl_input_month_val'] = $this->months($var['tpl_input_month_val']);
+                $var['tpl_input_year_val'] = $this->years($var['tpl_input_year_val']);
                 $out1.=$tpl->replace($var,"global_add_datetime.html");
             }else{
                 $i--;
@@ -2787,7 +2787,7 @@ class GlobalClass{
                 $i++;
                 $config['config2_multiple_options'][0]=1;
                 global  $language_set;
-                $config['config2_multiple_options'][1].=$this -> getcheckbox($_REQUEST['id'],"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
+                $config['config2_multiple_options'][1].=$this->getcheckbox($_REQUEST['id'],"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
             }
         }
         if ($default_tabel=='cars'){
@@ -2817,7 +2817,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         if (!is_array($fields)) $fields=array();
         if (!is_array($email_fields)) $email_fields=array();
         if (!is_array($date_fields)) $date_fields=array();
@@ -2835,9 +2835,9 @@ class GlobalClass{
                             $namenew=$_POST[$kmultiplenew."input_description"];
                             $oid=$_POST["oid"];
 
-                            $oidp = $Global_Class -> getprofile( $oid,"cars","id" );
-                            $mak = $Global_Class -> getprofile( $oidp['make'],"make","id" );
-                            $mod = $Global_Class -> getprofile( $oidp['model'],"model","id" );
+                            $oidp = $Global_Class->getprofile( $oid,"cars","id" );
+                            $mak = $Global_Class->getprofile( $oidp['make'],"make","id" );
+                            $mod = $Global_Class->getprofile( $oidp['model'],"model","id" );
 
 
                             $namenew=makeurl2($oid."-".$mak['name']."-".$mod['name']."-".$namenew);
@@ -2948,7 +2948,7 @@ class GlobalClass{
         if ($var['error']==""){
             $sql = "UPDATE `{$config['table_prefix']}$default_tabel` SET `$id_`='$id' "
                 ." $sql_input WHERE `$id_`='$id' limit 1";
-            $result = $db -> query($sql,__FILE__,__LINE__);
+            $result = $db->query($sql,__FILE__,__LINE__);
 
             global $_COOKIE;
             $row = array(
@@ -2959,7 +2959,7 @@ class GlobalClass{
 
             addlogging( $row );
             if ($default_tabel=='cars'){
-                $this -> insertcheckbox($id,'features','name','id','name','carsfeatures','carsid','featuresid');
+                $this->insertcheckbox($id,'features','name','id','name','carsfeatures','carsid','featuresid');
             }
             return array( true,$lang["tpl_".$default_option."_modify"]." ( {$lang[tpl_auto_id]}: $id )" );
         }
@@ -3182,107 +3182,107 @@ class GlobalClass{
             case "add":
                 if ($default_tabel=='gallery'){
 
-                    $output .= $Global_Class -> addgallery( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS[error] );
+                    $output .= $Global_Class->addgallery( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS[error] );
                 }else{
-                    $output .= $Global_Class -> add( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS[error] );
+                    $output .= $Global_Class->add( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS[error] );
 
                 }
                 break;
             case "add1":
                 if ($output_add[1]=="") {
                     if ($default_tabel=='gallery'){
-                        $output_add = $Global_Class -> addgallery1( $default_tabel, $p, "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $search_fields, $date_fields, $id_ );
+                        $output_add = $Global_Class->addgallery1( $default_tabel, $p, "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $search_fields, $date_fields, $id_ );
 
                     }else{
-                        $output_add = $Global_Class -> add1( $default_tabel, $p, "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $search_fields, $date_fields, $id_ );
+                        $output_add = $Global_Class->add1( $default_tabel, $p, "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $search_fields, $date_fields, $id_ );
                     }
                 }
                 if ( $output_add[0] == false )
                 {
                     if ($default_tabel=='gallery'){
 
-                        $output .= $Global_Class -> addgallery( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields , $output_add[1] );
+                        $output .= $Global_Class->addgallery( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields , $output_add[1] );
                     }else{
-                        $output .= $Global_Class -> add( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields , $output_add[1] );
+                        $output .= $Global_Class->add( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields , $output_add[1] );
                     }
                 }
                 else
                 {
-                    $user_profile = $Global_Class -> getprofile(  $output_add[2], $default_tabel, $id_ );
+                    $user_profile = $Global_Class->getprofile(  $output_add[2], $default_tabel, $id_ );
                     if ($default_tabel=='gallery'){
-                        $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output_add[2]);
+                        $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output_add[2]);
                     }else{
-                        $output .= $Global_Class -> see( $output_add[2], $default_tabel, $p, "edit1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
+                        $output .= $Global_Class->see( $output_add[2], $default_tabel, $p, "edit1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
                     }
 
                     //$output .= $output_add;
                 }
                 break;
             case "delete":
-                $output1 = $Global_Class -> deletemultiple( $_POST['options_array'], $p, $lang["msg1_$p"], $lang["msg2_$p"], $field_name, $filearray, $id_ );
-                $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
+                $output1 = $Global_Class->deletemultiple( $_POST['options_array'], $p, $lang["msg1_$p"], $lang["msg2_$p"], $field_name, $filearray, $id_ );
+                $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
                 break;
             case "edit":
-                if ( $Global_Class -> getprofile( $_REQUEST['id'], $default_tabel, $id_,$sql_default_global) )
+                if ( $Global_Class->getprofile( $_REQUEST['id'], $default_tabel, $id_,$sql_default_global) )
                 {
-                    $output .= $Global_Class -> edit( $_REQUEST['id'], $default_tabel, $p, "edit1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
+                    $output .= $Global_Class->edit( $_REQUEST['id'], $default_tabel, $p, "edit1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
                 }
                 else
                 {
-                    $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error = "" );
+                    $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error = "" );
                 }
                 break;
             case "edit1":
-                if ( $Global_Class -> getprofile( $_REQUEST['id'], $default_tabel, $id_,$sql_default_global ) )
+                if ( $Global_Class->getprofile( $_REQUEST['id'], $default_tabel, $id_,$sql_default_global ) )
                 {
                     if ($output_add[1]=="") {
-                        $output_add = $Global_Class -> edit1( $_REQUEST['id'], $default_tabel, $p, "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $id_ , $search_fields, $date_fields);
+                        $output_add = $Global_Class->edit1( $_REQUEST['id'], $default_tabel, $p, "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $id_ , $search_fields, $date_fields);
                     }
                     if ( $output_add[0] == false )
                     {
-                        $output .= $Global_Class -> edit( $_REQUEST['id'], $default_tabel, $p, "edit1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
+                        $output .= $Global_Class->edit( $_REQUEST['id'], $default_tabel, $p, "edit1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
                     }
                     else
                     {
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_,$sql_default_global );
-                        $output .= $Global_Class -> see( $_REQUEST['id'], $default_tabel, $p, "see", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_,$sql_default_global );
+                        $output .= $Global_Class->see( $_REQUEST['id'], $default_tabel, $p, "see", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
                         //$output .= $output_add;
                     }
                 }
                 else
                 {
-                    $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation_id, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error );
+                    $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation_id, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error );
                 }
                 break;
             case "see":
-                if ( $user_profile=$Global_Class -> getprofile( $_REQUEST['id'], $default_tabel, $id_,$sql_default_global) )
+                if ( $user_profile=$Global_Class->getprofile( $_REQUEST['id'], $default_tabel, $id_,$sql_default_global) )
                 {
-                    $output .= $Global_Class -> see( $_REQUEST['id'], $default_tabel, $p, "see", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
+                    $output .= $Global_Class->see( $_REQUEST['id'], $default_tabel, $p, "see", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $id_, $date_fields, $user_profile, $output_add[1] );
                 }
                 else
                 {
-                    $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error = "" );
+                    $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error = "" );
                 }
                 break;
             case "activate":
 
-                $output1 = $Global_Class -> activatemultiple($_POST['options_array'],$default_tabel,$field_activate,1,$id_);
-                $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
+                $output1 = $Global_Class->activatemultiple($_POST['options_array'],$default_tabel,$field_activate,1,$id_);
+                $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
                 break;
             case "deactivate":
-                $output1 = $Global_Class -> activatemultiple($_POST['options_array'],$default_tabel,$field_activate,0,$id_);
-                $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
+                $output1 = $Global_Class->activatemultiple($_POST['options_array'],$default_tabel,$field_activate,0,$id_);
+                $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
                 break;
             case "sold":
-                $output1 = $Global_Class -> activatemultiple($_POST['options_array'],$default_tabel,$field_activate,2,$id_);
-                $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
+                $output1 = $Global_Class->activatemultiple($_POST['options_array'],$default_tabel,$field_activate,2,$id_);
+                $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $output1 );
                 break;
             case "search":
-                $output .= $Global_Class -> search1( $default_tabel, $p, $fields_not_show );
-                $output .= $Global_Class -> search( $default_tabel, $p, "", 1, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error );
+                $output .= $Global_Class->search1( $default_tabel, $p, $fields_not_show );
+                $output .= $Global_Class->search( $default_tabel, $p, "", 1, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error );
                 break;
             default:
-                $output .= $Global_Class -> search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error);
+                $output .= $Global_Class->search( $default_tabel, $p, "", 0, $config['nrresult'], $relation, $relation_table, "{$p}_search_rows", $sql_default_global, $search_fields, $id_, $error);
                 break;
         }
 
@@ -3344,7 +3344,7 @@ class GlobalClass{
         }else{
             $sql .= " ORDER BY `$orderby` LIMIT 1";
         }
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             $user = mysqli_fetch_assoc($result);
@@ -3362,7 +3362,7 @@ class GlobalClass{
         }
         if ($user_activate=="") $user_activate=array();
         foreach ($user_activate as $key => $value) {
-            $this -> activate($key,$default_tabel,$camp,$valoare,$id_);
+            $this->activate($key,$default_tabel,$camp,$valoare,$id_);
         }
 
         if (count($user_activate)==0){
@@ -3387,7 +3387,7 @@ class GlobalClass{
                */
         if (!$config[autoactivatedisabled]){
             $sql = "update `{$config['table_prefix']}$default_tabel` set `$camp`='$valoare' WHERE `$id_`='$id';";
-            $result = $db -> query($sql,__FILE__,__LINE__);
+            $result = $db->query($sql,__FILE__,__LINE__);
             return true;
         }else{
             return false;
@@ -3397,7 +3397,7 @@ class GlobalClass{
         global $config,$tpl;
         global $db; //database
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
         }
@@ -3405,7 +3405,7 @@ class GlobalClass{
         $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
         if ($config[orderbyfeatures]!='') $orderby=$config[orderbyfeatures];
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         $i=0;
         if ($num_rows>0){
@@ -3444,19 +3444,19 @@ class GlobalClass{
         global $db; //database
         global $_COOKIE;
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
         }
         @mysqli_free_result($result);
         $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         $i=0;
         if ($num_rows>0){
             $sql = "delete from `{$config['table_prefix']}$default_tabel_relation` WHERE `$relation_id1`='$id'";
-            $result_ = $db -> query($sql,__FILE__,__LINE__);
+            $result_ = $db->query($sql,__FILE__,__LINE__);
 
             $row = array(
                 "admin"=>$_COOKIE['id_cookie'],
@@ -3469,7 +3469,7 @@ class GlobalClass{
             while ($user = mysqli_fetch_assoc($result)){
                 if ($_REQUEST["checkbox_".$user[$id_]]==1) {
                     $sql = "insert into `{$config['table_prefix']}$default_tabel_relation` VALUES ('','$id','{$user[$id_]}');";
-                    $result1 = $db -> query($sql,__FILE__,__LINE__);
+                    $result1 = $db->query($sql,__FILE__,__LINE__);
 
                     $row = array(
                         "admin"=>$_COOKIE['id_cookie'],
@@ -3513,7 +3513,7 @@ class GlobalClass{
             $var[tpl_input_name_val]=$_REQUEST["input_message"];
             $var[textarea]=$tpl->replace($var,$file_text_use);
         }
-        $out = $tpl -> replace( $var, "sendemail.html" );
+        $out = $tpl->replace( $var, "sendemail.html" );
         return $out;
 
     }
@@ -3522,7 +3522,7 @@ class GlobalClass{
         global $db; //database
 
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini GROUP BY $id_ ORDER BY $orderby";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
@@ -3537,7 +3537,7 @@ class GlobalClass{
         global $db; //database
         $out=array();
         $sql = "select `$field` from `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
@@ -3567,7 +3567,7 @@ class GlobalClass{
             $var[error] = $lang['tpl_auto_please_type_message'];
         }
         if ($var[error]!='') {
-            $out = $tpl -> replace( $var, "sendemail.html" );
+            $out = $tpl->replace( $var, "sendemail.html" );
             return $out;
         }else{
             if ($_REQUEST[send_to_all]==1){
@@ -3582,7 +3582,7 @@ class GlobalClass{
                 $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
                 $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
 
-                $sendresult = $Email_class -> emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                $sendresult = $Email_class->emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
                     $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
@@ -3632,8 +3632,8 @@ class GlobalClass{
         $var = array (
             "error" => $error
         );
-        $var['profiles'] = $this -> getdropdown( $_REQUEST['profiles'], 'adprofiles', "name{$language_set}", "id", "name{$language_set}" );
-        $var['rights'] = $this -> getdropdown( $_REQUEST['rights'], 'rights', "name", "id", "name" );
+        $var['profiles'] = $this->getdropdown( $_REQUEST['profiles'], 'adprofiles', "name{$language_set}", "id", "name{$language_set}" );
+        $var['rights'] = $this->getdropdown( $_REQUEST['rights'], 'rights', "name", "id", "name" );
         if ($settings_profile['wysiwyg']==1) {
             $oFCKeditor = new FCKeditor("input_message") ;
             $oFCKeditor->BasePath = $config['wywiwyg_editor'] ;                // '/FCKeditor/' is the default value so this line could be deleted.
@@ -3655,7 +3655,7 @@ class GlobalClass{
             $var[tpl_input_name_val]=$_REQUEST["input_message"];
             $var[textarea]=$tpl->replace($var,$file_text_use);
         }
-        $out = $tpl -> replace( $var, "sendemailadmin.html" );
+        $out = $tpl->replace( $var, "sendemailadmin.html" );
         return $out;
 
     }
@@ -3679,7 +3679,7 @@ class GlobalClass{
             $var[error] = $lang['tpl_auto_please_type_message'];
         }
         if ($var[error]!='') {
-            $out = $tpl -> replace( $var, "sendemailadmin.html" );
+            $out = $tpl->replace( $var, "sendemailadmin.html" );
             return $out;
         }else{
             if ($_REQUEST[send_to_all]==1){
@@ -3688,14 +3688,14 @@ class GlobalClass{
                         $array_members = $this->getarray('admin','id','id'," ");
                         break;
                     case "nolisting":
-                        $listin_array_id_gallery = $this -> getarrayid('cars','admin',$sqlini=' GROUP BY admin');
+                        $listin_array_id_gallery = $this->getarrayid('cars','admin',$sqlini=' GROUP BY admin');
                         if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
                         $sql_cond .= " AND ( FIND_IN_SET( {$config['table_prefix']}admin.id, '".implode(",",$listin_array_id_gallery)."' ) = 0 ) ";
 
                         $array_members = $this->getarray('admin','id','id',$sql_cond);
                         break;
                     case "withlisting":
-                        $listin_array_id_gallery = $this -> getarrayid('cars','admin',$sqlini=' GROUP BY admin');
+                        $listin_array_id_gallery = $this->getarrayid('cars','admin',$sqlini=' GROUP BY admin');
                         if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
                         $sql_cond .= " AND ( FIND_IN_SET( {$config['table_prefix']}admin.id, '".implode(",",$listin_array_id_gallery)."' ) > 0 ) ";
 
@@ -3723,7 +3723,7 @@ class GlobalClass{
                 $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
                 $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
 
-                $sendresult = $Email_class -> emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                $sendresult = $Email_class->emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
                     $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
@@ -3744,21 +3744,21 @@ class GlobalClass{
         global $config;
         global $db; //database
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
         }
         @mysqli_free_result($result);
         $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         $contor=0;
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
                 /*$sql = "select count(*) from `{$config['table_prefix']}cars` WHERE `make`='{$user[$id_]}' and active>1";
 		               //echo "<BR>";
-		               $resultccc = $db -> query($sql,__FILE__,__LINE__);
+		               $resultccc = $db->query($sql,__FILE__,__LINE__);
 		               //$user = mysqli_fetch_assoc($result);
 		               list($num_rowsxx) = mysqli_fetch_row($resultccc);
                		if ($num_rowsxx>0){
@@ -3769,7 +3769,7 @@ class GlobalClass{
                 $contor++;
                 //second
                 $sql1 = "SELECT * FROM `{$config['table_prefix']}$default_tabel1` WHERE $relatedid='".$user[$id_]."' GROUP BY $id_1 ORDER BY $orderby1";
-                $result1 = $db -> query($sql1);
+                $result1 = $db->query($sql1);
                 $num_rows1 = mysqli_num_rows($result1);
                 $out1="";
                 if ($num_rows1>0){
@@ -3802,7 +3802,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();

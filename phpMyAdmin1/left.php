@@ -403,7 +403,7 @@ if (!$cfg['QueryFrame']) {
 //    In this case, the database should not be collapsible/expandable
 if ($num_dbs > 1) {
 
-    // Light mode -> beginning of the select combo for databases
+    // Light mode->beginning of the select combo for databases
     // Note: When javascript is active, the frameset will be changed from
     // within left.php. With no JS (<noscript>) the whole frameset will
     // be rebuilt with the new target frame.
@@ -495,7 +495,7 @@ if ($num_dbs > 1) {
             }
         }
 
-        // No light mode -> displays the expandible/collapsible db list
+        // No light mode->displays the expandible/collapsible db list
         if ($cfg['LeftFrameLight'] == FALSE) {
 
             // Displays the database name
@@ -595,7 +595,7 @@ if ($num_dbs > 1) {
             echo "\n";
         }
 
-        // Light mode -> displays the select combo with databases names and the
+        // Light mode->displays the select combo with databases names and the
         // list of tables contained in the current database
         else {
             echo "\n";
@@ -665,7 +665,7 @@ if ($num_dbs > 1) {
 
     } // end for $i (db list)
 
-    // Light mode -> end of the select combo for databases and table list for
+    // Light mode->end of the select combo for databases and table list for
     // the current database
     if ($cfg['LeftFrameLight']) {
         if (!$cfg['QueryFrame']) {
@@ -686,7 +686,7 @@ if ($num_dbs > 1) {
         echo $table_list;
     }
 
-    // No light mode -> initialize some js variables for the
+    // No light mode->initialize some js variables for the
     // expandible/collapsible stuff
     else {
     ?>

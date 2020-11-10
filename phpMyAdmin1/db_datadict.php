@@ -254,7 +254,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         if ($have_rel) {
             echo '    <td class="print">';
             if (isset($res_rel[$field_name])) {
-                echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']);
+                echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field']);
             }
             echo '&nbsp;</td>' . "\n";
         }

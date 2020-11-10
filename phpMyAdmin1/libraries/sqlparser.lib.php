@@ -1052,7 +1052,7 @@ if ($is_minimum_common == FALSE) {
                 continue;
             } // end if (punct_qualifier)
 
-            // TODO: check if 3 identifiers following one another -> error
+            // TODO: check if 3 identifiers following one another->error
 
             //    s a v e    a    s e l e c t    e x p r
             // finding a list separator or FROM

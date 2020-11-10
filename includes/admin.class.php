@@ -9,7 +9,7 @@ class Admin
             "redirect" => $redirect,
             "error" => $error
         );
-        $out = $tpl -> replace( $var, "admin_login.html" );
+        $out = $tpl->replace( $var, "admin_login.html" );
         return $out;
     }
     function forgot( $profile, $redirect, $error = "" )
@@ -20,7 +20,7 @@ class Admin
             "redirect" => $redirect,
             "error" => $error
         );
-        $out = $tpl -> replace( $var, "admin_forgot.html" );
+        $out = $tpl->replace( $var, "admin_forgot.html" );
         return $out;
     }
     function getadminprofile( $username )
@@ -29,7 +29,7 @@ class Admin
         global $db; //class
 
         $sql = "select * from `{$config['table_prefix']}admin` where `username`='$username'";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows( $result );
         if ( $num_rows > 0 )
         {
@@ -54,7 +54,7 @@ class Admin
             exit(0);
         }
         $sql = "select * from `{$config['table_prefix']}rights` where `id`='$right'";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows( $result );
         if ( $num_rows > 0 )
         {
@@ -90,7 +90,7 @@ class Admin
             "redirect" => $redirect,
             "error" => $error
         );
-        $out = $tpl -> replace( $var, "new_user.html" );
+        $out = $tpl->replace( $var, "new_user.html" );
         return $out;
     }
 
@@ -99,7 +99,7 @@ class Admin
         global $config;
         global $db; //class
         $sql = "select * from `{$config['table_prefix']}admin` where `username`='$username' and id!='$id'";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows( $result );
         @mysqli_free_result($result);
         if ( $num_rows > 0 )
@@ -112,7 +112,7 @@ class Admin
         global $config;
         global $db; //class
         $sql = "select * from `{$config['table_prefix']}admin` where `username`='$username'";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows( $result );
         @mysqli_free_result($result);
         if ( $num_rows > 0 )
@@ -128,7 +128,7 @@ class Admin
         $password1 = md5( $password );
         $sql = "INSERT INTO `{$config['table_prefix']}admin` ( `id` , `right` , `username` , `password` , `unic_code` , `activate` )
 VALUES ('', '', '$username' , '$password1' , '', '0');";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         if ( $result )
             return mysqli_insert_id();
         else
@@ -140,7 +140,7 @@ VALUES ('', '', '$username' , '$password1' , '', '0');";
         global $db, $config;
         $password1 = md5( $password );
         $sql = "update `{$config['table_prefix']}admin` set `password`='$password1'," . "username='$username' where `username`='$usernameold' and `id`='$id' limit 1";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         if ( $result ) return true;
         else return false;
     }
@@ -155,7 +155,7 @@ VALUES ('', '', '$username' , '$password1' , '', '0');";
             if ( ( $key != "password" ) )
                 $var[$key] = $profile[$key];
         }
-        $out = $tpl -> replace( $var, "admin_profile.html" );
+        $out = $tpl->replace( $var, "admin_profile.html" );
         return $out;
     }
     function verifyadmin( $username, $password )
@@ -165,7 +165,7 @@ VALUES ('', '', '$username' , '$password1' , '', '0');";
 
         $password = md5( $password );
         $sql = "select * from `{$config['table_prefix']}admin` where `username`='$username' and `password`='$password' and ( active='1' or active='3' )";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows( $result );
         @mysqli_free_result($result);
         if ( $num_rows > 0 )

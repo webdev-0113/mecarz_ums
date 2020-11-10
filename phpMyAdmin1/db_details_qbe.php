@@ -19,7 +19,7 @@ $cfgRelation = PMA_getRelationsParam();
 
 
 /**
- * A query has been submitted -> execute it, else display the headers
+ * A query has been submitted->execute it, else display the headers
  */
 if (isset($submit_sql) && preg_match('/@^SELECT@i', $encoded_sql_query)) {
     $goto      = 'db_details.php';

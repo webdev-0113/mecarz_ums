@@ -38,7 +38,7 @@ class VisitClass{
             $out .= $this->category_contentxml($language_set1);
             $sql = "SELECT * FROM `{$config['table_prefix']}cars` WHERE {$config['table_prefix']}cars.active >= 1  ";//LIMIT {$variable['page']},{$variable['nrresult']};
 
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $num_rows = mysqli_num_rows( $result );
             $contor=0;
             if ( $num_rows > 0 ) {
@@ -51,10 +51,10 @@ class VisitClass{
                     }
                     //print_r($user);
                     $user['language_set1']=$language_set1;
-                    $user['url']=$config['url_path'].trim($tpl -> replace( $user, "urlsitemap.html" ));
+                    $user['url']=$config['url_path'].trim($tpl->replace( $user, "urlsitemap.html" ));
                     $out .= $this->sm_addUrl($user['url'],$this->mysql2date('Y-m-d\TH:i:s+00:00', $user['datam'], false),"",false);
 
-                    //$out .= $tpl -> replace( $user, "listing_sitemap.html" );
+                    //$out .= $tpl->replace( $user, "listing_sitemap.html" );
 
                     $contor++;
                 } // while
@@ -74,7 +74,7 @@ class VisitClass{
         global $config, $_REQUEST, $lang, $language_set;
 
         $sql = "SELECT id,name from {$config['table_prefix']}category where 1 order by `order` asc";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $out = '';
         if ($num_rows > 0){
@@ -83,7 +83,7 @@ class VisitClass{
                 $user['name1'] = makeurl($user['name']);
                 $user['language_set1']=$language_set1;
 
-                $user[url] = $tpl -> replace( $user, "category_template_xml.html" );
+                $user[url] = $tpl->replace( $user, "category_template_xml.html" );
                 $user['url']=$config['url_path'].trim($user[url]);
                 $out .= $this->sm_addUrl($user['url'],$this->mysql2date('Y-m-d\TH:i:s+00:00', "", false),"",false);
             }
@@ -135,7 +135,7 @@ class VisitClass{
         global $db, $Global_Class, $tpl;
         global $config, $_REQUEST, $language_set;
         $sql = "SELECT * FROM `{$config['table_prefix']}customlinks` WHERE 1 and `active`='1' ORDER BY `order` asc;";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $contor = 0;
         $out = '';
@@ -144,7 +144,7 @@ class VisitClass{
                 $user['name'] = $user["name" . "$language_set"];
                 $user["content"] = $user["content" . "$language_set"];
                 $user['name1'] = preg_replace(" |/", "-", $user["name" . "$language_set"]);
-                $out .= $tpl -> replace($user, $template);
+                $out .= $tpl->replace($user, $template);
                 // if ($contor%3==0 AND $contor!=0) $out .= "<BR>";
                 $contor++;
             } // while
@@ -158,7 +158,7 @@ class VisitClass{
         global $config, $_REQUEST, $language_set;
 
         $sql = "SELECT * from {$config['table_prefix']}news where date<=NOW() order by date DESC";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $profile = array();
         $out = '';
@@ -173,12 +173,12 @@ class VisitClass{
                 $user['href'] = "#{$user['id']}";
                 $profile['body'] .= "\n<a name=\"" . $user['id'] . "\">&raquo;</a> \n" . $user['date'] . ": \n" . $user["content" . $language_set] . "\n<br><br>
                  <A href=\"#top\"><IMG height=9 alt=\"{$lang['tpl_auto_Top_of_page']}\"  src=\"images/up.gif\" width=7 border=0></A><A href=#top>{$lang['tpl_auto_Top_of_page']}</A><BR><BR>\n";
-                $profile['links'] .= $tpl -> replace($user, "news_template.html");
+                $profile['links'] .= $tpl->replace($user, "news_template.html");
             }
 
         }
         @mysqli_free_result($result);
-        $out .= $tpl -> replace($profile, "news.html");
+        $out .= $tpl->replace($profile, "news.html");
         return $out;
     }
     function faq_content()
@@ -187,7 +187,7 @@ class VisitClass{
         global $config, $_REQUEST, $lang, $language_set;
 
         $sql = "SELECT * from {$config['table_prefix']}faq where 1 order by `order` asc";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
 
         $profile = array();
@@ -203,12 +203,12 @@ class VisitClass{
                 $user['name'] = $user["name" . "$language_set"];
                 $user["content"] = $user["content" . "$language_set"];
                 $user["title"] = $user["title" . "$language_set"];
-                $profile['links'] .= $tpl -> replace($user, "faq_template.html");
+                $profile['links'] .= $tpl->replace($user, "faq_template.html");
             }
 
         }
         @mysqli_free_result($result);
-        $out .= $tpl -> replace($profile, "faq.html");
+        $out .= $tpl->replace($profile, "faq.html");
         return $out;
     }
     function category_content()
@@ -217,7 +217,7 @@ class VisitClass{
         global $config, $_REQUEST, $lang, $language_set;
 
         $sql = "SELECT * from {$config['table_prefix']}category where 1 order by `order` asc";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
 
         $profile = array();
@@ -226,14 +226,14 @@ class VisitClass{
             while ($user = mysqli_fetch_assoc($result)){
                 $user['name'] = $user["name" . "$language_set"];
                 $user['description'] = $user["description" . "$language_set"];
-                $user['nr'] = $Global_Class -> getnumrows($user["id"], "cars", "category"," and active>=1 ") ;
-                $profile['category'] .= $tpl -> replace($user, "category_template.html");
+                $user['nr'] = $Global_Class->getnumrows($user["id"], "cars", "category"," and active>=1 ") ;
+                $profile['category'] .= $tpl->replace($user, "category_template.html");
 
             }
 
         }
         @mysqli_free_result($result);
-        $out .= $tpl -> replace($profile, "category.html");
+        $out .= $tpl->replace($profile, "category.html");
         return $out;
     }
     function cars_list($pageoutfin, $nr_car_found,$myproper=0)
@@ -279,7 +279,7 @@ class VisitClass{
 
             /*
             if ($variable[city] != "" AND $variable[city] != "..." AND $variable[city] != " "){
-                $citytypearray = $Global_Class -> getarrayid("admin","id"," and city='{$variable[city]}' ");
+                $citytypearray = $Global_Class->getarrayid("admin","id"," and city='{$variable[city]}' ");
                 if (!is_array($citytypearray)) $citytypearray=array();
                 $sql_cond .= " AND ( FIND_IN_SET( admin, '".implode(",",$citytypearray)."' ) > 0 ) ";
                 $param .= "&amp;city={$variable[city]}";
@@ -354,7 +354,7 @@ class VisitClass{
                 }
             }
             if ($variable['gallery']!=""){
-                $listin_array_id_gallery = $Global_Class -> getarrayid('gallery','carsid',$sqlini=' group by carsid');
+                $listin_array_id_gallery = $Global_Class->getarrayid('gallery','carsid',$sqlini=' group by carsid');
                 if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
                 $sql_cond .= " AND ( FIND_IN_SET( id, '".implode(",",$listin_array_id_gallery)."' ) > 0 ) ";
                 $param.="&amp;gallery=checked";
@@ -382,7 +382,7 @@ class VisitClass{
         if (count($variable['features'])>0 ){
             foreach ($variable['features'] as $key=>$val){
                 $sqlini=' '."and featuresid ='$key' ".' group by carsid';
-                $listin_array_id_gallery = $Global_Class -> getarrayid('carsfeatures','carsid',$sqlini);
+                $listin_array_id_gallery = $Global_Class->getarrayid('carsfeatures','carsid',$sqlini);
 
                 if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
                 if (!is_array($listing_features_result)) $listing_features_result=$listin_array_id_gallery;
@@ -425,7 +425,7 @@ class VisitClass{
         }
 
         $sql = "SELECT COUNT(*) FROM `{$config['table_prefix']}$tabel_cars` WHERE active >= 1 $sql_cond ORDER BY  $orderby $method;";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         list($num_rows_ini) = mysqli_fetch_row($result);
         @mysqli_free_result($result);
         $num_rows_ini_=$num_rows_ini;
@@ -461,7 +461,7 @@ class VisitClass{
                     $userurl['param']=$param;
                     $userurl['p']=$_REQUEST['p'];
                     $userurl['ii']=$ii;
-                    $pageoutfin.=$tpl -> replace( $userurl, "url.html" );
+                    $pageoutfin.=$tpl->replace( $userurl, "url.html" );
                 }else{
                     $pageoutfin .= " <a href=\"index.php?$param" . "&amp;page=$i\">$ii</a> \n";
                 }
@@ -471,7 +471,7 @@ class VisitClass{
         $variable['page'] = $variable['page'] * $variable['nrresult'];
 
         $sql = "SELECT * FROM `{$config['table_prefix']}$tabel_cars` WHERE active >= 1 $sql_cond ORDER BY  $orderby $method LIMIT {$variable['page']},{$variable['nrresult']};";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $nr = $num_rows;
         $nr_total = $num_rows_ini_;
@@ -489,8 +489,8 @@ class VisitClass{
 
                 $user['carslisting'] = ($contor % $config['use_2_objects_in_list_per_line_color'] == 0) ? "carslisting1" : "carslisting0";
                 if ($myproper){
-                    $user['remove']=$tpl -> replace( $user, "remove.html" );
-                    $user['checkbox']=$tpl -> replace( $user, "checkbox.html" );
+                    $user['remove']=$tpl->replace( $user, "remove.html" );
+                    $user['checkbox']=$tpl->replace( $user, "checkbox.html" );
                 }else{
                     $user['remove']="";
                 }
@@ -504,7 +504,7 @@ class VisitClass{
 
 
         $sql = "SELECT * FROM `{$config['table_prefix']}$tabel_gallery` WHERE 0 $sql_gallery  group by `carsid` order by `order`";
-        $resultgal = $db -> query($sql);
+        $resultgal = $db->query($sql);
         $num_rowsgal = mysqli_num_rows($resultgal);
 
         if ($num_rows > 0){
@@ -541,7 +541,7 @@ class VisitClass{
             }else{
                 $user['soldclass']='';
             }
-            $out .= $tpl -> replace($user, "cars_shortdescription.html");
+            $out .= $tpl->replace($user, "cars_shortdescription.html");
             if ($config['use_2_objects_in_list_per_line']){
                 if ($count % 2 == 0 ){
                     $out .=  "
@@ -557,7 +557,7 @@ class VisitClass{
             if ($count == 3 ){
                 $out .=  "<tr>
                                        <td width=100% align=center valign=top style='height:100%;' colspan=2>";
-                $out .= $tpl -> replace($user, "google1.html");
+                $out .= $tpl->replace($user, "google1.html");
                 $out .=  "</td>
                                                                       </tr>
                                                                         ";
@@ -566,7 +566,7 @@ class VisitClass{
             if ($count == 7 ){
                 $out .=  "<tr>
                                        <td width=100% align=center valign=top style='height:100%;' colspan=2>";
-                $out .= $tpl -> replace($user, "google2.html");
+                $out .= $tpl->replace($user, "google2.html");
                 $out .=  "</td>
                                                                       </tr>
                                                                         ";
@@ -582,7 +582,7 @@ class VisitClass{
         if ($contor>0){
             $nr_listing_found = preg_replace( "/\{{(\w+)\}}/e", "\$\\1", $lang["tpl_auto_found"] );
             if ($myproper){
-                $out .= $tpl -> replace( $user, "compare.html" );
+                $out .= $tpl->replace( $user, "compare.html" );
             }
         }elseif ($out==''){
             if ($myproper){
@@ -643,7 +643,7 @@ class VisitClass{
         }
         /*
         if ($variable[city] != "" AND $variable[city] != "..." AND $variable[city] != " "){
-            $citytypearray = $Global_Class -> getarrayid("admin","id"," and city='{$variable[city]}' ");
+            $citytypearray = $Global_Class->getarrayid("admin","id"," and city='{$variable[city]}' ");
             if (!is_array($citytypearray)) $citytypearray=array();
             $sql_cond .= " AND ( FIND_IN_SET( admin, '".implode(",",$citytypearray)."' ) > 0 ) ";
             $param .= "&amp;city={$variable[city]}";
@@ -676,7 +676,7 @@ class VisitClass{
             }
         }
         if ($variable['gallery']!=""){
-            $listin_array_id_gallery = $Global_Class -> getarrayid('gallery','carsid',$sqlini=' group by carsid');
+            $listin_array_id_gallery = $Global_Class->getarrayid('gallery','carsid',$sqlini=' group by carsid');
             if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
             $sql_cond .= " AND ( FIND_IN_SET( id, '".implode(",",$listin_array_id_gallery)."' ) > 0 ) ";
             $param.="&amp;gallery=checked";
@@ -693,7 +693,7 @@ class VisitClass{
             $sqlcond="";
             foreach ($variable['features'] as $key=>$val){
                 $sqlini=' '."and featuresid ='$key' ".' group by carsid';
-                $listin_array_id_gallery = $Global_Class -> getarrayid('carsfeatures','carsid',$sqlini);
+                $listin_array_id_gallery = $Global_Class->getarrayid('carsfeatures','carsid',$sqlini);
 
                 if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
                 if (!is_array($listing_features_result)) $listing_features_result=$listin_array_id_gallery;
@@ -715,7 +715,7 @@ class VisitClass{
 
 
         $sql = "SELECT `id` FROM `{$config['table_prefix']}$tabel_cars` WHERE active >= 1 $sql_cond ORDER BY  $orderby $method ";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $nr = $num_rows;
 //        $nr_total = $num_rows_ini_;
@@ -764,7 +764,7 @@ class VisitClass{
 
         $user['name'] = $user['category'] . " " . $lang[tpl_auto_separator_sign] . " " . $user['make'] . " " . $lang[tpl_auto_separator_sign] . " " . $user['model'];
         $sql = "SELECT * FROM `{$config['table_prefix']}$tabel_gallery` where {$carsid}='{$user['id']}' order by `order`";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows_gallery = mysqli_num_rows($result);
 
 
@@ -827,7 +827,7 @@ class VisitClass{
             }
             $picture_profile[width] = $settings_profile['thumbnail_width'];
             $picture_profile[height] = $settings_profile['thumbnail_height'];
-            $user[picture] = $tpl -> replace($picture_profile,  "cars_gallery{$user[displaymodel]}.html" );
+            $user[picture] = $tpl->replace($picture_profile,  "cars_gallery{$user[displaymodel]}.html" );
 
         }else{
             if ($config['show_nopicture_indetailspage']){
@@ -853,14 +853,14 @@ class VisitClass{
                 if ($user[displaymodel]==0){
                     $user[displaymodel]="";
                 }
-                $user[picture] = $tpl -> replace( $picture_profile, "cars_gallery{$user[displaymodel]}.html" );
+                $user[picture] = $tpl->replace( $picture_profile, "cars_gallery{$user[displaymodel]}.html" );
             }
             $lang['tpl_auto_Click_on_a_picture_to_view_the_gallery'] ="";
         }
 
 
         $sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}$tabel_carsfeatures`,`{$config['table_prefix']}features` where {$config['table_prefix']}$tabel_carsfeatures.{$carsid}='{$user['id']}' and {$config['table_prefix']}features.id={$config['table_prefix']}$tabel_carsfeatures.featuresid order by {$config['table_prefix']}features.name{$language_set}";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $contor = 0;
         if ($num_rows > 0){
@@ -878,7 +878,7 @@ class VisitClass{
         @mysqli_free_result($result);
 
         $sql = "UPDATE `{$config['table_prefix']}$tabel_cars` SET noview=noview+1 where id='{$user['id']}' limit 1;";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
 
         /**
          * $user[fulloptions]=str_replace("-","&raquo;",$user[fulloptions]);
@@ -892,7 +892,7 @@ class VisitClass{
          */
 
         // }
-        $admin_profile = $Global_Class -> getprofile($user['admin'], "admin", 'id');
+        $admin_profile = $Global_Class->getprofile($user['admin'], "admin", 'id');
         if ($admin_profile['logo'] != ""){
             $admin_profile['logo'] = "<img src=\"" . $config['url_path_temp'] . $admin_profile['logo'] . "\" border=0>";
         }
@@ -900,13 +900,13 @@ class VisitClass{
             $admin_profile['email'] = 'N/A';
         }else
             if ($admin_profile['noemail'] == 1){
-                $admin_profile['email'] = $tpl -> replace($user, "hide_email.html");
+                $admin_profile['email'] = $tpl->replace($user, "hide_email.html");
             }
         $admin_profile[carid]=$user['id'];
         if($user['active']==2){
-            $user[contact] = $tpl -> replace($admin_profile, "soldinfo.html");
+            $user[contact] = $tpl->replace($admin_profile, "soldinfo.html");
         }else{
-            $user[contact] = $tpl -> replace($admin_profile, "cars_contact.html");
+            $user[contact] = $tpl->replace($admin_profile, "cars_contact.html");
         }
 
         $user['description'] = nl2br($user['description']);
@@ -921,9 +921,9 @@ class VisitClass{
                 $lang['tpl_auto_nextcar']="";
             }else{
 
-                $usernext = $Global_Class -> getprofile( $user['id_next'], "cars", 'id' );
+                $usernext = $Global_Class->getprofile( $user['id_next'], "cars", 'id' );
                 $usernext = $this->prepareuser($usernext);
-                $user[nexturl] = $tpl -> replace( $usernext, "cars_link.html" );
+                $user[nexturl] = $tpl->replace( $usernext, "cars_link.html" );
             }
 
 
@@ -931,20 +931,20 @@ class VisitClass{
                 $lang['tpl_auto_previouscar']="";
             }else{
 
-                $userprev = $Global_Class -> getprofile( $user['id_prev'], "cars", 'id' );
+                $userprev = $Global_Class->getprofile( $user['id_prev'], "cars", 'id' );
                 $userprev = $this->prepareuser($userprev);
 
-                $user[prevurl] = $tpl -> replace( $userprev, "cars_link.html" );
+                $user[prevurl] = $tpl->replace( $userprev, "cars_link.html" );
             }
         }
 
         $out = '';
         if ($typeofdisplay==1){
-            $out .= $tpl -> replace( $user, "vehicle_information_sheet_body.html" );
+            $out .= $tpl->replace( $user, "vehicle_information_sheet_body.html" );
         }elseif ($typeofdisplay==2){
-            $out .= $tpl -> replace( $user, "cars_compare_body.html" );
+            $out .= $tpl->replace( $user, "cars_compare_body.html" );
         }else{
-            $out .= $tpl -> replace( $user, "cars_details.html" );
+            $out .= $tpl->replace( $user, "cars_details.html" );
         }
 
         return $out;
@@ -966,7 +966,7 @@ class VisitClass{
 
 
             $sql = "SELECT {$config['table_prefix']}cars.* FROM `{$config['table_prefix']}{$tabel_sponsored}`,{$config['table_prefix']}cars WHERE {$config['table_prefix']}$tabel_sponsored.date_start<=NOW() and NOW()<={$config['table_prefix']}$tabel_sponsored.date_ends and  {$config['table_prefix']}cars.id={$config['table_prefix']}{$tabel_sponsored}.carid GROUP BY {$config['table_prefix']}{$tabel_sponsored}carid ORDER BY RAND();";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $num_rows = mysqli_num_rows($result);
             $contor = 0;
             $newarray=array();
@@ -976,11 +976,11 @@ class VisitClass{
 
 
 
-                    //$user = $Global_Class -> getprofile($users['carid'], "$tabel_cars", "id");
+                    //$user = $Global_Class->getprofile($users['carid'], "$tabel_cars", "id");
 
                     $sql_gallery .= " or (`$carsid`='{$user['id']}') ";
 
-                    //$var_gallery = $Global_Class -> getprofile_order($user['id'], "$tabel_gallery", "order", $carsid);
+                    //$var_gallery = $Global_Class->getprofile_order($user['id'], "$tabel_gallery", "order", $carsid);
 
                     $user = $this->prepareuser($user);
 
@@ -991,7 +991,7 @@ class VisitClass{
                 @mysqli_free_result($result);
 
                 $sql = "SELECT * FROM `{$config['table_prefix']}$tabel_gallery` WHERE 0 $sql_gallery  group by `carsid` order by `order`";
-                $resultgal = $db -> query($sql);
+                $resultgal = $db->query($sql);
                 $num_rowsgal = mysqli_num_rows($resultgal);
 
                 if ($num_rows > 0){
@@ -1012,7 +1012,7 @@ class VisitClass{
                     if ($user['thumbnail'] == ""){
                         $user['thumbnail'] = $config['url_path_temp'] .$settings_profile['thumbnail'];
                     }
-                    $out .= $tpl -> replace($user, "cars_sponsored.html");
+                    $out .= $tpl->replace($user, "cars_sponsored.html");
 
                 }
 
@@ -1026,7 +1026,7 @@ class VisitClass{
             global $config, $_REQUEST, $lang, $IMG_HEIGHT, $IMG_WIDTH, $settings_profile, $_SESSION, $HTTP_COOKIE_VARS;
 
             $sql = "SELECT {$config['table_prefix']}cars.* FROM `{$config['table_prefix']}{$tabel_sponsored}`,{$config['table_prefix']}cars WHERE {$config['table_prefix']}{$tabel_sponsored}.date_start<=NOW() and NOW()<={$config['table_prefix']}{$tabel_sponsored}.date_ends and  {$config['table_prefix']}cars.id={$config['table_prefix']}{$tabel_sponsored}.carid GROUP BY {$config['table_prefix']}{$tabel_sponsored}.carid ORDER BY RAND();";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $num_rows = mysqli_num_rows($result);
             $contor = 0;
             $newarray=array();
@@ -1034,11 +1034,11 @@ class VisitClass{
             if ($num_rows > 0){
                 while ($user = mysqli_fetch_assoc($result)){
 
-                    //$user = $Global_Class -> getprofile($users['carid'], "$tabel_cars", "id");
+                    //$user = $Global_Class->getprofile($users['carid'], "$tabel_cars", "id");
 
                     $sql_gallery .= " or (`$carsid`='{$user['id']}') ";
 
-                    //$var_gallery = $Global_Class -> getprofile_order($user['id'], "$tabel_gallery", "order", $carsid);
+                    //$var_gallery = $Global_Class->getprofile_order($user['id'], "$tabel_gallery", "order", $carsid);
 
                     $user = $this->prepareuser($user);
 
@@ -1048,7 +1048,7 @@ class VisitClass{
                 @mysqli_free_result($result);
 
                 $sql = "SELECT * FROM `{$config['table_prefix']}$tabel_gallery` WHERE 0 $sql_gallery   group by `carsid` order by `order`";
-                $resultgal = $db -> query($sql);
+                $resultgal = $db->query($sql);
                 $num_rowsgal = mysqli_num_rows($resultgal);
 
                 if ($num_rows > 0){
@@ -1097,7 +1097,7 @@ class VisitClass{
                 }
                 $user = array_merge ($user, $outspo);
                 $user['maxheight'] = $maxheight + 30;
-                $out .= $tpl -> replace($user, "cars_sponsored_play.html");
+                $out .= $tpl->replace($user, "cars_sponsored_play.html");
             }else{
                 $lang["tpl_auto_sponsored"] = '';
             }
@@ -1128,13 +1128,13 @@ class VisitClass{
             $carsid = "rentcarsid";
         }
 
-        $category_profile = $Global_Class -> getprofile($user['category'], "category", 'id');
+        $category_profile = $Global_Class->getprofile($user['category'], "category", 'id');
         $user['category'] = $category_profile['name'];
 
 
 
 
-        $admin_profile = $Global_Class -> getprofile($user['admin'], "admin", 'id');
+        $admin_profile = $Global_Class->getprofile($user['admin'], "admin", 'id');
         if ($admin_profile['logo'] != ""){
             $admin_profile['logo'] = "<img src=\"" . $config['url_path_temp'] . $admin_profile['logo'] . "\" border=0>";
         }
@@ -1142,9 +1142,9 @@ class VisitClass{
             $admin_profile['email'] = 'N/A';
         }else
             if ($admin_profile['noemail'] == 1){
-                $admin_profile['email'] = $tpl -> replace($user, "hide_email.html");
+                $admin_profile['email'] = $tpl->replace($user, "hide_email.html");
             }
-        $out = $tpl -> replace($admin_profile, "cars_contact_allopass.html");
+        $out = $tpl->replace($admin_profile, "cars_contact_allopass.html");
         return $out;
     }
     function homepage8($cond=0)
@@ -1161,7 +1161,7 @@ class VisitClass{
             $sql = "SELECT * FROM `{$config['table_prefix']}cars` WHERE active >= 1  ORDER BY id desc LIMIT ".$config['no_show_one_homepage_lastcars'];
             $width=intval(200/$config['no_show_one_homepage_lastcars']);
         }
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows( $result );
         $contor=0;
         $newarray=array();
@@ -1169,7 +1169,7 @@ class VisitClass{
         if ( $num_rows > 0 ) {
             while ( $user = mysqli_fetch_assoc( $result ) ) {
                 if ($cond){
-                    $user = $Global_Class -> getprofile( $user[carid],"cars","id" );
+                    $user = $Global_Class->getprofile( $user[carid],"cars","id" );
                 }
                 if ($user['active']==0) break;
 
@@ -1177,7 +1177,7 @@ class VisitClass{
 
                 $sql_gallery .= " or (`carsid`='{$user['id']}') ";
 
-                //$var_gallery = $Global_Class -> getprofile_order( $user['id'], "gallery", "order", 'carsid' );
+                //$var_gallery = $Global_Class->getprofile_order( $user['id'], "gallery", "order", 'carsid' );
 
                 $user['width']=$settings_profile['thumbnail_width'];
 
@@ -1191,7 +1191,7 @@ class VisitClass{
             @mysqli_free_result($result);
 
             $sql = "SELECT * FROM `{$config['table_prefix']}gallery` WHERE 0 $sql_gallery group by `carsid` order by `order`";
-            $resultgal = $db -> query($sql);
+            $resultgal = $db->query($sql);
             $num_rowsgal = mysqli_num_rows($resultgal);
 
             if ($num_rows > 0){
@@ -1220,7 +1220,7 @@ class VisitClass{
                 }
                 $contor++;
                 $user['widthtd']=$width;
-                $news_profile[$vartemp] .=  $tpl -> replace($user, "cars_shortdescriptionhomepage.html");
+                $news_profile[$vartemp] .=  $tpl->replace($user, "cars_shortdescriptionhomepage.html");
 
             }
 
@@ -1246,7 +1246,7 @@ class VisitClass{
         $tabel_carsfeatures = "carsfeatures";
         $carsid = "carsid";
         $sql = "SELECT * FROM `{$config['table_prefix']}{$tabel_sponsored}` WHERE date_start<=NOW() and NOW()<=date_ends GROUP BY carid ORDER BY RAND();";
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
         $num_rows = mysqli_num_rows($result);
         $contor = 0;
         $newarray=array();
@@ -1255,11 +1255,11 @@ class VisitClass{
         $out = '';
         if ($num_rows > 0){
             while ($users = mysqli_fetch_assoc($result)){
-                $user = $Global_Class -> getprofile($users['carid'], "$tabel_cars", "id");
+                $user = $Global_Class->getprofile($users['carid'], "$tabel_cars", "id");
 
                 $sql_gallery .= " or (`$carsid`='{$user['id']}') ";
 
-                //$var_gallery = $Global_Class -> getprofile_order($user['id'], "$tabel_gallery", "order", $carsid);
+                //$var_gallery = $Global_Class->getprofile_order($user['id'], "$tabel_gallery", "order", $carsid);
 
                 $user = $this->prepareuser($user);
 
@@ -1272,13 +1272,13 @@ class VisitClass{
                 $user['carslisting'] = ($contor%2==0) ? "carslisting1" : "carslisting0";
 
                 $newarray[$user['id']]=$user;
-                //$out .= $tpl -> replace($user, "cars_shortdescription.html");
+                //$out .= $tpl->replace($user, "cars_shortdescription.html");
                 $contor++;
             } // while
             @mysqli_free_result($result);
 
             $sql = "SELECT * FROM `{$config['table_prefix']}$tabel_gallery` WHERE 0 $sql_gallery  group by `carsid` order by `order`";
-            $resultgal = $db -> query($sql);
+            $resultgal = $db->query($sql);
             $num_rowsgal = mysqli_num_rows($resultgal);
 
             if ($num_rows > 0){
@@ -1299,7 +1299,7 @@ class VisitClass{
                 if ($user['thumbnail'] == ""){
                     $user['thumbnail'] = $config['url_path_temp'] .$settings_profile['thumbnail'];
                 }
-                $out .= $tpl -> replace($user, "cars_shortdescription.html");
+                $out .= $tpl->replace($user, "cars_shortdescription.html");
             }
         }else{
             $lang["tpl_auto_sponsored"] = '';
@@ -1315,7 +1315,7 @@ class VisitClass{
         $out = '';
         if ($settings_profile['adprofiles'] == 1){
             $sql = "SELECT * from {$config['table_prefix']}adprofiles where `active`=1 order by `order`";
-            $result = $db -> query($sql);
+            $result = $db->query($sql);
             $num_rows = mysqli_num_rows($result);
             $nrmax = $num_rows;
             if ($num_rows > 0){
@@ -1327,7 +1327,7 @@ class VisitClass{
                     if ($num_rows==1){
                         $user['checked']=' checked';
                     }
-                    $profile['adprofiles'] .= $tpl -> replace($user, "adprofiles_template.html");
+                    $profile['adprofiles'] .= $tpl->replace($user, "adprofiles_template.html");
                 }
                 @mysqli_free_result($result);
 
@@ -1335,7 +1335,7 @@ class VisitClass{
         }else{
             $nrmax = 0;
         }
-        $out .= $tpl -> replace($profile, "adprofiles.html");
+        $out .= $tpl->replace($profile, "adprofiles.html");
         if ($nrmax < 1)
             $out = "<input type=\"hidden\" name=\"adprofiles\" value=\"\">".$out;
         return $out;
@@ -1382,7 +1382,7 @@ class VisitClass{
                     $sqlstate="";
                 }
 
-                $news_profile["state"] = $Global_Class -> getdropdown( $_SESSION['state'], "state", "name{$language_set}", "id", "name{$language_set}",0, $sqlstate,$_SESSION['cardatase'] );
+                $news_profile["state"] = $Global_Class->getdropdown( $_SESSION['state'], "state", "name{$language_set}", "id", "name{$language_set}",0, $sqlstate,$_SESSION['cardatase'] );
             }elseif ($val1=='city'){
                 if ($_SESSION['state']<>''){
                     $sqlstate=" and stateid='{$_SESSION['state']}' ";
@@ -1390,35 +1390,35 @@ class VisitClass{
                     $sqlstate="";
                 }
 
-                $news_profile["city"] = $Global_Class -> getdropdown( $_SESSION['city'], "city", "name{$language_set}", "id", "name{$language_set}",0, $sqlstate,$_SESSION['cardatase'] );
+                $news_profile["city"] = $Global_Class->getdropdown( $_SESSION['city'], "city", "name{$language_set}", "id", "name{$language_set}",0, $sqlstate,$_SESSION['cardatase'] );
             }elseif ($val1=='model'){
                 if ($_SESSION['make']!=''){
-                    $news_profile["model"] = $Global_Class -> getdropdown( $_SESSION['model'], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_SESSION['make']}' ",$_SESSION['cardatase'] );
+                    $news_profile["model"] = $Global_Class->getdropdown( $_SESSION['model'], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_SESSION['make']}' ",$_SESSION['cardatase'] );
                 }
             } elseif ($val1!='year'){
-                $news_profile[$val1] = $Global_Class -> getdropdown( $_SESSION[$val1], "$val1", "name{$language_set}", "id", "name{$language_set}",0,"",$_SESSION['cardatase'] );
+                $news_profile[$val1] = $Global_Class->getdropdown( $_SESSION[$val1], "$val1", "name{$language_set}", "id", "name{$language_set}",0,"",$_SESSION['cardatase'] );
             }
         }
         foreach ($config['admin_section']['cars']['dropdown_fields_fromlanguage'] as $key1=>$val1){
 
-            $news_profile[$val1] = $Global_Class -> getdropdown_array( $_SESSION[$val1], $lang[$val1] );
+            $news_profile[$val1] = $Global_Class->getdropdown_array( $_SESSION[$val1], $lang[$val1] );
 
         }
 
 
-        $news_profile['searchby'] = $Global_Class -> getdropdown_arrayid( $_SESSION['searchby'], array(1=>$lang['tpl_auto_byowner'],2=>$lang['tpl_auto_byagent']) );
+        $news_profile['searchby'] = $Global_Class->getdropdown_arrayid( $_SESSION['searchby'], array(1=>$lang['tpl_auto_byowner'],2=>$lang['tpl_auto_byagent']) );
 
         if ($_SESSION['method']=='') $_SESSION['method']='desc';
-        $news_profile["orderby"] = $Global_Class -> getdropdown_array_car( $_SESSION['orderby'], $config["config_orderby"] );
-        $news_profile["method"] = $Global_Class -> getdropdown_array1( $_SESSION['method'], $config["config_method"] );
+        $news_profile["orderby"] = $Global_Class->getdropdown_array_car( $_SESSION['orderby'], $config["config_orderby"] );
+        $news_profile["method"] = $Global_Class->getdropdown_array1( $_SESSION['method'], $config["config_method"] );
 
-        //$news_profile["city"] = $Global_Class -> getdropdown( $_SESSION['city'], "city", "name{$language_set}", "id", "name{$language_set}",0,"",$_SESSION['cardatase'] );
+        //$news_profile["city"] = $Global_Class->getdropdown( $_SESSION['city'], "city", "name{$language_set}", "id", "name{$language_set}",0,"",$_SESSION['cardatase'] );
 
         $news_profile["nr_car_found"] = $nr_car_found;
 
         $news_profile['pageoutfin']=$pageoutfin;
         $news_profile['signupmembers'] = $news_profile['signupmembers'];
-        //$news_profile['sponsored'] = $this -> cars_sponsored();
+        //$news_profile['sponsored'] = $this->cars_sponsored();
         if (trim($news_profile['sponsored'])!='' and !$config['show_sponsored_onallpages']){
             $news_profile["sponsored_show"] = $tpl->replace($news_profile,"sponsored_show.html");
         }
@@ -1430,15 +1430,15 @@ class VisitClass{
             $news_profile['modelsArray'] = @implode('',@file($config['path'].'temp/makemodel'.$language_set.'.txt'));
             //$config["javascriptprofiles"]['makemodeljavascript'][$language_set1] ;
         }else{
-            $news_profile['modelsArray'] = $Global_Class -> getjavascriptarray("make","name{$language_set}","id","name{$language_set}","model","name{$language_set}","id","name{$language_set}","makeid");
+            $news_profile['modelsArray'] = $Global_Class->getjavascriptarray("make","name{$language_set}","id","name{$language_set}","model","name{$language_set}","id","name{$language_set}","makeid");
         }
 
 
-        //$news_profile['modelscountryArray'] = $this -> getjavascriptarray("country","name{$language_set}","id","name{$language_set}","city","name{$language_set}","id","name{$language_set}","makeid");
+        //$news_profile['modelscountryArray'] = $this->getjavascriptarray("country","name{$language_set}","id","name{$language_set}","city","name{$language_set}","id","name{$language_set}","makeid");
 
-        $news_profile['admin'] = $Global_Class -> getdropdown( $_SESSION['admin'], "admin", "name", "id", "name",0," and `showdropdown`='1' " );
-        $news_profile['year1'] = $Global_Class -> getdropdown( $_SESSION['year1'], "year", "name", "id", "name",0,"",$_SESSION['cardatase'] );
-        $news_profile['year'] = $Global_Class -> getdropdown( $_SESSION['year'], "year", "name", "id", "name",0,"",$_SESSION['cardatase'] );
+        $news_profile['admin'] = $Global_Class->getdropdown( $_SESSION['admin'], "admin", "name", "id", "name",0," and `showdropdown`='1' " );
+        $news_profile['year1'] = $Global_Class->getdropdown( $_SESSION['year1'], "year", "name", "id", "name",0,"",$_SESSION['cardatase'] );
+        $news_profile['year'] = $Global_Class->getdropdown( $_SESSION['year'], "year", "name", "id", "name",0,"",$_SESSION['cardatase'] );
 
         if ($_SESSION['adv_search']){
             $news_profile["simple_search"] = $tpl->replace($news_profile,"simple_search.html");
@@ -1464,7 +1464,7 @@ class VisitClass{
 
         if (($_REQUEST['p']=='' and $config['show_one_homepage_sponsored']) or ($_REQUEST['p']!='' and $config['show_sponsored_onallpages'])){
             if ($config['use_old_sponsored_format']){
-                $news_profile['sponsored'] = $this -> cars_sponsored();
+                $news_profile['sponsored'] = $this->cars_sponsored();
                 if (trim($news_profile['sponsored'])!=''){
                     $news_profile["sponsored_show"] = $tpl->replace($news_profile,"sponsored_show.html");
                 }
@@ -1484,7 +1484,7 @@ class VisitClass{
         if($_REQUEST['p']=='advsearch' and $_REQUEST['o']=='advsearch1'){
 
             $sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name{$language_set}";
-            $result = $db -> query( $sql );
+            $result = $db->query( $sql );
             $num_rows = mysqli_num_rows( $result );
             $contor=0;
             if ( $num_rows > 0 ) {
@@ -1505,7 +1505,7 @@ class VisitClass{
             $news_profile['hideondetails']='style="display:none;"';
         }
         if ($_REQUEST['agent']!='')    {
-            $admin_profile = $Global_Class -> getprofile( $_REQUEST['agent'], "admin", 'id' );
+            $admin_profile = $Global_Class->getprofile( $_REQUEST['agent'], "admin", 'id' );
 
             if ($admin_profile['logo']!="") {
                 $admin_profile['logo']="<img src=\"".$config['url_path_temp'] . $admin_profile['logo']."\"  border=0>";
@@ -1517,7 +1517,7 @@ class VisitClass{
                     $admin_profile['email'] = "";
                 }
             if ($admin_profile){
-                $news_profile['output_car_details'] = $tpl -> replace( $admin_profile, "cars_contact1.html" ).$news_profile['output_car_details'];
+                $news_profile['output_car_details'] = $tpl->replace( $admin_profile, "cars_contact1.html" ).$news_profile['output_car_details'];
             }
 
         }
@@ -1581,7 +1581,7 @@ class VisitClass{
 
         if (!is_array($config['admin_section']['cars']['dropdown_fields'])) $config['admin_section']['cars']['dropdown_fields']=array();
         foreach ($config['admin_section']['cars']['dropdown_fields'] as $key=>$val){
-            $temp_profile = $Global_Class -> getprofile($user[$val], "$val", 'id');
+            $temp_profile = $Global_Class->getprofile($user[$val], "$val", 'id');
             //print_r($temp_profile);
             if ($val=='year') $temp_profile["name".$language_set]=$temp_profile["name"];
 
@@ -1622,14 +1622,14 @@ class VisitClass{
         global $config;
         global $db; //database
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
         }
         @mysqli_free_result($result);
         $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         $contor=0;
         $out = '';
@@ -1640,7 +1640,7 @@ class VisitClass{
                 $contor++;
                 //second
                 $sql1 = "SELECT * FROM `{$config['table_prefix']}$default_tabel1` WHERE $relatedid='".$user[$id_]."' GROUP BY $id_1 ORDER BY $orderby1";
-                $result1 = $db -> query($sql1);
+                $result1 = $db->query($sql1);
                 $num_rows1 = mysqli_num_rows($result1);
                 $out1="";
                 if ($num_rows1>0){

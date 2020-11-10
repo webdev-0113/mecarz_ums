@@ -841,7 +841,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
         } // end
     }
 
-    // Access to "mysql" db allowed and dblist still empty -> gets the
+    // Access to "mysql" db allowed and dblist still empty->gets the
     // usable db list
     if (!$dblist_cnt
         && ($rs && @PMA_DBI_num_rows($rs))) {
@@ -1444,7 +1444,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         $num_dbs = count($dblist);
 
         // 1. A list of allowed databases has already been defined by the
-        //    authentification process -> gets the available databases list
+        //    authentification process->gets the available databases list
         if ($num_dbs) {
             $true_dblist = array();
             for ($i = 0; $i < $num_dbs; $i++) {
@@ -1458,7 +1458,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             unset($true_dblist);
             $num_dbs     = count($dblist);
         } // end if
-        // 2. Allowed database list is empty -> gets the list of all databases
+        // 2. Allowed database list is empty->gets the list of all databases
         //    on the server
         else if (!isset($cfg['Server']['only_db']) || $cfg['Server']['only_db'] == '') {
             $dblist = PMA_DBI_get_dblist(); // needed? or PMA_mysqlDie('', 'SHOW DATABASES;', FALSE, $error_url);

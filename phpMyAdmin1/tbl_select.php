@@ -31,7 +31,7 @@ if ($cfg['PropertiesIconic'] == true) {
 }
 
 /**
- * Not selection yet required -> displays the selection form
+ * Not selection yet required->displays the selection form
  */
 if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
@@ -336,7 +336,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
 
 
 /**
- * Selection criteria have been submitted -> do the work
+ * Selection criteria have been submitted->do the work
  */
 else {
     // Builds the query

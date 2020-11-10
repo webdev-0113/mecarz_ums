@@ -98,7 +98,7 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // js1.2+ -> validation with regular expressions
+    // js1.2+->validation with regular expressions
     else {
         // "DROP DATABASE" statement isn't allowed
         if (noDropDbMsg != '') {
@@ -128,14 +128,14 @@ function confirmQuery(theForm1, sqlQuery1)
                              ? sqlQuery1.value.substr(0, 100) + '\n    ...'
                              : sqlQuery1.value;
             var is_confirmed = confirm(confirmMsg + ' :\n' + message);
-            // drop/delete/alter statement is confirmed -> update the
+            // drop/delete/alter statement is confirmed->update the
             // "is_js_confirmed" form field so the confirm test won't be
             // run on the server side and allows to submit the form
             if (is_confirmed) {
                 theForm1.elements['is_js_confirmed'].value = 1;
                 return true;
             }
-            // "DROP/DELETE/ALTER" statement is rejected -> do not submit
+            // "DROP/DELETE/ALTER" statement is rejected->do not submit
             // the form
             else {
                 window.focus();
@@ -164,7 +164,7 @@ function checkSqlQuery(theForm)
     var sqlQuery = theForm.elements['sql_query'];
     var isEmpty  = 1;
 
-    // The replace function (js1.2) isn't supported -> basic tests
+    // The replace function (js1.2) isn't supported->basic tests
     if (typeof(sqlQuery.value.replace) == 'undefined') {
         isEmpty      = (sqlQuery.value == '') ? 1 : 0;
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
@@ -177,7 +177,7 @@ function checkSqlQuery(theForm)
             isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
         }
     }
-    // js1.2+ -> validation with regular expressions
+    // js1.2+->validation with regular expressions
     else {
         var space_re = new RegExp('\\s+');
         if (typeof(theForm.elements['sql_file']) != 'undefined' &&
@@ -445,7 +445,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
     var theCells = null;
 
     // 1. Pointer and mark feature are disabled or the browser can't get the
-    //    row -> exits
+    //    row->exits
     if ((thePointerColor == '' && theMarkColor == '')
         || typeof(theRow.style) == 'undefined') {
         return false;
@@ -583,7 +583,7 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
     var tagSwitch = null;
 
     // 1. Pointer and mark feature are disabled or the browser can't get the
-    //    row -> exits
+    //    row->exits
     if ((thePointerColor == '' && theMarkColor == '')
         || typeof(theRow.style) == 'undefined') {
         return false;

@@ -385,7 +385,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
         foreach ($res_rel AS $rel_field => $rel) {
             $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($rel_field, $use_backquotes) . $crlf
                             . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($rel['foreign_table'], $use_backquotes)
-                            . ' -> ' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
+                            . '->' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
         }
         $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
@@ -558,7 +558,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                     } else {
                         $values[] = '0x' . bin2hex($row[$j]);
                     }
-                // something else -> treat as a string
+                // something else->treat as a string
                 } else {
                     $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . '\'';
                 } // end if

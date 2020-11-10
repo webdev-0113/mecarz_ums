@@ -242,7 +242,7 @@ if ($abort == FALSE) {
     else if (empty($num_fields) || !is_int($num_fields)) {
         PMA_mysqlDie($strFieldsEmpty, '', '', $err_url);
     }
-    // Table name and number of fields are valid -> show the form
+    // Table name and number of fields are valid->show the form
     else {
         $action = 'tbl_create.php';
         require('./tbl_properties.inc.php');

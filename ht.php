@@ -76,7 +76,7 @@ $Email_class = new EmailClass;
 $banner_class = new Banner_Visit_Class; 
 //$dealer = new DealerClass;
 
-$settings_profile = $Global_Class -> getprofile( "1","settings","id" );
+$settings_profile = $Global_Class->getprofile( "1","settings","id" );
 switch($_REQUEST['p']){
 
        case "showbanner":
@@ -113,7 +113,7 @@ if ($_REQUEST['p']=='rent'){
    unset($_SESSION['departure_date']);
 }
 if ($_SESSION['rent']) {
-   $lang['tpl_auto_load_calendar_js'] = $tpl -> replace( array(), "calendar1.js", "js" );
+   $lang['tpl_auto_load_calendar_js'] = $tpl->replace( array(), "calendar1.js", "js" );
 }
 */
 if ($_SESSION['cardatase'] =='') {
@@ -228,7 +228,7 @@ $lang["tpl_auto_css"] = $config['tpl_path_visit'] . "style.css";
 $settings_profile['time']=dateformat($config["config_date_format"],strtotime ("now"));
 $lang["tpl_auto_separator_sign"]=$config["config_separator"];
 
-$settings_profile['customlinks'] = $VisitClass -> customlinks("other_menu_list.html");
+$settings_profile['customlinks'] = $VisitClass->customlinks("other_menu_list.html");
 $news_profile['customlinks'] = $settings_profile['customlinks'];
 
 if ($settings_profile['logo']=="") $settings_profile['logo']="../images/spacer.gif";
@@ -263,14 +263,14 @@ foreach ($arraytemp as $key=>$val){
 }
 $settings_profile['wishcount']=count($arraytemp);
 
-$javascript_profile = $Global_Class -> getprofile( "1","javascript","id" );
+$javascript_profile = $Global_Class->getprofile( "1","javascript","id" );
 foreach ($javascript_profile as $key=>$val){
         $config["javascriptprofiles"][$key]=unserialize(stripslashes($val));
 }        
 
 
               $sql = "SELECT {$config['table_prefix']}make.* FROM `{$config['table_prefix']}make` where 1 ";
-              $result = $db -> query( $sql );
+              $result = $db->query( $sql );
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {
@@ -287,7 +287,7 @@ END;
               }
               
               $sql = "SELECT {$config['table_prefix']}country.* FROM `{$config['table_prefix']}country` where 1 ";
-              $result = $db -> query( $sql );
+              $result = $db->query( $sql );
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {

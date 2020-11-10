@@ -162,7 +162,7 @@ if (!empty($prev_sql_query)) {
     }
 }
 
-// Drop database is not allowed -> ensure the query can be run
+// Drop database is not allowed->ensure the query can be run
 if (!$cfg['AllowUserDropDatabase']
     && preg_match('/@DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $sql_query)) {
     // Checks if the user is a Superuser

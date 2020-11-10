@@ -125,7 +125,7 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
     
     if (!defined('PMA_MYSQL_INT_VERSION') || PMA_MYSQL_INT_VERSION >= 40100
         || !(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
-        /* No recoding -> return data as we got them */
+        /* No recoding->return data as we got them */
         return $data;
     } else {
         $ret = array();

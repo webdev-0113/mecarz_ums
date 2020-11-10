@@ -64,7 +64,7 @@ $Email_class = new EmailClass;
 $VisitClass = new VisitClass;
 $visit_class = new Visit_Class;
 
-$settings_profile = $Global_Class -> getprofile( "1","settings","id" );
+$settings_profile = $Global_Class->getprofile( "1","settings","id" );
 
 foreach ($settings_profile as $kk1=>$vv1){
 	if ($vv1!=''){
@@ -188,19 +188,19 @@ $username = $_POST['username'];
 $var = $settings_profile;
 $var["url_path_tpl_admin"] = $config['url_path_tpl_admin'] ;
 $var[languagedropdown] = $settings_profile['languagedropdown'];
-$javascript_profile = $Global_Class -> getprofile( "1","javascript","id" );
+$javascript_profile = $Global_Class->getprofile( "1","javascript","id" );
 foreach ($javascript_profile as $key=>$val){
         $config["javascriptprofiles"][$key]=unserialize(stripslashes($val));
 }        
 
-$lang['tpl_auto_load_calendar_js'] = $tpl -> replace( array(), "calendar1.js", "js" );
+$lang['tpl_auto_load_calendar_js'] = $tpl->replace( array(), "calendar1.js", "js" );
 switch($_REQUEST['p']){
 
         case "banner":
-                $banner_settings_profile = $Global_Class -> getprofile( "1","bannersettings","id" );
+                $banner_settings_profile = $Global_Class->getprofile( "1","bannersettings","id" );
                 switch($_REQUEST[p1]){
                         case "banner":
-                                ////$lang['tpl_auto_load_calendar_js'] = $tpl -> replace( array(), "calendar1.js", "js" );
+                                ////$lang['tpl_auto_load_calendar_js'] = $tpl->replace( array(), "calendar1.js", "js" );
                                 require $path . "banner.class.php";
                                 $banner_class = new Banner_Class;
                                 break;
@@ -223,7 +223,7 @@ switch($_REQUEST['p']){
                                 exit;
                                 break;
                         case "bannerstats":
-                                //$lang['tpl_auto_load_calendar_js'] = $tpl -> replace( array(), "calendar1.js", "js" );
+                                //$lang['tpl_auto_load_calendar_js'] = $tpl->replace( array(), "calendar1.js", "js" );
                                 require $path . "bannerstats.class.php";
                                 $bannerstats_class = new BannerStats_Class;
                                 break;
@@ -265,7 +265,7 @@ switch($_REQUEST['p']){
                 } // switch
         break;
 }        
-$outputtoscreen .= $tpl -> replace( $var, "admin_header.html" ); //read header
+$outputtoscreen .= $tpl->replace( $var, "admin_header.html" ); //read header
 
 switch ( $p )
 {
@@ -302,27 +302,27 @@ if ( $_COOKIE['username_cookie'] == "" )
         switch ( $p )
         {
                 case "login":
-                        $outputtoscreen .= $admin -> login( $username, "login1", $redirect, "" );
+                        $outputtoscreen .= $admin->login( $username, "login1", $redirect, "" );
                         break;
                 case "forgot":
-                        $outputtoscreen .= $admin -> forgot( "forgot1", $redirect, "" );
+                        $outputtoscreen .= $admin->forgot( "forgot1", $redirect, "" );
                         break;
                 case "forgot1":
                         $email = $_POST['email'];
 						if (!preg_match( "^[a-z0-9]+([_.-][a-z0-9]+)*([_])*@([a-z0-9]+([.-][a-z0-9]+)*)+\\.[a-z]{2,4}$", $email ) )
                         {
-                                $outputdefault .= $admin -> forgot( "forgot1", $redirect, $lang["erroremail"] );
+                                $outputdefault .= $admin->forgot( "forgot1", $redirect, $lang["erroremail"] );
                         }else{                        
-                        $email_var = $Global_Class -> getprofile( $_POST['email'], "admin", "email" );
+                        $email_var = $Global_Class->getprofile( $_POST['email'], "admin", "email" );
                         if ( !$email_var or $email=='')
                         {
-                                $outputtoscreen .= $admin -> forgot( "forgot1", $redirect, $lang["erroremail"] );
+                                $outputtoscreen .= $admin->forgot( "forgot1", $redirect, $lang["erroremail"] );
                         }else{
                               srand((double)microtime() * 1000000);
                               $unic_id=@md5(rand(0, 999999));
                               $password = substr( @md5(rand(0, 999999)) ,0, 8) ;
                               $email_var[password] = $password;
-                              $settings_template = $Global_Class -> getprofile( "1","template","id" );
+                              $settings_template = $Global_Class->getprofile( "1","template","id" );
                               if ($email_var[active]==2) {
                                             if ($email_var[unic_id]=="") {
                                              $email_var[unic_id] = $unic_id;
@@ -331,19 +331,19 @@ if ( $_COOKIE['username_cookie'] == "" )
                                             $email_var['link'] = $config['url_path']."index.php?p=confirm&amp;id=".$email_var[unic_id];
                                             $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template['signup_subject'] );
                                             $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template['signup_body'] );
-                                            $sendresult = $Email_class -> emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
-                                            $sendresult = $Email_class -> emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                                            $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                                            $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
                               }
                               $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_subject'] );
                               $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_body'] );
 
                               $sql="UPDATE `{$config['table_prefix']}admin` SET password='".md5($password)."'{$sql_unic_id} where `email` = '$email' limit 1";
-                              $result = $db -> query($sql,__FILE__,__LINE__);
+                              $result = $db->query($sql,__FILE__,__LINE__);
 
-                              $sendresult = $Email_class -> emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
-                              $sendresult = $Email_class -> emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                              $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                              $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
-                              $outputtoscreen .= $admin -> login( $username, "login1", $redirect, $lang['tpl_auto_You_will_receive'] );
+                              $outputtoscreen .= $admin->login( $username, "login1", $redirect, $lang['tpl_auto_You_will_receive'] );
                         }
                         }
                         break;
@@ -354,25 +354,25 @@ if ( $_COOKIE['username_cookie'] == "" )
                         
                         if ( $username == "" )
                         {
-                                $outputtoscreen .= $admin -> login( $username, "login1", $redirect, $lang["error1"] );
+                                $outputtoscreen .= $admin->login( $username, "login1", $redirect, $lang["error1"] );
                         } elseif ( $password == "" )
                         {
-                                $outputtoscreen .= $admin -> login( $username, "login1", $redirect, $lang["error2"] );
+                                $outputtoscreen .= $admin->login( $username, "login1", $redirect, $lang["error2"] );
                         }
                         elseif ( $_SESSION['session_uid']!='' and $code == "" and (extension_loaded ("gd"))  and $config[useimagesecurity] )
                         {
-                                $outputtoscreen .= $admin -> login( $username, "login1", $redirect, $var["error"]=$lang["errorcode"] );
+                                $outputtoscreen .= $admin->login( $username, "login1", $redirect, $var["error"]=$lang["errorcode"] );
                                 //unset($_SESSION[number_unic]);
                                 $_SESSION['session_uid']="";
                         }elseif ( $_SESSION['session_uid']!='' and  $code != $_SESSION['session_uid'] and (extension_loaded ("gd"))  and $config[useimagesecurity] )
                         {
-                                $outputtoscreen .= $admin -> login( $username, "login1", $redirect, $var["error"]=$lang["errorcode1"] );
+                                $outputtoscreen .= $admin->login( $username, "login1", $redirect, $var["error"]=$lang["errorcode1"] );
                                 //unset($_SESSION[number_unic]);
                                 $_SESSION['session_uid']="";
                         }
-                        elseif ( $userprofile = $admin -> verifyadmin( $username, $password  ) )
+                        elseif ( $userprofile = $admin->verifyadmin( $username, $password  ) )
                         {
-                                $userprofile = $admin -> getadminprofile( $username );
+                                $userprofile = $admin->getadminprofile( $username );
                                 if (0){
                                    $userprofile['right'] = 1;
                                 }else{
@@ -383,7 +383,7 @@ if ( $_COOKIE['username_cookie'] == "" )
 					
 									addlogging( $row );                                   	
                                 }
-                                $admin -> loginadmin( $username, $userprofile['right'], $userprofile['id'] );
+                                $admin->loginadmin( $username, $userprofile['right'], $userprofile['id'] );
                                 //unset($_SESSION[number_unic]);
                                 if ($redirect=="p=forgot") $redirect="";
                                 $redirect='';
@@ -392,9 +392,9 @@ if ( $_COOKIE['username_cookie'] == "" )
                         }
                         else
                         {
-                                if ( $admin -> existadmin( $username ) )
+                                if ( $admin->existadmin( $username ) )
                                 {
-                                        $profile_ = $admin -> getadminprofile( $username );
+                                        $profile_ = $admin->getadminprofile( $username );
 
                                         if ($profile_['active']==0){
                                         $var = array ( "error" => $lang["error10"]
@@ -415,7 +415,7 @@ if ( $_COOKIE['username_cookie'] == "" )
                                         $var = array ( "error" => $lang["error3"]
                                                 );
                                 }
-                                $outputtoscreen .= $admin -> login( $username, "login1", $redirect, $var["error"] );
+                                $outputtoscreen .= $admin->login( $username, "login1", $redirect, $var["error"] );
                         }
 						$row = array(
 							"admin"=>get_user_ip(),
@@ -426,13 +426,13 @@ if ( $_COOKIE['username_cookie'] == "" )
                         break;
                 default:
                         if ($redirect=='') $redirect="p=summary&page=0";
-                        $outputtoscreen .= $admin -> login( $username, "login1", $redirect, "" );
+                        $outputtoscreen .= $admin->login( $username, "login1", $redirect, "" );
         }
 }
 else
 {
         $var['username'] = $_COOKIE['username_cookie'];
-        $right_cookie = $admin -> getadminright( $_COOKIE['right_cookie'] );
+        $right_cookie = $admin->getadminright( $_COOKIE['right_cookie'] );
         if ( !is_array( $right_cookie ) ) $right_cookie = array();	    
         $nr = 0;
         //$var['menu']=" :: ";
@@ -490,7 +490,7 @@ else
         if (!is_array($array_menu_order)) $array_menu_order = array();
         asort($array_menu_order);
         $nr=1;
-        $adminprofile = $Global_Class -> getprofile( $_COOKIE['id_cookie'],"admin","id" );
+        $adminprofile = $Global_Class->getprofile( $_COOKIE['id_cookie'],"admin","id" );
          if ($p == ''  or $p == 'summary') {
              if (1){
 					 if (!$right_cookie['view_all_cars']) {
@@ -504,7 +504,7 @@ else
                      
                      $userstat['val']=$val."&f=picturesstock";
                      
-                     $listin_array_id_gallery = $Global_Class -> getarrayid('gallery','carsid',$sqlini=' group by carsid');
+                     $listin_array_id_gallery = $Global_Class->getarrayid('gallery','carsid',$sqlini=' group by carsid');
           			 if (!is_array($listin_array_id_gallery)) $listin_array_id_gallery=array();
 
                      $var[picturesstock]=$Global_Class->getnumber("cars"," AND ( FIND_IN_SET( id, '".implode(",",$listin_array_id_gallery)."' ) > 0 ) $sql_default_global");  
@@ -516,19 +516,19 @@ else
                  
          
          if ($settings_profile['adprofiles']==1 and $adminprofile[daystoexpire]>=0 and $adminprofile[active]!=3 and !$right_cookie['view_all_cars']){
-         $var['home1'] =$tpl -> replace( $adminprofile, "home1.html" );
+         $var['home1'] =$tpl->replace( $adminprofile, "home1.html" );
          }
 
 
 	                                  
          if ($settings_profile['adprofiles']==1 and $adminprofile[active]==3){
-         $var['deactive'] =$tpl -> replace( $adminprofile, "home2.html" );
+         $var['deactive'] =$tpl->replace( $adminprofile, "home2.html" );
          $config[autoactivatedisabled]=true;
          }
          if (!$right_cookie['view_all_cars']){
-         $var['home_adprofiles'] =$tpl -> replace( $adminprofile, "home_adprofiles.html" );
+         $var['home_adprofiles'] =$tpl->replace( $adminprofile, "home_adprofiles.html" );
          }         
-         $var['home_page'] =$tpl -> replace( $var, "home.html" );
+         $var['home_page'] =$tpl->replace( $var, "home.html" );
          
          $var['home_page'] .= '<TABLE class=menu>';
 
@@ -559,7 +559,7 @@ else
                          $userstat[name]=$lang['tpl_auto_'.$val];
                          $userstat['val']=$val;
                          $userstat[number]=$Global_Class->getnumber($val);;
-                         $statsoutput .= $tpl -> replace( $userstat, "logs2.html" );
+                         $statsoutput .= $tpl->replace( $userstat, "logs2.html" );
                       }
                       }
                }
@@ -602,7 +602,7 @@ else
            //echo "\$lang['admin_menu_top1_{$val}']=\"{$val}\";\n";
            $vartemp['key'] = $val;
            if ($menu_show){
-           $var['repeat'] .= $tpl -> replace( $vartemp, "admin_menu_repeat.html" );
+           $var['repeat'] .= $tpl->replace( $vartemp, "admin_menu_repeat.html" );
            }
         }
         if (!is_array($config["admin_menu_top2"][$defaultoption])) $config["admin_menu_top2"][$defaultoption]=array();
@@ -639,7 +639,7 @@ else
            	$right_cookie[bannerstats]=1;
            }
            
-           $var['repeat2'] .= $tpl -> replace( $vartemp, "admin_menu_repeat.html" );
+           $var['repeat2'] .= $tpl->replace( $vartemp, "admin_menu_repeat.html" );
 
           }
         }
@@ -674,11 +674,11 @@ else
                                 }
         */
         $var['titlesite']=$settings_profile['titlesite'];
-        $outputtoscreen .= $tpl -> replace( $var, "admin_menu.html" ); //read header
+        $outputtoscreen .= $tpl->replace( $var, "admin_menu.html" ); //read header
         switch ( $p )
         {
                 case "change":
-                        if ( $adminprofile = $Global_Class -> getprofile( $_COOKIE['id_cookie'],"admin","id" ) )
+                        if ( $adminprofile = $Global_Class->getprofile( $_COOKIE['id_cookie'],"admin","id" ) )
                         {
 
                                 $varchar_fields=$config['admin_section']['changeprofile']['varchar_fields'];
@@ -691,11 +691,11 @@ else
                                 $checkbox_fields=$config['admin_section']['changeprofile']['checkbox_fields'];
                                 $password_fields=$config['admin_section']['changeprofile']['password'];
 
-                                $outputtoscreen .= $Global_Class -> edit( $_COOKIE['id_cookie'], "admin", "change1", "change1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, "id", "", $adminprofile );
+                                $outputtoscreen .= $Global_Class->edit( $_COOKIE['id_cookie'], "admin", "change1", "change1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, "id", "", $adminprofile );
                         }
                         else
                         {
-                                $outputtoscreen .= $admin -> login( $_COOKIE['username'], "login1", $lang["error2"] );
+                                $outputtoscreen .= $admin->login( $_COOKIE['username'], "login1", $lang["error2"] );
                         }
                         break;
                 case "change1":
@@ -707,15 +707,15 @@ else
                         $copy_from_val = $config['admin_section']['changeprofile']['copy_from_val'];
                         $require_array = $config['admin_section']['changeprofile']['require_array'];
 
-                        $user_profile = $Global_Class -> getprofile( $_COOKIE['id_cookie'], "admin", "id" );
+                        $user_profile = $Global_Class->getprofile( $_COOKIE['id_cookie'], "admin", "id" );
 
-                        $name_profile = $Global_Class -> getprofile( $_POST['input_username'], "admin", "username" );
+                        $name_profile = $Global_Class->getprofile( $_POST['input_username'], "admin", "username" );
 
                         if ( $name_profile && ( $name_profile['id'] != $_COOKIE['id_cookie'] ) )
                         {
                                 $outputtoscreen_add[1] .= $lang['error_change1']['username_exist'];
                         }
-                        $email_profile = $Global_Class -> getprofile( $_POST['input_email'], "admin", "email" );
+                        $email_profile = $Global_Class->getprofile( $_POST['input_email'], "admin", "email" );
 
                         if ( $email_profile && ( $email_profile['id'] != $_COOKIE['id_cookie'] ) )
                         {
@@ -747,7 +747,7 @@ else
                                                                 $email_fields=$config['admin_section']['changeprofile']['email_fields'];
                                                                 $id_="id";
 
-                                $outputtoscreen_add = $Global_Class -> edit1( $_COOKIE['id_cookie'], "admin", "change1", "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $id_ ,"","");
+                                $outputtoscreen_add = $Global_Class->edit1( $_COOKIE['id_cookie'], "admin", "change1", "", $default_id, $file,$file_size,$relation,$relation_table,$copy_from,$copy_from_val,$require_array,$password,$copy_from_id,$copy_from_id_value, $email_fields, $id_ ,"","");
 
 
                         }
@@ -764,14 +764,14 @@ else
                                 $checkbox_fields=$config['admin_section']['changeprofile']['checkbox_fields'];
                                 $password_fields=$config['admin_section']['changeprofile']['password'];
 
-                                $outputtoscreen .= $Global_Class -> edit( $_COOKIE['id_cookie'], "admin", "change1", "change1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, "id", "", $user_profile,  $outputtoscreen_add[1] );
+                                $outputtoscreen .= $Global_Class->edit( $_COOKIE['id_cookie'], "admin", "change1", "change1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, "id", "", $user_profile,  $outputtoscreen_add[1] );
 
 
                         }
                         else
                         {
                                 $outputtoscreen .= $outputtoscreen_add;
-                                $admin -> loginadmin( $_POST['input_username'], $_COOKIE['right_cookie'], $_COOKIE['id_cookie'] );
+                                $admin->loginadmin( $_POST['input_username'], $_COOKIE['right_cookie'], $_COOKIE['id_cookie'] );
                                 header( "Location: index.php?p=change2" );
                                 exit(0);
                         }
@@ -779,7 +779,7 @@ else
                 case "change2":
                         $var = array ( "tpl_msg" => $lang["tpl_Profile_updated"]
                                 );
-                        $outputtoscreen .= $tpl -> replace( $var, "admin_profileupdated.html" );
+                        $outputtoscreen .= $tpl->replace( $var, "admin_profileupdated.html" );
                         break;
 //finish cars
                 case "cars":
@@ -790,7 +790,7 @@ else
 						
                         $id_ = "id";
                         if (intval($_REQUEST['id'])>0){
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
                         //print_R($user_profile);
                         }
 
@@ -824,7 +824,7 @@ else
 
                                   $$temp = $_POST['input_'.$val1];
                           }
-                          $dropdownval[$val1] = $Global_Class -> getdropdown_array( $$temp, $lang[$val1] );
+                          $dropdownval[$val1] = $Global_Class->getdropdown_array( $$temp, $lang[$val1] );
                           $count1++;
                         }
                         if (!$right_cookie['view_all_cars']) {
@@ -838,8 +838,8 @@ else
                         
 						}
                         if ($o=="add" or $o=="add1" ) {
-                                $admin_profile = $Global_Class -> getprofile(  $_COOKIE['id_cookie'], "admin", "id" );
-                                $nocars = $Global_Class -> getnumrows($_COOKIE['id_cookie'], "cars", "admin");
+                                $admin_profile = $Global_Class->getprofile(  $_COOKIE['id_cookie'], "admin", "id" );
+                                $nocars = $Global_Class->getnumrows($_COOKIE['id_cookie'], "cars", "admin");
                                 if ($admin_profile[nocars]>0 AND $nocars>=$admin_profile[nocars]) {
                                     $_REQUEST['o']="view";
                                     $outputtoscreen .= $lang['tpl_auto_You_don_t_have_the_right_to_add_more_Cars'];
@@ -930,7 +930,7 @@ else
                         $config['config_sold_multiple_show']=1;
 
 
-                        $dropdownval["admin"] = $Global_Class -> getdropdown( $valoare_1, "admin", "username", "id", "username" );
+                        $dropdownval["admin"] = $Global_Class->getdropdown( $valoare_1, "admin", "username", "id", "username" );
 
 
                         $relation = array( "admin" );//,"city", "category", "make", "model"
@@ -955,7 +955,7 @@ else
                                         $temp1="val".$val1;
                                   $$temp1=$$temp;
                                 if ($$temp1==-1){
-                                     $user_profile = $Global_Class -> getprofilefirst( $val1, " order by name limit 1" );
+                                     $user_profile = $Global_Class->getprofilefirst( $val1, " order by name limit 1" );
                                      $$temp1=$user_profile[id];
                                 }
                           }
@@ -964,7 +964,7 @@ else
 	                                $temp1="val".$val1;
 	                                $temp2="val".$config['admin_section'][$default_tabel]['onchange_sub_rel'][$val1];
 	                                $$temp1=$$temp;
-	                                $dropdownval[$val1] = $Global_Class -> getdropdown( $$temp1, $val1, "name", "id", "name" ,0," and ".$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]."='{$$temp2}' " );
+	                                $dropdownval[$val1] = $Global_Class->getdropdown( $$temp1, $val1, "name", "id", "name" ,0," and ".$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]."='{$$temp2}' " );
 	                                $dropdownval_onchange[$config['admin_section'][$default_tabel]['onchange_sub_rel'][$val1]]=" onChange=\"changeinput_".$val1."(document.formarticle.input_".$val1.".selectedIndex,document.formarticle.input_".$config['admin_section'][$default_tabel]['onchange_sub_rel'][$val1].");\" ";
 	                                
 	                                //$dropdownval_onchange['state']=" onChange=\"changeinput_city(document.formarticle.input_city.selectedIndex,document.formarticle.input_state);\" ";
@@ -978,12 +978,12 @@ else
 							         }
 							         */
 							         
-							         $javascript_special[$val1] = $Global_Class -> getjavascriptarray($config['admin_section'][$default_tabel]['onchange_sub_rel'][$val1],"name{$language_set}","id","name{$language_set}",$val1,"name{$language_set}","id","name{$language_set}",$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]);
+							         $javascript_special[$val1] = $Global_Class->getjavascriptarray($config['admin_section'][$default_tabel]['onchange_sub_rel'][$val1],"name{$language_set}","id","name{$language_set}",$val1,"name{$language_set}","id","name{$language_set}",$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]);
 							                 
 							                              
 	                          } else{
 	
-	                                $dropdownval[$val1] = $Global_Class -> getdropdown( $$temp, $val1, "name", "id", "name" );
+	                                $dropdownval[$val1] = $Global_Class->getdropdown( $$temp, $val1, "name", "id", "name" );
 	
 	                          }
 						  }
@@ -997,10 +997,10 @@ else
 
                         }
 
-                        $dropdownval["admin"] = $Global_Class -> getdropdown( $valoare_1, "admin", "username", "id", "username" );
+                        $dropdownval["admin"] = $Global_Class->getdropdown( $valoare_1, "admin", "username", "id", "username" );
 
                         $dropdownval["active"] = yes_or_no($valoare_6);
-                        $dropdownval["delay"] = $Global_Class -> getdropdown_array( $valoare_8, array($config['delay_How_many_days_this_object_will_be_active']) );
+                        $dropdownval["delay"] = $Global_Class->getdropdown_array( $valoare_8, array($config['delay_How_many_days_this_object_will_be_active']) );
 
 
 
@@ -1066,7 +1066,7 @@ else
 	                        }
 
                         }
-                        $outputtoscreen .= $Global_Class -> choose_option();
+                        $outputtoscreen .= $Global_Class->choose_option();
                         break;
 //finish cars
 
@@ -1081,7 +1081,7 @@ else
                         $oid=$_REQUEST['oid'];
                         $id_ = "id";
                         if (intval($_REQUEST['id'])>0){
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
                         }                        
                         $config['config_auto_oid']=$oid;
                         if ($oid!=""){
@@ -1090,8 +1090,8 @@ else
                         }
 
                         if ($_SESSION['option_oid1']!="") {
-                                $user_profile_parent = $Global_Class -> getprofile(  $_SESSION['option_oid1'], "cars", "id" );
-                                $model_profile = $Global_Class -> getprofile(  $user_profile_parent[model], "model", $id_ );
+                                $user_profile_parent = $Global_Class->getprofile(  $_SESSION['option_oid1'], "cars", "id" );
+                                $model_profile = $Global_Class->getprofile(  $user_profile_parent[model], "model", $id_ );
                                 $session_activate_name=$_SESSION['option_oid1']." ".$model_profile["name{$language_set}"];
                                 $session_parent="cars";
                         }
@@ -1108,7 +1108,7 @@ else
                         $right_cookie[$p.'_add']=1;
 
                         if ($o=="add1") {
-                           $Global_Class -> insertcheckbox($_SESSION['option_oid1'],'features','name','id','name','carsfeatures','carsid','featuresid');
+                           $Global_Class->insertcheckbox($_SESSION['option_oid1'],'features','name','id','name','carsfeatures','carsid','featuresid');
                            $_REQUEST['o']="add";
                            $outputtoscreen_add[0]=true;
                            $HTTP_POST_VARS[error]=$lang['msg1'];
@@ -1122,7 +1122,7 @@ else
 
 
                         $dropdown_fields = array();
-                            //$dropdownval[featuresid] = $Global_Class -> getdropdown( $valoare_1, "features", "name", "id", "name" );
+                            //$dropdownval[featuresid] = $Global_Class->getdropdown( $valoare_1, "features", "name", "id", "name" );
 
 
 
@@ -1155,11 +1155,11 @@ else
                         $field_name ="name{$language_set}"; //for delete
                         $search_fields = array();
                         $config['config2_multiple_options'][0] = 1;
-                        $config['config2_multiple_options'][1] = $Global_Class -> getcheckbox($_SESSION['option_oid1'],"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
-                        $outputtoscreen .= $Global_Class -> choose_option();
+                        $config['config2_multiple_options'][1] = $Global_Class->getcheckbox($_SESSION['option_oid1'],"features","name{$language_set}","id","name{$language_set}","carsfeatures","carsid","featuresid");
+                        $outputtoscreen .= $Global_Class->choose_option();
                         if ($o=="add1" or $o=="edit1") {
                            $sql1="update `{$config['table_prefix']}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
-                           $result1 = $db -> query($sql1);
+                           $result1 = $db->query($sql1);
                         }
                         break;
 //finish carsfeatures
@@ -1173,7 +1173,7 @@ else
                         $oid=$_REQUEST['oid'];
                         $id_ = "id";
                         if (intval($_REQUEST['id'])>0){
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
                         }                       
                         $config['config_auto_oid']=$oid;
                         if ($oid!=""){
@@ -1181,14 +1181,14 @@ else
                                   $_SESSION['option_oid1']=$oid;
                         }
                         if ($_SESSION['option_oid1']!="") {
-                                $user_profile_parent = $Global_Class -> getprofile(  $_SESSION['option_oid1'], "cars", "id" );
-                                $model_profile = $Global_Class -> getprofile(  $user_profile_parent[model], "model", $id_ );
+                                $user_profile_parent = $Global_Class->getprofile(  $_SESSION['option_oid1'], "cars", "id" );
+                                $model_profile = $Global_Class->getprofile(  $user_profile_parent[model], "model", $id_ );
                                 $session_activate_name=$_SESSION['option_oid1']." ".$model_profile["name{$language_set}"];
                                 $session_parent="cars";
                         }
                         if ($o=="add") {
-                                $admin_profile = $Global_Class -> getprofile(  $HTTP_COOKIE_VARS['id_cookie'], "admin", "id" );
-                                $nopictures = $Global_Class -> getnumrows( $HTTP_SESSION_VARS['option_oid1'], "gallery", "carsid");
+                                $admin_profile = $Global_Class->getprofile(  $HTTP_COOKIE_VARS['id_cookie'], "admin", "id" );
+                                $nopictures = $Global_Class->getnumrows( $HTTP_SESSION_VARS['option_oid1'], "gallery", "carsid");
                                 if ($admin_profile['nopictures']!=0 and $nopictures>=$admin_profile['nopictures']) {
                                     $_REQUEST['o']="view";
                                 }
@@ -1270,10 +1270,10 @@ else
                         }
 
                                                
-                        $outputtoscreen .= $Global_Class -> choose_option();
+                        $outputtoscreen .= $Global_Class->choose_option();
                         if ($o=="add1" or $o=="edit1") {
                            $sql1="update `{$config['table_prefix']}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
-                           $result1 = $db -> query($sql1);
+                           $result1 = $db->query($sql1);
                         }
                         break;
 //finish gallery
@@ -1288,7 +1288,7 @@ else
                         $oid=$_REQUEST['oid'];
                         $id_ = "id";
                         if (intval($_REQUEST['id'])>0){
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
                         }
                         $config['config_auto_oid']=$oid;
                         if ($oid!=""){
@@ -1296,8 +1296,8 @@ else
                                   $_SESSION['option_oid1']=$oid;
                         }
                         if ($_SESSION['option_oid1']!="") {
-                                $user_profile_parent = $Global_Class -> getprofile(  $_SESSION['option_oid1'], "cars", "id" );
-                                $model_profile = $Global_Class -> getprofile(  $user_profile_parent[model], "model", $id_ );
+                                $user_profile_parent = $Global_Class->getprofile(  $_SESSION['option_oid1'], "cars", "id" );
+                                $model_profile = $Global_Class->getprofile(  $user_profile_parent[model], "model", $id_ );
                                 $session_activate_name=$_SESSION['option_oid1']." ".$model_profile["name{$language_set}"];
                                 $session_parent="cars";
                         }
@@ -1347,7 +1347,7 @@ else
 
                         $field_name ="id"; //for delete
                         $search_fields = array("id","name","email","phone","date_add");
-                        $outputtoscreen .= $Global_Class -> choose_option();
+                        $outputtoscreen .= $Global_Class->choose_option();
                         break;
 //finish messages
 
@@ -1360,7 +1360,7 @@ else
                         $o = $_REQUEST['o'];
                         $id_ = "id";
                         if (intval($_REQUEST['id'])>0){
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
                         }
 
                         if ($o=="add") {
@@ -1376,7 +1376,7 @@ else
                         $file_fields = array();
                         $dropdown_fields = array("carid");
 
-                        $dropdownval["carid"] = $Global_Class -> getdropdownspon( $valoare_1, "cars", "model", "id", "model" ,0);
+                        $dropdownval["carid"] = $Global_Class->getdropdownspon( $valoare_1, "cars", "model", "id", "model" ,0);
                         if ($o=="edit1" or $o=="add1"){
                            checkoverapping('carid');
                         }
@@ -1410,7 +1410,7 @@ else
 
                         $field_name ="id"; //for delete
                         $search_fields = array("id","carid","date_start","date_ends");
-                        $outputtoscreen .= $Global_Class -> choose_option();
+                        $outputtoscreen .= $Global_Class->choose_option();
                         break;
 //finish sponsored
 
@@ -1425,10 +1425,10 @@ else
                                 switch($_REQUEST['o']){
                                         case "sendemail1":
 
-                                                $outputtoscreen .= $Global_Class -> sendemail1();
+                                                $outputtoscreen .= $Global_Class->sendemail1();
                                         break;
                                         default:
-                                        $outputtoscreen .= $Global_Class -> sendemail();
+                                        $outputtoscreen .= $Global_Class->sendemail();
                                         break;
                                 }
                         }
@@ -1444,10 +1444,10 @@ else
                                 switch($_REQUEST['o']){
                                         case "sendemailadmin1":
 
-                                                $outputtoscreen .= $Global_Class -> sendemailadmin1();
+                                                $outputtoscreen .= $Global_Class->sendemailadmin1();
                                         break;
                                         default:
-                                        $outputtoscreen .= $Global_Class -> sendemailadmin();
+                                        $outputtoscreen .= $Global_Class->sendemailadmin();
                                         break;
                                 }
                         }
@@ -1473,19 +1473,19 @@ else
 
                     switch ($p1){
                               case "ok":
-                               		$adprofiles= $Global_Class -> getprofile( $_REQUEST[ad], "adprofiles", "id" );
+                               		$adprofiles= $Global_Class->getprofile( $_REQUEST[ad], "adprofiles", "id" );
 			
 
                                     $var[name].=$adprofiles["titleok".$language_set];
                                  	$var[mesg] .= $adprofiles["textok".$language_set];
-                                 	$outputtoscreen .= $tpl -> replace( $var, "mesg.html" );
+                                 	$outputtoscreen .= $tpl->replace( $var, "mesg.html" );
                               break;
                               case "notok":
-                               		$adprofiles= $Global_Class -> getprofile( $_REQUEST[ad], "adprofiles", "id" );			
+                               		$adprofiles= $Global_Class->getprofile( $_REQUEST[ad], "adprofiles", "id" );
 
                                     $var_header[name].=$adprofiles["titlenotok".$language_set];
                                  	$var[mesg] .= $adprofiles["textnotok".$language_set];
-                                 	$outputtoscreen .= $tpl -> replace( $var, "mesg.html" );
+                                 	$outputtoscreen .= $tpl->replace( $var, "mesg.html" );
                               break;                     	
                               case "renew1":
                                    if ($permission_denied) {
@@ -1526,11 +1526,11 @@ else
                         $var[logs]=logs($var[onlineusers]);
                         $var[statistics]=$statsoutput;
                         $var[top]=top();
-                        $outputtoscreen .= $tpl -> replace( $var, "logs.html" );
+                        $outputtoscreen .= $tpl->replace( $var, "logs.html" );
                         break;
                         }
                 case "logout":
-                        $admin -> logoutadmin();
+                        $admin->logoutadmin();
                         
                         $row = array(
 									"admin"=>$_COOKIE['id_cookie'],
@@ -1880,11 +1880,11 @@ else
                               break;
 
                               default:
-                                    $outputbanners .= $tpl -> replace( $var_header, "banner.html" ); //read header
+                                    $outputbanners .= $tpl->replace( $var_header, "banner.html" ); //read header
                               break;
                      }
                      $var_header[banner]=$outputbanners;
-                     $outputtoscreen .= $tpl -> replace( $var_header, "global_banner.html" );
+                     $outputtoscreen .= $tpl->replace( $var_header, "global_banner.html" );
                   break;
 
 //banner ends  
@@ -1901,7 +1901,7 @@ else
 									if (!is_array($_REQUEST['importsettings'])) $_REQUEST['importsettings']=array();
 									if (!is_array($_REQUEST['importsettingsdefaultvalue'])) $_REQUEST['importsettingsdefaultvalue']=array();
 			                        $sql="TRUNCATE TABLE `{$config['table_prefix']}importsettings` ";
-			                        $result = $db -> query($sql);								
+			                        $result = $db->query($sql);
 									
 									foreach ($_REQUEST['importsettings'] as $key=>$val){
 										if ($val==-1) $val=999999;
@@ -1909,11 +1909,11 @@ else
 	VALUES (
 	'', '{$key}', '{$val}', '{$_REQUEST[importsettingsdefaultvalue][$key]}'
 	) ";
-			                        	$result = $db -> query($sql);									
+			                        	$result = $db->query($sql);
 									}
 			                        $var = array ( "tpl_msg" => $lang['tpl_auto_your_preferences_saved']
 			                                );
-			                        $outputtoscreen .= $tpl -> replace( $var, "admin_profileupdated.html" );	                              
+			                        $outputtoscreen .= $tpl->replace( $var, "admin_profileupdated.html" );
 	                              break;
 	                              default:							
 						
@@ -1961,7 +1961,7 @@ else
 	                        		$tablefield_array_rall=array();
 	                        		$tablefield_array_rallname=array();
 			                        $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-			                        $result = $db -> query($sql);
+			                        $result = $db->query($sql);
 			                        while ($tablefield_array_r = mysqli_fetch_array($result)){
 			                        	if ($tablefield_array_r['Field']!='id' and !in_array($tablefield_array_r['Field'],$notusedarray) and !in_array($tablefield_array_r['Field'],$config['admin_section']['cars']['notimportfields']) ){
 			                               $tablefield_array_rall[]="cars__".$tablefield_array_r['Field'];
@@ -1970,7 +1970,7 @@ else
 			                        }                         
 	
 									$sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name{$language_set}";
-								    $result = $db -> query( $sql );
+								    $result = $db->query( $sql );
 								    $num_rows = mysqli_num_rows( $result );
 								    $contor=0;
 								    if ( $num_rows > 0 ) {
@@ -1987,7 +1987,7 @@ else
 								    }
 	
 			                        $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
-			                        $result = $db -> query($sql);
+			                        $result = $db->query($sql);
 			                        $num_rows = mysqli_num_rows( $result );
 			                        $arrayallresults=$arrayallresultskey=array();
 			                        $ct=0;		                        
@@ -2077,12 +2077,12 @@ else
 		                              default:
 				                        $var = array ( "error" => $lang['tpl_auto_Please_waitIt_might_take_a_minute']
 				                                );		                              
-				                        $outputtoscreenfix .= $tpl -> replace( $var, "admin_fixtools.html" );
+				                        $outputtoscreenfix .= $tpl->replace( $var, "admin_fixtools.html" );
 		                        	  break;
 		                     }	  
 		                     
 		                     $var_header[banner]=$outputtoscreenfix;
-		                     $outputtoscreen .= $tpl -> replace( $var_header, "global_banner.html" );		                                                break; 
+		                     $outputtoscreen .= $tpl->replace( $var_header, "global_banner.html" );		                                                break;
                         }                
 //fixtools ends  
 //import start
@@ -2116,7 +2116,7 @@ else
 						    	$var['enclosedby']='"';
 						    }	
 						    if ($var['enclosedby']=='"') $var['enclosedby']=htmlspecialchars($var['enclosedby']);
-                        	$outputtoscreen .= $tpl -> replace( $var, "import.html","",1 );
+                        	$outputtoscreen .= $tpl->replace( $var, "import.html","",1 );
                         }else{
 						$_REQUEST['input_enclosedby']=stripslashes($_REQUEST['input_enclosedby']);
 						if ($_REQUEST['input_enclosedby']=='&quot;') $_REQUEST['input_enclosedby']='"';
@@ -2128,7 +2128,7 @@ else
                         $count1=0;
 
                         $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
-                        $result = $db -> query($sql);
+                        $result = $db->query($sql);
                         $num_rows = mysqli_num_rows( $result );
                         $arrayallresults=$arrayallresultskey=array();
                         $ct=0;		                        
@@ -2173,7 +2173,7 @@ else
                         $key=-1;
 
                         $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-                        $result = $db -> query($sql);
+                        $result = $db->query($sql);
                         while ($tablefield_array_r = mysqli_fetch_array($result)){
                                $tablefield_array_rall[]=$tablefield_array_r;
                         }
@@ -2215,10 +2215,10 @@ else
                            // print_r($arraye);
                            //$arraye[$config['import_relation']['stock']];
 
-                           $user_profile = $Global_Class -> getprofile(  $arraye[$config['import_relation']['cars__stock']], 'cars', 'stock' );
+                           $user_profile = $Global_Class->getprofile(  $arraye[$config['import_relation']['cars__stock']], 'cars', 'stock' );
 
                            $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-                           $result = $db -> query($sql);
+                           $result = $db->query($sql);
 
                            $sql_input="";
                            $sql_input_val="";
@@ -2249,7 +2249,7 @@ else
 
                                      if (in_array($tablefield_array_r['Field'],$config['admin_section']['cars']['dropdown_fields'] )){
                                      	   $arraye[$config['import_relation']['cars__'.$tablefield_array_r['Field']]]=strval($arraye[$config['import_relation']['cars__'.$tablefield_array_r['Field']]]);
-                                           $category_profile = $Global_Class -> getprofile(  $arraye[$config['import_relation']['cars__'.$tablefield_array_r['Field']]], $tablefield_array_r['Field'], 'name' );
+                                           $category_profile = $Global_Class->getprofile(  $arraye[$config['import_relation']['cars__'.$tablefield_array_r['Field']]], $tablefield_array_r['Field'], 'name' );
                                            /*echo "<pre>";
                                            print_r($category_profile);
                                            echo "</pre>";
@@ -2267,7 +2267,7 @@ else
                                                       ." ( `id` ,{$sqlmodel} `name` )"
                                                       ." VALUES ( "
                                                       ." '',{$sqlmodel1} '".$arraye[$config['import_relation']['cars__'.$tablefield_array_r['Field']]]."' );";
-                                             $result1 = $db -> query($sql1);
+                                             $result1 = $db->query($sql1);
                                              $valoare=mysqli_insert_id();
                                            }
                                            $valoaresave='valoare'.$tablefield_array_r['Field'];
@@ -2293,19 +2293,19 @@ else
                                     ." ( `id` $sql_input )"
                                     ." VALUES ( '' "
                                     ." $sql_input_val );";
-                           $result = $db -> query($sql);
+                           $result = $db->query($sql);
                            $user_profile[id]=mysqli_insert_id();
                            $count++;
                            }else{
                            $sql = "UPDATE `{$config['table_prefix']}cars` SET `id`='{$user_profile[id]}' "
                                     ." $sql_input where `id`='{$user_profile[id]}' limit 1";
-                           $result = $db -> query($sql);
+                           $result = $db->query($sql);
                            $count1++;
                            }
                            @mysqli_free_result($result);
                            
 					      $sql = "SELECT * FROM `{$config['table_prefix']}gallery` where carsid='{$user_profile[id]}' ";
-					      $result2 = $db -> query($sql);
+					      $result2 = $db->query($sql);
 					      $num_rows_gallery2 = mysqli_num_rows($result2);
 					      @mysqli_free_result($result);
 					
@@ -2323,7 +2323,7 @@ else
 			                        	$imagine1 = $Image_Class1->resizer_main($arraye[$config['import_relationgallery'][$kkkf]],$IMG_HEIGHT_BIG,$IMG_WIDTH_BIG,$user_profile[id]);
 				                        if ($imagine and $imagine1){
 			                        	$sql = "insert into `{$config['table_prefix']}gallery` VALUES ('','{$user_profile[id]}','$imagine1','$imagine','','','','','$countimage');";
-				                        $result1 = $db -> query($sql,__FILE__,__LINE__);	                        	
+				                        $result1 = $db->query($sql,__FILE__,__LINE__);
 				                        }
 				                        
 			                        	$countimage++;
@@ -2336,13 +2336,13 @@ else
 		                  
 	                                                 
                           $sql = "delete from `{$config['table_prefix']}carsfeatures` where `carsid`='{$user_profile[id]}'";
-                          $result_ = $db -> query($sql,__FILE__,__LINE__);
+                          $result_ = $db->query($sql,__FILE__,__LINE__);
 		                  foreach  ($config['import_relationfeatures'] as $kkkf=>$vvvf){
 		                  	    if ($vvvf==-1) $arraye[$vvvf]=$config['import_relationfeatures_defaultvalue'][$kkkf];
 		                        if ($arraye[$vvvf]>0) {
 		                        	   $kkkf1=str_replace("features__","",$kkkf);
 		                               $sql = "insert into `{$config['table_prefix']}carsfeatures` VALUES ('','{$user_profile[id]}','$kkkf1');";
-		                               $result1 = $db -> query($sql,__FILE__,__LINE__);
+		                               $result1 = $db->query($sql,__FILE__,__LINE__);
 		
 		                        }
 		                  }
@@ -2358,9 +2358,9 @@ $somecontent = $key."\n";
                         //fclose($handle);
                         $var[error] = $count.$lang['tpl_auto_Ends_Import_imported'];
                         $var[error] .= $count1.$lang['tpl_auto_Ends_Import_updated'];
-                        //$outputtoscreen .= $tpl -> replace( $var, "import.html" );
+                        //$outputtoscreen .= $tpl->replace( $var, "import.html" );
 						$var_header[banner]=$var[error];
-		                $outputtoscreen .= $tpl -> replace( $var_header, "global_banner.html" );	                        
+		                $outputtoscreen .= $tpl->replace( $var_header, "global_banner.html" );
                         updatejavascript($up_);
                         }
                         break;
@@ -2383,17 +2383,17 @@ $somecontent = $key."\n";
                         if ($_REQUEST['o']!='export1'){
 					        foreach ($config['admin_section']['cars']['dropdown_fields'] as $key1=>$val1){
 					
-					           $var[$val1] = $Global_Class -> getdropdown( $_REQUEST['input_'.$val1], "$val1", "name{$language_set}", "id", "name{$language_set}",0 );
+					           $var[$val1] = $Global_Class->getdropdown( $_REQUEST['input_'.$val1], "$val1", "name{$language_set}", "id", "name{$language_set}",0 );
 					
 					
 					          if ($val1=='model'){
-					                  $var["model"] = $Global_Class -> getdropdown( $_REQUEST['input_model'], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_REQUEST[input_make]}' " );
+					                  $var["model"] = $Global_Class->getdropdown( $_REQUEST['input_model'], "model", "name{$language_set}", "id", "name{$language_set}",0, " and makeid='{$_REQUEST[input_make]}' " );
 					          } else{
 
 					
 					          }
 					        }
-                      		$var[admin] = $Global_Class -> getdropdown( $_REQUEST['input_admin'], "admin", "username", "id", "username",0 );
+                      		$var[admin] = $Global_Class->getdropdown( $_REQUEST['input_admin'], "admin", "username", "id", "username",0 );
                       		$aa=explode("__||__",$_COOKIE['autolisting_export']);
                       		if (isset($_COOKIE['autolisting_export'])){
 						    	$var['terminatedby']=stripslashes($aa[0]);
@@ -2408,7 +2408,7 @@ $somecontent = $key."\n";
 						    }					    
 						    if ($var['enclosedby']=='' or $var['enclosedby']=='\"') $var['enclosedby']='"';
 						    if ($var['enclosedby']=='"') $var['enclosedby']=htmlspecialchars($var['enclosedby']);
-                        	$outputtoscreen .= $tpl -> replace( $var, "export.html" );
+                        	$outputtoscreen .= $tpl->replace( $var, "export.html" );
                         	break;
                         }else{
                         	$_REQUEST[input_enclosedby]=stripslashes($_REQUEST[input_enclosedby]);
@@ -2423,13 +2423,13 @@ $somecontent = $key."\n";
 	                    		$tablefield_array_rall=array();
 	                    		$tablefield_array_rallname=array();								
 		                        $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-		                        $result = $db -> query($sql);
+		                        $result = $db->query($sql);
 		                        while ($tablefield_array_r = mysqli_fetch_array($result)){
 		                               $tablefield_array_rallname["cars__".$tablefield_array_r['Field']]=$lang["tpl_auto_cars"]." ".$lang['tabel_cars'][$tablefield_array_r['Field']];
 		                        }                         
 
 								$sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name{$language_set}";
-							    $result = $db -> query( $sql );
+							    $result = $db->query( $sql );
 							    $num_rows = mysqli_num_rows( $result );
 							    $contor=0;
 							    if ( $num_rows > 0 ) {
@@ -2447,7 +2447,7 @@ $somecontent = $key."\n";
 //ends
                         	
 	                        $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
-	                        $result = $db -> query($sql);
+	                        $result = $db->query($sql);
 	                        $num_rows = mysqli_num_rows( $result );
 	                        $arrayallresults=$arrayallresultskey=array();
 	                        $ct=0;	
@@ -2487,7 +2487,7 @@ $somecontent = $key."\n";
 	
 	
 					        $sql = "SELECT * FROM `{$config['table_prefix']}cars` WHERE 1 $sql_cond";
-					        $result = $db -> query($sql);
+					        $result = $db->query($sql);
 					        $num_rows = mysqli_num_rows($result);
 					        $contor = 0;
 			        
@@ -2502,7 +2502,7 @@ $somecontent = $key."\n";
 		                         			 	$value=addslashes($vvcars);
 
 			                                    if (in_array($kkcar,$config['admin_section']['cars']['dropdown_fields'] )){
-			                                        $category_profile = $Global_Class -> getprofile(  $vvcars, $kkcar, 'id' );
+			                                        $category_profile = $Global_Class->getprofile(  $vvcars, $kkcar, 'id' );
 			                                        $value = $category_profile['name'];
 			                                    }
 		                         			 	if ($config['import_relation_defaultvalue']['cars__'.$kkcar]!='') {
@@ -2518,7 +2518,7 @@ $somecontent = $key."\n";
 		                           }
 
 					                 $sql = "SELECT * FROM `{$config['table_prefix']}carsfeatures` WHERE carsid='{$user['id']}' ";
-							         $resultfea = $db -> query($sql);
+							         $resultfea = $db->query($sql);
 							         $num_rowsfea = mysqli_num_rows($resultfea);
 							         $userfeanew=array();
 							         if ($num_rowsfea > 0){
@@ -2548,7 +2548,7 @@ $somecontent = $key."\n";
 					                  }	
 					                  
 					                 $sql = "SELECT * FROM `{$config['table_prefix']}gallery` WHERE carsid='{$user['id']}' order by `order`";
-							         $resultfea = $db -> query($sql);
+							         $resultfea = $db->query($sql);
 							         $num_rowsfea = mysqli_num_rows($resultfea);
 							         $userfeagal=array();
 							         $ctgal=0;
@@ -2652,15 +2652,15 @@ $somecontent = $key."\n";
 						default:
 							if (substr($settingsupdate_template[lastupdate],0,8)!=date("Ymd")){					
 									$sql = "UPDATE `{$config['table_settingsupdate']}` SET 	`lastupdate`=NOW()+0 WHERE `id`=1 LIMIT 1";   
-									$result = $db -> query( $sql );  
+									$result = $db->query( $sql );
 									$sqlupdateall=1;
 							}else{
 									$sqlupdateall=0;
 							}
 						    $sql_ = "select max( id ) as maxx from `{$config['table_visits']}` where date_format(ctime,'%Y%m%d')<'".date("Ymd")."'  ";
-						    $result_ = $db -> query( $sql_ );
-						    list($row['maxx']) = $db -> fetch_row($result_);	
-						    $db -> free_result($result_);		
+						    $result_ = $db->query( $sql_ );
+						    list($row['maxx']) = $db->fetch_row($result_);
+						    $db->free_result($result_);
 						    $config['maxx_id']=$row['maxx'];
 						    			    
 						    $var_header[visits] = $visit_class->visits($sqlupdateall);
@@ -2674,7 +2674,7 @@ $somecontent = $key."\n";
 						    //print_r($settingsupdate_template);
 						    if ($config[maxx_id]!=''){
 						    $sql = "DELETE FROM `{$config['table_visits']}` where `id`<='{$config[maxx_id]}'";    
-						    $result = $db -> query( $sql );  
+						    $result = $db->query( $sql );
 						    }
 						    
 							$sql = "UPDATE `{$config['table_settingsupdate']}` SET `data`='".addslashes(serialize($settingsupdate_template['data']))."',
@@ -2684,19 +2684,19 @@ $somecontent = $key."\n";
 							`lastupdate`=NOW()+0
 							WHERE `id`=1 LIMIT 1"; 
 							
-						    $result = $db -> query( $sql );  			    
+						    $result = $db->query( $sql );
 						    
-						    $outputstats .= $tpl -> replace( $var_header, "admin_visit.html" );
+						    $outputstats .= $tpl->replace( $var_header, "admin_visit.html" );
 						break;
 			
 			        }
 					if ($_REQUEST['p']==''){
-				     $var_header['sistem'] = $tpl -> replace( $var_header, "sistem.html" );
+				     $var_header['sistem'] = $tpl->replace( $var_header, "sistem.html" );
 					}
-			        $output_header = $tpl -> replace( $var_header, "stats_header.html" ); //read header
-			        //$output .= $tpl -> replace( $var, "admin_jos.html" );
+			        $output_header = $tpl->replace( $var_header, "stats_header.html" ); //read header
+			        //$output .= $tpl->replace( $var, "admin_jos.html" );
 			        
-			        $output_footer .= $tpl -> replace( $var, "stats_footer.html" ); //read header				
+			        $output_footer .= $tpl->replace( $var, "stats_footer.html" ); //read header
 			        
 			        $outputtoscreen.=$output_header.$outputstats.$output_footer;
 				break;
@@ -2711,7 +2711,7 @@ $somecontent = $key."\n";
                         if ($right_cookie['view_all_cars']) {
 	                        if ($_REQUEST[o1]=='reset'){
 	                        	$sql="UPDATE `{$config['table_prefix']}admin` SET `date_delay`=NOW(),`daystoexpire` = `delay`,`daysactive`=0,`active`=1,`emailrenewsent`=0 where `id` = '{$_REQUEST['id']}' limit 1";
-	                            $result = $db -> query($sql,__FILE__,__LINE__);
+	                            $result = $db->query($sql,__FILE__,__LINE__);
 	                        }
                         }
                         if ($default_tabel=='') $default_tabel='cars';
@@ -2742,14 +2742,14 @@ $somecontent = $key."\n";
                                 if ($_REQUEST['o']=="add" or $_REQUEST['o']=="add1" OR $_REQUEST['o']=="delete"  or $_REQUEST['o']=="delete1" OR $_REQUEST['o']=="search") {
                                     $_REQUEST['o']="view";
                                 }
-                                if ($Global_Class -> getnumrows("1", $p, "id") < 1) {
+                                if ($Global_Class->getnumrows("1", $p, "id") < 1) {
                                     if ($_REQUEST['o']!="add1") {
                                        $_REQUEST['o']="add" ;
                                     }
                                 }
                         }
                         if (intval($_REQUEST['id'])>0){
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
                         }
 						if ($user_profile and in_array($p,$config['admin_special_menu'] ) ) {
                         	if (!is_array($lang['tabel_'.$p][$_REQUEST['id']])) $lang['tabel_'.$p]['1']=array();
@@ -2805,7 +2805,7 @@ $somecontent = $key."\n";
                                     }else{
                                      $sqltemp = "";
                                     }
-                                    $second_profile = $Global_Class -> getprofile( $_POST['input_'.$config['admin_section'][$default_tabel]['unic_name_field']], $default_tabel, $config['admin_section'][$default_tabel]['unic_name_field'],$sqltemp );
+                                    $second_profile = $Global_Class->getprofile( $_POST['input_'.$config['admin_section'][$default_tabel]['unic_name_field']], $default_tabel, $config['admin_section'][$default_tabel]['unic_name_field'],$sqltemp );
                                     if ($o=="edit1") {
                                         $cond1 = ($second_profile['id'] != $_REQUEST['id']);
                                         $cond2=($_POST['input_'.$config['admin_section'][$default_tabel]['unic_name_field_relation']]==$second_profile[$config['admin_section'][$default_tabel]['unic_name_field_relation']]);
@@ -2826,7 +2826,7 @@ $somecontent = $key."\n";
                         }
                         if ($config['admin_section'][$default_tabel]['secondunic_name_field']!=''){
 
-                                    $second_profile = $Global_Class -> getprofile( $_POST['input_'.$config['admin_section'][$default_tabel]['secondunic_name_field']], $default_tabel, $config['admin_section'][$default_tabel]['secondunic_name_field'],$sqltemp );
+                                    $second_profile = $Global_Class->getprofile( $_POST['input_'.$config['admin_section'][$default_tabel]['secondunic_name_field']], $default_tabel, $config['admin_section'][$default_tabel]['secondunic_name_field'],$sqltemp );
                                     if ($o=="edit1") {
                                         $cond1 = ($second_profile['id'] != $_REQUEST['id']);
                                         $cond2=($_POST['input_'.$config['admin_section'][$default_tabel]['secondunic_name_field']]==$second_profile[$config['admin_section'][$default_tabel]['secondunic_name_field']]);
@@ -2863,7 +2863,7 @@ $somecontent = $key."\n";
                           if ($val1==$config['admin_section'][$default_tabel]['field_activate']){
                            $dropdownval[$val1] = yes_or_no($$temp);
                           }else{
-                           $dropdownval[$val1] = $Global_Class -> getdropdown_array( $$temp, $lang[$val1] );
+                           $dropdownval[$val1] = $Global_Class->getdropdown_array( $$temp, $lang[$val1] );
                           }
                           $count1++;
                         }
@@ -2886,7 +2886,7 @@ $somecontent = $key."\n";
                           }
                           $valoaretemp[$val1]=$$temp;
                           $valtemplang=(in_array($val1,$config['admin_section'][$default_tabel]['dropdown_fields_language_notused']))?0:1;
-                          $dropdownval[$val1] = $Global_Class -> getdropdownlanguage( $$temp,$valtemplang );
+                          $dropdownval[$val1] = $Global_Class->getdropdownlanguage( $$temp,$valtemplang );
                           $count1++;
                         }
                         
@@ -2908,8 +2908,8 @@ $somecontent = $key."\n";
 
                           if ($o=="add") {
                                   if ($config['admin_section'][$default_tabel]['exist_limit_number']) {
-                                     $admin_profile = $Global_Class -> getprofile(  $_COOKIE['id_cookie'], $config['admin_section'][$default_tabel]['admin_limit_number_table'], "id" );
-                                     $nolimit = $Global_Class -> getnumrows($_COOKIE['id_cookie'], $default_tabel, $config['admin_section'][$default_tabel]['relation_to_admin']);
+                                     $admin_profile = $Global_Class->getprofile(  $_COOKIE['id_cookie'], $config['admin_section'][$default_tabel]['admin_limit_number_table'], "id" );
+                                     $nolimit = $Global_Class->getnumrows($_COOKIE['id_cookie'], $default_tabel, $config['admin_section'][$default_tabel]['relation_to_admin']);
                                      if ($admin_profile[$config['admin_section'][$default_tabel]['admin_limit_number_field']]>0 AND $nolimit>=$admin_profile[$config['admin_section'][$default_tabel]['admin_limit_number_field']]) {
                                         $_REQUEST['o']="view";
                                      }
@@ -2921,7 +2921,7 @@ $somecontent = $key."\n";
                                   $valoare_1 = $_POST['input_'.$val1];
                           }
 
-                          $dropdownval[$val1] = $Global_Class -> getdropdown( $valoare_1, $config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][3] );
+                          $dropdownval[$val1] = $Global_Class->getdropdown( $valoare_1, $config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][3] );
 
                         }
                         */
@@ -2930,8 +2930,8 @@ $somecontent = $key."\n";
 
                           if ($o=="add") {
                                   if ($config['admin_section'][$default_tabel]['exist_limit_number']) {
-                                     $admin_profile = $Global_Class -> getprofile(  $_COOKIE['id_cookie'], $config['admin_section'][$default_tabel]['admin_limit_number_table'], "id" );
-                                     $nolimit = $Global_Class -> getnumrows($_COOKIE['id_cookie'], $default_tabel, $config['admin_section'][$default_tabel]['relation_to_admin']);
+                                     $admin_profile = $Global_Class->getprofile(  $_COOKIE['id_cookie'], $config['admin_section'][$default_tabel]['admin_limit_number_table'], "id" );
+                                     $nolimit = $Global_Class->getnumrows($_COOKIE['id_cookie'], $default_tabel, $config['admin_section'][$default_tabel]['relation_to_admin']);
                                      if ($admin_profile[$config['admin_section'][$default_tabel]['admin_limit_number_field']]>0 AND $nolimit>=$admin_profile[$config['admin_section'][$default_tabel]['admin_limit_number_field']]) {
                                         $_REQUEST['o']="view";
                                      }
@@ -2952,7 +2952,7 @@ $somecontent = $key."\n";
                                 $temp1="val".$val1;
                                 $$temp1=$valoare_1;
                                 if ($valoare_1==-1){
-                                     $user_profile123 = $Global_Class -> getprofilefirst( $config['admin_section'][$default_tabel]['onchange_rel'][$val1], " order by name{$language_set} limit 1" );
+                                     $user_profile123 = $Global_Class->getprofilefirst( $config['admin_section'][$default_tabel]['onchange_rel'][$val1], " order by name{$language_set} limit 1" );
                                      $$temp1=$user_profile123[id];
                                 }
                           }
@@ -2977,11 +2977,11 @@ $somecontent = $key."\n";
                                  }
                                 }
                                 $$temp1=$$temp;
-                                $dropdownval[$val1] = $Global_Class -> getdropdown( $$temp1, $config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][3] ,0," and ".$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]."='{$$temp2}' " );
+                                $dropdownval[$val1] = $Global_Class->getdropdown( $$temp1, $config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][3] ,0," and ".$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]."='{$$temp2}' " );
                                 $dropdownval_onchange[$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]]=" onChange=\"changeinput_".$val1."(document.formarticle.input_".$val1.".selectedIndex,document.formarticle.input_".$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1].");\" ";
 
-                                 //$javascript_special[$val1] = $Global_Class -> getjavascriptarray($config['admin_section'][$default_tabel]['onchange_sub_rel'][$val1],"name{$language_set}","id","name{$language_set}",$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],"name{$language_set}","id","name{$language_set}",$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]);
-                                 $javascript_special[$val1] = $Global_Class -> getjavascriptarray("country","name{$language_set}","id","name{$language_set}","state","name{$language_set}","id","name{$language_set}","countryid");
+                                 //$javascript_special[$val1] = $Global_Class->getjavascriptarray($config['admin_section'][$default_tabel]['onchange_sub_rel'][$val1],"name{$language_set}","id","name{$language_set}",$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],"name{$language_set}","id","name{$language_set}",$config['admin_section'][$default_tabel]['onchange_sub_id'][$val1]);
+                                 $javascript_special[$val1] = $Global_Class->getjavascriptarray("country","name{$language_set}","id","name{$language_set}","state","name{$language_set}","id","name{$language_set}","countryid");
                                  //exit;
                                  //echo $val1;
                                  //echo  $javascript_special[$val1];
@@ -2989,7 +2989,7 @@ $somecontent = $key."\n";
                                  
                           } else{
 
-                               $dropdownval[$val1] = $Global_Class -> getdropdown( $valoare_1, $config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][3] );
+                               $dropdownval[$val1] = $Global_Class->getdropdown( $valoare_1, $config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][$val1][3] );
                           }
 //end
 
@@ -3017,12 +3017,12 @@ $somecontent = $key."\n";
 
                         if ($config['admin_section'][$default_tabel]['exist_onChange']){
                           if ($valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']]==-1){
-                               $user_profile = $Global_Class -> getprofilefirst( $config['admin_section'][$default_tabel]['exist_onChange_relation'][0], $config['admin_section'][$default_tabel]['exist_onChange_relation'][1] );
+                               $user_profile = $Global_Class->getprofilefirst( $config['admin_section'][$default_tabel]['exist_onChange_relation'][0], $config['admin_section'][$default_tabel]['exist_onChange_relation'][1] );
                                $valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']]=$user_profile[$id_];
                           }
-                          $dropdownval[$valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']]] = $Global_Class -> getdropdown( $valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']], $config['admin_section'][$default_tabel]['dropdown_fields_relation'][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][3]  ,0," and ".$config['admin_section'][$default_tabel]['exist_onChange_relation_field']."='".$valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']]."' ");
+                          $dropdownval[$valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']]] = $Global_Class->getdropdown( $valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']], $config['admin_section'][$default_tabel]['dropdown_fields_relation'][0],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][1],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][2],$config['admin_section'][$default_tabel]['dropdown_fields_relation'][3]  ,0," and ".$config['admin_section'][$default_tabel]['exist_onChange_relation_field']."='".$valoaretemp[$config['admin_section'][$default_tabel]['exist_onChange_field']]."' ");
                           $dropdownval_onchange[$config['admin_section'][$default_tabel]['exist_onChange_secondfield']]=$config['admin_section'][$default_tabel]['dropdownval_onchange'];
-                          $javascript_special[$config['admin_section'][$default_tabel]['exist_onChange_field']] = $Global_Class -> getjavascriptarray($config['admin_section'][$default_tabel]['javascript_special'][0],$config['admin_section'][$default_tabel]['javascript_special'][1],$config['admin_section'][$default_tabel]['javascript_special'][3],$config['admin_section'][$default_tabel]['javascript_special'][4],$config['admin_section'][$default_tabel]['javascript_special'][5],$config['admin_section'][$default_tabel]['javascript_special'][6],$config['admin_section'][$default_tabel]['javascript_special'][7],$config['admin_section'][$default_tabel]['javascript_special'][8]);
+                          $javascript_special[$config['admin_section'][$default_tabel]['exist_onChange_field']] = $Global_Class->getjavascriptarray($config['admin_section'][$default_tabel]['javascript_special'][0],$config['admin_section'][$default_tabel]['javascript_special'][1],$config['admin_section'][$default_tabel]['javascript_special'][3],$config['admin_section'][$default_tabel]['javascript_special'][4],$config['admin_section'][$default_tabel]['javascript_special'][5],$config['admin_section'][$default_tabel]['javascript_special'][6],$config['admin_section'][$default_tabel]['javascript_special'][7],$config['admin_section'][$default_tabel]['javascript_special'][8]);
                         }
 
                         $radio_fields = $config['admin_section'][$default_tabel]['radio_fields'];
@@ -3031,7 +3031,7 @@ $somecontent = $key."\n";
                         $checkbox_fields = $config['admin_section'][$default_tabel]['checkbox_fields'];
                         if ($default_tabel=='rights'){
                                 $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-                                $result = $db -> query($sql,__FILE__,__LINE__);
+                                $result = $db->query($sql,__FILE__,__LINE__);
                                 while ($tablefield_array_r = mysqli_fetch_array($result)){
                                         $key = $tablefield_array_r['Field'];
                                         if ( !in_array( $key, array( "id", "name" ) ) ){
@@ -3122,9 +3122,9 @@ $somecontent = $key."\n";
 
 
                         if (intval($_REQUEST['id'])>0){
-                        $user_profile = $Global_Class -> getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
+                        $user_profile = $Global_Class->getprofile(  $_REQUEST['id'], $default_tabel, $id_ );
                         }
-                        $outputtoscreen .= $Global_Class -> choose_option();
+                        $outputtoscreen .= $Global_Class->choose_option();
                         if (in_array($default_tabel,$config['admin_section']['cars']['dropdown_fields'] )){
                             if ($o=="add1" or $o=="edit1" or $o=="delete" ) {
                                $up_=0;
@@ -3140,10 +3140,10 @@ $somecontent = $key."\n";
 
 
         }
-        $outputtoscreen .= $tpl -> replace( $var, "admin_jos.html","",$condtemplates );
+        $outputtoscreen .= $tpl->replace( $var, "admin_jos.html","",$condtemplates );
 }
 $var = array();
-$outputtoscreen .= $tpl -> replace( $var, "admin_footer.html","",$condtemplates ); //read header
+$outputtoscreen .= $tpl->replace( $var, "admin_footer.html","",$condtemplates ); //read header
 
 echo $outputtoscreen;
 /*
