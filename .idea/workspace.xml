@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/includes/licence.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/licence.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/config_write.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config_write.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +12,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/licence.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+            <state relative-caret-position="240">
+              <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/config_write.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+              <folding>
+                <marker date="1604980136009" expanded="true" signature="176:228" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -25,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/.htaccess">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
-              <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -43,7 +55,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$var_header[i]</find>
       <find>$var_header[startdivsearch]</find>
       <find>eregi_replace (</find>
       <find>$profile[id]</find>
@@ -73,9 +84,9 @@
       <find>getprofile</find>
       <find>dl($__ln)</find>
       <find>dl(</find>
+      <find>if(!extension_loaded('ionCube Loader')){</find>
     </findStrings>
     <replaceStrings>
-      <replace>$settings_profile['currency']</replace>
       <replace>$user['pricemesg']</replace>
       <replace>$user['make']</replace>
       <replace>$user['model']</replace>
@@ -105,6 +116,7 @@
       <replace>$admin_profile['nopictures']</replace>
       <replace>['gallery']</replace>
       <replace>$copy_from_id_value['carsid']</replace>
+      <replace>if(extension_loaded('ionCube Loader')){</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -131,11 +143,11 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/session.php" />
         <option value="$PROJECT_DIR$/includes/global.class.php" />
-        <option value="$PROJECT_DIR$/includes/config_write.php" />
         <option value="$PROJECT_DIR$/includes/db.php" />
         <option value="$PROJECT_DIR$/old.htaccess" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/includes/licence.php" />
+        <option value="$PROJECT_DIR$/includes/config_write.php" />
       </list>
     </option>
   </component>
@@ -172,7 +184,7 @@
             <path>
               <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
               <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
-              <item name="ioncube" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -216,12 +228,12 @@
       <workItem from="1604927323605" duration="137000" />
       <workItem from="1604932253770" duration="6767000" />
       <workItem from="1604943611966" duration="78000" />
-      <workItem from="1604974853028" duration="3942000" />
+      <workItem from="1604974853028" duration="4152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31403000" />
+    <option name="totallyTimeSpent" value="31613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1780" height="937" extended-state="6" />
@@ -468,16 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/config_write.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding>
-            <marker date="1604937924066" expanded="true" signature="180:228" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/global.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
@@ -495,7 +497,7 @@
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -511,8 +513,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/licence.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        <state relative-caret-position="240">
+          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/config_write.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <marker date="1604980136009" expanded="true" signature="176:228" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
