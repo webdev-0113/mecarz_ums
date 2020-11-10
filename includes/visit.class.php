@@ -749,7 +749,7 @@ class VisitClass{
         return array($id_prev,$id_next);
     }
 
-    function cars_details(& $user, & $num_rows_gallery,$typeofdisplay=0)
+    function cars_details($user, $num_rows_gallery,$typeofdisplay=0)
     {
         global $db, $Global_Class, $tpl, $lang, $language_set;
         global $config, $_REQUEST, $settings_profile, $IMG_HEIGHT_LOGO, $IMG_WIDTH_LOGO, $HTTP_COOKIE_VARS;
@@ -1105,7 +1105,7 @@ class VisitClass{
             return $out;
         }
     }
-    function cars_details_contact(& $user, & $num_rows_gallery)
+    function cars_details_contact($user, $num_rows_gallery)
     {
         global $db, $Global_Class, $tpl, $lang, $language_set;
         global $config, $_REQUEST, $settings_profile, $IMG_HEIGHT_LOGO, $IMG_WIDTH_LOGO, $HTTP_COOKIE_VARS;
@@ -1307,7 +1307,7 @@ class VisitClass{
         return $out;
 
     }
-    function adprofiles_content(& $nrmax)
+    function adprofiles_content($nrmax)
     {
         global $db, $Global_Class, $tpl, $lang;
         global $config, $_REQUEST, $language_set, $settings_profile;

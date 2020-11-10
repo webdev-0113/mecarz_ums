@@ -686,13 +686,12 @@ class GlobalClass{
         global $config;
         global $db,$_REQUEST; //database
 
-
-
-        if (!preg_match("/limit",$sql1)){
+        if (!preg_match("/limit/",$sql1)){
             $sql1.=" LIMIT 1";
         }
-        $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql1";
-        $result = $db -> query($sql,__FILE__,__LINE__);
+//        $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql1";
+        $sql = "SELECT * FROM `mecarzsettings` WHERE `id`='2' LIMIT 1";
+        $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             $user = mysqli_fetch_assoc($result);
@@ -706,7 +705,7 @@ class GlobalClass{
     function getprofilefirst($default_tabel,$sql1=""){
         global $config;
         global $db; //database
-        if (!preg_match("/limit",$sql1)){
+        if (!preg_match("/limit/",$sql1)){
             $sql1.=" LIMIT 1";
         }
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sql1";

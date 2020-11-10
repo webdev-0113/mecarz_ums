@@ -2,17 +2,17 @@
 
 
 $config["months_name"] = array( _January, _February, _March, _April, _May, _June,
-        _July, _August, _September, _October, _November, _December );
+    _July, _August, _September, _October, _November, _December );
 $config["days_in_month"] = array( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
 $config["days_name"] = array( _Sun, _Mon, _Tue, _Wed, _Thu, _Fri, _Sat );
 
 foreach($config["days_name"] as $key=>$val){
-       $config["config_auto_days_name"].="\"$val\",";
+    $config["config_auto_days_name"].="\"$val\",";
 }
 $config["config_auto_days_name"].="\"\"";
 
 foreach($config["months_name"] as $key=>$val){
-       $config["config_auto_month_name"].="\"$val\",";
+    $config["config_auto_month_name"].="\"$val\",";
 }
 $config["config_auto_month_name"].="\"\"";
 
@@ -611,16 +611,16 @@ $config['admin_section']['settings']['dropdownval_onchange'] = array();
 $config['admin_section']['settings']['javascript_special'] = array();
 $config['admin_section']['settings']['radio_fields'] = array('add_image_text_','add_image_text_color_to_thumb', 'show_sponsored_onallpages','show_one_homepage_lastlisting','show_lastlisting_onallpages', 'show_one_homepage_sponsored','price_before','use_old_sponsored_format','send_email_to_admin_every_day','show_only_yes_no_for_active');
 $config['admin_section']['settings']['radioval'] = array(
-'add_image_text_'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
-'add_image_text_color_to_thumb'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>", 
-'show_sponsored_onallpages'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
-'show_one_homepage_lastlisting'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
-'show_lastlisting_onallpages'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>", 
-'show_one_homepage_sponsored'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
-'price_before'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
-'use_old_sponsored_format'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
-'send_email_to_admin_every_day'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
-'show_only_yes_no_for_active'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'add_image_text_'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'add_image_text_color_to_thumb'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'show_sponsored_onallpages'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'show_one_homepage_lastlisting'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'show_lastlisting_onallpages'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'show_one_homepage_sponsored'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'price_before'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'use_old_sponsored_format'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'send_email_to_admin_every_day'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
+    'show_only_yes_no_for_active'=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>",
 
 );
 $config['admin_section']['settings']['checkbox_fields'] = array("wysiwyg","adprofiles");
@@ -1244,7 +1244,7 @@ $config['admin_section']['logging']['exist_limit_number'] = false;
 $config['admin_section']['logging']['admin_limit_number_table'] = array();
 $config['admin_section']['logging']['admin_limit_number_field'] = array();
 $config['admin_section']['logging']['dropdown_fields_relation'] = array(
-"admin"=>array("admin", "username", "id", "username"),
+    "admin"=>array("admin", "username", "id", "username"),
 );
 $config['admin_section']['logging']['copy_from_id_add'] = array();
 $config['admin_section']['logging']['copy_from_id_edit'] = array();
@@ -1265,7 +1265,7 @@ $config['admin_section']['logging']['file'] = array();
 $config['admin_section']['logging']['file_size'] = array();
 $config['admin_section']['logging']['relation'] = array('admin');
 $config['admin_section']['logging']['relation_table'] = array(
-"admin"=>array("admin", "id", "username")
+    "admin"=>array("admin", "id", "username")
 );
 $config['admin_section']['logging']['copy_from'] = array();
 $config['admin_section']['logging']['copy_from_val'] = array();
@@ -1363,7 +1363,7 @@ $config['admin_section']['paymenthistory']['exist_limit_number'] = false;
 $config['admin_section']['paymenthistory']['admin_limit_number_table'] = array();
 $config['admin_section']['paymenthistory']['admin_limit_number_field'] = array();
 $config['admin_section']['paymenthistory']['dropdown_fields_relation'] = array(
-"adminid"=>array("admin", "username", "id", "username")
+    "adminid"=>array("admin", "username", "id", "username")
 );
 $config['admin_section']['paymenthistory']['copy_from_id_add'] = array();
 $config['admin_section']['paymenthistory']['copy_from_id_edit'] = array();
@@ -1375,7 +1375,7 @@ $config['admin_section']['paymenthistory']['exist_onChange_relation'] = array();
 $config['admin_section']['paymenthistory']['exist_onChange_relation_field'] = array();
 $config['admin_section']['paymenthistory']['exist_onChange_secondfield'] = array();
 $config['admin_section']['paymenthistory']['dropdownval_onchange'] = array();
-$config['admin_section']['paymenthistory']['javascript_special'] = array(); 
+$config['admin_section']['paymenthistory']['javascript_special'] = array();
 $config['admin_section']['paymenthistory']['radio_fields'] = array("success");
 $config['admin_section']['paymenthistory']['radioval'] = array("success"=>"1|<img src=\"../images/active1.gif\" border=0>|#0|<img src=\"../images/active0.gif\" border=0>");
 $config['admin_section']['paymenthistory']['checkbox_fields'] = array();
@@ -1869,8 +1869,8 @@ $config['admin_section']['city']['exist_limit_number'] = false;
 $config['admin_section']['city']['admin_limit_number_table'] = array();
 $config['admin_section']['city']['admin_limit_number_field'] = array();
 $config['admin_section']['city']['dropdown_fields_relation'] = array(
-"countryid"=>array("country", "name", "id", "name"),
-"stateid"=>array("state", "name", "id", "name")
+    "countryid"=>array("country", "name", "id", "name"),
+    "stateid"=>array("state", "name", "id", "name")
 );
 
 
@@ -1900,8 +1900,8 @@ $config['admin_section']['city']['file'] = array();
 $config['admin_section']['city']['file_size'] = array();
 $config['admin_section']['city']['relation'] = array("stateid",'countryid');
 $config['admin_section']['city']['relation_table'] = array(
-"stateid"=>array("state","id","name"),
-"countryid"=>array("country","id","name"),
+    "stateid"=>array("state","id","name"),
+    "countryid"=>array("country","id","name"),
 );
 $config['admin_section']['city']['copy_from'] = array();
 $config['admin_section']['city']['copy_from_val'] = array();

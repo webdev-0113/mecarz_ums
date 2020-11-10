@@ -11,9 +11,11 @@ $config['table_prefix'] = 'mecarz';
 //$config['path'] = '/home/mecarz/public_html/mecarz.com/';
 $config['path'] = '/opt/lamp/htdocs/mecarz_ums/';
 if (preg_match("/www.mecarz.com/", $_SERVER["HTTP_HOST"])){
-    $config['url_path'] = 'http://www.mecarz.com/';
+//    $config['url_path'] = 'http://www.mecarz.com/';
+    $config['url_path'] = 'http://192.168.52.135/';
 }else {
-    $config['url_path'] = 'http://mecarz.com/';
+//    $config['url_path'] = 'http://mecarz.com/';
+    $config['url_path'] = 'http://192.168.52.135/';
 }
 
 $config['wywiwyg_path']=$config['path'].'FCKeditor/';

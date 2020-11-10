@@ -2,63 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ioncube/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ioncube/loader-wizard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1_cancel_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/1_cancel_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1_notify_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/1_notify_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1_success_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/1_success_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_notify_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/2_notify_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_notify_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/3_notify_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acc.js.php" beforeDir="false" afterPath="$PROJECT_DIR$/acc.js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delete_all_images.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delete_all_images.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/remake_thumbnail.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/remake_thumbnail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/select_color.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/select_color.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ht.php" beforeDir="false" afterPath="$PROJECT_DIR$/ht.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/_global.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/_global.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/admin.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/authorizeNetSim.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/authorizeNetSim.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/banner.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/banner.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/banner_visit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/banner_visit.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/bannerstats.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/bannerstats.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/config_write.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config_write.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dates.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dates.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/db.old.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/db.old.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dealer.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dealer.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/email.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/email.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/configsettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/configsettings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/global.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/global.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/global.class1.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/global.class1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/globalstats.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/globalstats.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/image1.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/image1.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/licence.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/licence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/old_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/old_function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/old_image.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/old_image.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/renew.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/renew.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/searchengines.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/searchengines.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/image.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/image.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/session.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/update1.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/update1.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/visit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/visit.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/visitstats.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/visitstats.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipn.php" beforeDir="false" afterPath="$PROJECT_DIR$/ipn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js.php" beforeDir="false" afterPath="$PROJECT_DIR$/js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/language/arabic.php" beforeDir="false" afterPath="$PROJECT_DIR$/language/arabic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/language/english.backup.php" beforeDir="false" afterPath="$PROJECT_DIR$/language/english.backup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/language/english.php" beforeDir="false" afterPath="$PROJECT_DIR$/language/english.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/language/estonian.php" beforeDir="false" afterPath="$PROJECT_DIR$/language/estonian.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/language/old_arabic.php" beforeDir="false" afterPath="$PROJECT_DIR$/language/old_arabic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/old_index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/defines.lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/defines.lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlword.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/latex.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/latex.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/xls.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/libraries/export/xls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/seo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seo1.php" beforeDir="false" afterPath="$PROJECT_DIR$/seo1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trovit_feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/trovit_feed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioncube/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ioncube/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioncube/loader-wizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/ioncube/loader-wizard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/old.htaccess" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,11 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="453" column="60" selection-start-line="453" selection-start-column="51" selection-end-line="453" selection-end-column="60" />
-              <folding>
-                <element signature="e#43#49#1" expanded="true" />
-              </folding>
+            <state relative-caret-position="1560">
+              <caret line="78" column="69" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -83,52 +38,59 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/config_write.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+            <state relative-caret-position="140">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <folding>
+                <marker date="1604937924066" expanded="true" signature="180:228" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/function.php">
+        <entry file="file://$PROJECT_DIR$/includes/global.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="513" column="28" lean-forward="true" selection-start-line="513" selection-start-column="28" selection-end-line="513" selection-end-column="28" />
+            <state relative-caret-position="13760">
+              <caret line="688" column="24" selection-start-line="688" selection-start-column="24" selection-end-line="688" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/session.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+              <folding>
+                <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/includes/global.class.php">
+        <entry file="file://$PROJECT_DIR$/old.htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-55432">
-              <caret line="1208" column="53" lean-forward="true" selection-start-line="1208" selection-start-column="53" selection-end-line="1208" selection-end-column="53" />
-              <folding>
-                <element signature="e#21#27#1" expanded="true" />
-                <element signature="e#21#27#1" expanded="true" />
-                <element signature="e#9787#18450#0#PHP" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#19125#20567#0#PHP" />
-                <element signature="e#23663#28242#0#PHP" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-                <element signature="e#43#49#1" expanded="true" />
-              </folding>
+            <state relative-caret-position="639">
+              <caret line="303" column="87" selection-start-line="303" selection-start-column="87" selection-end-line="303" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="820">
+              <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -146,19 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$language_set</find>
-      <find>$var[email]</find>
-      <find>$var[daystoexpire]</find>
-      <find>$var[galleryimage]</find>
-      <find>$var[carid]</find>
-      <find>$usertemp1[make]</find>
-      <find>$usertemp1[model]</find>
-      <find>$cars_profile[year]</find>
-      <find>$config[reducesql_getnumber]</find>
-      <find>$var_header[explain]</find>
-      <find>$config[config_second_multiple_show]</find>
-      <find>$var_header[multiple_options]</find>
-      <find>$config[config_sold_multiple_show]</find>
       <find>$var[startdivsearch]</find>
       <find>$var[i]</find>
       <find>$var_header[i]</find>
@@ -176,6 +125,19 @@
       <find>$admin_profile[nopictures]</find>
       <find>[gallery]</find>
       <find>$copy_from_id_value[carsid]</find>
+      <find>$language_set</find>
+      <find>_REQUEST[compareid1]</find>
+      <find>(&amp;</find>
+      <find>emailc</find>
+      <find>$Email_class</find>
+      <find>preg_match(&quot;/limit&quot;</find>
+      <find>preg_match</find>
+      <find>adprofiles</find>
+      <find>$banner_class</find>
+      <find>settings</find>
+      <find>mecarzsettings</find>
+      <find>unique</find>
+      <find>getprofile</find>
     </findStrings>
     <replaceStrings>
       <replace>$settings_profile['currency']</replace>
@@ -217,22 +179,27 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/includes/config.php" />
         <option value="$PROJECT_DIR$/phpMyAdmin1/libraries/dbi/mysqli.dbi.lib.php" />
         <option value="$PROJECT_DIR$/phpMyAdmin1/libraries/dbi/mysql.dbi.lib.php" />
-        <option value="$PROJECT_DIR$/includes/db.php" />
-        <option value="$PROJECT_DIR$/includes/session.php" />
         <option value="$PROJECT_DIR$/includes/email.class.php" />
         <option value="$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlexcel.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/includes/config_write.php" />
         <option value="$PROJECT_DIR$/includes/licence.php" />
         <option value="$PROJECT_DIR$/includes/_global.class.php" />
         <option value="$PROJECT_DIR$/includes/global.class1.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/visit.class.php" />
         <option value="$PROJECT_DIR$/includes/function.php" />
+        <option value="$PROJECT_DIR$/includes/image.class.php" />
+        <option value="$PROJECT_DIR$/includes/admin.class.php" />
+        <option value="$PROJECT_DIR$/includes/config.php" />
+        <option value="$PROJECT_DIR$/includes/configsettings.php" />
+        <option value="$PROJECT_DIR$/includes/tpl.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/includes/session.php" />
         <option value="$PROJECT_DIR$/includes/global.class.php" />
+        <option value="$PROJECT_DIR$/includes/config_write.php" />
+        <option value="$PROJECT_DIR$/includes/db.php" />
+        <option value="$PROJECT_DIR$/old.htaccess" />
       </list>
     </option>
   </component>
@@ -259,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,21 +233,17 @@
               <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
               <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="visit&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/visit.class.php&#10;global&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/_global.class.php&#10;session&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/session.php&#10;index&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/index.php&#10;config&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/config.php&#10;email&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/email.class.php&#10;db.php&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/db.php" />
+    <property name="SearchEverywhereHistoryKey" value="config&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/config_write.php&#10;visit&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/visit.class.php&#10;global&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/_global.class.php&#10;session&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/session.php&#10;index&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/index.php&#10;email&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/email.class.php&#10;db.php&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/db.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/test ui" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -310,17 +272,21 @@
       <workItem from="1604854638287" duration="3473000" />
       <workItem from="1604871802312" duration="8641000" />
       <workItem from="1604882039798" duration="704000" />
+      <workItem from="1604927323605" duration="137000" />
+      <workItem from="1604932253770" duration="6767000" />
+      <workItem from="1604943611966" duration="78000" />
+      <workItem from="1604974853028" duration="413000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19398000" />
+    <option name="totallyTimeSpent" value="27874000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="72" y="27" width="1784" height="941" extended-state="6" />
+    <frame x="72" y="27" width="1780" height="937" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25546604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2681661" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -372,29 +338,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FCKeditor/userimages/tj(1).php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/basic.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -403,42 +348,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/licence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/global.class1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/image.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlexcel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/visit.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="1634" column="18" lean-forward="true" selection-start-line="1634" selection-start-column="18" selection-end-line="1634" selection-end-column="18" />
-          <folding>
-            <element signature="e#39#45#1" expanded="true" />
-            <element signature="n#cars_list#0;n#VisitClass#0;n#!!top" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -449,25 +362,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/email.class.php">
+    <entry file="file://$PROJECT_DIR$/includes/admin.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#6#13#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="220">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/image.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/authorizeNetSim.class.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/admin.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2848">
-          <caret line="6" column="55" lean-forward="true" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/banner.class.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -476,101 +386,175 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/bannerstats.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/configsettings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#6#13#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="200">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/config.php">
+    <entry file="file://$PROJECT_DIR$/includes/dates.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/db.old.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/dealer.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/email.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7422">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="123">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/error_log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="490" column="31" selection-start-line="490" selection-start-column="31" selection-end-line="490" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/global.class1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/globalstats.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/image1.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/index.htm">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/licence.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="18" lean-forward="true" selection-end-line="90" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/old_function.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/old_image.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/php.ini.bak.migration">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/renew.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/searchengines.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/update.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/visit.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="211" column="20" lean-forward="true" selection-start-line="211" selection-start-column="20" selection-end-line="211" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/update1.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/visitstats.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/mecarz_mecarz.sql">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-27">
+          <caret line="247" column="187" lean-forward="true" selection-start-line="247" selection-start-column="187" selection-end-line="247" selection-end-column="187" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="453" column="60" selection-start-line="453" selection-start-column="51" selection-end-line="453" selection-end-column="60" />
-          <folding>
-            <element signature="e#43#49#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="1560">
+          <caret line="78" column="69" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/configsettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28662" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/dates.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#6#13#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/db.old.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#6#13#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/dealer.class.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/config_write.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="513" column="28" lean-forward="true" selection-start-line="513" selection-start-column="28" selection-end-line="513" selection-end-column="28" />
+        <state relative-caret-position="140">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding>
+            <marker date="1604937924066" expanded="true" signature="180:228" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/global.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-55432">
-          <caret line="1208" column="53" lean-forward="true" selection-start-line="1208" selection-start-column="53" selection-end-line="1208" selection-end-column="53" />
+        <state relative-caret-position="13760">
+          <caret line="688" column="24" selection-start-line="688" selection-start-column="24" selection-end-line="688" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
           <folding>
-            <element signature="e#21#27#1" expanded="true" />
-            <element signature="e#21#27#1" expanded="true" />
-            <element signature="e#9787#18450#0#PHP" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#0#6#0" expanded="true" />
-            <element signature="e#6#12#0" expanded="true" />
-            <element signature="e#12#18#0" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#19125#20567#0#PHP" />
-            <element signature="e#23663#28242#0#PHP" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
+            <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mecarz_mecarz.sql">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="399">
+          <caret line="3973" column="31" selection-start-line="3973" selection-start-column="31" selection-end-line="3973" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="303" column="87" selection-start-line="303" selection-start-column="87" selection-end-line="303" selection-end-column="87" />
         </state>
       </provider>
     </entry>

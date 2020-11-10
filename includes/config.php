@@ -6,20 +6,20 @@ $b=md5($b);
 $b=substr($b,0,3);
 $_SESSION['session_uid']=$b;
 if (in_array("p", $_REQUEST) && $_REQUEST['p']=="image") {
-			$x=100;
-			$y=20;
-			
-			$im = imagecreate($x, $y);
-			$bg = imagecolorallocate($im, 200,200,200);
-			imagefill($im, 0,0, $bg);
-			
-			$red=imagecolorallocate($im, 0, 0, 255);
-			
-			imagestring($im, 6, 58, 3, $b, $red);
-			
-			header("Content-type: image/png");
-			imagepng ($im); 
-			exit(0);
+    $x=100;
+    $y=20;
+
+    $im = imagecreate($x, $y);
+    $bg = imagecolorallocate($im, 200,200,200);
+    imagefill($im, 0,0, $bg);
+
+    $red=imagecolorallocate($im, 0, 0, 255);
+
+    imagestring($im, 6, 58, 3, $b, $red);
+
+    header("Content-type: image/png");
+    imagepng ($im);
+    exit(0);
 }
 if (in_array("input_name", $_REQUEST)) {
     $_POST['input_name']=str_replace("/"," ",$_POST['input_name']);
@@ -32,28 +32,28 @@ require "config_write.php";
 $config['admin_menu_top1']=array("cars","stats","settings","category","members","paymenthistory","banner","import");
 
 $config["admin_menu_top2"]['cars']=array(
-"cars", "sponsored","summary",'logging');
+    "cars", "sponsored","summary",'logging');
 $config["admin_menu_top2"]['settings']=array(
-"admin", "rights","settings", "template","backup","tpl","language","ips","fixtools");
+    "admin", "rights","settings", "template","backup","tpl","language","ips","fixtools");
 $config["admin_menu_top2"]['category']=array(
-"category", "make", "model","country",'state',"city","year", "bodytype","transmission","intcolor","extcolor", "features", "news", "faq", "customlinks","homepage"
+    "category", "make", "model","country",'state',"city","year", "bodytype","transmission","intcolor","extcolor", "features", "news", "faq", "customlinks","homepage"
 ,'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol',
 );
 $config["admin_menu_top2"]['members']=array(
-"members",  "sendemail", "sendemailadmin");
+    "members",  "sendemail", "sendemailadmin");
 $config["admin_menu_top2"]['paymenthistory']=array(
-"adprofiles", "payment", "orders","paymenthistory");
+    "adprofiles", "payment", "orders","paymenthistory");
 $config["admin_menu_top2"]['import']=array(
-"import","export","importsettings");
+    "import","export","importsettings");
 $config["admin_menu_top2"]['banner']=array(
-"banner","bannerstats","bannersettings"
+    "banner","bannerstats","bannersettings"
 );
 $config["admin_menu_top2"]['stats']=array(
-"stats","statssettings"
+    "stats","statssettings"
 );
 
 $config["admin_menu_top3"]=array(
-"gallery", "carsfeatures");
+    "gallery", "carsfeatures");
 $config["admin_menu_top3_default"]="cars";
 $config["admin_section_sponsored_field_id"]="carid";
 
@@ -64,11 +64,11 @@ $config['admin_not_delete_need']=array("template","settings","bannersettings","s
 $config['admin_special_menu']=array("payment");
 
 $config["config_options_in_admin"]=array(
-"cars", "sponsored","summary",
-"admin", "rights","settings","statssettings","bannersettings", "template","ips",'logging',
-"category", "make", "model","country",'state',"city","year","bodytype","transmission","intcolor","extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol', "features", "news", "faq", "customlinks","homepage",
-"members",  "sendemail", "sendemailadmin",
-"adprofiles", "payment", "orders","paymenthistory");
+    "cars", "sponsored","summary",
+    "admin", "rights","settings","statssettings","bannersettings", "template","ips",'logging',
+    "category", "make", "model","country",'state',"city","year","bodytype","transmission","intcolor","extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol', "features", "news", "faq", "customlinks","homepage",
+    "members",  "sendemail", "sendemailadmin",
+    "adprofiles", "payment", "orders","paymenthistory");
 
 $config['auto_multiple']['gallery']='3';
 
@@ -133,7 +133,7 @@ $use_imagecreatetruecolor = true; // these flags enble ImageCreateTrueColor(); I
 $use_imagecopyresampled  = true;// I cant test them coz my host doesn't allow these...
 $JPG_QUALITY        =        80; // output jpeg quality
 $IMG_ROOT = $config['path']."temp/"; //path to tmp directory
-                        # Remeber to set proper attributes to that folder. 777 will work :)
+# Remeber to set proper attributes to that folder. 777 will work :)
 ##################################################################################################
 ##################################################################################################
 ##################################################################################################
@@ -179,7 +179,7 @@ define( "_December", "Dec" );
 define( "_STARTDAY", "1" );
 
 $config["months_name"] = array( _January, _February, _March, _April, _May, _June,
-        _July, _August, _September, _October, _November, _December );
+    _July, _August, _September, _October, _November, _December );
 $config["days_in_month"] = array( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
 $config["days_name"] = array( _Sun, _Mon, _Tue, _Wed, _Thu, _Fri, _Sat );
 
@@ -191,7 +191,7 @@ foreach($config["days_name"] as $key=>$val){
 $config["config_auto_days_name"].="\"\"";
 
 foreach($config["months_name"] as $key=>$val){
-       $config["config_auto_month_name"].="\"$val\",";
+    $config["config_auto_month_name"].="\"$val\",";
 }
 $config["config_auto_month_name"].="\"\"";
 $config["config_search_field"]=array("category","make","model","country",'state',"city","fueltype","year","price","price1","miles","miles1","orderby","method","gallery","features",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol','power',"admin","year1",'searchby','active');
@@ -199,16 +199,16 @@ $config["config_orderby"]=array("id", "admin", "category", "make", "model", "yea
 $config["config_method"] = array("asc","desc");
 
 $config["config_order_menuadmin"]=array(
-"cars", "sponsored","summary","|",
-"admin", "rights","settings","statssettings", "template","ips",'logging',"language","|",
-"category", "make", "model","country",'state',"city","year", "|",
-"bodytype","transmission","intcolor","extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol',"|",
-"features", "news", "faq", "customlinks","homepage","|",
-"members",  "sendemail", "sendemailadmin","|",
-"adprofiles", "payment", "orders","paymenthistory");
+    "cars", "sponsored","summary","|",
+    "admin", "rights","settings","statssettings", "template","ips",'logging',"language","|",
+    "category", "make", "model","country",'state',"city","year", "|",
+    "bodytype","transmission","intcolor","extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol',"|",
+    "features", "news", "faq", "customlinks","homepage","|",
+    "members",  "sendemail", "sendemailadmin","|",
+    "adprofiles", "payment", "orders","paymenthistory");
 
 $config["config_statsinadmin"]=array(
-"cars", "sponsored","admin", "members");//"rights", "category", "make", "model", "features", "news", "faq", "customlinks",
+    "cars", "sponsored","admin", "members");//"rights", "category", "make", "model", "features", "news", "faq", "customlinks",
 
 $config['aMaxLifeTime']=300; //session time in seconds
 $config['admin_number_intop']=10; //number cars in admin in summary
@@ -298,7 +298,7 @@ $config['use_old_sponsored_format']=false;
 //$config['site_profile_listing_account']=
 $config['delay_How_many_days_this_object_will_be_active']=30;
 if ($config['delay_How_many_days_this_object_will_be_active']>0){
-	$config['admin_section']['cars']['fields_view_cars'][]='daystoexpire';
+    $config['admin_section']['cars']['fields_view_cars'][]='daystoexpire';
 }
 $config['how_many_days_before_expire_object_send_email']=3;
 $config['how_many_days_before_expire_canbe_reactivated']=3;
@@ -312,10 +312,10 @@ $config['lang_Paymenttransaction']='Payment transaction';
 
 
 function authorizeNet_hmac ($key, $data){
-	return (bin2hex (mhash(MHASH_MD5, $data, $key)));
+    return (bin2hex (mhash(MHASH_MD5, $data, $key)));
 }
 function authorizeNet_CalculateFP ($loginid, $x_tran_key, $amount, $sequence, $tstamp, $currency = ""){
-	return (authorizeNet_hmac ($x_tran_key, $loginid . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency));
+    return (authorizeNet_hmac ($x_tran_key, $loginid . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency));
 }
 //function authorizeNet_InsertFP ($login_id, $x_tran_key, $amount){
 //	srand(time());
@@ -325,7 +325,7 @@ function authorizeNet_CalculateFP ($loginid, $x_tran_key, $amount, $sequence, $t
 //	return array($sequence,$tstamp,$fingerprint);
 //
 //}
-	
+
 
 $config['table_banner'] = $config['table_prefix'].'banner';
 $config['table_bannertypes'] = $config['table_prefix'].'bannertypes';
@@ -338,7 +338,7 @@ $config['banner_settings_height']='61';
 $config['banner_settings_target']='_blank';
 $config['timeformat'] = "F j, Y, H:i";
 $config['timeformat_events'] = "d-m-Y";
-$config['timeformat_mysql'] = "Y-m-d"; 
+$config['timeformat_mysql'] = "Y-m-d";
 
 
 
