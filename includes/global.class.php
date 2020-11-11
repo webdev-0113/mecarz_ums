@@ -1216,6 +1216,7 @@ class GlobalClass{
         global $config,$lang,$IMG_WIDTH_FLAG,$IMG_HEIGHT_FLAG,$_POST,$varchar_fields;
         global $db,$tpl,$Image_Class,$Global_Class; //class
         global $sql_default_global,$datetime_fields;
+        global $redirect, $radio;
         $var =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -1254,6 +1255,8 @@ class GlobalClass{
         }
         @mysqli_free_result($result);
         if (count($value_toexplode_array)==0) $value_toexplode_array=array(1);
+        $sql_input = '';
+        $sql_input_val = '';
         foreach ($value_toexplode_array as $keyexplode=>$valexplode){
             //foreach ($valexplode as $key1_=>$val1_)
             {
@@ -1440,7 +1443,7 @@ class GlobalClass{
         return $var_temp_return;
     }
     function addold($default_tabel,$default_option,$default_option2,$varchar,$text,$file,$dropdown,$dropdownval,$radio,$radioval,$checkbox,$password,$date_fields, $error=""){
-        global $config,$lang;
+        global $config,$lang, $redirect;
         global $db,$tpl,$_POST,$datetime_fields,$text_fields_wysiwyg,$settings_profile; //class
         global $javascript_special,$dropdownval_onchange,$datetime_fields;
         $var_initial =array (
@@ -1488,7 +1491,9 @@ class GlobalClass{
             $array_multiple=array(0);
         }
         //print_r($array_multiple);
-
+        $out1 = '';
+        $out_temp1 = '';
+        $outtemp123='';
         foreach ($array_multiple as $kmultiple){
             foreach ($tablefield_arraynew as $kkk=>$vvv){
                 if ($kmultiple==0) $kmultiplenew="";
@@ -3493,19 +3498,19 @@ class GlobalClass{
             $oFCKeditor->Value = $_REQUEST["input_message"] ;
             $var['wywiwyg_value'] = $oFCKeditor->CreateFCKeditor( "input_message", $config['cols']*$config['wywiwyg_sizecols'],$config['rows']*$config['wywiwyg_sizerows'] ) ;
             $file_text_use = "global_add_wywiwyg.html";
-            $var[class_temp]="class_temp1";
-            $var[tpl_name]=$lang[tpl_auto_Message];
-            $var[textarea]=$tpl->replace($var,$file_text_use);
+            $var['class_temp']="class_temp1";
+            $var['tpl_name']=$lang['tpl_auto_Message'];
+            $var['textarea']=$tpl->replace($var,$file_text_use);
         }else{
             $var['wywiwyg_value'] = '';
             $file_text_use = "global_add_text.html";
-            $var[class_temp]="class_temp1";
-            $var[tpl_name]=$lang[tpl_auto_Message];
-            $var[cols]=$config['cols'];
-            $var[rows]=$config['rows'];
-            $var[tpl_input_name]="input_message";
-            $var[tpl_input_name_val]=$_REQUEST["input_message"];
-            $var[textarea]=$tpl->replace($var,$file_text_use);
+            $var['class_temp']="class_temp1";
+            $var['tpl_name']=$lang['tpl_auto_Message'];
+            $var['cols']=$config['cols'];
+            $var['rows']=$config['rows'];
+            $var['tpl_input_name']="input_message";
+            $var['tpl_input_name_val']=$_REQUEST["input_message"];
+            $var['textarea']=$tpl->replace($var,$file_text_use);
         }
         $out = $tpl->replace( $var, "sendemail.html" );
         return $out;
@@ -3636,19 +3641,19 @@ class GlobalClass{
             $oFCKeditor->Value = $_REQUEST["input_message"] ;
             $var['wywiwyg_value'] = $oFCKeditor->CreateFCKeditor( "input_message", $config['cols']*$config['wywiwyg_sizecols'],$config['rows']*$config['wywiwyg_sizerows'] ) ;
             $file_text_use = "global_add_wywiwyg.html";
-            $var[class_temp]="class_temp1";
-            $var[tpl_name]=$lang[tpl_auto_Message];
-            $var[textarea]=$tpl->replace($var,$file_text_use);
+            $var['class_temp']="class_temp1";
+            $var['tpl_name']=$lang['tpl_auto_Message'];
+            $var['textarea']=$tpl->replace($var,$file_text_use);
         }else{
             $var['wywiwyg_value'] = '';
             $file_text_use = "global_add_text.html";
-            $var[class_temp]="class_temp1";
-            $var[tpl_name]=$lang[tpl_auto_Message];
-            $var[cols]=$config['cols'];
-            $var[rows]=$config['rows'];
-            $var[tpl_input_name]="input_message";
-            $var[tpl_input_name_val]=$_REQUEST["input_message"];
-            $var[textarea]=$tpl->replace($var,$file_text_use);
+            $var['class_temp']="class_temp1";
+            $var['tpl_name']=$lang['tpl_auto_Message'];
+            $var['cols']=$config['cols'];
+            $var['rows']=$config['rows'];
+            $var['tpl_input_name']="input_message";
+            $var['tpl_input_name_val']=$_REQUEST["input_message"];
+            $var['textarea']=$tpl->replace($var,$file_text_use);
         }
         $out = $tpl->replace( $var, "sendemailadmin.html" );
         return $out;
@@ -3678,6 +3683,7 @@ class GlobalClass{
             return $out;
         }else{
             if ($_REQUEST['send_to_all']==1){
+                $sql_cond = '';
                 switch ($_REQUEST['sendtoadmin']){
                     case "alllisting":
                         $array_members = $this->getarray('admin','id','id'," ");
@@ -3729,7 +3735,7 @@ class GlobalClass{
                     sleep($config['waitsecondes']);
                 }
             }
-            $email_var[error] = $error;
+            $email_var['error'] = $error;
             $output = $tpl->replace($email_var,"sendemail1.html");
             return $output;
         }
@@ -3750,6 +3756,7 @@ class GlobalClass{
         $num_rows = mysqli_num_rows($result);
         $contor=0;
         if ($num_rows>0){
+            $out = '';
             while ($user = mysqli_fetch_assoc($result)){
                 /*$sql = "select count(*) from `{$config['table_prefix']}cars` WHERE `make`='{$user[$id_]}' and active>1";
 		               //echo "<BR>";
