@@ -274,7 +274,7 @@ class GlobalClass{
                     $model_profile = $this->getprofile($cars_profile['model'], "model", 'id');
                     $usertemp1['model'] = $model_profile["name{$language_set}"];
 
-                    $var['carid']=$cars_profile[id]." - ".$usertemp1['make']." - ".$usertemp1['model']." - ".$cars_profile['year'];
+                    $var['carid']=$cars_profile['id']." - ".$usertemp1['make']." - ".$usertemp1['model']." - ".$cars_profile['year'];
                     $nocond=true;
                 }
                 foreach($tablefield_array_options as $key=>$val){
