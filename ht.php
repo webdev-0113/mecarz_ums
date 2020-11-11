@@ -195,7 +195,7 @@ if ($count>0) {
   if ($found==0) $_SESSION['language_session']='';
   $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
   $var_lang['key']=0;
-  $var_lang['val']=strtolower(substr($settings_profile[language],0,-4));
+  $var_lang['val']=strtolower(substr($settings_profile['language'],0,-4));
   $var_lang['class']=strtolower($class_);
 			if (2) {
 			$var_lang['onclicklang']="setCookie('language_session',0,365);window.location=window.location;return false;";

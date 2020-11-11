@@ -138,7 +138,7 @@ if ($count>0) {
   if ($found==0) $_SESSION['language_session']='';
   $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
   $var_lang['key']=0;
-  $var_lang['val']=strtolower(substr($settings_profile[language],0,-4));
+  $var_lang['val']=strtolower(substr($settings_profile['language'],0,-4));
   $var_lang['class']=strtolower($class_);
   $settings_profile['languagedropdown'] = $tpl->replace($var_lang,"urllanguge.html");
 
@@ -1929,7 +1929,7 @@ else
 			                                      $lang['tabel_cars']["$mul_val".$multiple_key] = "<font class=\"languageadmin\">[ ".$multiple_val."] </font> ".$lang['tabel_cars']["$mul_val"];
 			                                 }
 			                                 if ($count_mul==1) {
-			                                       $lang['tabel_cars']["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile[language],0,-4))."] </font> ".$lang['tabel_cars']["$mul_val"];
+			                                       $lang['tabel_cars']["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile['language'],0,-4))."] </font> ".$lang['tabel_cars']["$mul_val"];
 			                                 }
 			                                 for($i=$ct+1;$i<=4;$i++){
 			                                  	if ($i==1) $ii="";
@@ -1949,7 +1949,7 @@ else
 			                                      $lang['tabel_cars']["$mul_val".$multiple_key] = "<font class=\"languageadmin\">[ ".$multiple_val."] </font> ".$lang['tabel_cars']["$mul_val"];
 			                                 }
 			                                 if ($count_mul==1) {
-			                                       $lang['tabel_cars']["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile[language],0,-4))."] </font> ".$lang['tabel_cars']["$mul_val"];
+			                                       $lang['tabel_cars']["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile['language'],0,-4))."] </font> ".$lang['tabel_cars']["$mul_val"];
 			                                 }
 			                                 for($i=$ct+1;$i<=4;$i++){
 			                                  	if ($i==1) $ii="";

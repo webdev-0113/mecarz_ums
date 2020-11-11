@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/banner_visit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/banner_visit.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ht.php" beforeDir="false" afterPath="$PROJECT_DIR$/ht.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/global.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/global.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trovit_feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/trovit_feed.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="1261" lean-forward="true" selection-start-line="1261" selection-end-line="1261" />
+            <state relative-caret-position="4060">
+              <caret line="239" column="30" lean-forward="true" selection-start-line="239" selection-start-column="30" selection-end-line="239" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
@@ -59,25 +60,60 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tpl/visit/index.html.backup">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tpl/visit/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="33" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/global.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="273" column="74" selection-start-line="273" selection-start-column="61" selection-end-line="273" selection-end-column="74" />
+              <folding>
+                <element signature="e#21#27#1" expanded="true" />
+                <element signature="e#21#27#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#0#6#0" expanded="true" />
+                <element signature="e#6#12#0" expanded="true" />
+                <element signature="e#12#18#0" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$var1[tpl_name]</find>
-      <find>$var[repeat]</find>
-      <find>$config[addfeaturesoncars]</find>
-      <find>$admin_profile[nopictures]</find>
-      <find>[gallery]</find>
-      <find>$copy_from_id_value[carsid]</find>
-      <find>$language_set</find>
-      <find>_REQUEST[compareid1]</find>
-      <find>(&amp;</find>
-      <find>emailc</find>
-      <find>$Email_class</find>
-      <find>preg_match(&quot;/limit&quot;</find>
-      <find>preg_match</find>
-      <find>adprofiles</find>
-      <find>settings</find>
       <find>mecarzsettings</find>
       <find>unique</find>
       <find>getprofile</find>
@@ -93,10 +129,23 @@
       <find>$dealer</find>
       <find>$banner_class</find>
       <find>$VisitClass</find>
+      <find>$sendresult</find>
+      <find>$var[id]</find>
+      <find>$cars_profile[make]</find>
+      <find>$var[</find>
+      <find>tpl_path_visit</find>
+      <find>$settings_profile[language]</find>
+      <find>config_auto_http</find>
+      <find>&lt;A HREF=&quot;{{config_auto_homepageurl}}&quot;&gt;&lt;IMG src=&quot;{{logo}}&quot; b</find>
+      <find>/index.html</find>
+      <find>config</find>
+      <find>tpl_auto_css</find>
+      <find>$lang</find>
+      <find>$lang[&quot;tpl_auto_css&quot;]</find>
+      <find>$language_set</find>
+      <find>$config</find>
     </findStrings>
     <replaceStrings>
-      <replace>$user['year']</replace>
-      <replace>$user['width']</replace>
       <replace>$user['sold']</replace>
       <replace>$lang['array_types']</replace>
       <replace>preg_replace(</replace>
@@ -125,6 +174,8 @@
       <replace>include</replace>
       <replace>if(extension_loaded('ionCube Loader')){</replace>
       <replace>$var['error']</replace>
+      <replace>$var['id']</replace>
+      <replace>$settings_profile['language']</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -149,13 +200,13 @@
         <option value="$PROJECT_DIR$/includes/configsettings.php" />
         <option value="$PROJECT_DIR$/includes/tpl.php" />
         <option value="$PROJECT_DIR$/includes/session.php" />
-        <option value="$PROJECT_DIR$/includes/global.class.php" />
         <option value="$PROJECT_DIR$/includes/db.php" />
         <option value="$PROJECT_DIR$/old.htaccess" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/includes/config_write.php" />
         <option value="$PROJECT_DIR$/includes/licence.php" />
         <option value="$PROJECT_DIR$/includes/banner_visit.class.php" />
+        <option value="$PROJECT_DIR$/includes/global.class.php" />
         <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
@@ -240,12 +291,12 @@
       <workItem from="1604974853028" duration="4418000" />
       <workItem from="1604983404690" duration="98000" />
       <workItem from="1604983914810" duration="2762000" />
-      <workItem from="1605070531137" duration="2420000" />
+      <workItem from="1605070531137" duration="3850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37159000" />
+    <option name="totallyTimeSpent" value="38589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1848" height="1053" extended-state="6" />
@@ -291,7 +342,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phpMyAdmin1/libraries/export/htmlexcel.php" />
-    <entry file="file://$PROJECT_DIR$/includes/_global.class.php" />
     <entry file="file://$PROJECT_DIR$/includes/admin.class.php" />
     <entry file="file://$PROJECT_DIR$/includes/image.class.php" />
     <entry file="file://$PROJECT_DIR$/includes/authorizeNetSim.class.php" />
@@ -327,7 +377,6 @@
     <entry file="file://$PROJECT_DIR$/old.htaccess" />
     <entry file="file://$PROJECT_DIR$/mecarz_mecarz.sql" />
     <entry file="file://$PROJECT_DIR$/includes/db.php" />
-    <entry file="file://$PROJECT_DIR$/includes/global.class.php" />
     <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/.htaccess" />
     <entry file="file://$PROJECT_DIR$/includes/config.php" />
@@ -352,10 +401,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/includes/_global.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/visit/index.html.backup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="1261" lean-forward="true" selection-start-line="1261" selection-end-line="1261" />
+        <state relative-caret-position="4060">
+          <caret line="239" column="30" lean-forward="true" selection-start-line="239" selection-start-column="30" selection-end-line="239" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
@@ -363,6 +422,43 @@
             <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
             <element signature="e#43#49#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/global.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="273" column="74" selection-start-line="273" selection-start-column="61" selection-end-line="273" selection-end-column="74" />
+          <folding>
+            <element signature="e#21#27#1" expanded="true" />
+            <element signature="e#21#27#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#0#6#0" expanded="true" />
+            <element signature="e#6#12#0" expanded="true" />
+            <element signature="e#12#18#0" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/visit/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>

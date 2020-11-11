@@ -3060,7 +3060,7 @@ class GlobalClass{
                 }
             }
             if ($count_mul==1) {
-                $lang['tabel_'.$default_tabel]["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile[language],0,-4))."] </font> ".$lang['tabel_'.$default_tabel]["$mul_val"];
+                $lang['tabel_'.$default_tabel]["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile['language'],0,-4))."] </font> ".$lang['tabel_'.$default_tabel]["$mul_val"];
             }
 
         }
@@ -3078,7 +3078,7 @@ class GlobalClass{
                 $lang['tabel_'.$default_tabel]["$mul_val".$multiple_key] = "<font class=\"languageadmin\">[ ".$multiple_val."] </font> ".$lang['tabel_'.$default_tabel]["$mul_val"];
             }
             if ($count_mul==1) {
-                $lang['tabel_'.$default_tabel]["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile[language],0,-4))."] </font> ".$lang['tabel_'.$default_tabel]["$mul_val"];
+                $lang['tabel_'.$default_tabel]["$mul_val"] = "<font class=\"languageadmin\">[ ".ucfirst(substr($settings_profile['language'],0,-4))."] </font> ".$lang['tabel_'.$default_tabel]["$mul_val"];
             }
 
         }

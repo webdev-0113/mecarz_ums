@@ -62,8 +62,8 @@ include $path . "image.class.php";
 include $path . "global.class.php";
 include $path . "admin.class.php";
 include $path . "visit.class.php";
-include $path . "email.class.php";
-include $path . "banner_visit.class.php";
+//include $path . "email.class.php";
+//include $path . "banner_visit.class.php";
 
 
 $config['tpl'] = $config['tplvisit'];
@@ -89,7 +89,7 @@ $settings_profile = $Global_Class->getprofile( "1","settings","id" );
 //        break;
 //
 //}
-list($config['config_auto_bannerscode1'],$config['config_auto_bannerscode2'],$config['config_auto_bannerscode3'],$config['config_auto_bannerscode4'])=$banner_class->banner();
+//list($config['config_auto_bannerscode1'],$config['config_auto_bannerscode2'],$config['config_auto_bannerscode3'],$config['config_auto_bannerscode4'])=$banner_class->banner();
 foreach ($settings_profile as $kk1=>$vv1){
     if ($vv1!=''){
         $config[$kk1]=$vv1;
@@ -203,7 +203,7 @@ if ($count>0) {
     if ($found==0) $_SESSION['language_session']='';
     $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
     $var_lang['key']=0;
-    $var_lang['val']=strtolower(substr($settings_profile[language],0,-4));
+    $var_lang['val']=strtolower(substr($settings_profile['language'],0,-4));
     $var_lang['class']=strtolower($class_);
     $link=$_SERVER['REQUEST_URI'];
     if (2) {
