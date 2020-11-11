@@ -3579,9 +3579,9 @@ class GlobalClass{
                 $sendresult = $Email_class->emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
-                    $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
+                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
                 }else{
-                    $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_not_send']);
+                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_not_send']);
                 }
                 if ($key % $config['send_email_once']==0){
                     sleep($config['waitsecondes']);
@@ -3720,9 +3720,9 @@ class GlobalClass{
                 $sendresult = $Email_class->emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
-                    $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
+                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
                 }else{
-                    $error .= ereg_replace("{email}", $val[email], $lang['tpl_auto_Email_not_send']);
+                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_not_send']);
                 }
                 if ($key % $config['send_email_once']==0){
                     sleep($config['waitsecondes']);

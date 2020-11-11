@@ -905,7 +905,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                                 // TODO: db names may contain characters
                                 //       that are regexp instructions
                                 $re        = '(^|(\\\\\\\\)+|[^\])';
-                                $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
+                                $uva_regex = preg_replace($re . '%', '\\1.*', preg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
                                 // Fixed db name matching
                                 // 2000-08-28 -- Benjamin Gandon
                                 if (ereg('^' . $uva_regex . '$', $uva_db)) {

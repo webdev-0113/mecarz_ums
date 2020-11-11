@@ -46,12 +46,12 @@ class TPL {
         if (is_array($var) and preg_match("/{{/",$output)) {
             foreach ($var as $key => $value) {
                 if ($key=="error")
-                    $output=preg_replace ("({{error}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
+                    $output=preg_replace ("/({{error}})/i", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
                 if ($key=="error1")
-                    $output=preg_replace ("({{error1}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
+                    $output=preg_replace ("/({{error1}})/i", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
 
                 if ($key=="tpl_msg")
-                    $output=preg_replace ("({{tpl_msg}})", "<font class=\"msg\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
+                    $output=preg_replace ("/({{tpl_msg}})/i", "<font class=\"msg\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
 
                 $value=stripslashes($value);
                 $output=str_replace("{{".$key."}}",$value,$output);
@@ -72,12 +72,12 @@ class TPL {
             $output = preg_replace("/{{language_session}}/e", "\$language_session1", $output);
 
 
-            $output = preg_replace("/<a href=\"(.*).html\">/e", "'<a href=\"'.preg_replace(' ','-','\\1').'.html\">'", $output);
+            $output = preg_replace("/<a href=\"(.*).html\">/e", "'<a href=\"'.preg_replace('/ /i','-','\\1').'.html\">'", $output);
             $output = preg_replace("/{{tpl_auto_(\w+)}}/e", "\$lang['tpl_auto_\\1']", $output);
             $output = preg_replace("/{{config_auto_(\w+)}}/e", "\$config['config_auto_\\1']", $output);
             $output = preg_replace("/{{input_(\w+)_val}}/e", "PrepareForWrite(\$_REQUEST['input_\\1'])", $output);
             if ($condtemplates){
-                $output = ereg_replace('{{[^}}]*}}','',$output);
+                $output = preg_replace('/{{[^}}]*}}/','',$output);
             }
         }
         return $output;
