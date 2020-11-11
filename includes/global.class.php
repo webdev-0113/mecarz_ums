@@ -225,9 +225,9 @@ class GlobalClass{
                 $id_ini = $var[$id_];
                 if ($default_tabel=='admin'){
 
-                    $number = $this->getnumrows($var[id], "cars", 'admin');
+                    $number = $this->getnumrows($var['id'], "cars", 'admin');
 
-                    $var['email'].= " (<a href='index.php?p=cars&admin=".$var[id]."&page=0'>".$number."</a>) ";
+                    $var['email'].= " (<a href='index.php?p=cars&admin=".$var['id']."&page=0'>".$number."</a>) ";
 
                 }
                 if ($right_cookie['view_all_cars']) {
@@ -241,7 +241,7 @@ class GlobalClass{
 
                 if ($default_tabel=='cars'){
 
-                    $var_gallery = $this->getprofile_order($var[id], "gallery", "order", "carsid");
+                    $var_gallery = $this->getprofile_order($var['id'], "gallery", "order", "carsid");
 
                     if ($var_gallery['thumbnail'] == ""){
                         $var_gallery['thumbnail'] = $settings_profile['thumbnail'];
@@ -270,7 +270,7 @@ class GlobalClass{
 
                     $cars_profile = $this->getprofile($var['carid'], "cars", 'id');
 
-                    $make_profile = $this->getprofile($cars_profile[make], "make", 'id');
+                    $make_profile = $this->getprofile($cars_profile['make'], "make", 'id');
                     $usertemp1['make'] = $make_profile["name{$language_set}"];
 
                     $model_profile = $this->getprofile($cars_profile[model], "model", 'id');
@@ -3552,21 +3552,21 @@ class GlobalClass{
         global $config,$tpl,$Email_class,$lang ;
         global $db; //database
         if ($_REQUEST[input_send]=="" AND $_REQUEST[send_to_all]=="") {
-            $var[error] = $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'];
+            $var['error'] = $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'];
         }
         if ($_REQUEST[input_from]=="") {
-            $var[error] = $lang['tpl_auto_please_type_from_name'];
+            $var['error'] = $lang['tpl_auto_please_type_from_name'];
         }
         if ($_REQUEST[input_fromemail]=="") {
-            $var[error] = $lang['tpl_auto_please_type_fromemail'];
+            $var['error'] = $lang['tpl_auto_please_type_fromemail'];
         }
         if ($_REQUEST[input_subject]=="") {
-            $var[error] = $lang['tpl_auto_please_type_subject'];
+            $var['error'] = $lang['tpl_auto_please_type_subject'];
         }
         if ($_REQUEST[input_message]=="") {
-            $var[error] = $lang['tpl_auto_please_type_message'];
+            $var['error'] = $lang['tpl_auto_please_type_message'];
         }
-        if ($var[error]!='') {
+        if ($var['error']!='') {
             $out = $tpl->replace( $var, "sendemail.html" );
             return $out;
         }else{
@@ -3664,21 +3664,21 @@ class GlobalClass{
         global $config,$tpl,$Email_class,$lang ;
         global $db; //database
         if ($_REQUEST[input_send]=="" AND $_REQUEST[send_to_all]=="") {
-            $var[error] = $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_admin'];
+            $var['error'] = $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_admin'];
         }
         if ($_REQUEST[input_from]=="") {
-            $var[error] = $lang['tpl_auto_please_type_from_name'];
+            $var['error'] = $lang['tpl_auto_please_type_from_name'];
         }
         if ($_REQUEST[input_fromemail]=="") {
-            $var[error] = $lang['tpl_auto_please_type_fromemail'];
+            $var['error'] = $lang['tpl_auto_please_type_fromemail'];
         }
         if ($_REQUEST[input_subject]=="") {
-            $var[error] = $lang['tpl_auto_please_type_subject'];
+            $var['error'] = $lang['tpl_auto_please_type_subject'];
         }
         if ($_REQUEST[input_message]=="") {
-            $var[error] = $lang['tpl_auto_please_type_message'];
+            $var['error'] = $lang['tpl_auto_please_type_message'];
         }
-        if ($var[error]!='') {
+        if ($var['error']!='') {
             $out = $tpl->replace( $var, "sendemailadmin.html" );
             return $out;
         }else{

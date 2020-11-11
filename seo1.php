@@ -38,9 +38,9 @@ $sql = "SELECT * FROM `{$config['table_prefix']}state` where countryid={$_REQUES
 
 $out.="<pre></tr>"; 
                   while ( $var = mysqli_fetch_assoc( $result ) ) {
-$number = $Global_Class->getnumrows( $var[id], "cars", "state" ," and active>=1 ") ;
+$number = $Global_Class->getnumrows( $var['id'], "cars", "state" ," and active>=1 ") ;
 $url=makeurl($var["name".$language_set]);
-$out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/searchstate-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars ({$number})</a></td>";
+$out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/searchstate-{$var['id']}-{$url}.html'>{$var["name".$language_set]} Used Cars ({$number})</a></td>";
                            //$var["name".$language_set]
 $looper = $looper + 1;
 if (($looper%3) ==0) $out.="<tr></tr>";                           
@@ -131,9 +131,9 @@ $sql = "SELECT * FROM `{$config['table_prefix']}city` where stateid={$_REQUEST['
 
 
                     while ( $var = mysqli_fetch_assoc( $result ) ) {
-                         $number = $Global_Class->getnumrows( $var[id], "cars", "city" ," and active>=1 ") ;
+                         $number = $Global_Class->getnumrows( $var['id'], "cars", "city" ," and active>=1 ") ;
                          $url=makeurl($var["name".$language_set]);
-                         $out.="<td><font color=\"F53D00\"size=\"2\">@</font> <a href='/searchcity-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars ({$number})</a></td>";
+                         $out.="<td><font color=\"F53D00\"size=\"2\">@</font> <a href='/searchcity-{$var['id']}-{$url}.html'>{$var["name".$language_set]} Used Cars ({$number})</a></td>";
                          //$var["name".$language_set]
                          $looper = $looper + 1;
                          if (($looper%3) ==0) $out.="</tr><tr>";                           
@@ -166,7 +166,7 @@ $sql = "SELECT * FROM `{$config['table_prefix']}city` where stateid={$_REQUEST['
 
                            while ( $var = mysqli_fetch_assoc( $result ) ) {
                                  $url=makeurl($var["name".$language_set]);
-                                 $out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/statemake-{$_REQUEST['state']}-{$category_profile['name'.$language_set]}-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars in {$category_profile['name'.$language_set]}</a></td>";
+                                 $out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/statemake-{$_REQUEST['state']}-{$category_profile['name'.$language_set]}-{$var['id']}-{$url}.html'>{$var["name".$language_set]} Used Cars in {$category_profile['name'.$language_set]}</a></td>";
                                  //$var["name".$language_set]
                                  $looper = $looper + 1;
                                  if (($looper%3) ==0) $out.="</tr><tr>";                           
@@ -250,7 +250,7 @@ $out.="<pre>";
 
                   while ( $var = mysqli_fetch_assoc( $result ) ) {
 $url=makeurl($var["name".$language_set]);
-$out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/citymake-{$_REQUEST['city']}-{$category_profile['name'.$language_set]}-{$var[id]}-{$url}.html'>{$var["name".$language_set]} Used Cars in {$category_profile['name'.$language_set]}</a></td>";
+$out.="<td><font color=\"F53D00\"size=\"2\">@</font><a href='/citymake-{$_REQUEST['city']}-{$category_profile['name'.$language_set]}-{$var['id']}-{$url}.html'>{$var["name".$language_set]} Used Cars in {$category_profile['name'.$language_set]}</a></td>";
                            //$var["name".$language_set]
 $looper = $looper + 1;
 if (($looper%3) ==0) $out.="</tr><tr>";                           

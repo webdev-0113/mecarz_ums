@@ -72,23 +72,23 @@ $tpl = new TPL;
 $Image_Class = new Image;
 $Global_Class = new GlobalClass;
 $VisitClass = new VisitClass;
-$Email_class = new EmailClass;
-$banner_class = new Banner_Visit_Class;
-$dealer = new DealerClass;
+//$Email_class = new EmailClass;
+//$banner_class = new Banner_Visit_Class;
+//$dealer = new DealerClass;
 
 $settings_profile = $Global_Class->getprofile( "1","settings","id" );
-switch($_REQUEST['p']){
-
-    case "showbanner":
-        echo $banner_class->showbanner();
-        exit(0);
-        break;
-    case "redirect":
-        $banner_class->redirect($_REQUEST['idb']);
-        exit(0);
-        break;
-
-}
+//switch($_REQUEST['p']){
+//
+//    case "showbanner":
+//        echo $banner_class->showbanner();
+//        exit(0);
+//        break;
+//    case "redirect":
+//        $banner_class->redirect($_REQUEST['idb']);
+//        exit(0);
+//        break;
+//
+//}
 list($config['config_auto_bannerscode1'],$config['config_auto_bannerscode2'],$config['config_auto_bannerscode3'],$config['config_auto_bannerscode4'])=$banner_class->banner();
 foreach ($settings_profile as $kk1=>$vv1){
     if ($vv1!=''){
@@ -692,7 +692,7 @@ switch ($p){
             $outputtoscreen_car = $tpl->replace($email,"contact.html");
         }else{
             if ($email_var['email']=='') $email_var['email']=$settings_template['email'];
-            $sendresult = $Email_class->emailsend( $settings_template['email'], $settings_template['from'], $email_var['email'], $email_var['name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
+//            $sendresult = $Email_class->emailsend( $settings_template['email'], $settings_template['from'], $email_var['email'], $email_var['name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
             $email_var['message']=$lang['tpl_auto_thanks'];
             $outputtoscreen_car = $tpl->replace($email_var,"contact_thanks.html");
         }
@@ -743,7 +743,7 @@ switch ($p){
                 $outputtoscreen = $tpl->replace($email,"send_email.html");
 
             }else{
-                $sendresult = $Email_class->emailsend( $admin_profile['email'], $admin_profile['name'], $email_var['guest_email'], $email_var['guest_name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
+//                $sendresult = $Email_class->emailsend( $admin_profile['email'], $admin_profile['name'], $email_var['guest_email'], $email_var['guest_name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
                 $email_var['message']=$lang['tpl_auto_thanks'];
                 foreach($email_var as $key=>$val){
                     $email_var[$key]=addslashes($email_var[$key]);
@@ -841,8 +841,8 @@ VALUES
 ( '', '{$settings_profile[rights_signupuser]}', '{$email_var['username']}' , '{$email_var['password']}' , '{$email_var['password']}', '{$email_var['email']}', '1','{$email_var['nocontactemail']}', '{$email_var['name']}', '{$email_var['phone']}','{$email_var['fax']}','{$email_var['address']}', '{$email_var['country']}', '{$email_var['state']}', '{$email_var['city']}','{$email_var['zip']}', '', '', '{$email_var['nocars']}', '{$email_var['nopictures']}', '{$email_var['adprofiles']}','$unic_id','1' , '720', CURDATE() );";
             $result = $db->query($sql);
 
-            $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
-            $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+//            $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+//            $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
             $email_var['message']=$lang['tpl_auto_thanks_signup'];
             $email_var['message'] .= $tpl->replace(array(),"google.html");
             $outputtoscreen_car = $tpl->replace($email_var,"send_email_thanks.html");
@@ -1068,8 +1068,8 @@ VALUES
 ( '', '{$email_var['name']}', '{$email_var['email']}', '$unic_id','2','".date("Y-m-d")."' );";
                 $result = $db->query($sql);
 
-                $sendresult = $Email_class->emailsend( $email_var['email'], $email_var['name'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
-                $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
+//                $sendresult = $Email_class->emailsend( $email_var['email'], $email_var['name'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
+//                $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
                 $email_var['message']=$lang['tpl_auto_thanks_signupmembers'];
                 $outputtoscreen_subscribe = $tpl->replace($email_var,"emailadmin_thanks.html");
             }else{
@@ -1112,7 +1112,7 @@ VALUES
         exit;
         break;
     case "logout":
-        $dealer->logoutadmin();
+//        $dealer->logoutadmin();
         header( "Location: index.php" );
         exit();
         break;
@@ -1128,36 +1128,36 @@ VALUES
             $settings_profile['error']=$lang["error2"];
             $header=$tpl->replace($settings_profile,"header.html");
 
-        } elseif ( $userprofile = $dealer->verifyadmin( $username, $password ) )
-        {
-            $userprofile = $dealer->getadminprofile( $username );
-            $dealer->loginadmin( $username,  $userprofile['id'] );
-            header( "Location: index.php" );
-            exit();
+//        } elseif ( $userprofile = $dealer->verifyadmin( $username, $password ) )
+//        {
+//            $userprofile = $dealer->getadminprofile( $username );
+//            $dealer->loginadmin( $username,  $userprofile['id'] );
+//            header( "Location: index.php" );
+//            exit();
         }
         else
         {
-            if ( $dealer->existadmin( $username ) )
-            {
-                $profile_ = $dealer->getadminprofile( $username );
-
-                if ($profile_['active']==0){
-                    $var = array ( "error" => $lang["error10"]
-                    );
-                }
-                elseif ($profile_['active']==2){
-                    $var = array ( "error" => $lang["error11"]
-                    );
-                }if ($profile_['active']==1)
-                $var = array ( "error" => $lang["error4"]
-                );
-            }
-            else
+//            if ( $dealer->existadmin( $username ) )
+//            {
+//                $profile_ = $dealer->getadminprofile( $username );
+//
+//                if ($profile_['active']==0){
+//                    $var = array ( "error" => $lang["error10"]
+//                    );
+//                }
+//                elseif ($profile_['active']==2){
+//                    $var = array ( "error" => $lang["error11"]
+//                    );
+//                }if ($profile_['active']==1)
+//                $var = array ( "error" => $lang["error4"]
+//                );
+//            }
+//            else
             {
                 $var = array ( "error" => $lang["error3"]
                 );
             }
-            $settings_profile['error']=$var[error];
+            $settings_profile['error']=$var['error'];
         }
     //$header=$tpl->replace($settings_profile,"header.html");
     //$outputtoscreen = $header;
@@ -1255,7 +1255,7 @@ VALUES
                 $email['error']=$lang['tpl_auto_The_Image_Text_is_not_correct1'];
                 $outputtoscreen = $tpl->replace($email,"send_email_to_a_friend.html");
             }else{
-                $sendresult = $Email_class->emailsend( $email_var['friendemail'], $email_var['friendname'], $email_var['guest_email'], $email_var['guest_name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
+//                $sendresult = $Email_class->emailsend( $email_var['friendemail'], $email_var['friendname'], $email_var['guest_email'], $email_var['guest_name'], $settings_template['contact_subject'], $settings_template['contact_body'] );
                 $email_var['message']=$lang['tpl_auto_thanksfriend'];
                 $outputtoscreen = $tpl->replace($email_var,"send_email_thanks.html");
             }

@@ -1690,7 +1690,7 @@ else
                                                 case "tpl1":
                                                                 $var[p]="tpl";
                                                                     $var[o]="tpl2";
-                                                                                        $var[id]=$_REQUEST['file'];
+                                                                                        $var['id']=$_REQUEST['file'];
                                                                                         $var['cols'] = 1.5*$config['cols'];
                                                                                         $var['rows'] = 7*$config['rows'];
                                                                                         $condtemplates=0;
@@ -1698,7 +1698,7 @@ else
                                                                                         $var['error']='';
                                                                                         $var['tpl_name']=$lang['tpl_auto_Templates_files'].$_REQUEST['file'];
                                                                                         $var['tpl_input_name']='content';
-                                                                                        $var['tpl_input_name_val']=fortemplates(htmlspecialchars(implode('',file($config['tplvisit'].$var[id]))));
+                                                                                        $var['tpl_input_name_val']=fortemplates(htmlspecialchars(implode('',file($config['tplvisit'].$var['id']))));
                                                                                         $var['options']=$tpl->replace($var, "global_add_text.html","",$condtemplates);
 
                                                         $outputtoscreen.=$tpl->replace($var, "global_edit.html","",$condtemplates);
@@ -1706,13 +1706,13 @@ else
                                                 case "tpl2":
                                                                 $var[p]="tpl";
                                                                     $var[o]="tpl2";
-                                                                                        $var[id]=$_REQUEST['id'];
+                                                                                        $var['id']=$_REQUEST['id'];
 
                                                                                         $var['file']=$lang['tpl_auto_Templates_files'].$_REQUEST['id'];
 
                                                                                         $somecontent=fortemplatestosave(stripslashes($_REQUEST['content']));
 
-                                                                                        $var['error'].=writetofile($config['tplvisit'].$var[id],$somecontent)."<br />";
+                                                                                        $var['error'].=writetofile($config['tplvisit'].$var['id'],$somecontent)."<br />";
 
                                         default:
                                                                 $var[p]="tpl";
@@ -1750,7 +1750,7 @@ else
                                                 case "language1":
                                                                 $var[p]="language";
                                                                     $var[o]="language2";
-                                                                                        $var[id]=$_REQUEST['file'];
+                                                                                        $var['id']=$_REQUEST['file'];
                                                                                         $var['cols'] = 1.5*$config['cols'];
                                                                                         $var['rows'] = 7*$config['rows'];
                                                                                         $condtemplates=0;
@@ -1758,7 +1758,7 @@ else
                                                                                         $var['error']='';
                                                                                         $var['tpl_name']=$lang['tpl_auto_Templates_files'].$_REQUEST['file'];
                                                                                         $var['tpl_input_name']='content';
-                                                                                        $var['tpl_input_name_val']=fortemplates(htmlspecialchars(implode('',file($config['path'].'language/'.$var[id]))));
+                                                                                        $var['tpl_input_name_val']=fortemplates(htmlspecialchars(implode('',file($config['path'].'language/'.$var['id']))));
                                                                                         $var['options']=$tpl->replace($var, "global_add_text.html","",$condtemplates);
 
                                                         $outputtoscreen.=$tpl->replace($var, "global_edit.html","",$condtemplates);
@@ -1766,13 +1766,13 @@ else
                                                 case "language2":
                                                                 $var[p]="language";
                                                                     $var[o]="language2";
-                                                                                        $var[id]=$_REQUEST['id'];
+                                                                                        $var['id']=$_REQUEST['id'];
 
                                                                                         $var['file']=$lang['tpl_auto_Templates_files'].$_REQUEST['id'];
 
                                                                                         $somecontent=fortemplatestosave(stripslashes($_REQUEST['content']));
 
-                                                                                        $var['error'].=writetofile($config['path'].'language/'.$var[id],$somecontent)."<br />";
+                                                                                        $var['error'].=writetofile($config['path'].'language/'.$var['id'],$somecontent)."<br />";
 
                                         default:
                                                                 $var[p]="language";
@@ -2193,11 +2193,11 @@ else
                            fclose($handle123);
                            //file_put_contents("lastimport.txt",$coot."|".$count."|".$count1);
                            $_REQUEST[repeat]++;
-                           $var[error] = $count.$lang['tpl_auto_Ends_Import_imported'];
-                           $var[error] .= $count1.$lang['tpl_auto_Ends_Import_updated'];
+                           $var['error'] = $count.$lang['tpl_auto_Ends_Import_imported'];
+                           $var['error'] .= $count1.$lang['tpl_auto_Ends_Import_updated'];
                            echo '<HTML> <HEAD>
 <META HTTP-EQUIV="Refresh" CONTENT="5; URL=index.php?p=import&o=import1&repeat='.$_REQUEST[repeat].'">
-</HEAD> <BODY>  <H1><a href="index.php?p=import&o=import1&repeat=1">Please wait 5 seconds<BR/>This is the redirect number <font color=red>'.$_REQUEST[repeat].'</font><br/><br/>'.$var[error].'<br/><br/>
+</HEAD> <BODY>  <H1><a href="index.php?p=import&o=import1&repeat=1">Please wait 5 seconds<BR/>This is the redirect number <font color=red>'.$_REQUEST[repeat].'</font><br/><br/>'.$var['error'].'<br/><br/>
 <Br/></a></H1> </BODY> </HTML>
 ';//If the browser not redirect, click here to redirect
                            //header("Location: index.php?p=import&o=import1&repeat=1");
@@ -2356,10 +2356,10 @@ $somecontent = $key."\n";
                         }
 
                         //fclose($handle);
-                        $var[error] = $count.$lang['tpl_auto_Ends_Import_imported'];
-                        $var[error] .= $count1.$lang['tpl_auto_Ends_Import_updated'];
+                        $var['error'] = $count.$lang['tpl_auto_Ends_Import_imported'];
+                        $var['error'] .= $count1.$lang['tpl_auto_Ends_Import_updated'];
                         //$outputtoscreen .= $tpl->replace( $var, "import.html" );
-						$var_header[banner]=$var[error];
+						$var_header[banner]=$var['error'];
 		                $outputtoscreen .= $tpl->replace( $var_header, "global_banner.html" );
                         updatejavascript($up_);
                         }
