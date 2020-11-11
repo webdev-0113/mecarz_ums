@@ -11,37 +11,37 @@ class TPL {
             $output = implode("", file($config['tplini'].$path."/".$file));
         }
         /*
-         //end var auto
-         //##########
-         //##########
+        //end var auto
+        //##########
+        //##########
 
-         $html = $output;
-         $output2 = preg_replace("/>(\w+[\w\s&;-]*)</e", "'>{{tpl_auto_'.str_replace(array(' '),'_','\\1').'}}<'", $html);
-         $output23 = preg_replace("/>(\w+(\s)*\w+(\s)*\w+(\s)*\w+)</e", "'>{{tpl_auto_'.str_replace(' ','_','\\1').'}}<'", $output1);
+        $html = $output;
+        $output2 = preg_replace("/>(\w+[\w\s&;-]*)</e", "'>{{tpl_auto_'.str_replace(array(' '),'_','\\1').'}}<'", $html);
+        $output23 = preg_replace("/>(\w+(\s)*\w+(\s)*\w+(\s)*\w+)</e", "'>{{tpl_auto_'.str_replace(' ','_','\\1').'}}<'", $output1);
 
-         preg_match_all ( "/{{([\w\s&;-]+)}}/e", $output2, $keywords, PREG_PATTERN_ORDER );
+        preg_match_all ( "/{{([\w\s&;-]+)}}/e", $output2, $keywords, PREG_PATTERN_ORDER );
 
-         foreach ( $keywords[0] as $key => $val )
-         {
-                 if ( preg_match( "{{tpl_auto_", $val ) )
-                 {
+        foreach ( $keywords[0] as $key => $val )
+        {
+            if ( preg_match( "{{tpl_auto_", $val ) )
+            {
 
-                         $val = preg_replace( "{{|}}", "", $val );
-                         //$val = preg_replace( "\_\&\_", "_", $val );
-                         $val1 = preg_replace( "tpl_auto_", "", $val );
-                         $val1 = preg_replace( "_", " ", $val1 );
-                         $val1 = ucwords( $val1 );
-                         if ($lang[$val]=='') {
-                             $msg_global .= "\$lang['$val'] = \"$val1\";\n";
-                         }
-                 }
-         }
+                $val = preg_replace( "{{|}}", "", $val );
+                //$val = preg_replace( "\_\&\_", "_", $val );
+                $val1 = preg_replace( "tpl_auto_", "", $val );
+                $val1 = preg_replace( "_", " ", $val1 );
+                $val1 = ucwords( $val1 );
+                if ($lang[$val]=='') {
+                    $msg_global .= "\$lang['$val'] = \"$val1\";\n";
+                }
+            }
+        }
 
 
-         //##########
-         //##########
-         ///ends
-         */
+        //##########
+        //##########
+        ///ends
+        */
         if (!is_array($var)) $var=array();
         if (is_array($var) and preg_match("/{{",$output)) {
             foreach ($var as $key => $value) {

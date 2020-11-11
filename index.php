@@ -65,7 +65,6 @@ include $path . "visit.class.php";
 //include $path . "email.class.php";
 //include $path . "banner_visit.class.php";
 
-
 $config['tpl'] = $config['tplvisit'];
 
 $tpl = new TPL;
@@ -282,8 +281,6 @@ foreach ($javascript_profile as $key=>$val){
 
 switch ( $_REQUEST['pp'] )
 {
-
-
     case "admin":
 
 
@@ -370,7 +367,6 @@ END;
 END;
         exit(0);
         break;
-
 }
 
 //$_SESSION[session_uid]='321';        
@@ -857,7 +853,6 @@ VALUES
         $page = $lang["tpl_auto_signup"];
         $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_car);
         break;
-
     case "confirm":
         $id=$_REQUEST['id'];
         if ($id=="")
@@ -942,8 +937,6 @@ VALUES
         $outputtoscreen .= $tpl->replace($news_profile,"cars.html");
 
         break;
-
-
     case "confirmpayment":
         $news_profile['page'] = $lang['tpl_auto_Confirm_email_address'];
 
@@ -1022,7 +1015,6 @@ VALUES
         $outputtoscreen .= $tpl->replace($news_profile,"cars.html");
 
         break;
-
     case "subscribe":
 
 
@@ -1089,7 +1081,6 @@ VALUES
         $outputtoscreen .= $VisitClass->frontend($page,$outputtoscreen_subscribe,$nr_listing_found,$pageoutfin);
 
         break;
-
     case "confirmsubcribe":
         $id=$_REQUEST['id'];
         if ($id=="")

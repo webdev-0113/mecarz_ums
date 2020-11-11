@@ -38,7 +38,6 @@ class Image {
         return "$file_name";
     }
 
-
     function image_from_upload($uploaded_file){
         global $lang;
         $img_sz =  getimagesize( $uploaded_file );
@@ -64,7 +63,6 @@ class Image {
         return array("img"=>$img, "w"=>$img_sz[0], "h"=>$img_sz[1], "type"=>$img_sz[2], "html"=>$img_sz[3]);
 
     }
-
 
     function get_sizes($src_w, $src_h, $dst_w,$dst_h ){
         global $lang;
@@ -103,11 +101,7 @@ class Image {
     }
 
     function make_filename($oid,$name=''){
-
         global $_REQUEST,$IMG_ROOT,$Global_Class;
-
-
-
         //srand((double)microtime() * 999000000);
         $screenshot_db = @md5(microtime());
         $strlen1=strlen($screenshot_db);
@@ -168,7 +162,6 @@ class Image {
     function imagestringbox($image, $font, $left, $top, $text, $color,$pos,$wh) {
         $color1=explode("|",$color);
         switch ($pos){
-
             case 1:
                 $ss = imagefontwidth ($font);
                 $ss1=$ss*strlen($text);
@@ -197,6 +190,5 @@ class Image {
 
         return $image;
     }
-
 }
 ?>

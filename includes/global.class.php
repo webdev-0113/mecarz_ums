@@ -16,9 +16,7 @@ function user_ip()
 }
 
 class GlobalClass{
-
 //new
-
     function search($default_tabel , $default_option , $default_option2 , $default_active_search , $default_nrresult , $relation ,  $relation_table , $default_template , $sql_default , $search_fields, $id_, $error=""){
         global $config,$lang;
         global $_REQUEST;
@@ -469,9 +467,6 @@ class GlobalClass{
         return $out;
     }
 
-
-
-
     function search1($default_tabel,$default_option,$fileds_not_show=array()){
         global $config,$lang;
         global $_REQUEST;
@@ -689,8 +684,7 @@ class GlobalClass{
         if (!preg_match("/limit/",$sql1)){
             $sql1.=" LIMIT 1";
         }
-//        $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql1";
-        $sql = "SELECT * FROM `mecarzsettings` WHERE `id`='2' LIMIT 1";
+        $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql1";
         $result = $db->query($sql,__FILE__,__LINE__);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
