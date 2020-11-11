@@ -92,7 +92,7 @@ available to the public.
    However, a data file will need to be writable (chmod 666).  
 
    Similarly, do not allow write access to directories which contain files
-   that do not require write access.  If there are files which require
+   that do not include write access.  If there are files which require
    write access, try to keep them all in a specific directory.  Do not
    include any non-write access files in that directory.  
 

@@ -131,7 +131,7 @@ class zipfile
         //$fr .= pack('V', $unc_len);             // uncompressed filesize
 
         // add this entry to array
-        $this -> datasec[] = $fr;
+        $this->datasec[] = $fr;
 
         // now add to central directory record
         $cdrec = "\x50\x4b\x01\x02";
@@ -150,14 +150,14 @@ class zipfile
         $cdrec .= pack('v', 0 );             // internal file attributes
         $cdrec .= pack('V', 32 );            // external file attributes - 'archive' bit set
 
-        $cdrec .= pack('V', $this -> old_offset ); // relative offset of local header
-        $this -> old_offset += strlen($fr);
+        $cdrec .= pack('V', $this->old_offset ); // relative offset of local header
+        $this->old_offset += strlen($fr);
 
         $cdrec .= $name;
 
         // optional extra field, file comment goes here
         // save to central directory
-        $this -> ctrl_dir[] = $cdrec;
+        $this->ctrl_dir[] = $cdrec;
     } // end of the 'addFile()' method
 
 
@@ -170,15 +170,15 @@ class zipfile
      */
     function file()
     {
-        $data    = implode('', $this -> datasec);
-        $ctrldir = implode('', $this -> ctrl_dir);
+        $data    = implode('', $this->datasec);
+        $ctrldir = implode('', $this->ctrl_dir);
 
         return
             $data .
             $ctrldir .
-            $this -> eof_ctrl_dir .
-            pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries "on this disk"
-            pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries overall
+            $this->eof_ctrl_dir .
+            pack('v', sizeof($this->ctrl_dir)) .  // total # of entries "on this disk"
+            pack('v', sizeof($this->ctrl_dir)) .  // total # of entries overall
             pack('V', strlen($ctrldir)) .           // size of central dir
             pack('V', strlen($data)) .              // offset to start of central dir
             "\x00\x00";                             // .zip file comment length

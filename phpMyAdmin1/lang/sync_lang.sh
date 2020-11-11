@@ -16,7 +16,7 @@
 # 2004-09-03
 #   * hack for hebrew
 # 2003-11-18
-#   * switch php3 -> php
+#   * switch php3->php
 # 2003-04-14
 #   * convert only files that are needed to convert (checks mtime), --force to
 #     avoid this checking

@@ -26,7 +26,7 @@ $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
 PMA_DBI_select_db($db);
 
 /**
- * A target table name has been sent to this script -> do the work
+ * A target table name has been sent to this script->do the work
  */
 if (isset($new_name) && trim($new_name) != '') {
     if ($db == $target_db && $table == $new_name) {

@@ -50,7 +50,7 @@ function PMA_getAvailableMIMEtypes() {
         @ksort($filestack);
         foreach ($filestack AS $key => $file) {
 
-            if (preg_match('|^.*__.*\.inc\.php(3?)$|', trim($file), $match)) {
+            if (preg_match('/|^.*__.*\.inc\.php(3?)$|', trim($file), $match)) {
                 // File contains transformation functions.
                 $base = explode('__', str_replace('.inc.php' . $match[1], '', $file));
 
@@ -60,7 +60,7 @@ function PMA_getAvailableMIMEtypes() {
                 $stack['transformation'][] = $mimetype . ': ' . $base[1];
                 $stack['transformation_file'][] = $file;
 
-            } else if (preg_match('|^.*\.inc\.php(3?)$|', trim($file), $match)) {
+            } else if (preg_match('/|^.*\.inc\.php(3?)$|', trim($file), $match)) {
                 // File is a plain mimetype, no functions.
                 $base = str_replace('.inc.php' . $match[1], '', $file);
 
@@ -193,7 +193,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
 *
 * @access  public
 */
-function PMA_sanitizeTransformationFile(&$filename) {
+function PMA_sanitizeTransformationFile($filename) {
     // garvin: for security, never allow to break out from transformations directory
 
     $include_file = PMA_securePath($filename);

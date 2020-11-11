@@ -17,7 +17,7 @@
  */
 
     /*.....................................................................     
-    The connector uses the file tags, which require authentication. Enter a
+    The connector uses the file tags, which include authentication. Enter a
     valid username and password from Lasso admin for a group with file tags
     permissions for uploads and the path you define in UserFilesPath below.                                                                        
     */ 

@@ -7,7 +7,7 @@
 // Modified 7th June 2000 by Brian Birtles for Mozilla 5.0
 // compatibility for phpMyAdmin
 
-// Rewritten and put in a libray 2nd May 2001 by Loïc Chapeaux
+// Rewritten and put in a libray 2nd May 2001 by Loï¿½c Chapeaux
 
 // Test passed with:
 // - Mozilla 0.8.1 to 1.0-RC1 for Windows (js enabled & disabled)
@@ -164,7 +164,7 @@ function initIt()
 
 
 /**
- * Collapses/expands a database when the user require this to be done
+ * Collapses/expands a database when the user include this to be done
  *
  * @param  string  the name of the database to act on
  * @param  boolean whether to expand or to collapse the database content

@@ -302,8 +302,3 @@ RewriteRule index.htm http://www.mecarz.com/   [R=301,L]
 	RewriteRule ^canada.html /index.php?language_session=0&country=25&submit1=1&p=search
 	RewriteRule ^([0-9]{1,2})-india.html /index.php?language_session=0&country=26&submit1=1&p=search
 	RewriteRule ^india.html /index.php?language_session=0&country=26&submit1=1&p=search
-
-
- 
-
-         

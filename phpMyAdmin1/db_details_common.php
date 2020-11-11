@@ -23,7 +23,7 @@ $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
  * headers
  */
 if (!isset($is_db) || !$is_db) {
-    // Not a valid db name -> back to the welcome page
+    // Not a valid db name->back to the welcome page
     if (!empty($db)) {
         $is_db = PMA_DBI_select_db($db);
     }

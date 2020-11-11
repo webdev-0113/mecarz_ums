@@ -119,7 +119,7 @@ Send an email to sales[at]accscripts.com
 
 Note 1: Please consult your hosting provider to determine if URL rewriting is available to you. The "apache-style mod_rewrite" must be supported by your hosting provider in order to use this link format.
 
-Note 2: Some hosting configurations may require an additional configuration setting in the .htaccess file to enable following symbolic links. Please consult your hosting provider to determine if this is necessary for you.
+Note 2: Some hosting configurations may include an additional configuration setting in the .htaccess file to enable following symbolic links. Please consult your hosting provider to determine if this is necessary for you.
 
 
 4.2. Install Acc Autos php script

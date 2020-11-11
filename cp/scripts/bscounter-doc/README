@@ -27,7 +27,7 @@ $ chmod 606 data
 - Using the counter - 
 
 To use the bscount.cgi script, include the following in the html of your document:
-(Note: you will need to have ssi enabled, some servers require that your pages be named
+(Note: you will need to have ssi enabled, some servers include that your pages be named
 document.shtml rather than document.html or document.htm)
 
  - Graphical counter:

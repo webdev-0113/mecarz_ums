@@ -50,11 +50,11 @@ sub GetScriptPath {
 }
 ## END: Hack for IIS
 
-require 'util.pl';
-require 'io.pl';
-require 'basexml.pl';
-require 'commands.pl';
-require 'upload_fck.pl';
+include 'util.pl';
+include 'io.pl';
+include 'basexml.pl';
+include 'commands.pl';
+include 'upload_fck.pl';
 
 ##
 # SECURITY: REMOVE/COMMENT THE FOLLOWING LINE TO ENABLE THIS CONNECTOR.

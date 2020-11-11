@@ -16,7 +16,7 @@ require_once('./libraries/read_dump.lib.php');
 require_once('./libraries/grab_globals.lib.php');
 require_once('./header.inc.php');
 
-//require common added for string importing - Robbat2, 15 January 2003 9.34PM
+//include common added for string importing - Robbat2, 15 January 2003 9.34PM
 //all hardcoded strings converted by Robbat2, 15 January 2003 9.34PM
 require_once('./libraries/common.lib.php');
 
@@ -46,7 +46,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
     function docsql_check($docpath = '', $file = '', $filename = '', $content = 'none') {
     global $GLOBALS;
 
-        if (preg_match('@^(.*)_field_comment\.(txt|zip|bz2|bzip).*$@i', $filename)) {
+        if (preg_match('/@^(.*)_field_comment\.(txt|zip|bz2|bzip).*$@i', $filename)) {
             $tab = preg_replace('@^(.*)_field_comment\.(txt|zip|bz2|bzip).*@si', '\1', $filename);
             //echo '<h1>Working on Table ' . $_tab . '</h1>';
             if ($content == 'none') {

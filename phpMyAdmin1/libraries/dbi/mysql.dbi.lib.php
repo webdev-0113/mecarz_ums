@@ -62,7 +62,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
         if ($cfg['PersistentConnections']) {
             $link = @mysql_pconnect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, $client_flags);
         } else {
-            $link = @mysql_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, FALSE, $client_flags);
+            $link = @mysqli_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, FALSE, $client_flags);
         }
     }
 
@@ -86,7 +86,7 @@ function PMA_DBI_select_db($dbname, $link = NULL) {
     if (PMA_MYSQL_INT_VERSION < 40100) {
         $dbname = PMA_convert_charset($dbname);
     }
-    return mysql_select_db($dbname, $link);
+    return mysqli_select_db($link, $dbname);
 }
 
 function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
@@ -101,23 +101,23 @@ function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
         $query = PMA_convert_charset($query);
     }
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
-        return @mysql_query($query, $link);
+        return @mysqli_query($query, $link);
     } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
         return @mysql_unbuffered_query($query, $link);
     } else {
-        return @mysql_query($query, $link);
+        return @mysqli_query($query, $link);
     }
 }
 
 // The following function is meant for internal use only.
 // Do not call it from outside this library!
-function PMA_mysql_fetch_array($result, $type = FALSE) {
+function PMA_mysqli_fetch_array($result, $type = FALSE) {
     global $cfg, $allow_recoding, $charset, $convcharset;
 
     if ($type != FALSE) {
-        $data = mysql_fetch_array($result, $type);
+        $data = mysqli_fetch_array($result, $type);
     } else {
-        $data = mysql_fetch_array($result);
+        $data = mysqli_fetch_array($result);
     }
 
     /* No data returned => do not touch it */
@@ -125,7 +125,7 @@ function PMA_mysql_fetch_array($result, $type = FALSE) {
     
     if (!defined('PMA_MYSQL_INT_VERSION') || PMA_MYSQL_INT_VERSION >= 40100
         || !(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
-        /* No recoding -> return data as we got them */
+        /* No recoding->return data as we got them */
         return $data;
     } else {
         $ret = array();
@@ -148,20 +148,20 @@ function PMA_mysql_fetch_array($result, $type = FALSE) {
 }
 
 function PMA_DBI_fetch_array($result) {
-    return PMA_mysql_fetch_array($result);
+    return PMA_mysqli_fetch_array($result);
 }
 
 function PMA_DBI_fetch_assoc($result) {
-    return PMA_mysql_fetch_array($result, MYSQL_ASSOC);
+    return PMA_mysqli_fetch_array($result, MYSQL_ASSOC);
 }
 
 function PMA_DBI_fetch_row($result) {
-    return PMA_mysql_fetch_array($result, MYSQL_NUM);
+    return PMA_mysqli_fetch_array($result, MYSQL_NUM);
 }
 
 function PMA_DBI_free_result($result) {
     if (!is_bool($result)) {
-        return mysql_free_result($result);
+        return mysqli_free_result($result);
     } else {
         return 0;
     }
@@ -180,12 +180,12 @@ function PMA_DBI_getError($link = NULL) {
        }
     }
 
-    if (mysql_errno()) {
-        $error = mysql_errno();
-        $error_message = mysql_error();
+    if (mysqli_errno()) {
+        $error = mysqli_errno();
+        $error_message = mysqli_error();
     } elseif ($link) {
-        $error = mysql_errno($link);
-        $error_message = mysql_error($link);
+        $error = mysqli_errno($link);
+        $error_message = mysqli_error($link);
     }
 
     // keep the error number for further check after the call to PMA_DBI_getError() 
@@ -195,7 +195,7 @@ function PMA_DBI_getError($link = NULL) {
         return FALSE;
     }
 
-// Some errors messages cannot be obtained by mysql_error()
+// Some errors messages cannot be obtained by mysqli_error()
     if ($error && $error == 2002) {
         $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
     } elseif ($error && $error == 2003) {
@@ -221,7 +221,7 @@ function PMA_DBI_close($link = NULL) {
 
 function PMA_DBI_num_rows($result) {
     if (!is_bool($result)) {
-        return mysql_num_rows($result);
+        return mysqli_num_rows($result);
     } else {
         return 0;
     }
@@ -235,7 +235,7 @@ function PMA_DBI_insert_id($link = NULL) {
             return FALSE;
         }
     }
-    return mysql_insert_id($link);
+    return mysqli_insert_id($link);
 }
 
 function PMA_DBI_affected_rows($link = NULL) {

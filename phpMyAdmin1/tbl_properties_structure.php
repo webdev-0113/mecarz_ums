@@ -167,7 +167,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $type             = $row['Type'];
     // reformat mysql query output - staybyte - 9. June 2001
     // loic1: set or enum types: slashes single quotes inside options
-    if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
+    if (preg_match('/@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
         $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
         $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
         $type_nowrap  = '';
@@ -179,7 +179,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $type_nowrap  = ' nowrap="nowrap"';
         // strip the "BINARY" attribute, except if we find "BINARY(" because
         // this would be a BINARY or VARBINARY field type
-        if (!preg_match('@BINARY[\(]@i', $type)) {
+        if (!preg_match('/@BINARY[\(]@i', $type)) {
             $type         = preg_replace('@BINARY@i', '', $type);
         }
         $type         = preg_replace('@ZEROFILL@i', '', $type);
@@ -188,7 +188,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             $type     = '&nbsp;';
         }
 
-        if (!preg_match('@BINARY[\(]@i', $row['Type'])) {
+        if (!preg_match('/@BINARY[\(]@i', $row['Type'])) {
             $binary           = stristr($row['Type'], 'blob') || stristr($row['Type'], 'binary');
         } else {
             $binary           = FALSE;
@@ -603,7 +603,7 @@ if (!$tbl_is_view) {
     <td valign="top">
     <?php
     define('PMA_IDX_INCLUDED', 1);
-    require ('./tbl_indexes.php');
+    include ('./tbl_indexes.php');
     ?>
     </td>
 
@@ -618,7 +618,7 @@ if (!$tbl_is_view) {
     if ($cfg['ShowStats']) {
         $nonisam     = FALSE;
         $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
-        if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
+        if (isset($showtable['Type']) && !preg_match('/@ISAM|HEAP@i', $showtable['Type'])) {
             $nonisam = TRUE;
         }
         if ($nonisam == FALSE || $is_innodb) {

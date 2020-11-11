@@ -821,10 +821,10 @@ $lang['error_payment']['business'] = "Please input business<br>";
 
 $lang["tpl_auto_Pic"] = "Picture";
 $lang["tpl_auto_of"] = "of";
-$lang["tpl_auto_previous"] = "« Previous";
-$lang["tpl_auto_back"] = "« Back";
-$lang["tpl_auto_next"] = "Next »";
-$lang["tpl_auto_exit"] = "Exit ×";
+$lang["tpl_auto_previous"] = "ï¿½ Previous";
+$lang["tpl_auto_back"] = "ï¿½ Back";
+$lang["tpl_auto_next"] = "Next ï¿½";
+$lang["tpl_auto_exit"] = "Exit ï¿½";
 $lang["tpl_auto_year"] = "Year";
 $lang["tpl_auto_model"] = "Model";
 $lang["tpl_auto_stereo"] = "Stereo";
@@ -861,7 +861,7 @@ $lang['tpl_auto_please_type_message'] = "Please Type Message";
 $lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "Message too large or too small ";
 
 $lang['tpl_auto_thanks'] = "Thanks for your message. We'll contact you asap!";
-$lang["tpl_auto_close"] = "Close ×";
+$lang["tpl_auto_close"] = "Close ï¿½";
 $lang["tpl_auto_signup"] = "Register to post your car 4 free";
 
 $lang['tpl_auto_please_type_username'] = "Please Type Username";
@@ -889,16 +889,16 @@ $lang['tpl_auto_desc'] = "Desc";
 
 //18 iunie 2004
 $lang[tpl_auto_Sold]="Sold";
-$lang[sold]="Sold";
-$lang[yes]="Yes";
-$lang[no]="No";
+$lang['sold']="Sold";
+$lang['yes']="Yes";
+$lang['no']="No";
 
 $lang["tpl_auto_Are_you_sure_you_want_to_activate_all_as_sold"] = "Are you sure you want to activate all selected as sold?";
 
-$lang[BRANDNEW] = "BRAND NEW";
-$lang[EXDEMO] = "EX DEMO";
+$lang['BRANDNEW'] = "BRAND NEW";
+$lang['EXDEMO'] = "EX DEMO";
 
-//$lang[array_types] = array(2=>$lang[sold],3=>$lang[BRANDNEW],4=>$lang[EXDEMO]);
+//$lang['array_types'] = array(2=>$lang['sold'],3=>$lang['BRANDNEW'],4=>$lang['EXDEMO']);
 
 
 //10 iulie
@@ -937,7 +937,7 @@ $lang['tpl_auto_your_city'] = "Your City";
 
 
 $lang['tpl_auto_Confirm_email_address'] = "Confirm email address";
-$lang['tpl_auto_Make_payments_with_PayPal_its_fast_freeand_secure'] = "Make payments with PayPal - it’s fast, freeand secure!";
+$lang['tpl_auto_Make_payments_with_PayPal_its_fast_freeand_secure'] = "Make payments with PayPal - itï¿½s fast, freeand secure!";
 
 $lang['tpl_auto_Click_on_a_picture_to_view_the_gallery'] = "Click on a picture to view the gallery";
 
@@ -1088,8 +1088,8 @@ $lang['tabel_gallery']['order'] = "Order";
 $lang['error_gallery']['picture'] = "Please input picture<br>";
 //end gallery
 
-$lang["tpl_auto_previouscar"] = "« Previous";
-$lang["tpl_auto_nextcar"] = "Next »";
+$lang["tpl_auto_previouscar"] = "ï¿½ Previous";
+$lang["tpl_auto_nextcar"] = "Next ï¿½";
 
 
 $lang['tpl_auto_View_all_cars'] = "View All Cars";

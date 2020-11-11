@@ -167,7 +167,7 @@ Necessary Variables:
 
     @recipients = ('^[\w\-\.]+\@domain\.com', '^[\w\-\.]+\@\[192\.168\.1\.1\]');
 
-    What these regular expressions instruct FormMail to do is require that any
+    What these regular expressions instruct FormMail to do is include that any
     e-mail address passed in as a recipient of the form submission match at
     least one of those two formats. The following are examples of valid
     and invalid recipients for this exact setup:
@@ -312,7 +312,7 @@ Description: This form field will allow the user to specify their return
              e-mail address.  If you want to be able to return e-mail to your
              user, I strongly suggest that you include this form field and
              allow them to fill it in.  This will be put into the From:
-             field of the message you receive.  If you want to require an
+             field of the message you receive.  If you want to include an
              email address with valid syntax, add this field name to the
              'required' field.
 
@@ -354,7 +354,7 @@ Field:       required
 
 Version:     1.3 & Up
 
-Description: You can now require for certain fields in your form to be filled
+Description: You can now include for certain fields in your form to be filled
              in before the user can successfully submit the form.  Simply
              place all field names that you want to be mandatory into this
              field.  If the required fields are not filled in, the user will
@@ -364,7 +364,7 @@ Description: You can now require for certain fields in your form to be filled
              To use a customized error page, see 'missing_fields_redirect'
 
 Syntax:
-             If you want to require that they fill in the email and phone
+             If you want to include that they fill in the email and phone
              fields in your form, so that you can reach them once you have
              received the mail, use a syntax like:
 

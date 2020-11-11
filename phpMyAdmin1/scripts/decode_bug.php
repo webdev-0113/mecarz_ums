@@ -56,7 +56,7 @@
 
 <?php
 /**
- * If the form has been submitted -> decodes the bug report
+ * If the form has been submitted->decodes the bug report
  */
 
 /**

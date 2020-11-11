@@ -85,7 +85,7 @@
      * @return  boolean     void
      * @author  Garvin Hicking (pma@supergarv.de)
      */
-    function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_data) {
+    function PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data) {
         if (!is_array($ret_keys)) {
             return false;
         }
@@ -136,7 +136,7 @@
      * @return  array       Index collection array
      * @author  Garvin Hicking (pma@supergarv.de)
      */
-    function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $display_html = true, $print_mode = false) {
+    function PMA_show_indexes($table, $indexes, $indexes_info, $indexes_data, $display_html = true, $print_mode = false) {
         $idx_collection = array();
         foreach ($indexes AS $index_no => $index_name) {
             if ($display_html) {

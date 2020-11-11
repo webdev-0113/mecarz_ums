@@ -209,7 +209,7 @@ if (!isset($goto)) {
 
 require_once './libraries/bookmark.lib.php';
 $is_inside_querywindow = TRUE;
-require './tbl_query_box.php';
+include './tbl_query_box.php';
 
 // Hidden forms and query frame interaction stuff
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
