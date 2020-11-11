@@ -475,7 +475,7 @@ class VisitClass{
         $num_rows = mysqli_num_rows($result);
         $nr = $num_rows;
         $nr_total = $num_rows_ini_;
-        $nr_car_found = preg_replace("/\{{(\w+)\}}/e", "\$\\1", $lang["tpl_auto_found"]);
+        $nr_car_found = preg_replace("/\{{(\w+)\}}/i", "\$\\1", $lang["tpl_auto_found"]);
         $contor = 0;
         $newarray=array();
 
@@ -580,7 +580,7 @@ class VisitClass{
         if (!$condtosearch) $pageoutfin="";
         //$nr=$nr_total=$num_rows_ini_=$contor;
         if ($contor>0){
-            $nr_listing_found = preg_replace( "/\{{(\w+)\}}/e", "\$\\1", $lang["tpl_auto_found"] );
+            $nr_listing_found = preg_replace( "/\{{(\w+)\}}/i", "\$\\1", $lang["tpl_auto_found"] );
             if ($myproper){
                 $out .= $tpl->replace( $user, "compare.html" );
             }

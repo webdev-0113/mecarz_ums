@@ -392,7 +392,7 @@ function resetDrag() {
             }
             echo '>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <select name="c_table_' . $i . '[name]">';
+                 . "\n" . '            <select name="c_table_' . $i . '["name"]">';
             foreach ($selectboxall AS $key => $value) {
                 echo "\n" . '                <option value="' . $value . '"';
                 if ($value == $sh_page['table_name']) {
@@ -423,8 +423,8 @@ function resetDrag() {
             echo 'bgcolor="' . $cfg['BgcolorTwo'] . '"';
         }
         echo '>';
-        echo "\n" . '        <td>'
-             . "\n" . '            <select name="c_table_' . $i . '[name]">';
+        echo '\n' . '        <td>'
+             . '\n' . '            <select name="c_table_' . $i . '["name"]">';
         foreach ($selectboxall AS $key => $value) {
             echo "\n" . '                <option value="' . $value . '">' . $value . '</option>';
         }

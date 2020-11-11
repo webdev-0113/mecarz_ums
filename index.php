@@ -681,8 +681,8 @@ switch ($p){
         $settings_template = $Global_Class->getprofile( "1","template","id" );
 
 
-        $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['contactus_subject'] );
-        $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['contactus_body'] ).$bodymail;
+        $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $lang['contactus_subject'] );
+        $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $lang['contactus_body'] ).$bodymail;
         if ($_SESSION['session_uid']!=$_REQUEST['code'] or $_REQUEST['code']=='' ){
             $email['error']=$lang['tpl_auto_The_Image_Text_is_not_correct1'];
             $outputtoscreen_car = $tpl->replace($email,"contact.html");
@@ -726,8 +726,8 @@ switch ($p){
             $email_var['description']='';
             $settings_template = $Global_Class->getprofile( "1","template","id" );
 
-            $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["contact_subject".$language_set] );
-            $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["contact_body".$language_set] );
+            $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["contact_subject".$language_set] );
+            $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["contact_body".$language_set] );
             if ($_SESSION['session_uid']!=$_REQUEST['code'] or $_REQUEST['code']=='' ){
                 $car_profile = $Global_Class->getprofile( $_REQUEST['id'],"$tabel_cars","id" );
                 $category_profile = $Global_Class->getprofile( $car_profile['category'], "category", 'id' );
@@ -829,8 +829,8 @@ switch ($p){
 
             $settings_template = $Global_Class->getprofile( "1","template","id" );
 
-            $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signup_subject".$language_set] );
-            $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signup_body".$language_set] );
+            $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["signup_subject".$language_set] );
+            $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["signup_body".$language_set] );
             $email_var['password']=md5($email_var['password']);
             $sql="INSERT INTO `{$config['table_prefix']}admin` ( `id` , `right` , `username` , `password` , `password1` , `email` , `noemail` ,`nocontactemail`, `name` , `phone` ,`fax`, `address`,  `country` , `state` , `city` , `zip`, `logo` , `description` , `nocars` , `nopictures` ,  `adprofiles`, `unic_id`,`active`, `delay` , `date_delay` )
 VALUES
@@ -1052,8 +1052,8 @@ VALUES
 
                 $settings_template = $Global_Class->getprofile( "1","template","id" );
 
-                $settings_template['signupmembers_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signupmembers_subject".$language_set] );
-                $settings_template['signupmembers_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["signupmembers_body".$language_set] );
+                $settings_template['signupmembers_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["signupmembers_subject".$language_set] );
+                $settings_template['signupmembers_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["signupmembers_body".$language_set] );
                 $email_var['password']=md5($email_var['password']);
                 $sql="INSERT INTO `{$config['table_prefix']}members` ( `id` , `name` ,  `email` , `unic_id`,`active`,`date_add` )
 VALUES
@@ -1233,8 +1233,8 @@ VALUES
             $email_var['url']=$config['url_path']."index.php?p=details&id=".$email_var['id'];
             $settings_template = $Global_Class->getprofile( "1","template","id" );
 
-            $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["friend_subject".$language_set] );
-            $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template["friend_body".$language_set] );
+            $settings_template['contact_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["friend_subject".$language_set] );
+            $settings_template['contact_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template["friend_body".$language_set] );
             if ($_SESSION['session_uid']!=$_REQUEST['code'] or $_REQUEST['code']=='' ){
 
                 $car_profile = $Global_Class->getprofile( $_REQUEST['id'],"$tabel_cars","id" );
@@ -1269,7 +1269,7 @@ VALUES
 
             $user['days']=$_REQUEST['days'];
 
-            $outputtoscreen_car.=preg_replace( "/\{(\w+)\}/e", "\$user[\\1]", $lang['youradwasupdated'] );
+            $outputtoscreen_car.=preg_replace( "/\{(\w+)\}/i", "\$user[\\1]", $lang['youradwasupdated'] );
 
             srand((double)microtime() * 1000000);
             $unic_id = @md5(rand(0, 999999));

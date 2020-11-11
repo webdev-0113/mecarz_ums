@@ -16,10 +16,10 @@ class TPL {
         //##########
 
         $html = $output;
-        $output2 = preg_replace("/>(\w+[\w\s&;-]*)</e", "'>{{tpl_auto_'.str_replace(array(' '),'_','\\1').'}}<'", $html);
-        $output23 = preg_replace("/>(\w+(\s)*\w+(\s)*\w+(\s)*\w+)</e", "'>{{tpl_auto_'.str_replace(' ','_','\\1').'}}<'", $output1);
+        $output2 = preg_replace("/>(\w+[\w\s&;-]*)</i", "'>{{tpl_auto_'.str_replace(array(' '),'_','\\1').'}}<'", $html);
+        $output23 = preg_replace("/>(\w+(\s)*\w+(\s)*\w+(\s)*\w+)</i", "'>{{tpl_auto_'.str_replace(' ','_','\\1').'}}<'", $output1);
 
-        preg_match_all ( "/{{([\w\s&;-]+)}}/e", $output2, $keywords, PREG_PATTERN_ORDER );
+        preg_match_all ( "/{{([\w\s&;-]+)}}/i", $output2, $keywords, PREG_PATTERN_ORDER );
 
         foreach ( $keywords[0] as $key => $val )
         {
@@ -67,15 +67,15 @@ class TPL {
                 $language_setini=$language_set1;
                 $language_set1=$language_set1.'-';
             }
-            $output = preg_replace("/{{language_set}}/e", "\$language_set1", $output);
-            $output = preg_replace("/{{language_setini}}/e", "\$language_setini", $output);
-            $output = preg_replace("/{{language_session}}/e", "\$language_session1", $output);
+            $output = preg_replace("/{{language_set}}/i", $language_set1, $output);
+            $output = preg_replace("/{{language_setini}}/i", $language_setini, $output);
+            $output = preg_replace("/{{language_session}}/i", $language_session1, $output);
 
 
-            $output = preg_replace("/<a href=\"(.*).html\">/e", "'<a href=\"'.preg_replace('/ /i','-','\\1').'.html\">'", $output);
-            $output = preg_replace("/{{tpl_auto_(\w+)}}/e", "\$lang['tpl_auto_\\1']", $output);
-            $output = preg_replace("/{{config_auto_(\w+)}}/e", "\$config['config_auto_\\1']", $output);
-            $output = preg_replace("/{{input_(\w+)_val}}/e", "PrepareForWrite(\$_REQUEST['input_\\1'])", $output);
+            $output = preg_replace("/<a href=\"(.*).html\">/i", "'<a href=\"'.preg_replace('/ /i','-','\\1').'.html\">'", $output);
+            $output = preg_replace("/{{tpl_auto_(\w+)}}/i", $lang['tpl_auto_\\1'], $output);
+            $output = preg_replace("/{{config_auto_(\w+)}}/i", $config['config_auto_\\1'], $output);
+            $output = preg_replace("/{{input_(\w+)_val}}/i", "PrepareForWrite(\$_REQUEST['input_\\1'])", $output);
             if ($condtemplates){
                 $output = preg_replace('/{{[^}}]*}}/','',$output);
             }

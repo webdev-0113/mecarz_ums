@@ -329,13 +329,13 @@ if ( $_COOKIE['username_cookie'] == "" )
                             $sql_unic_id = ", `unic_id` = '$unic_id'";
                         }
                         $email_var['link'] = $config['url_path']."index.php?p=confirm&amp;id=".$email_var['unic_id'];
-                        $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template['signup_subject'] );
-                        $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $settings_template['signup_body'] );
+                        $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template['signup_subject'] );
+                        $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template['signup_body'] );
                         $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
                         $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
                     }
-                    $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_subject'] );
-                    $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/e", "\$email_var[\\1]", $lang['newpassword_body'] );
+                    $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $lang['newpassword_subject'] );
+                    $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $lang['newpassword_body'] );
 
                     $sql="UPDATE `{$config['table_prefix']}admin` SET password='".md5($password)."'{$sql_unic_id} where `email` = '$email' limit 1";
                     $result = $db->query($sql,__FILE__,__LINE__);
@@ -445,7 +445,7 @@ else
         {
             if ( $val == 1 )
             {
-                $key_ = preg_replace( "/_(\w+)/e", "", $key );
+                $key_ = preg_replace( "/_(\w+)/i", "", $key );
                 if ( $menu_added[$key_] != 1 and $key_!="" and !in_array( $key_, array( "discounts","prices","notavailable","bookings" ) ) )
                 {
                     $menu_added[$key_] = 1;
@@ -574,7 +574,7 @@ else
     {
         $menu_show=false;
         foreach ($config["admin_menu_top2"][$val] as $key1=>$val1) {
-            $val1_ = preg_replace( "/_(\w+)/e", "", $val1 );
+            $val1_ = preg_replace( "/_(\w+)/i", "", $val1 );
 
             if ($right_cookie[$val1_] or $right_cookie[$val1_.'_view']){
                 $menu_show=true;
@@ -609,7 +609,7 @@ else
 
     foreach( $config["admin_menu_top2"][$defaultoption] as $key => $val )
     {
-        $val1_ = preg_replace( "/_(\w+)/e", "", $val );
+        $val1_ = preg_replace( "/_(\w+)/i", "", $val );
         if ($right_cookie[$val1_] or $right_cookie[$val1_.'_view'] or ( in_array($_REQUEST['p'],$config["admin_menu_top3"]) and $right_cookie[$val1_.'view'])){
 
             $vartemp['val'] = $lang['tpl_auto_'.$val];

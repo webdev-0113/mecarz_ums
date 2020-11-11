@@ -271,7 +271,7 @@ class GlobalClass{
                     $make_profile = $this->getprofile($cars_profile['make'], "make", 'id');
                     $usertemp1['make'] = $make_profile["name{$language_set}"];
 
-                    $model_profile = $this->getprofile($cars_profile[model], "model", 'id');
+                    $model_profile = $this->getprofile($cars_profile['model'], "model", 'id');
                     $usertemp1['model'] = $model_profile["name{$language_set}"];
 
                     $var['carid']=$cars_profile[id]." - ".$usertemp1['make']." - ".$usertemp1['model']." - ".$cars_profile['year'];
@@ -378,7 +378,7 @@ class GlobalClass{
             $vartemp['nr']=$num_rows_ini;
             $vartemp['nr1']=$variable['page']+1;
             $vartemp['nr2']=$variable['page']+$num_rows;
-            if ($num_rows < $nrresult) $vartemp['nr2']=$page+$num_rows;
+//            if ($num_rows < $nrresult) $vartemp['nr2']=$page+$num_rows;
             $resultnr=$lang["msg_result_nr"];
 
             foreach ($vartemp as $key => $value) {
@@ -476,7 +476,7 @@ class GlobalClass{
 
             "method"=>$_REQUEST['method'],
             "orderby"=>$_REQUEST['orderby'],
-            "error"=>$error,
+            "error"=>"",
             "nrresult"=>$_REQUEST['nrresult'],
             "page"=>$_REQUEST['page']
         );
@@ -3545,49 +3545,49 @@ class GlobalClass{
         global $_REQUEST;
         global $config,$tpl,$Email_class,$lang ;
         global $db; //database
-        if ($_REQUEST[input_send]=="" AND $_REQUEST[send_to_all]=="") {
+        if ($_REQUEST['input_send']=="" AND $_REQUEST['send_to_all']=="") {
             $var['error'] = $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'];
         }
-        if ($_REQUEST[input_from]=="") {
+        if ($_REQUEST['input_from']=="") {
             $var['error'] = $lang['tpl_auto_please_type_from_name'];
         }
-        if ($_REQUEST[input_fromemail]=="") {
+        if ($_REQUEST['input_fromemail']=="") {
             $var['error'] = $lang['tpl_auto_please_type_fromemail'];
         }
-        if ($_REQUEST[input_subject]=="") {
+        if ($_REQUEST['input_subject']=="") {
             $var['error'] = $lang['tpl_auto_please_type_subject'];
         }
-        if ($_REQUEST[input_message]=="") {
+        if ($_REQUEST['input_message']=="") {
             $var['error'] = $lang['tpl_auto_please_type_message'];
         }
         if ($var['error']!='') {
             $out = $tpl->replace( $var, "sendemail.html" );
             return $out;
         }else{
-            if ($_REQUEST[send_to_all]==1){
+            if ($_REQUEST['send_to_all']==1){
                 $array_members = $this->getarray('members','id','id'," AND `active`=1");
             }else{
-                $array_members[0][email] = $_REQUEST[input_send];
-                $array_members[0][name] = "";
+                $array_members[0]['email'] = $_REQUEST['input_send'];
+                $array_members[0]['name'] = "";
             }
             $contor =0;
             if (!is_array($array_members)) $array_members = array();
             foreach($array_members as $key=>$val){
-                $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
-                $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
+                $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/i", "\$val[\\1]", $_REQUEST['input_subject'] ) );
+                $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/i", "\$val[\\1]", $_REQUEST['input_message'] ) );
 
-                $sendresult = $Email_class->emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                $sendresult = $Email_class->emailsend(  $val['email'], $val['name'], $_REQUEST['input_fromemail'], $_REQUEST['input_from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
-                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
+                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_send']);
                 }else{
-                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_not_send']);
+                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_not_send']);
                 }
                 if ($key % $config['send_email_once']==0){
                     sleep($config['waitsecondes']);
                 }
             }
-            $val123[error] = $error;
+            $val123['error'] = $error;
             $output = $tpl->replace($val123,"sendemail1.html");
             return $output;
         }
@@ -3598,6 +3598,7 @@ class GlobalClass{
         global $config;
         global $db,$lang; //database
 
+        $out = '';
         if (!$cond) {
             $out .= "<option";
             $out .= " value='-1'>".$lang['language_notuse']."</option>\n";
@@ -3657,26 +3658,26 @@ class GlobalClass{
         global $_REQUEST;
         global $config,$tpl,$Email_class,$lang ;
         global $db; //database
-        if ($_REQUEST[input_send]=="" AND $_REQUEST[send_to_all]=="") {
+        if ($_REQUEST['input_send']=="" AND $_REQUEST['send_to_all']=="") {
             $var['error'] = $lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_admin'];
         }
-        if ($_REQUEST[input_from]=="") {
+        if ($_REQUEST['input_from']=="") {
             $var['error'] = $lang['tpl_auto_please_type_from_name'];
         }
-        if ($_REQUEST[input_fromemail]=="") {
+        if ($_REQUEST['input_fromemail']=="") {
             $var['error'] = $lang['tpl_auto_please_type_fromemail'];
         }
-        if ($_REQUEST[input_subject]=="") {
+        if ($_REQUEST['input_subject']=="") {
             $var['error'] = $lang['tpl_auto_please_type_subject'];
         }
-        if ($_REQUEST[input_message]=="") {
+        if ($_REQUEST['input_message']=="") {
             $var['error'] = $lang['tpl_auto_please_type_message'];
         }
         if ($var['error']!='') {
             $out = $tpl->replace( $var, "sendemailadmin.html" );
             return $out;
         }else{
-            if ($_REQUEST[send_to_all]==1){
+            if ($_REQUEST['send_to_all']==1){
                 switch ($_REQUEST['sendtoadmin']){
                     case "alllisting":
                         $array_members = $this->getarray('admin','id','id'," ");
@@ -3709,20 +3710,20 @@ class GlobalClass{
                         break;
                 }
             }else{
-                $array_members[0][email] = $_REQUEST[input_send];
-                $array_members[0][name] = "";
+                $array_members[0]['email'] = $_REQUEST['input_send'];
+                $array_members[0]['name'] = "";
             }
             $contor =0;
             foreach($array_members as $key=>$val){
-                $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_subject] ) );
-                $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/e", "\$val[\\1]", $_REQUEST[input_message] ) );
+                $settings_template['signup_subject'] = stripslashes( preg_replace( "/\{(\w+)\}/i", "\$val[\\1]", $_REQUEST['input_subject'] ) );
+                $settings_template['signup_body'] = stripslashes( preg_replace( "/\{(\w+)\}/i", "\$val[\\1]", $_REQUEST['input_message'] ) );
 
-                $sendresult = $Email_class->emailsend(  $val[email], $val[name], $_REQUEST[input_fromemail], $_REQUEST[input_from], $settings_template['signup_subject'], $settings_template['signup_body'] );
+                $sendresult = $Email_class->emailsend(  $val['email'], $val['name'], $_REQUEST['input_fromemail'], $_REQUEST['input_from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
-                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_send']);
+                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_send']);
                 }else{
-                    $error .= preg_replace("{email}", $val[email], $lang['tpl_auto_Email_not_send']);
+                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_not_send']);
                 }
                 if ($key % $config['send_email_once']==0){
                     sleep($config['waitsecondes']);
