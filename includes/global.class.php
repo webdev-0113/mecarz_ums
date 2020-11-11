@@ -70,7 +70,7 @@ class GlobalClass{
                             $sql_cond1.=" and {$config['table_prefix']}$default_tabel.$val = '".$variable[$val]."'";
                         }else{
 
-                            if (preg_match("/(([0-9]{2})-([0-9]{2})-([0-9]{4}))",$variable[$val]) and $_REQUEST['o']=='search') {
+                            if (preg_match("/(([0-9]{2})-([0-9]{2})-([0-9]{4}))/",$variable[$val]) and $_REQUEST['o']=='search') {
 
                                 $pattern = "/([0-9]{2})-([0-9]{2})-([0-9]{4})/i";
                                 $replacement = "\$3-\$2-\$1";
@@ -301,7 +301,7 @@ class GlobalClass{
                     }
                 }
                 foreach($tablefield_array as $key=>$val){
-                    if (preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2})",$var[$val])) {
+                    if (preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2})/",$var[$val])) {
                         if ($var[$val] == '0000-00-00') {
                             $var[$val]="-";
                         }else{
@@ -331,7 +331,7 @@ class GlobalClass{
                         $var[$val]="<img src=\"../temp/{$var[$val]}\" border=0>";
                     }
                     if (in_array($val,$search_fields)) {
-                        if ($default_tabel!='admin' and !preg_match("/\.jpg",$var[$val]) and strlen($var[$val])>$config['chars_to_see_on_list_page']){
+                        if ($default_tabel!='admin' and !preg_match("/\.jpg/",$var[$val]) and strlen($var[$val])>$config['chars_to_see_on_list_page']){
                             $var[$val]=substr($var[$val],0,$config['chars_to_see_on_list_page']).$config['chars_after_on_list_page'];
                         }
                         $var_fields['fields']=$var[$val];
@@ -841,7 +841,7 @@ class GlobalClass{
         $temp=explode("</option>\n",$dropdown);
         if (!is_array($temp)) $temp=array();
         foreach ($temp as $key=>$val){
-            if (preg_match("/selected",$val)){
+            if (preg_match("/selected/",$val)){
                 $temp1=explode("'>",$val);
                 return ($temp1[1]);
             }
@@ -1053,13 +1053,13 @@ class GlobalClass{
                 if ($_POST["input_".$tablefield_array_r['Field']]=="on")
                     $var['tpl_input_name_val']="checked";
 
-                if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
+                if ($default_option=="rights" AND preg_match("/_add|_view|_delete/",$tablefield_array_r['Field']) ){
                     $var1=$var;
                     $templang = explode("_",$tablefield_array_r['Field']);
                     $var1['tpl_name']=$lang["tpl_auto_".$templang[1]];
                     $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                     $i--;
-                }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
+                }elseif ($default_option=="rights" AND preg_match("/_edit/",$tablefield_array_r['Field']) ){
                     $var1=$var;
                     $var1['tpl_name']=$lang["tpl_auto_edit"];
                     $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -1239,7 +1239,7 @@ class GlobalClass{
             if (!in_array($tablefield_array_r['Field'],$fields)){
 
                 if (in_array($tablefield_array_r['Field'],$varchar_fields)){
-                    if (preg_match("/,",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
+                    if (preg_match("/,/",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
                         $value_toexplode=explode(",",$_POST["input_".$tablefield_array_r['Field']]);
                         foreach ($value_toexplode as $keytemp=>$valtemp){
                             $valtemp = trim($valtemp);
@@ -1576,13 +1576,13 @@ class GlobalClass{
                     if ($_POST[$kmultiplenew."input_".$tablefield_array_r['Field']]=="on")
                         $var['tpl_input_name_val']="checked";
 
-                    if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
+                    if ($default_option=="rights" AND preg_match("/_add|_view|_delete/",$tablefield_array_r['Field']) ){
                         $var1=$var;
                         $templang = explode("_",$tablefield_array_r['Field']);
                         $var1['tpl_name']=$lang["tpl_auto_".$templang[1]];
                         $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                         $i--;
-                    }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
+                    }elseif ($default_option=="rights" AND preg_match("/_edit/",$tablefield_array_r['Field']) ){
                         $var1=$var;
                         $var1['tpl_name']=$lang["tpl_auto_edit"];
                         $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -1941,13 +1941,13 @@ class GlobalClass{
                     if ($_POST[$kmultiplenew."input_".$tablefield_array_r['Field']]=="on")
                         $var['tpl_input_name_val']="checked";
 
-                    if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
+                    if ($default_option=="rights" AND preg_match("/_add|_view|_delete/",$tablefield_array_r['Field']) ){
                         $var1=$var;
                         $templang = explode("_",$tablefield_array_r['Field']);
                         $var1['tpl_name']=$lang["tpl_auto_".$templang[1]];
                         $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                         $i--;
-                    }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
+                    }elseif ($default_option=="rights" AND preg_match("/_edit/",$tablefield_array_r['Field']) ){
                         $var1=$var;
                         $var1['tpl_name']=$lang["tpl_auto_edit"];
                         $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -2297,13 +2297,13 @@ class GlobalClass{
                 if ($_POST["input_".$tablefield_array_r['Field']]=="on")
                     $var['tpl_input_name_val']="checked";
 
-                if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
+                if ($default_option=="rights" AND preg_match("/_add|_view|_delete/",$tablefield_array_r['Field']) ){
                     $var1=$var;
                     $templang = explode("_",$tablefield_array_r['Field']);
                     $var1['tpl_name']=$lang["tpl_auto_".$templang[1]];
                     $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                     $i--;
-                }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
+                }elseif ($default_option=="rights" AND preg_match("/_edit/",$tablefield_array_r['Field']) ){
                     $var1=$var;
                     $var1['tpl_name']=$lang["tpl_auto_edit"];
                     $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -2387,7 +2387,7 @@ class GlobalClass{
             if (!in_array($tablefield_array_r['Field'],$fields)){
 
                 if (in_array($tablefield_array_r['Field'],$varchar_fields)){
-                    if (preg_match("/,",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
+                    if (preg_match("/,/",$_POST["input_".$tablefield_array_r['Field']]) and count($varchar_fields)==1){
                         $value_toexplode=explode(",",$_POST["input_".$tablefield_array_r['Field']]);
                         foreach ($value_toexplode as $keytemp=>$valtemp){
                             $valtemp = trim($valtemp);
@@ -2694,13 +2694,13 @@ class GlobalClass{
                 else
                     $var['tpl_input_name_val']="";
 
-                if ($default_option=="rights" AND preg_match("/_add|_view|_delete",$tablefield_array_r['Field']) ){
+                if ($default_option=="rights" AND preg_match("/_add|_view|_delete/",$tablefield_array_r['Field']) ){
                     $var1=$var;
                     $templang = explode("_",$tablefield_array_r['Field']);
                     $var1['tpl_name']=$lang["tpl_auto_".$templang[1]];
                     $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
                     $i--;
-                }elseif ($default_option=="rights" AND preg_match("/_edit",$tablefield_array_r['Field']) ){
+                }elseif ($default_option=="rights" AND preg_match("/_edit/",$tablefield_array_r['Field']) ){
                     $var1=$var;
                     $var1['tpl_name']=$lang["tpl_auto_edit"];
                     $outtemp123.=$tpl->replace($var1,"global_add_checkbox_rights_repeat.html");
@@ -3176,9 +3176,9 @@ class GlobalClass{
             case "add":
                 if ($default_tabel=='gallery'){
 
-                    $output .= $Global_Class->addgallery( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS[error] );
+                    $output .= $Global_Class->addgallery( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS['error'] );
                 }else{
-                    $output .= $Global_Class->add( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS[error] );
+                    $output .= $Global_Class->add( $default_tabel, $p, "add1", $varchar_fields, $text_fields,$file_fields,$dropdown_fields,$dropdownval,$radio_fields,$radioval,$checkbox_fields,$password_fields, $date_fields,$HTTP_POST_VARS['error'] );
 
                 }
                 break;
@@ -3351,7 +3351,7 @@ class GlobalClass{
         global $config,$tpl,$lang;
         global $db; //class
         $out="";
-        if ($config[autoactivatedisabled]){
+        if ($config['autoactivatedisabled']){
             return  $lang['tpl_auto_your_account_expired'];
         }
         if ($user_activate=="") $user_activate=array();
@@ -3379,7 +3379,7 @@ class GlobalClass{
                       }
                }
                */
-        if (!$config[autoactivatedisabled]){
+        if (!$config['autoactivatedisabled']){
             $sql = "update `{$config['table_prefix']}$default_tabel` set `$camp`='$valoare' WHERE `$id_`='$id';";
             $result = $db->query($sql,__FILE__,__LINE__);
             return true;
@@ -3810,7 +3810,7 @@ class GlobalClass{
         if (!is_array($profile)) $profile=array();
 
         foreach($profile as $key=>$val){
-            if (preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2})",$profile[$key])) {
+            if (preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2})/",$profile[$key])) {
                 if ($profile[$key] == '0000-00-00') {
                     $profile[$key]="-";
                 }else{
@@ -3919,17 +3919,17 @@ class GlobalClass{
             }elseif (in_array($tablefield_array_r['Field'],$checkbox)){
                 $var['tpl_input_name_val']=($var['tpl_input_name_val']==0)? $lang['no'] : $lang['yes'];
 
-                if (preg_match("/_add",$tablefield_array_r['Field'])){
+                if (preg_match("/_add/",$tablefield_array_r['Field'])){
                     $temp=preg_replace("_add","",$tablefield_array_r['Field']);
                     $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_add"];
 
-                }elseif (preg_match("/_view",$tablefield_array_r['Field'])){
+                }elseif (preg_match("/_view/",$tablefield_array_r['Field'])){
                     $temp=preg_replace("_view","",$tablefield_array_r['Field']);
                     $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_view"];
-                }elseif (preg_match("/_delete",$tablefield_array_r['Field'])){
+                }elseif (preg_match("/_delete/",$tablefield_array_r['Field'])){
                     $temp=preg_replace("_delete","",$tablefield_array_r['Field']);
                     $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_delete"];
-                }elseif (preg_match("/_edit",$tablefield_array_r['Field'])){
+                }elseif (preg_match("/_edit/",$tablefield_array_r['Field'])){
                     //$var['tpl_name'].=$lang["tpl_auto_edit"];
                 }
                 $out1.=$tpl->replace($var,"global_add_see.html");

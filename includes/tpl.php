@@ -43,7 +43,7 @@ class TPL {
         ///ends
         */
         if (!is_array($var)) $var=array();
-        if (is_array($var) and preg_match("/{{",$output)) {
+        if (is_array($var) and preg_match("/{{/",$output)) {
             foreach ($var as $key => $value) {
                 if ($key=="error")
                     $output=preg_replace ("({{error}})", "<font color=\"red\" style=\"font-weight:bold;\">&nbsp;\\1</font>", $output);
