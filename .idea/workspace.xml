@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/global.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/global.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpMyAdmin1/pdf_pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpMyAdmin1/pdf_pages.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,23 +35,63 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="216" column="5" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
+            <state relative-caret-position="369">
+              <caret line="856" column="28" lean-forward="true" selection-start-line="856" selection-start-column="28" selection-end-line="856" selection-end-column="28" />
               <folding>
+                <element signature="e#12601#13225#0#PHP" />
+                <element signature="e#13230#13517#0#PHP" />
+                <element signature="e#13522#15057#0#PHP" />
+                <element signature="e#15062#16070#0#PHP" />
+                <element signature="e#16110#16493#0#PHP" />
+                <element signature="e#16498#16753#0#PHP" />
+                <element signature="e#16758#17878#0#PHP" />
                 <element signature="e#43#49#1" expanded="true" />
+                <element signature="e#17883#18557#0#PHP" />
+                <element signature="e#18562#20169#0#PHP" />
+                <element signature="e#20174#20845#0#PHP" />
+                <element signature="e#20850#22865#0#PHP" />
+                <element signature="e#22870#24436#0#PHP" />
+                <element signature="e#24441#24687#0#PHP" />
+                <element signature="e#24692#26149#0#PHP" />
+                <element signature="e#26154#26882#0#PHP" />
+                <element signature="e#26887#29836#0#PHP" />
+                <element signature="e#29841#30225#0#PHP" />
+                <element signature="e#30230#35716#0#PHP" />
+                <element signature="e#40122#43992#0#PHP" />
+                <element signature="e#43997#47406#0#PHP" />
+                <element signature="e#47411#48264#0#PHP" />
+                <element signature="e#48269#48389#0#PHP" />
+                <element signature="e#48394#49960#0#PHP" />
+                <element signature="e#50469#50798#0#PHP" />
+                <element signature="e#50803#51130#0#PHP" />
+                <element signature="e#51135#51382#0#PHP" />
+                <element signature="e#51387#51933#0#PHP" />
+                <element signature="e#51952#52679#0#PHP" />
+                <element signature="e#52684#55268#0#PHP" />
+                <element signature="e#55273#56421#0#PHP" />
+                <element signature="e#56426#56819#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tpl/visit/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="30" column="128" selection-start-line="30" selection-start-column="105" selection-end-line="30" selection-end-column="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="77" column="58" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+            <state relative-caret-position="-760">
+              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
                 <element signature="e#48#54#0" expanded="true" />
@@ -121,16 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ereg_replace</find>
-      <find>ereg_replace(</find>
-      <find>tpl_auto_\1</find>
-      <find>preg_replace('</find>
-      <find>ang['tpl_auto_</find>
-      <find>$_REQUEST[input_subject]</find>
-      <find>$_REQUEST[input_message]</find>
-      <find>$_REQUEST[input_from]</find>
-      <find>$val[email]</find>
-      <find>$val[name]</find>
       <find>$_REQUEST[input_fromemail]</find>
       <find>[email]</find>
       <find>[name]</find>
@@ -147,13 +174,22 @@
       <find>$IMG_HEIGHT</find>
       <find>&lt;font</find>
       <find>&quot;\$</find>
-      <find>{{language_session}}</find>
-      <find>-&gt;replace</find>
       <find>$found</find>
       <find>/e&quot;</find>
+      <find>{{language_session}}</find>
+      <find>-&gt;replace</find>
+      <find>valign=&quot;top&quot;</find>
+      <find>tpl_auto_home</find>
+      <find>tpl_auto_separator_sign</find>
+      <find>$</find>
+      <find>preg_replace</find>
+      <find>tpl_auto_metacharset</find>
+      <find>$lang</find>
+      <find>$lang[</find>
+      <find>output_car_details</find>
+      <find>$sendresult</find>
     </findStrings>
     <replaceStrings>
-      <replace>$valarray['field']</replace>
       <replace>$userprofiles['relation']</replace>
       <replace>$userprofiles['defaultvalue']</replace>
       <replace>$_REQUEST['repeat']</replace>
@@ -182,6 +218,7 @@
       <replace>['name']</replace>
       <replace>$_REQUEST['input_send']</replace>
       <replace>$_REQUEST['send_to_all']</replace>
+      <replace>/i&quot;</replace>
       <replace>$</replace>
     </replaceStrings>
     <dirStrings>
@@ -218,11 +255,11 @@
         <option value="$PROJECT_DIR$/tpl/visit/index1.html" />
         <option value="$PROJECT_DIR$/includes/config_write.php" />
         <option value="$PROJECT_DIR$/includes/image.class.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/includes/global.class.php" />
         <option value="$PROJECT_DIR$/phpMyAdmin1/pdf_pages.php" />
         <option value="$PROJECT_DIR$/includes/tpl.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -275,7 +312,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="urllangu&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/tpl/admin/urllanguge.html&#10;pdf&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/phpMyAdmin1/pdf_pages.php&#10;index&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/index.php&#10;config&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/config_write.php&#10;visit&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/visit.class.php&#10;global&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/_global.class.php&#10;session&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/session.php&#10;email&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/email.class.php&#10;db.php&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/db.php" />
+    <property name="SearchEverywhereHistoryKey" value="index&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/tpl/visit/index.html&#10;urllangu&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/tpl/admin/urllanguge.html&#10;pdf&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/phpMyAdmin1/pdf_pages.php&#10;config&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/config_write.php&#10;visit&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/visit.class.php&#10;global&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/_global.class.php&#10;session&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/session.php&#10;email&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/email.class.php&#10;db.php&#9;FILE&#9;file:///opt/lampp/htdocs/mecarz_ums/includes/db.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/test ui" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -315,12 +352,12 @@
       <workItem from="1604983914810" duration="2762000" />
       <workItem from="1605070531137" duration="5462000" />
       <workItem from="1605077848706" duration="6990000" />
-      <workItem from="1605100399768" duration="11004000" />
+      <workItem from="1605100399768" duration="15014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58195000" />
+    <option name="totallyTimeSpent" value="62205000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1784" height="941" extended-state="6" />
@@ -551,13 +588,6 @@
     <entry file="file://$PROJECT_DIR$/phpMyAdmin1/libraries/blowfish.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tpl/visit/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/global.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -602,20 +632,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/tpl/visit/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="216" column="5" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
-          <folding>
-            <element signature="e#43#49#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="30" column="128" selection-start-line="30" selection-start-column="105" selection-end-line="30" selection-end-column="128" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="77" column="58" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+        <state relative-caret-position="-760">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
             <element signature="e#48#54#0" expanded="true" />
@@ -623,6 +650,47 @@
             <element signature="e#48#54#0" expanded="true" />
             <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
             <element signature="e#48#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="856" column="28" lean-forward="true" selection-start-line="856" selection-start-column="28" selection-end-line="856" selection-end-column="28" />
+          <folding>
+            <element signature="e#12601#13225#0#PHP" />
+            <element signature="e#13230#13517#0#PHP" />
+            <element signature="e#13522#15057#0#PHP" />
+            <element signature="e#15062#16070#0#PHP" />
+            <element signature="e#16110#16493#0#PHP" />
+            <element signature="e#16498#16753#0#PHP" />
+            <element signature="e#16758#17878#0#PHP" />
+            <element signature="e#43#49#1" expanded="true" />
+            <element signature="e#17883#18557#0#PHP" />
+            <element signature="e#18562#20169#0#PHP" />
+            <element signature="e#20174#20845#0#PHP" />
+            <element signature="e#20850#22865#0#PHP" />
+            <element signature="e#22870#24436#0#PHP" />
+            <element signature="e#24441#24687#0#PHP" />
+            <element signature="e#24692#26149#0#PHP" />
+            <element signature="e#26154#26882#0#PHP" />
+            <element signature="e#26887#29836#0#PHP" />
+            <element signature="e#29841#30225#0#PHP" />
+            <element signature="e#30230#35716#0#PHP" />
+            <element signature="e#40122#43992#0#PHP" />
+            <element signature="e#43997#47406#0#PHP" />
+            <element signature="e#47411#48264#0#PHP" />
+            <element signature="e#48269#48389#0#PHP" />
+            <element signature="e#48394#49960#0#PHP" />
+            <element signature="e#50469#50798#0#PHP" />
+            <element signature="e#50803#51130#0#PHP" />
+            <element signature="e#51135#51382#0#PHP" />
+            <element signature="e#51387#51933#0#PHP" />
+            <element signature="e#51952#52679#0#PHP" />
+            <element signature="e#52684#55268#0#PHP" />
+            <element signature="e#55273#56421#0#PHP" />
+            <element signature="e#56426#56819#0#PHP" />
           </folding>
         </state>
       </provider>
