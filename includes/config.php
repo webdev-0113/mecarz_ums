@@ -81,10 +81,10 @@ $config['url_path_temp'] = $config['url_path']."temp/";
 $config['url_path_tpl_admin'] = $config['url_path']."tpl/admin/";
 $config["temp"]=$config['path']."temp/";// end `/`
 $config['tpladmin']=$config['path']."tpl/admin/";// end `/`
-$config['tpl']=$config['path']."tpl/";// end `/`
-$config['tplini']=$config['path']."tpl/";// end `/`
+$config['tpl']=$config['url_path']."tpl/";// end `/`
+$config['tplini']=$config['url_path']."tpl/";// end `/`
 
-$config['tplvisit']=$config['path']."tpl/visit/";// end `/`
+$config['tplvisit']=$config['url_path']."tpl/visit/";// end `/`
 
 $config["config_auto_year_start"]=2005;
 $config["config_auto_year_finish"]=2010;

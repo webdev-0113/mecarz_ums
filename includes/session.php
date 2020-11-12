@@ -14,7 +14,7 @@ function sessao_read( $aKey )
 {
     global $db,$HTTP_COOKIE_VARS,$_SERVER,$config;
     $query = "SELECT DataValue FROM {$config['table_prefix']}sessions WHERE ip='$aKey' or ip='".user_ipses()."' or SessionID='$aKey' ";
-    $busca =$db->query($query);
+    $busca =$db->db_connect_id->query($query);
     if(mysqli_num_rows($busca) == 1)
     {
         $r = mysqli_fetch_array($busca);
@@ -89,7 +89,7 @@ function logs($onlineusers)
     $expired = time() - $exp;
     $sql = "select * from {$config['table_prefix']}sessions WHERE UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(LastUpdated) < '$exp' order by LastUpdated desc";
 
-    $result = $db->query( $sql );
+    $result = $db->db_connect_id->query( $sql );
     $num_rows = mysqli_num_rows( $result );
     $onlineusers=$num_rows;
     $contor=1;
@@ -120,7 +120,7 @@ function top()
     $config['admin_number_intop']=($config['admin_number_intop']<=0)?5:$config['admin_number_intop'];
     $sql = "select * from {$config['table_prefix']}cars WHERE 1 order by noview desc limit {$config['admin_number_intop']}";
 
-    $result = $db->query( $sql );
+    $result = $db->db_connect_id->query( $sql );
     $num_rows = mysqli_num_rows( $result );
     $onlineusers=$num_rows;
     $contor=1;

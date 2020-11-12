@@ -1,4 +1,5 @@
 <?php
+
 ob_start();
 
 $starttime123 = utime();
@@ -36,7 +37,7 @@ $b=substr($b,0,3);
 $b=md5($b);
 $b=substr($b,0,3);
 $_SESSION['session_uid']=$b;
-if (in_array("p", $_REQUEST) && $_REQUEST['p']=="image") {
+if (array_key_exists("p", $_REQUEST) && $_REQUEST['p']=="image") {
     $x=100;
     $y=20;
 
@@ -53,6 +54,7 @@ if (in_array("p", $_REQUEST) && $_REQUEST['p']=="image") {
     exit(0);
 }
 
+$multiplelanguage = array();
 // ini_set ('error_reporting', E_ALL);
 //print_r($_REQUEST);
 
@@ -98,8 +100,7 @@ $config['config_auto_price_before']=$config['price_before'];
 
 $_SESSION['cardatase'] = "cars";
 
-
-if ($_REQUEST['reset']==2){
+if (array_key_exists('reset', $_REQUEST) && $_REQUEST['reset']==2){
     $_SESSION['rent']=false;
     $_SESSION['template'] = "";
 }
@@ -115,23 +116,24 @@ if ($_SESSION['rent']) {
    $lang['tpl_auto_load_calendar_js'] = $tpl->replace( array(), "calendar1.js", "js" );
 }
 */
-if ($_SESSION['cardatase'] =='') {
+if (array_key_exists('cardatase', $_SESSION) && $_SESSION['cardatase'] =='') {
     $_SESSION['cardatase'] ="cars";
 }
-
 $count = 0;
+$language_set = "";
+$car_profileini = array();
 //print_R($_GET);
-if ($_GET['language_session'] == '' AND $_COOKIE['language_session']<>'') {
+if (array_key_exists('language_session', $_GET) && array_key_exists('language_session', $_COOKIE) && $_GET['language_session'] == '' AND $_COOKIE['language_session']<>'') {
     $_SESSION['language_session'] = $_REQUEST['language_session']=$_COOKIE['language_session'];
 
 }else
-    if ($_COOKIE['linksave']==$_SERVER['REQUEST_URI']){
+    if (array_key_exists('linksave', $_COOKIE) && $_COOKIE['linksave']==$_SERVER['REQUEST_URI']){
         $language_set	= $_COOKIE['language_session'];
         $_SESSION['language_session']=$language_set;
         if ($language_set==0) {
             $language_set = '';
         }
-    }elseif ($_GET['language_session'] != '') {
+    }elseif (array_key_exists('language_session', $_GET) && $_GET['language_session'] != '') {
         $_SESSION['language_session'] = $_GET['language_session'];
         $language_set = $_SESSION['language_session'];
         if ($_SESSION['language_session']==0) {
@@ -139,7 +141,7 @@ if ($_GET['language_session'] == '' AND $_COOKIE['language_session']<>'') {
         }
         setcookie('language_session',$_SESSION['language_session'],time()+3600*24*365);
     }
-if ($_SESSION['language_session']>0) {
+if (array_key_exists('language_session', $_GET) && $_SESSION['language_session']>0) {
     $language_set = $_SESSION['language_session'];
 }
 $array_lang[]=0;
@@ -183,7 +185,6 @@ if (!in_array($_SESSION['language_session'],$array_lang)){
 }
 */
 //$results = get_browser();
-
 if ($count>0) {
     $found=0;
     foreach ($multiplelanguage as $key=>$val){
@@ -213,8 +214,8 @@ if ($count>0) {
     $settings_profile['languagedropdown'] .= $settings_profile['languagedropdown1'];
 
 }
-if (file_exists($config['path'].'language/'.$settings_profile["language{$language_set}"])) {
-    @include $config['path'].'language/'.$settings_profile["language{$language_set}"];
+if (file_exists($config['url_path'].'language/'.$settings_profile["language".$language_set])) {
+    include $config['path'].'language/'.$settings_profile["language".$language_set];
 }
 include $path . "update.php";
 if ($settings_profile['nrpageuser']>0) {
@@ -249,8 +250,10 @@ $settings_profile['logo'] = $config['url_path_temp'] . $settings_profile['logo']
 
 $settings_profile['signup'] = "onclick=\"OpenWindow(this.href,'name', '{$config['width_popup']}', '{$config['height_popup']}','yes'); return false\"";
 
-
-$p=$_REQUEST['p'];
+$p = "";
+if(array_key_exists('p', $_REQUEST)) {
+    $p=$_REQUEST['p'];
+}
 
 if ( $HTTP_COOKIE_VARS['username_dealer_cookie'] == "" ) {
     $settings_profile['dealerlogin'] = $tpl->replace($settings_profile,"dealerlogin.html");
@@ -263,9 +266,9 @@ if ($HTTP_COOKIE_VARS['username_dealer_cookie'] != "") {
 }else{
     $tabel_cars = "cars";
 }
-
-$arraytemp=explode(',',$_COOKIE['mycars']);
-if (!is_array($arraytemp)) $arraytemp=array();
+if(array_key_exists('mycars', $_COOKIE)) {
+    $arraytemp=explode(',',$_COOKIE['mycars']);
+} else $arraytemp=array();
 foreach ($arraytemp as $key=>$val){
     if (trim($val)==''){
         unset($arraytemp[$key]);
@@ -279,7 +282,7 @@ foreach ($javascript_profile as $key=>$val){
 }
 
 
-switch ( $_REQUEST['pp'] )
+switch (array_key_exists('pp', $_REQUEST) && $_REQUEST['pp'] )
 {
     case "admin":
 
@@ -369,7 +372,8 @@ END;
         break;
 }
 
-//$_SESSION[session_uid]='321';        
+//$_SESSION[session_uid]='321';
+$outputtoscreen = "";
 switch ($p){
     case "image":
         $x=150;
@@ -499,7 +503,7 @@ switch ($p){
         $news_profile['page'] = $lang["tpl_auto_Features"];
 
         $sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name";
-        $result = $db->query( $sql );
+        $result = $db->db_connect_id->query( $sql );
         $num_rows = mysqli_num_rows( $result );
         $contor=0;
         if ( $num_rows > 0 ) {
@@ -747,7 +751,7 @@ switch ($p){
                 $sql="INSERT INTO `{$config['table_prefix']}messages` ( `id` , `carsid`,  `name` ,  `email` , `phone`,`message`,`date_add` )
 	VALUES
 	( '', '{$_REQUEST['id']}', '{$email_var['guest_name']}', '{$email_var['guest_email']}', '{$email_var['guest_phone']}','{$email_var['guest_message']}','".date("Y-m-d")."' );";
-                $result = $db->query($sql);
+                $result = $db->db_connect_id->query($sql);
 
                 $outputtoscreen = $tpl->replace($email_var,"send_email_thanks.html");
             }
@@ -835,7 +839,7 @@ switch ($p){
             $sql="INSERT INTO `{$config['table_prefix']}admin` ( `id` , `right` , `username` , `password` , `password1` , `email` , `noemail` ,`nocontactemail`, `name` , `phone` ,`fax`, `address`,  `country` , `state` , `city` , `zip`, `logo` , `description` , `nocars` , `nopictures` ,  `adprofiles`, `unic_id`,`active`, `delay` , `date_delay` )
 VALUES
 ( '', '{$settings_profile[rights_signupuser]}', '{$email_var['username']}' , '{$email_var['password']}' , '{$email_var['password']}', '{$email_var['email']}', '1','{$email_var['nocontactemail']}', '{$email_var['name']}', '{$email_var['phone']}','{$email_var['fax']}','{$email_var['address']}', '{$email_var['country']}', '{$email_var['state']}', '{$email_var['city']}','{$email_var['zip']}', '', '', '{$email_var['nocars']}', '{$email_var['nopictures']}', '{$email_var['adprofiles']}','$unic_id','1' , '720', CURDATE() );";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
 
 //            $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 //            $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
@@ -877,7 +881,7 @@ VALUES
             $sqlupdate=" ,delay='$adprofiles[days]',date_delay=NOW(),emailrenewsent=0,`daystoexpire` = $adprofiles[days]-(TO_DAYS(NOW()) - TO_DAYS(NOW())) ";
         }
         $sql="UPDATE `{$config['table_prefix']}admin` SET `active`='$active'{$sqlupdate} where `unic_id`='$id' limit 1;";
-        $result = $db->query($sql);
+        $result = $db->db_connect_id->query($sql);
 
         $news_profile['page'] = $lang['tpl_auto_Confirm_email_address'];
 
@@ -922,7 +926,7 @@ VALUES
         $news_profile["nr_car_found"] = $nr_car_found;
 
         $news_profile['pageoutfin']=$pageoutfin;
-        $news_profile['signupmembers'] = $news_profile['signupmembers'];
+        $news_profile['signupmembers'] = $settings_profile['signupmembers'];
         $news_profile['sponsored'] = $VisitClass->cars_sponsored();
 
         if (trim($news_profile['sponsored'])!=''){
@@ -977,7 +981,7 @@ VALUES
                     $active = 3;
                 }
                 $sql="UPDATE `{$config['table_prefix']}admin` SET `active`='$active' where `unic_id`='$id' limit 1;";
-                $result = $db->query($sql);
+                $result = $db->db_connect_id->query($sql);
 
 
             }
@@ -1001,7 +1005,7 @@ VALUES
         $news_profile["nr_car_found"] = $nr_car_found;
 
         $news_profile['pageoutfin']=$pageoutfin;
-        $news_profile['signupmembers'] = $news_profile['signupmembers'];
+        $news_profile['signupmembers'] = $settings_profile['signupmembers'];
         $news_profile['sponsored'] = $VisitClass->cars_sponsored();
         if (trim($news_profile['sponsored'])!=''){
             $news_profile["sponsored_show"] = $tpl->replace($news_profile,"sponsored_show.html");
@@ -1021,7 +1025,7 @@ VALUES
 
         $email_profile = $Global_Class->getprofile( $_REQUEST['input_email'], "members", "email" );
 
-        if ($_REQUEST[input_subscribe]==1){
+        if ($_REQUEST['input_subscribe']==1){
             if ( $email_profile )
             {
                 $outputtoscreen_add[1] .= $lang['error_members']['email_exist'];
@@ -1045,7 +1049,7 @@ VALUES
         $email_var['email'] = $_REQUEST['input_email'];
 
         if(  $outputtoscreen_add[1] =="") {
-            if ($_REQUEST[input_subscribe]==1){
+            if ($_REQUEST['input_subscribe']==1){
                 srand((double)microtime() * 1000000);
                 $unic_id = @md5(rand(0, 999999));
                 $email_var['link'] = $config['url_path']."index.php?p=confirmsubcribe&id=$unic_id";
@@ -1058,7 +1062,7 @@ VALUES
                 $sql="INSERT INTO `{$config['table_prefix']}members` ( `id` , `name` ,  `email` , `unic_id`,`active`,`date_add` )
 VALUES
 ( '', '{$email_var['name']}', '{$email_var['email']}', '$unic_id','2','".date("Y-m-d")."' );";
-                $result = $db->query($sql);
+                $result = $db->db_connect_id->query($sql);
 
 //                $sendresult = $Email_class->emailsend( $email_var['email'], $email_var['name'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
 //                $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'], $settings_template['email'], $settings_template['from'], $settings_template['signupmembers_subject'], $settings_template['signupmembers_body'] );
@@ -1091,7 +1095,7 @@ VALUES
             break;
         }
         $sql="UPDATE `{$config['table_prefix']}members` SET `active`=1 where `unic_id`='$id' limit 1;";
-        $result = $db->query($sql);
+        $result = $db->db_connect_id->query($sql);
         echo "
                                         <script type=\"text/javascript\" language=\"javascript\">
                                         <!--
@@ -1275,7 +1279,7 @@ VALUES
             $unic_id = @md5(rand(0, 999999));
 
             $sql = "UPDATE `{$config['table_prefix']}cars` SET `date_delay` = INTERVAL {$_REQUEST['days']} DAY+`date_delay`, unicid='{$unic_id}',daystoexpire=0,daysactive=0 where id='{$user['id']}' limit 1;";
-            $result = $db->query( $sql );
+            $result = $db->db_connect_id->query( $sql );
 
         }else{
             $outputtoscreen_car.=$lang['tpl_auto_Wrong_ID'];
@@ -1300,9 +1304,7 @@ VALUES
 }
 
 
-if ($_REQUEST['p']=='search' OR $_REQUEST['p']=='advsearch'){
-
-
+if (array_key_exists('p', $_REQUEST) && ($_REQUEST['p']=='search' OR $_REQUEST['p']=='advsearch')){
 
     if ($lang['tpl_auto_searchtile']==''){
         $lang['tpl_auto_searchtile']="List of <make> <model> <year> in <country> <city>";
@@ -1337,16 +1339,16 @@ if ($_REQUEST['p']=='search' OR $_REQUEST['p']=='advsearch'){
     $car_profileini["sitetitle{$language_set}"]=$config['config_auto_searchtile'];
     $car_profileini["metadescription{$language_set}"]=$config['config_auto_descriptionsearchtile'];
 }
-if ($car_profileini["sitetitle{$language_set}"]!=''){
+if (array_key_exists("sitetitle{$language_set}", $car_profileini) && $car_profileini["sitetitle{$language_set}"]!=''){
     $settings_profile["titlesite{$language_set}"] = $car_profileini["sitetitle{$language_set}"];
 }
-if ($car_profileini["metadescription{$language_set}"]!=''){
+if (array_key_exists("metadescription{$language_set}", $car_profileini) && $car_profileini["metadescription{$language_set}"]!=''){
     $settings_profile["description{$language_set}"] = $car_profileini["metadescription{$language_set}"];
 }
-if ($car_profileini["metakeywords{$language_set}"]!=''){
+if (array_key_exists("metakeywords{$language_set}", $car_profileini) && $car_profileini["metakeywords{$language_set}"]!=''){
     $settings_profile["keywords{$language_set}"] = $car_profileini["metakeywords{$language_set}"];
 }
-if ($_REQUEST['page']>0){
+if (array_key_exists('page', $_REQUEST) && $_REQUEST['page']>0){
     $settings_profile["titlesite{$language_set}"].=' page '.$_REQUEST['page'];
     $settings_profile["description{$language_set}"].=' page '.$_REQUEST['page'];
 }

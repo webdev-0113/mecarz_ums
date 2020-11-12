@@ -148,7 +148,7 @@ $arraytabels=array("country",'state',"city","year","category", "make", "model","
 foreach ($arraytabels as $keyy){
 $config[$keyy.'profile']=array();
 $sql = "SELECT * FROM `{$config['table_prefix']}{$keyy}` WHERE 1";
-$result = $db->query( $sql );
+$result = $db->db_connect_id->query( $sql );
 $num_rows = mysqli_num_rows( $result );
 
 $contor=0;
@@ -195,7 +195,7 @@ if ($_REQUEST['country']>0){
 	$limi= " limit 20";
 }
 		        $sql = "SELECT *,DATE_FORMAT({$config['table_prefix']}cars.date_add,'%d/%m/%Y') as dateadd  FROM `{$config['table_prefix']}cars` WHERE active >= 1 $sqlc order by id desc ".$limi;// LIMIT 5 and id = 2084
-		        $result = $db->query( $sql );
+		        $result = $db->db_connect_id->query( $sql );
 		        $num_rows = mysqli_num_rows( $result );
 
 		        $contor=0;
@@ -269,7 +269,7 @@ if ($_REQUEST['country']>0){
 		$user['language_set1']=$language_set1;
 		
         $sql = "SELECT description,picture FROM `{$config['table_prefix']}gallery` where carsid='{$user['id']}' order by `order`";
-        $result123 = $db->query( $sql );
+        $result123 = $db->db_connect_id->query( $sql );
         $num_rows_gallery = mysqli_num_rows( $result123 );
 
 
@@ -287,7 +287,7 @@ END;
                                          $user['gallery'].=<<<END
         <picture>
             <picture_url><![CDATA[{$config['url_path_temp']}{$var_gallery[picture]}]]></picture_url>
-            <picture_title><![CDATA[{$var_gallery[description]}]]></picture_title>
+            <picture_title><![CDATA[{$var_gallery['description']}]]></picture_title>
         </picture>
 END;
 

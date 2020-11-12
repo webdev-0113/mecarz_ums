@@ -43,7 +43,7 @@ class GlobalClass{
         if (!is_array($tablefield_array_options)) $tablefield_array_options=array();
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
             $variable[$tablefield_array_r['Field']]=$_REQUEST["input_".$tablefield_array_r['Field']];
@@ -140,7 +140,7 @@ class GlobalClass{
         $sql = "SELECT {$config['table_prefix']}$default_tabel.* FROM {$config['table_prefix']}$default_tabel $sql_default_global_from $sql_table WHERE 1 $sql_default ";
 
         $sql.=$sql_cond1;
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows_ini = mysqli_num_rows($result);
         //list($num_rows_ini) = mysqli_fetch_row($result);
         @mysqli_free_result($result);
@@ -206,7 +206,7 @@ class GlobalClass{
         $page_ini=$variable['page'];
         $variable['page']=$variable['page']*$variable['nrresult'];
         $sql.= " ORDER BY {$config['table_prefix']}$default_tabel.{$variable['orderby']} {$variable['method']} LIMIT {$variable['page']},{$variable['nrresult']}";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
 
         $i=0;
@@ -482,7 +482,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $i=0;
         if (!is_array($config['admin_section'][$default_option]['radio_fields']))$config['admin_section'][$default_option]['radio_fields']=array();
         $out1 = '';
@@ -629,7 +629,7 @@ class GlobalClass{
         }
         if ($default_tabel=='cars'){
             $sql = "SELECT `picture`,`thumbnail` FROM `{$config['table_prefix']}gallery` WHERE `carsid`='$id'";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
             $num_rows = mysqli_num_rows($result);
             if ($num_rows>0){
                 while ($var = mysqli_fetch_assoc($result)){
@@ -640,17 +640,17 @@ class GlobalClass{
 
             }
             $sql = "delete from `{$config['table_prefix']}gallery` WHERE `carsid`='$id'";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
             $sql = "delete from `{$config['table_prefix']}carsfeatures` WHERE `carsid`='$id'";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
             $sql = "delete from `{$config['table_prefix']}sponsored` WHERE `carid`='$id'";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
             $sql = "delete from `{$config['table_prefix']}messages` WHERE `carsid`='$id'";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
         }
 
         $sql = "delete from `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id'";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         if ($default_tabel!='logging'){
 
             global $_COOKIE,$lang,$_REQUEST;
@@ -666,12 +666,12 @@ class GlobalClass{
         if ($result){
             /*
                   $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel`";
-                  $result = $db->query($sql,__FILE__,__LINE__);
+                  $result = $db->db_connect_id->query($sql);
                   $num_rows_ini = mysqli_num_rows($result);
                   @mysqli_free_result($result);
                   if ($num_rows_ini<1){
                       $sql = "TRUNCATE TABLE `{$config['table_prefix']}$default_tabel`";
-                      @$result = $db->query($sql,__FILE__,__LINE__);
+                      @$result = $db->db_connect_id->query($sql);
                   }
                   */
             return true;
@@ -685,14 +685,21 @@ class GlobalClass{
             $sql1.=" LIMIT 1";
         }
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql1";
-        $result = $db->query($sql,__FILE__,__LINE__);
-        $num_rows = mysqli_num_rows($result);
-        if ($num_rows>0){
+        if ($result = $db->db_connect_id->query($sql)) {
             $user = mysqli_fetch_assoc($result);
             $config['profilesmem'][$default_tabel][$id]=$user;
             $config['profilesmem'][$default_tabel][$id]['saved']=1;
             @mysqli_free_result($result);
             return ($user);
+//        }
+//        $result = $db->db_connect_id->query($sql);
+//        $num_rows = mysqli_num_rows($result);
+//        if ($num_rows>0){
+//            $user = mysqli_fetch_assoc($result);
+//            $config['profilesmem'][$default_tabel][$id]=$user;
+//            $config['profilesmem'][$default_tabel][$id]['saved']=1;
+//            @mysqli_free_result($result);
+//            return ($user);
         }else return false;
 
     }
@@ -703,7 +710,7 @@ class GlobalClass{
             $sql1.=" LIMIT 1";
         }
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sql1";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             $user = mysqli_fetch_assoc($result);
@@ -715,7 +722,7 @@ class GlobalClass{
         global $config;
         global $db; //database
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' AND `$id1_`='$id1'";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             $user = mysqli_fetch_assoc($result);
@@ -729,7 +736,7 @@ class GlobalClass{
         global $db; //database
         $sql = "select count(*) from `{$config['table_prefix']}$default_tabel` WHERE `$id_`='$id' $sql";
         //echo "<BR>";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         //$user = mysqli_fetch_assoc($result);
         list($num_rows) = mysqli_fetch_row($result);
         //$num_rows = mysqli_num_rows($result);
@@ -741,7 +748,7 @@ class GlobalClass{
         global $db; //database
         $sql = "select count(*) from `{$config['table_prefix']}$default_tabel` WHERE 1 $sql";
         //echo "<BR>";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         list($num_rows) = mysqli_fetch_row($result);
         @mysqli_free_result($result);
         return $num_rows;
@@ -751,7 +758,7 @@ class GlobalClass{
         global $db; //database
         /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-               $result = $db->query($sql,__FILE__,__LINE__);
+               $result = $db->db_connect_id->query($sql);
                while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
@@ -782,7 +789,7 @@ class GlobalClass{
          	   */
         $sql = "SELECT `$id_`,`$name_` FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini ORDER BY $orderby";//GROUP BY $id_
 
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         $out = '';
         if ($num_rows>0){
@@ -806,7 +813,7 @@ class GlobalClass{
         global $db; //database
         /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-               $result = $db->query($sql,__FILE__,__LINE__);
+               $result = $db->db_connect_id->query($sql);
                while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
@@ -816,7 +823,7 @@ class GlobalClass{
 
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini GROUP BY $id_ ORDER BY $orderby";
 
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         $out = '';
         if ($num_rows>0){
@@ -850,7 +857,7 @@ class GlobalClass{
         return ($temp1[1]);
         /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-               $result = $db->query($sql,__FILE__,__LINE__);
+               $result = $db->db_connect_id->query($sql);
                while ($tablefield_array_r = mysqli_fetch_array($result)){
                       $tablefield_array[]=$tablefield_array_r['Field'];
                }
@@ -858,7 +865,7 @@ class GlobalClass{
                $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
                */
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` GROUP BY $id_ ORDER BY $orderby";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
@@ -882,7 +889,9 @@ class GlobalClass{
             }else{
                 $selected="";
             }
-            $out .= "<option$selected value='$val_'>".$lang['tabel_cars'][$val_]."</option>\n";
+            if(array_key_exists('tabel_cars', $lang)) {
+                $out .= "<option$selected value='$val_'>" . $lang['tabel_cars'][$val_] . "</option>\n";
+            }
         }
         return $out;
     }
@@ -928,7 +937,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -1225,7 +1234,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         if (!is_array($fields)) $fields=array();
         if (!is_array($email_fields)) $email_fields=array();
         if (!is_array($date_fields)) $date_fields=array();
@@ -1346,7 +1355,7 @@ class GlobalClass{
                     //echo "<br />";
                     $sql_input_val="";
                     $sql_input="";
-                    $result = $db->query($sql,__FILE__,__LINE__);
+                    $result = $db->db_connect_id->query($sql);
                     //return ( $output.=$Global_Class->search($default_tabel,$default_option,"",0,$config['nrresult'],$relation,$relation_table,$default_option."_search_rows",$sql_default_global,$search_fields, $id_, $lang["tpl_".$default_option."_add"]) );
                     //echo count($varchar_fields);
                     //exit;
@@ -1453,7 +1462,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql);
+        $result = $db->db_connect_id->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -1663,7 +1672,7 @@ class GlobalClass{
 
 
             $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
             if (!is_array($fields)) $fields=array();
             if (!is_array($email_fields)) $email_fields=array();
 
@@ -1783,7 +1792,7 @@ class GlobalClass{
             $sqlfinalarr=explode("||||",$sqlfinal);
             foreach ($sqlfinalarr as $sqlfinal){
                 if ($sqlfinal!=''){
-                    $result = $db->query($sqlfinal);
+                    $result = $db->db_connect_id->query($sqlfinal);
 
                     global $_COOKIE;
                     $row = array(
@@ -1819,7 +1828,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql);
+        $result = $db->db_connect_id->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -2026,7 +2035,7 @@ class GlobalClass{
 
 
             $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-            $result = $db->query($sql);
+            $result = $db->db_connect_id->query($sql);
             if (!is_array($fields)) $fields=array();
             if (!is_array($email_fields)) $email_fields=array();
             if (!is_array($date_fields)) $date_fields=array();
@@ -2147,7 +2156,7 @@ class GlobalClass{
             $sqlfinalarr=explode("||||",$sqlfinal);
             foreach ($sqlfinalarr as $sqlfinal){
                 if ($sqlfinal!=''){
-                    $result = $db->query($sqlfinal);
+                    $result = $db->db_connect_id->query($sqlfinal);
 
                     global $_COOKIE;
                     $row = array(
@@ -2185,7 +2194,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -2377,7 +2386,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         if (!is_array($fields)) $fields=array();
         if (!is_array($email_fields)) $email_fields=array();
         if (!is_array($date_fields)) $date_fields=array();
@@ -2496,7 +2505,7 @@ class GlobalClass{
                     //echo "<br />";
                     $sql_input_val="";
                     $sql_input="";
-                    $result = $db->query($sql,__FILE__,__LINE__);
+                    $result = $db->db_connect_id->query($sql);
                     //return ( $output.=$Global_Class->search($default_tabel,$default_option,"",0,$config['nrresult'],$relation,$relation_table,$default_option."_search_rows",$sql_default_global,$search_fields, $id_, $lang["tpl_".$default_option."_add"]) );
                     //echo count($varchar_fields);
                     //exit;
@@ -2546,7 +2555,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();
@@ -2816,7 +2825,7 @@ class GlobalClass{
         );
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         if (!is_array($fields)) $fields=array();
         if (!is_array($email_fields)) $email_fields=array();
         if (!is_array($date_fields)) $date_fields=array();
@@ -2947,7 +2956,7 @@ class GlobalClass{
         if ($var['error']==""){
             $sql = "UPDATE `{$config['table_prefix']}$default_tabel` SET `$id_`='$id' "
                 ." $sql_input WHERE `$id_`='$id' limit 1";
-            $result = $db->query($sql,__FILE__,__LINE__);
+            $result = $db->db_connect_id->query($sql);
 
             global $_COOKIE;
             $row = array(
@@ -3306,13 +3315,16 @@ class GlobalClass{
         if (!is_array($array)) {
             $array=array();
         }
+        $out = "";
         foreach ($array as $key=>$val_){
             if ($val==$val_) {
                 $selected=" selected";
             }else{
                 $selected="";
             }
-            $out .= "<option$selected value='$val_'>".$lang['tpl_auto_'.$val_]."</option>\n";
+            if(array_key_exists('tpl_auto_'.$val_, $lang)) {
+                $out .= "<option$selected value='$val_'>".$lang['tpl_auto_'.$val_]."</option>\n";
+            }
         }
         return $out;
     }
@@ -3343,7 +3355,7 @@ class GlobalClass{
         }else{
             $sql .= " ORDER BY `$orderby` LIMIT 1";
         }
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             $user = mysqli_fetch_assoc($result);
@@ -3386,7 +3398,7 @@ class GlobalClass{
                */
         if (!$config['autoactivatedisabled']){
             $sql = "update `{$config['table_prefix']}$default_tabel` set `$camp`='$valoare' WHERE `$id_`='$id';";
-            $result = $db->query($sql,__FILE__,__LINE__);
+            $result = $db->db_connect_id->query($sql);
             return true;
         }else{
             return false;
@@ -3396,7 +3408,7 @@ class GlobalClass{
         global $config,$tpl;
         global $db; //database
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
         }
@@ -3404,7 +3416,7 @@ class GlobalClass{
         $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
         if ($config[orderbyfeatures]!='') $orderby=$config[orderbyfeatures];
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         $i=0;
         if ($num_rows>0){
@@ -3443,19 +3455,19 @@ class GlobalClass{
         global $db; //database
         global $_COOKIE;
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
         }
         @mysqli_free_result($result);
         $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         $i=0;
         if ($num_rows>0){
             $sql = "delete from `{$config['table_prefix']}$default_tabel_relation` WHERE `$relation_id1`='$id'";
-            $result_ = $db->query($sql,__FILE__,__LINE__);
+            $result_ = $db->db_connect_id->query($sql);
 
             $row = array(
                 "admin"=>$_COOKIE['id_cookie'],
@@ -3468,7 +3480,7 @@ class GlobalClass{
             while ($user = mysqli_fetch_assoc($result)){
                 if ($_REQUEST["checkbox_".$user[$id_]]==1) {
                     $sql = "insert into `{$config['table_prefix']}$default_tabel_relation` VALUES ('','$id','{$user[$id_]}');";
-                    $result1 = $db->query($sql,__FILE__,__LINE__);
+                    $result1 = $db->db_connect_id->query($sql);
 
                     $row = array(
                         "admin"=>$_COOKIE['id_cookie'],
@@ -3521,7 +3533,7 @@ class GlobalClass{
         global $db; //database
 
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini GROUP BY $id_ ORDER BY $orderby";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
@@ -3536,7 +3548,7 @@ class GlobalClass{
         global $db; //database
         $out=array();
         $sql = "select `$field` from `{$config['table_prefix']}$default_tabel` WHERE 1 $sqlini ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         if ($num_rows>0){
             while ($user = mysqli_fetch_assoc($result)){
@@ -3745,14 +3757,14 @@ class GlobalClass{
         global $config;
         global $db; //database
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
             $tablefield_array[]=$tablefield_array_r['Field'];
         }
         @mysqli_free_result($result);
         $orderby  = (!in_array($orderby,$tablefield_array)) ? $tablefield_array[0]:$orderby;
         $sql = "SELECT * FROM `{$config['table_prefix']}$default_tabel` ORDER BY $orderby";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         $contor=0;
         if ($num_rows>0){
@@ -3760,7 +3772,7 @@ class GlobalClass{
             while ($user = mysqli_fetch_assoc($result)){
                 /*$sql = "select count(*) from `{$config['table_prefix']}cars` WHERE `make`='{$user[$id_]}' and active>1";
 		               //echo "<BR>";
-		               $resultccc = $db->query($sql,__FILE__,__LINE__);
+		               $resultccc = $db->db_connect_id->query($sql);
 		               //$user = mysqli_fetch_assoc($result);
 		               list($num_rowsxx) = mysqli_fetch_row($resultccc);
                		if ($num_rowsxx>0){
@@ -3771,7 +3783,7 @@ class GlobalClass{
                 $contor++;
                 //second
                 $sql1 = "SELECT * FROM `{$config['table_prefix']}$default_tabel1` WHERE $relatedid='".$user[$id_]."' GROUP BY $id_1 ORDER BY $orderby1";
-                $result1 = $db->query($sql1);
+                $result1 = $db->db_connect_id->query($sql1);
                 $num_rows1 = mysqli_num_rows($result1);
                 $out1="";
                 if ($num_rows1>0){
@@ -3804,7 +3816,7 @@ class GlobalClass{
             "error"=>$error
         );
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-        $result = $db->query($sql,__FILE__,__LINE__);
+        $result = $db->db_connect_id->query($sql);
         $i=0;
         if (!is_array($varchar)) $varchar=array();
         if (!is_array($text)) $text=array();

@@ -1,7 +1,7 @@
 <?php
 $config['sqldb'] = 'mecarz_mecarz';
 $config['sqluser'] = 'mecarz_admin';
-$config['sqlpass'] = 'car5pa55';
+$config['sqlpass'] = 'CAR%pa55';
 $config['sqlhost'] = 'localhost';
 //$config['sqluser'] = 'root';
 //$config['sqlpass'] = '';

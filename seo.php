@@ -635,12 +635,12 @@ $make_profile = $Global_Class->getprofile( $_REQUEST['make'], "make", 'id' );
 /**** This code is used to retrieve the state name to include it in the title & Description to avoid duplicates Start ****/
 //finding state ID
 $sql = "SELECT * FROM `{$config['table_prefix']}city` where id={$_REQUEST['city']} order by name";
-$result = $db->query( $sql );
+$result = $db->db_connect_id->query( $sql );
 $var = mysqli_fetch_assoc( $result );
 
 // finding state name searching by its id
 $sql1 = "SELECT * FROM `{$config['table_prefix']}state` where id={$var[stateid]}  order by name";
-$result1 = $db->query( $sql1 );
+$result1 = $db->db_connect_id->query( $sql1 );
 $state1 = mysqli_fetch_assoc( $result1 );
 
 
@@ -673,12 +673,12 @@ $make_profile = $Global_Class->getprofile( $_REQUEST['make'], "make", 'id' );
 /**** This code is used to retrieve the state name to include it in the title & Description to avoid duplicates Start ****/
 //finding state ID
 $sql = "SELECT * FROM `{$config['table_prefix']}state` where id={$_REQUEST['state']} order by name";
-$result = $db->query( $sql );
+$result = $db->db_connect_id->query( $sql );
 $var = mysqli_fetch_assoc( $result );
 
 // finding state name searching by its id
 $sql1 = "SELECT * FROM `{$config['table_prefix']}country` where id={$var[countryid]}  order by name";
-$result1 = $db->query( $sql1 );
+$result1 = $db->db_connect_id->query( $sql1 );
 $country1 = mysqli_fetch_assoc( $result1 );
 
 

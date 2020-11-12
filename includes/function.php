@@ -47,7 +47,7 @@ function addlogging( $row )
     if ($cookie!='thebestrealestate' and $row['admin']!='thebestrealestate'){
 
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}logging` ";
-        $result = $db->query($sql);
+        $result = $db->db_connect_id->query($sql);
         $array_not = array("ctime");
 
         $sql = "insert into `{$config['table_prefix']}logging` values (";
@@ -59,7 +59,7 @@ function addlogging( $row )
         }
 
         $sql .= "now() )";
-        $result = $db->query( $sql );
+        $result = $db->db_connect_id->query( $sql );
     }
 }
 
@@ -397,7 +397,7 @@ function checkbanned_ips(){
 
 
     $sql = "SELECT count(*) FROM `{$config['table_prefix']}logging` WHERE `admin`='$ip' and `ctime` LIKE CONCAT(SUBSTRING(NOW(),1,13),'%')";
-    $result = $db->query( $sql );
+    $result = $db->db_connect_id->query( $sql );
 
     $row=mysqli_fetch_array($result);
     @mysqli_free_result($result);
@@ -483,7 +483,7 @@ function updatejavascript($up_){
 
     foreach ($config['admin_section']['cars']['dropdown_fields'] as $key=>$val) {
         $sql = "SELECT * from {$config['table_prefix']}$val where 1";
-        $result = $db->query($sql);
+        $result = $db->db_connect_id->query($sql);
         $num_rows = mysqli_num_rows($result);
         $javascript_profile[$val."javascript"]=array();
         if ($num_rows > 0){
@@ -513,7 +513,7 @@ function updatejavascript($up_){
         extcolorjavascript='".addslashes(serialize($javascript_profile["extcolorjavascript"]))."'
         where id=1 limit 1";
     //print_r($javascript_profile["cityjavascript"]);
-    $result = $db->query( $sql );
+    $result = $db->db_connect_id->query( $sql );
 }
 
 ?>

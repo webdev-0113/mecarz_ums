@@ -270,7 +270,7 @@ foreach ($javascript_profile as $key=>$val){
 
 
               $sql = "SELECT {$config['table_prefix']}make.* FROM `{$config['table_prefix']}make` where 1 ";
-              $result = $db->query( $sql );
+              $result = $db->db_connect_id->query( $sql );
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {
@@ -287,7 +287,7 @@ END;
               }
               
               $sql = "SELECT {$config['table_prefix']}country.* FROM `{$config['table_prefix']}country` where 1 ";
-              $result = $db->query( $sql );
+              $result = $db->db_connect_id->query( $sql );
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               if ( $num_rows > 0 ) {

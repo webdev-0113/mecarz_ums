@@ -338,7 +338,7 @@ if ( $_COOKIE['username_cookie'] == "" )
                     $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $lang['newpassword_body'] );
 
                     $sql="UPDATE `{$config['table_prefix']}admin` SET password='".md5($password)."'{$sql_unic_id} where `email` = '$email' limit 1";
-                    $result = $db->query($sql,__FILE__,__LINE__);
+                    $result = $db->db_connect_id->query($sql);
 
                     $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
                     $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
@@ -1159,7 +1159,7 @@ else
             $outputtoscreen .= $Global_Class->choose_option();
             if ($o=="add1" or $o=="edit1") {
                 $sql1="update `{$config['table_prefix']}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
-                $result1 = $db->query($sql1);
+                $result1 = $db->db_connect_id->query($sql1);
             }
             break;
 //finish carsfeatures
@@ -1273,7 +1273,7 @@ else
             $outputtoscreen .= $Global_Class->choose_option();
             if ($o=="add1" or $o=="edit1") {
                 $sql1="update `{$config['table_prefix']}cars` set date_modify=NOW() where id='{$_SESSION['option_oid1']}' limit 1";
-                $result1 = $db->query($sql1);
+                $result1 = $db->db_connect_id->query($sql1);
             }
             break;
 //finish gallery
@@ -1901,7 +1901,7 @@ else
                         if (!is_array($_REQUEST['importsettings'])) $_REQUEST['importsettings']=array();
                         if (!is_array($_REQUEST['importsettingsdefaultvalue'])) $_REQUEST['importsettingsdefaultvalue']=array();
                         $sql="TRUNCATE TABLE `{$config['table_prefix']}importsettings` ";
-                        $result = $db->query($sql);
+                        $result = $db->db_connect_id->query($sql);
 
                         foreach ($_REQUEST['importsettings'] as $key=>$val){
                             if ($val==-1) $val=999999;
@@ -1909,7 +1909,7 @@ else
 	VALUES (
 	'', '{$key}', '{$val}', '{$_REQUEST['importsettingsdefaultvalue'][$key]}'
 	) ";
-                            $result = $db->query($sql);
+                            $result = $db->db_connect_id->query($sql);
                         }
                         $var = array ( "tpl_msg" => $lang['tpl_auto_your_preferences_saved']);
                         $outputtoscreen .= $tpl->replace( $var, "admin_profileupdated.html" );
@@ -1960,7 +1960,7 @@ else
                         $tablefield_array_rall=array();
                         $tablefield_array_rallname=array();
                         $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-                        $result = $db->query($sql);
+                        $result = $db->db_connect_id->query($sql);
                         while ($tablefield_array_r = mysqli_fetch_array($result)){
                             if ($tablefield_array_r['Field']!='id' and !in_array($tablefield_array_r['Field'],$notusedarray) and !in_array($tablefield_array_r['Field'],$config['admin_section']['cars']['notimportfields']) ){
                                 $tablefield_array_rall[]="cars__".$tablefield_array_r['Field'];
@@ -1969,7 +1969,7 @@ else
                         }
 
                         $sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name{$language_set}";
-                        $result = $db->query( $sql );
+                        $result = $db->db_connect_id->query( $sql );
                         $num_rows = mysqli_num_rows( $result );
                         $contor=0;
                         if ( $num_rows > 0 ) {
@@ -1986,7 +1986,7 @@ else
                         }
 
                         $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
-                        $result = $db->query($sql);
+                        $result = $db->db_connect_id->query($sql);
                         $num_rows = mysqli_num_rows( $result );
                         $arrayallresults=$arrayallresultskey=array();
                         $ct=0;
@@ -2127,7 +2127,7 @@ else
                     $count1=0;
 
                     $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
-                    $result = $db->query($sql);
+                    $result = $db->db_connect_id->query($sql);
                     $num_rows = mysqli_num_rows( $result );
                     $arrayallresults=$arrayallresultskey=array();
                     $ct=0;
@@ -2172,7 +2172,7 @@ else
                     $key=-1;
 
                     $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-                    $result = $db->query($sql);
+                    $result = $db->db_connect_id->query($sql);
                     while ($tablefield_array_r = mysqli_fetch_array($result)){
                         $tablefield_array_rall[]=$tablefield_array_r;
                     }
@@ -2217,7 +2217,7 @@ else
                             $user_profile = $Global_Class->getprofile(  $arraye[$config['import_relation']['cars__stock']], 'cars', 'stock' );
 
                             $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-                            $result = $db->query($sql);
+                            $result = $db->db_connect_id->query($sql);
 
                             $sql_input="";
                             $sql_input_val="";
@@ -2266,7 +2266,7 @@ else
                                                 ." ( `id` ,{$sqlmodel} `name` )"
                                                 ." VALUES ( "
                                                 ." '',{$sqlmodel1} '".$arraye[$config['import_relation']['cars__'.$tablefield_array_r['Field']]]."' );";
-                                            $result1 = $db->query($sql1);
+                                            $result1 = $db->db_connect_id->query($sql1);
                                             $valoare=mysqli_insert_id();
                                         }
                                         $valoaresave='valoare'.$tablefield_array_r['Field'];
@@ -2292,19 +2292,19 @@ else
                                     ." ( `id` $sql_input )"
                                     ." VALUES ( '' "
                                     ." $sql_input_val );";
-                                $result = $db->query($sql);
+                                $result = $db->db_connect_id->query($sql);
                                 $user_profile['id']=mysqli_insert_id();
                                 $count++;
                             }else{
                                 $sql = "UPDATE `{$config['table_prefix']}cars` SET `id`='{$user_profile['id']}' "
                                     ." $sql_input where `id`='{$user_profile['id']}' limit 1";
-                                $result = $db->query($sql);
+                                $result = $db->db_connect_id->query($sql);
                                 $count1++;
                             }
                             @mysqli_free_result($result);
 
                             $sql = "SELECT * FROM `{$config['table_prefix']}gallery` where carsid='{$user_profile['id']}' ";
-                            $result2 = $db->query($sql);
+                            $result2 = $db->db_connect_id->query($sql);
                             $num_rows_gallery2 = mysqli_num_rows($result2);
                             @mysqli_free_result($result);
 
@@ -2322,7 +2322,7 @@ else
                                         $imagine1 = $Image_Class1->resizer_main($arraye[$config['import_relationgallery'][$kkkf]],$IMG_HEIGHT_BIG,$IMG_WIDTH_BIG,$user_profile['id']);
                                         if ($imagine and $imagine1){
                                             $sql = "insert into `{$config['table_prefix']}gallery` VALUES ('','{$user_profile['id']}','$imagine1','$imagine','','','','','$countimage');";
-                                            $result1 = $db->query($sql,__FILE__,__LINE__);
+                                            $result1 = $db->db_connect_id->query($sql);
                                         }
 
                                         $countimage++;
@@ -2335,13 +2335,13 @@ else
 
 
                             $sql = "delete from `{$config['table_prefix']}carsfeatures` where `carsid`='{$user_profile['id']}'";
-                            $result_ = $db->query($sql,__FILE__,__LINE__);
+                            $result_ = $db->db_connect_id->query($sql);
                             foreach  ($config['import_relationfeatures'] as $kkkf=>$vvvf){
                                 if ($vvvf==-1) $arraye[$vvvf]=$config['import_relationfeatures_defaultvalue'][$kkkf];
                                 if ($arraye[$vvvf]>0) {
                                     $kkkf1=str_replace("features__","",$kkkf);
                                     $sql = "insert into `{$config['table_prefix']}carsfeatures` VALUES ('','{$user_profile['id']}','$kkkf1');";
-                                    $result1 = $db->query($sql,__FILE__,__LINE__);
+                                    $result1 = $db->db_connect_id->query($sql);
 
                                 }
                             }
@@ -2422,13 +2422,13 @@ else
                         $tablefield_array_rall=array();
                         $tablefield_array_rallname=array();
                         $sql="SHOW FIELDS FROM `{$config['table_prefix']}cars` ";
-                        $result = $db->query($sql);
+                        $result = $db->db_connect_id->query($sql);
                         while ($tablefield_array_r = mysqli_fetch_array($result)){
                             $tablefield_array_rallname["cars__".$tablefield_array_r['Field']]=$lang["tpl_auto_cars"]." ".$lang['tabel_cars'][$tablefield_array_r['Field']];
                         }
 
                         $sql = "SELECT {$config['table_prefix']}features.* FROM `{$config['table_prefix']}features` where 1 order by {$config['table_prefix']}features.name{$language_set}";
-                        $result = $db->query( $sql );
+                        $result = $db->db_connect_id->query( $sql );
                         $num_rows = mysqli_num_rows( $result );
                         $contor=0;
                         if ( $num_rows > 0 ) {
@@ -2446,7 +2446,7 @@ else
 //ends
 
                     $sql="SELECT * FROM `{$config['table_prefix']}importsettings` order by `relation` ";
-                    $result = $db->query($sql);
+                    $result = $db->db_connect_id->query($sql);
                     $num_rows = mysqli_num_rows( $result );
                     $arrayallresults=$arrayallresultskey=array();
                     $ct=0;
@@ -2486,7 +2486,7 @@ else
 
 
                     $sql = "SELECT * FROM `{$config['table_prefix']}cars` WHERE 1 $sql_cond";
-                    $result = $db->query($sql);
+                    $result = $db->db_connect_id->query($sql);
                     $num_rows = mysqli_num_rows($result);
                     $contor = 0;
 
@@ -2517,7 +2517,7 @@ else
                             }
 
                             $sql = "SELECT * FROM `{$config['table_prefix']}carsfeatures` WHERE carsid='{$user['id']}' ";
-                            $resultfea = $db->query($sql);
+                            $resultfea = $db->db_connect_id->query($sql);
                             $num_rowsfea = mysqli_num_rows($resultfea);
                             $userfeanew=array();
                             if ($num_rowsfea > 0){
@@ -2547,7 +2547,7 @@ else
                             }
 
                             $sql = "SELECT * FROM `{$config['table_prefix']}gallery` WHERE carsid='{$user['id']}' order by `order`";
-                            $resultfea = $db->query($sql);
+                            $resultfea = $db->db_connect_id->query($sql);
                             $num_rowsfea = mysqli_num_rows($resultfea);
                             $userfeagal=array();
                             $ctgal=0;
@@ -2651,13 +2651,13 @@ else
                 default:
                     if (substr($settingsupdate_template[lastupdate],0,8)!=date("Ymd")){
                         $sql = "UPDATE `{$config['table_settingsupdate']}` SET 	`lastupdate`=NOW()+0 WHERE `id`=1 LIMIT 1";
-                        $result = $db->query( $sql );
+                        $result = $db->db_connect_id->query( $sql );
                         $sqlupdateall=1;
                     }else{
                         $sqlupdateall=0;
                     }
                     $sql_ = "select max( id ) as maxx from `{$config['table_visits']}` where date_format(ctime,'%Y%m%d')<'".date("Ymd")."'  ";
-                    $result_ = $db->query( $sql_ );
+                    $result_ = $db->db_connect_id->query( $sql_ );
                     list($row['maxx']) = $db->fetch_row($result_);
                     $db->free_result($result_);
                     $config['maxx_id']=$row['maxx'];
@@ -2673,7 +2673,7 @@ else
                     //print_r($settingsupdate_template);
                     if ($config['maxx_id']!=''){
                         $sql = "DELETE FROM `{$config['table_visits']}` where `id`<='{$config['maxx_id']}'";
-                        $result = $db->query( $sql );
+                        $result = $db->db_connect_id->query( $sql );
                     }
 
                     $sql = "UPDATE `{$config['table_settingsupdate']}` SET `data`='".addslashes(serialize($settingsupdate_template['data']))."',
@@ -2683,7 +2683,7 @@ else
 							`lastupdate`=NOW()+0
 							WHERE `id`=1 LIMIT 1";
 
-                    $result = $db->query( $sql );
+                    $result = $db->db_connect_id->query( $sql );
 
                     $outputstats .= $tpl->replace( $var_header, "admin_visit.html" );
                     break;
@@ -2710,7 +2710,7 @@ else
                 if ($right_cookie['view_all_cars']) {
                     if ($_REQUEST['o1']=='reset'){
                         $sql="UPDATE `{$config['table_prefix']}admin` SET `date_delay`=NOW(),`daystoexpire` = `delay`,`daysactive`=0,`active`=1,`emailrenewsent`=0 where `id` = '{$_REQUEST['id']}' limit 1";
-                        $result = $db->query($sql,__FILE__,__LINE__);
+                        $result = $db->db_connect_id->query($sql);
                     }
                 }
                 if ($default_tabel=='') $default_tabel='cars';
@@ -3030,7 +3030,7 @@ else
                 $checkbox_fields = $config['admin_section'][$default_tabel]['checkbox_fields'];
                 if ($default_tabel=='rights'){
                     $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
-                    $result = $db->query($sql,__FILE__,__LINE__);
+                    $result = $db->db_connect_id->query($sql);
                     while ($tablefield_array_r = mysqli_fetch_array($result)){
                         $key = $tablefield_array_r['Field'];
                         if ( !in_array( $key, array( "id", "name" ) ) ){

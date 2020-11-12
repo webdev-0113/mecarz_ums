@@ -30,7 +30,7 @@ $numbercars = $Global_Class->getnumrows( $_REQUEST[country], "cars", "country","
 
 
 $sql = "SELECT * FROM `{$config['table_prefix']}state` where countryid={$_REQUEST['country']} order by name";
-              $result = $db->query( $sql );
+              $result = $db->db_connect_id->query( $sql );
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               $looper=0;
@@ -114,7 +114,7 @@ $numbercars = $Global_Class->getnumrows( $_REQUEST[state], "cars", "state"," and
 
 
 $sql = "SELECT * FROM `{$config['table_prefix']}city` where stateid={$_REQUEST['state']} order by name";
-              $result = $db->query( $sql );
+              $result = $db->db_connect_id->query( $sql );
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               $looper=0;
@@ -153,7 +153,7 @@ $sql = "SELECT * FROM `{$config['table_prefix']}city` where stateid={$_REQUEST['
               else{
               
                      $sql = "SELECT * FROM `{$config['table_prefix']}make` where 1 order by name";
-                     $result = $db->query( $sql );
+                     $result = $db->db_connect_id->query( $sql );
                      $num_rows = mysqli_num_rows( $result );
                      $contor=0;
                      $looper=0;
@@ -235,7 +235,7 @@ $numbercars = $Global_Class->getnumrows( $_REQUEST[city], "cars", "city"," and a
 
 
 $sql = "SELECT * FROM `{$config['table_prefix']}make` where 1 order by name";
-              $result = $db->query( $sql );
+              $result = $db->db_connect_id->query( $sql );
               $num_rows = mysqli_num_rows( $result );
               $contor=0;
               $looper=0;
