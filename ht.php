@@ -72,24 +72,24 @@ $tpl = new TPL;
 $Image_Class = new Image;
 $Global_Class = new GlobalClass;
 $VisitClass = new VisitClass;
-$Email_class = new EmailClass;
-$banner_class = new Banner_Visit_Class; 
+//$Email_class = new EmailClass;
+//$banner_class = new Banner_Visit_Class;
 //$dealer = new DealerClass;
 
 $settings_profile = $Global_Class->getprofile( "1","settings","id" );
-switch($_REQUEST['p']){
-
-       case "showbanner":
-          echo $banner_class->showbanner();
-          exit(0);
-       break;
-       case "redirect":
-          $banner_class->redirect($_REQUEST['idb']);
-          exit(0);
-       break;       
-
-} 
-list($config['config_auto_bannerscode1'],$config['config_auto_bannerscode2'],$config['config_auto_bannerscode3'],$config['config_auto_bannerscode4'])=$banner_class->banner();
+//switch($_REQUEST['p']){
+//
+//       case "showbanner":
+//          echo $banner_class->showbanner();
+//          exit(0);
+//       break;
+//       case "redirect":
+//          $banner_class->redirect($_REQUEST['idb']);
+//          exit(0);
+//       break;
+//
+//}
+//list($config['config_auto_bannerscode1'],$config['config_auto_bannerscode2'],$config['config_auto_bannerscode3'],$config['config_auto_bannerscode4'])=$banner_class->banner();
 foreach ($settings_profile as $kk1=>$vv1){
 	if ($vv1!=''){
 	$config[$kk1]=$vv1;

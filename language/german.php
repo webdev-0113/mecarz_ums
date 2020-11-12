@@ -596,7 +596,7 @@ $lang['tpl_auto_Pic'] = "Bild";
 $lang['tpl_auto_of'] = "von";
 $lang['tpl_auto_previous'] = "Â« Vorheriges";
 $lang['tpl_auto_next'] = "Naechstes Â»";
-$lang['tpl_auto_exit'] = "Schliessen Ã&#8212;";
+$lang['tpl_auto_exit'] = "Schliessen ï¿½&#8212;";
 $lang['tpl_auto_year'] = "Baujahr";
 $lang['tpl_auto_model'] = "Modell";
 $lang['tpl_auto_stereo'] = "Audio-System";
@@ -628,7 +628,7 @@ $lang['tpl_auto_please_type_phone'] = "Bitte Telefonnummer eingeben";
 $lang['tpl_auto_please_type_message'] = "Bitte Nachricht eingeben";
 $lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "Nachricht zu gross oder zu klein ";
 $lang['tpl_auto_thanks'] = "Danke fuer Ihre Nachricht. Wir werden umgehend mit Ihnen in Verbindung treten.";
-$lang['tpl_auto_close'] = "Schliessen Ã&#8212;";
+$lang['tpl_auto_close'] = "Schliessen ï¿½&#8212;";
 $lang['tpl_auto_signup'] = "Anmelden";
 $lang['tpl_auto_please_type_username'] = "Bitte Benutzernamen eingeben";
 $lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "Benutzername zu lang oder zu kurz";
@@ -761,8 +761,8 @@ $lang['tabel_rentcarsfeatures']['id'] = "Id";
 $lang['tabel_rentcarsfeatures']['rentcarsid'] = "Car id";
 $lang['tabel_rentcarsfeatures']['featuresid'] = "Features";
 $lang['error_rentcarsfeatures']['rentcarsid'] = "Please input Cars for rent<br>";
-$lang['tpl_auto_previouscar'] = "« Previous";
-$lang['tpl_auto_nextcar'] = "Next »";
+$lang['tpl_auto_previouscar'] = "ï¿½ Previous";
+$lang['tpl_auto_nextcar'] = "Next ï¿½";
 $lang['tpl_auto_View_all_cars'] = "View All Cars";
 $lang['tpl_auto_guess'] = "guess";
 $lang['tpl_auto_LastUpdated'] = "LastUpdated";
@@ -1073,10 +1073,10 @@ $lang['norepeatfound']="<BR>{category}-{make}-{model}-#{id}
 Will expire in 3 days. Click here to continue your ad.<BR>
 <A href=\"{url1}\">Click here for another 30 days</A><BR><BR>";
 
-$lang[emaildelayheader]="Hello {name}<BR>
+$lang['emaildelayheader']="Hello {name}<BR>
 Your Object:<BR>";
 
-$lang[emaildelayfooter]="Or ignore this email and your scooter occasion will be suspended.<BR>
+$lang['emaildelayfooter']="Or ignore this email and your scooter occasion will be suspended.<BR>
 Thanks.";
 
 $lang['youradwasupdated']="Your ad <B>{category}-{make}-{model}-#{id}</b> was updated for another {days} days.";

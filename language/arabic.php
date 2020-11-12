@@ -645,7 +645,7 @@ $lang['error_sponsored']['date_start'] = "Please input date start<br>";
 $lang['error_sponsored']['date_ends'] = "Please input date ends<br>";
 
 //ends sponsored
-$lang[tpl_auto_carsid] = "CID";
+$lang['tpl_auto_carsid'] = "CID";
 
 
 //newsletter send
@@ -888,7 +888,7 @@ $lang['tpl_auto_asc'] = "������";
 $lang['tpl_auto_desc'] = "������";
 
 //18 iunie 2004
-$lang[tpl_auto_Sold]="�����";
+$lang['tpl_auto_Sold']="�����";
 $lang['sold']="�����";
 $lang['yes']="Yes";
 $lang['no']="No";
@@ -1411,10 +1411,10 @@ $lang['norepeatfound']="<BR>{category}-{make}-{model}-#{id}
 Will expire in 3 days. Click here to continue your ad.<BR>
 <A href='{url1}'>Click here for another 30 days</A><BR><BR>";
 
-$lang[emaildelayheader]="Hello {name}<BR>
+$lang['emaildelayheader']="Hello {name}<BR>
 Your Object:<BR>";
 
-$lang[emaildelayfooter]="Or ignore this email and your scooter occasion will be suspended.<BR>
+$lang['emaildelayfooter']="Or ignore this email and your scooter occasion will be suspended.<BR>
 Thanks.";
 
 $lang['youradwasupdated']="Your ad <B>{category}-{make}-{model}-#{id}</b> was updated for another {days} days.";

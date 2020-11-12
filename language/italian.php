@@ -2,7 +2,7 @@
 
 //June 28, 2005, 11:33 am
 
-$lang['Sorrythisimagetypeisnotsupportedyet'] = "L'immagine non è supportata";
+$lang['Sorrythisimagetypeisnotsupportedyet'] = "L'immagine non ï¿½ supportata";
 $lang['Failedtocreatedestinationimage'] = "Creazione immagine fallita";
 $lang['tpl_auto_Admin_Login'] = "Login Amministratore";
 $lang['tpl_auto_Username'] = "Username";
@@ -28,23 +28,23 @@ $lang['error1'] = "Campo Username vuoto";
 $lang['error2'] = "Campo Password vuoto";
 $lang['error3'] = "Username non esistente!";
 $lang['error4'] = "Password errata";
-$lang['error5'] = "La password è corta(4,20 caracteres)";
-$lang['error6'] = "L'username è corta (4,20 caracteres)";
+$lang['error5'] = "La password ï¿½ corta(4,20 caracteres)";
+$lang['error6'] = "L'username ï¿½ corta (4,20 caracteres)";
 $lang['error7'] = "Ridigita la password";
 $lang['error8'] = "Nada para apagar!";
 $lang['error9'] = "Username non esistente!";
-$lang['error10'] = "Username è attivo! Contatta l'amministratore!";
-$lang['error11'] = "Username è attivo! Verifica su l'e-mail e clik sul link inviato o contatta l'amministratore!";
+$lang['error10'] = "Username ï¿½ attivo! Contatta l'amministratore!";
+$lang['error11'] = "Username ï¿½ attivo! Verifica su l'e-mail e clik sul link inviato o contatta l'amministratore!";
 $lang['error12'] = "Non hai pagato";
 $lang['erroremail'] = "E-mail errata";
 $lang['tpl_Select_Page'] = "Seleziona la pagina: ";
-$lang['tpl_auto_found'] = " {{nr}} veículos achados a partir de um total de {{nr_total}} ";
+$lang['tpl_auto_found'] = " {{nr}} veï¿½culos achados a partir de um total de {{nr_total}} ";
 $lang['tpl_Edit'] = "Modifica";
-$lang['error_change1']['username_exist'] = "Questo username già esiste! <br>";
-$lang['error_change1']['email_exist'] = "Questa e-mail già esiste! <br>";
+$lang['error_change1']['username_exist'] = "Questo username giï¿½ esiste! <br>";
+$lang['error_change1']['email_exist'] = "Questa e-mail giï¿½ esiste! <br>";
 $lang['error_change1']['password_not_equal'] = "Ridigita la password<br>";
 $lang['error_change1']['password_short'] = "Password corta (4,20 caracteres)<br>";
-$lang['error_change1']['username_short'] = "L'username è corto(4,20 caracteres)<br>";
+$lang['error_change1']['username_short'] = "L'username ï¿½ corto(4,20 caracteres)<br>";
 $lang['error_change1']['id'] = "Per favore inserire l'ID<br>";
 $lang['error_change1']['right'] = "Per favore inserire right<br>";
 $lang['error_change1']['username'] = "Per favore inserire l'username<br>";
@@ -65,7 +65,7 @@ $lang['tpl_Delete_Image'] = "Cancella immagine";
 $lang['tpl_auto_Are_you_sure_you_want_to_delete_all'] = "Sicuro di voler cancella re tutto?";
 $lang['tpl_auto_Name'] = "Nome";
 $lang['tpl_auto_Add'] = "Inserisci";
-$lang['tpl_auto_Search'] = "Cerca »";
+$lang['tpl_auto_Search'] = "Cerca ï¿½";
 $lang['errorstyle'] = "<font color='#FF0000'>{{error}}</font>";
 $lang['foundstyle'] = "<font color='#FF0000'><b>\\1</b></font>";
 $lang['msg_result_nr'] = "<br>Existem <b>{{nr}}</b> resultado(s) de busca<br>Mostrando de <b>{{nr1}}</b> a <b>{{nr2}}</b><br>";
@@ -123,25 +123,25 @@ $lang['tabel_admin']['name'] = "Nome";
 $lang['tabel_admin']['phone'] = "Telefono";
 $lang['tabel_admin']['country'] = "Indirizzo";
 $lang['tabel_admin']['state'] = "Stato";
-$lang['tabel_admin']['city'] = "Città";
+$lang['tabel_admin']['city'] = "Cittï¿½";
 $lang['tabel_admin']['logo'] = "Logo";
 $lang['tabel_admin']['description'] = "Descrizione";
 $lang['tabel_admin']['nocars'] = "No. Veicolo";
 $lang['tabel_admin']['nopictures'] = "No. Imagine";
 $lang['tabel_admin']['active'] = "Attivo";
 $lang['tabel_admin']['adprofiles'] = "Profili Dell`Annuncio";
-$lang['tpl_auto_explain_admin'] = "( Ex.<br> <img src='../images/active1.gif' border=0> ativo / <img src='../images/active0.gif' border=0> inativo / <img src='../images/active2.gif' border=0> não confirmado )";
+$lang['tpl_auto_explain_admin'] = "( Ex.<br> <img src='../images/active1.gif' border=0> ativo / <img src='../images/active0.gif' border=0> inativo / <img src='../images/active2.gif' border=0> nï¿½o confirmado )";
 $lang['error_admin']['id'] = "Per favore, inserire l' ID<br>";
 $lang['error_admin']['right'] = "Per favore, inserire i direitos<br>";
 $lang['error_admin']['username'] = "Per favore, inserire l'username<br>";
 $lang['error_admin']['password'] = "Per favore, inserire la password<br>";
 $lang['error_admin']['password1'] = "Per favore, ridigita la password<br>";
 $lang['error_admin']['email'] = "Per favore, inserire l'email<br>";
-$lang['error_admin']['username_exist'] = "username già esistente!<br>";
+$lang['error_admin']['username_exist'] = "username giï¿½ esistente!<br>";
 $lang['error_admin']['password_not_equal'] = "Ridigita edigite a mesma senha<br>";
-$lang['error_admin']['password_short'] = "A senha é muito curta (4,20 chars)<br>";
-$lang['error_admin']['username_short'] = "O nome de usuário é muito curto (4,20 chars)<br>";
-$lang['error_permission'] = "<center><font syle=\`color:red;size=20px;\`>Permissão não concedida!</font></center>";
+$lang['error_admin']['password_short'] = "A senha ï¿½ muito curta (4,20 chars)<br>";
+$lang['error_admin']['username_short'] = "O nome de usuï¿½rio ï¿½ muito curto (4,20 chars)<br>";
+$lang['error_permission'] = "<center><font syle=\`color:red;size=20px;\`>Permissï¿½o nï¿½o concedida!</font></center>";
 $lang['tabel_change1']['id'] = "Id";
 $lang['tabel_change1']['right'] = "Direito";
 $lang['tabel_change1']['username'] = "Username";
@@ -152,7 +152,7 @@ $lang['tabel_change1']['name'] = "Nome";
 $lang['tabel_change1']['phone'] = "Telefono";
 $lang['tabel_change1']['country'] = "Indirizzo";
 $lang['tabel_change1']['state'] = "Stato";
-$lang['tabel_change1']['city'] = "Città";
+$lang['tabel_change1']['city'] = "Cittï¿½";
 $lang['tabel_change1']['noemail'] = "Nascondi il mio indirizzo e-mail";
 $lang['tabel_change1']['logo'] = "Logo";
 $lang['tabel_change1']['description'] = "Descrizione";
@@ -170,7 +170,7 @@ $lang['tpl_auto_today'] = "Oggi";
 $lang['error_date'] = "Data Errata!<br>";
 $lang['tpl_auto_for'] = "per";
 $lang['error_nosearch_result'] = "<center>Nessun risultato!<center>";
-$lang['tpl_auto_back'] = "« Back";
+$lang['tpl_auto_back'] = "ï¿½ Back";
 $lang['tpl_auto_from'] = "da";
 $lang['tpl_auto_to'] = "per";
 $lang['msg1_category'] = "O {{name}} ... apagado<br>";
@@ -209,15 +209,15 @@ $lang['tabel_cars']['vin'] = "Placa";
 $lang['tabel_cars']['bodytype'] = "Carrozzeria";
 $lang['tabel_cars']['engine'] = "Motore";
 $lang['tabel_cars']['stereo'] = "Combustibile";
-$lang['tabel_cars']['fueltype'] = "Tipo di Veícolo";
+$lang['tabel_cars']['fueltype'] = "Tipo di Veï¿½colo";
 $lang['tabel_cars']['transmission'] = "Trasmissione";
 $lang['tabel_cars']['description'] = "Descrizione";
 $lang['tabel_cars']['shortdescription'] = "Breve descrizione";
 $lang['tabel_cars']['stock'] = "Stock#";
-$lang['tabel_cars']['pricemesg'] = "Mensagem sobre Preço";
-$lang['tabel_cars']['sitetitle'] = "Títolo del Sito (Máquina de Busca)";
-$lang['tabel_cars']['metadescription'] = "Meta description (Máquina de Busca)";
-$lang['tabel_cars']['metakeywords'] = "Meta keywords (Máquina de Busca)";
+$lang['tabel_cars']['pricemesg'] = "Mensagem sobre Preï¿½o";
+$lang['tabel_cars']['sitetitle'] = "Tï¿½tolo del Sito (Mï¿½quina de Busca)";
+$lang['tabel_cars']['metadescription'] = "Meta description (Mï¿½quina de Busca)";
+$lang['tabel_cars']['metakeywords'] = "Meta keywords (Mï¿½quina de Busca)";
 $lang['tabel_cars']['intcolor'] = "Colore interni";
 $lang['tabel_cars']['extcolor'] = "Colore esterni";
 $lang['tabel_cars']['miles'] = "KM";
@@ -278,7 +278,7 @@ $lang['tpl_auto_news'] = "Notizie";
 $lang['tpl_news_add'] = "Inserire Notizie";
 $lang['tpl_news_modify'] = "Modificare Notzie";
 $lang['tabel_news']['id'] = "Id";
-$lang['tabel_news']['title'] = "Títolo";
+$lang['tabel_news']['title'] = "Tï¿½tolo";
 $lang['tabel_news']['content'] = "Contenuto";
 $lang['tabel_news']['date'] = "Data";
 $lang['error_news']['title'] = "Inserire il titolo<br>";
@@ -314,7 +314,7 @@ $lang['tabel_settings']['short_nocars'] = "Numero massimo di veicoli";
 $lang['tabel_settings']['nopictures'] = "Numero massimo di foto per utenti registrati (0:Illimitato)";
 $lang['tabel_settings']['short_nopictures'] = "Numero massimo di foto";
 $lang['tabel_settings']['rights_signupuser'] = "Diritti per utenti registrati";
-$lang['tabel_settings']['titlesite'] = "Títolo del Sito";
+$lang['tabel_settings']['titlesite'] = "Tï¿½tolo del Sito";
 $lang['tabel_settings']['description'] = "Descrizione del sito (per SOE)";
 $lang['tabel_settings']['keywords'] = "keywords del Sito (per SOE)";
 $lang['tabel_settings']['header'] = "Intestazione del Sito";
@@ -325,14 +325,14 @@ $lang['tabel_settings']['picture_width'] = "Larghezza della Foto";
 $lang['tabel_settings']['picture_height'] = "Altezza della Foto";
 $lang['tabel_settings']['thumbnail_width'] = "Larghezza del Thumbnail";
 $lang['tabel_settings']['thumbnail_height'] = "Altezza del Thumbnail";
-$lang['tabel_settings']['picture'] = "Foto Padrão";
-$lang['tabel_settings']['thumbnail'] = "Foto Padrão do thumbnail";
+$lang['tabel_settings']['picture'] = "Foto Padrï¿½o";
+$lang['tabel_settings']['thumbnail'] = "Foto Padrï¿½o do thumbnail";
 $lang['tabel_settings']['logo'] = "Logo del Sito";
-$lang['tabel_settings']['language'] = "Selezioni prego la lingua (estremità anteriore)";
+$lang['tabel_settings']['language'] = "Selezioni prego la lingua (estremitï¿½ anteriore)";
 $lang['tabel_settings']['language1'] = "Selezioni prego Language1";
 $lang['tabel_settings']['language2'] = "Selezioni prego Language2";
 $lang['tabel_settings']['language3'] = "Selezioni prego Language3";
-$lang['tabel_settings']['languageadmin'] = "Selezioni prego la lingua (estremità posteriore)";
+$lang['tabel_settings']['languageadmin'] = "Selezioni prego la lingua (estremitï¿½ posteriore)";
 $lang['error_settings']['id'] = "Per favore inserire l'ID<br>";
 $lang['error_settings']['nrpageuser'] = "Per favore inserire il numero di veicoli nella pagina principale dell'utente<br>";
 $lang['error_settings']['nrpageadmin'] = "Per favore inserire il numero di veicoli nella pagina dell'admin<br>";
@@ -363,22 +363,22 @@ $lang['tpl_template_modify'] = "Modificare Modello";
 $lang['tabel_template']['id'] = "Id";
 $lang['tabel_template']['email'] = "Email<br>";
 $lang['tabel_template']['from'] = "Da";
-$lang['tabel_template']['signup_subject'] = "Assunto do Email para Usuários Cadastrados";
-$lang['tabel_template']['signup_body'] = "Corpo do Email para Usuários Cadastrados<br>Ex.<Br>Olá, {username}<br>
+$lang['tabel_template']['signup_subject'] = "Assunto do Email para Usuï¿½rios Cadastrados";
+$lang['tabel_template']['signup_body'] = "Corpo do Email para Usuï¿½rios Cadastrados<br>Ex.<Br>Olï¿½, {username}<br>
 Clicca qui per confermare l'email:<br>
 {link}<br>
 <br>
 Detalhes:<br>
-Usuário: {username}<br>
+Usuï¿½rio: {username}<br>
 Senha: {password}<br>
 Email: {email}<br>
 <br>
 Obrigado.";
-$lang['tabel_template']['short_signup_body'] = "Corpo do Email para usuários cadastrados";
-$lang['tabel_template']['contact_subject'] = "Assunto do Email para Email de Contato (enviado pelo visitante)<br><br>Ex. Nova mensagem para o veículo {model}-#{id}";
+$lang['tabel_template']['short_signup_body'] = "Corpo do Email para usuï¿½rios cadastrados";
+$lang['tabel_template']['contact_subject'] = "Assunto do Email para Email de Contato (enviado pelo visitante)<br><br>Ex. Nova mensagem para o veï¿½culo {model}-#{id}";
 $lang['tabel_template']['short_contact_subject'] = "Assunto do Email para Contato";
-$lang['tabel_template']['contact_body'] = "Corpo do para Contato (enviado para o visitante)<br><br>Ex.<br> Olá {nome}<br>
-Você somente recebe uma nova mensagem para o veículo:<br>
+$lang['tabel_template']['contact_body'] = "Corpo do para Contato (enviado para o visitante)<br><br>Ex.<br> Olï¿½ {nome}<br>
+Vocï¿½ somente recebe uma nova mensagem para o veï¿½culo:<br>
 {model}-#{id}<br>
 de:<br>
 ______<br>
@@ -389,8 +389,8 @@ Mensagem: {guest_message}<br>";
 $lang['tabel_template']['short_contact_body'] = "Corpo do email para Email de Contato";
 $lang['tabel_template']['signupmembers_subject'] = "Assunto do Email para Membros Cadastrados";
 $lang['tabel_template']['short_signupmembers_body'] = "Corpo do Email para Membros Cadastrados";
-$lang['tabel_template']['signupmembers_body'] = "Corpo do Email para Membros Cadastrados<br>Ex.<Br>Olá {name}<br>
-Por favor, clique aqui para confirmar este endereço de email:<br>
+$lang['tabel_template']['signupmembers_body'] = "Corpo do Email para Membros Cadastrados<br>Ex.<Br>Olï¿½ {name}<br>
+Por favor, clique aqui para confirmar este endereï¿½o de email:<br>
 {link}<br>
 <br>
 Detalhes:<br>
@@ -402,7 +402,7 @@ $lang['tabel_template']['payment_subject'] = "Oggetto del email per il email di 
 $lang['tabel_template']['short_payment_body'] = "Breva corpo del email per l'email di conferma di pagamento";
 $lang['tabel_template']['payment_body'] = "Corpo del email per l'email di conferma di pagamento<br>Ex.<Br>
 Dear Customer,<br> Grazie per il suo ordine.<br>
-Abbiamo ricevuto il suo pagamento e il suo accaunt è attivo.<br>
+Abbiamo ricevuto il suo pagamento e il suo accaunt ï¿½ attivo.<br>
 <br>
 Se hai problemi, prego contattaci:
 
@@ -419,8 +419,8 @@ Visita questo sito per vedere:<BR>
 $lang['error_template']['id'] = "Inserire l'ID<br>";
 $lang['error_template']['email'] = "Inserire l'E-mail<br>";
 $lang['error_template']['from'] = "Inserire provenienza<br>";
-$lang['error_template']['signup_subject'] = "Por favor, insira o Assunto do Email para usuários cadastrados<br>";
-$lang['error_template']['signup_body'] = "Por favor, insira o Corpo do Email para usuários Cadastrados<br>";
+$lang['error_template']['signup_subject'] = "Por favor, insira o Assunto do Email para usuï¿½rios cadastrados<br>";
+$lang['error_template']['signup_body'] = "Por favor, insira o Corpo do Email para usuï¿½rios Cadastrados<br>";
 $lang['error_template']['contact_subject'] = "Inserire un'E-mail per contatti<br>";
 $lang['error_template']['contact_body'] = "Por favor, insira o Corpo do Email para Email de Contato<br>";
 $lang['error_template']['signupmembers_subject'] = "Inserire l'oggetto dell'E-Mail<br>";
@@ -448,20 +448,20 @@ $lang['tabel_members']['date_add'] = "Data di iscrizione";
 $lang['error_members']['id'] = "Inserire l'ID<br>";
 $lang['error_members']['name'] = "Inserire il nome<br>";
 $lang['error_members']['email'] = "Inserire l'E-Mail<br>";
-$lang['error_members']['email_exist'] = "Questa E-Mail già esiste!<br>";
+$lang['error_members']['email_exist'] = "Questa E-Mail giï¿½ esiste!<br>";
 $lang['error_members']['email_notexist'] = "Questa E-Mail non esiste nel database! <br>";
 $lang['tpl_auto_explain_members'] = "( Ex.<br> <img src='../images/active1.gif' border=0> attivo / <img src='../images/active0.gif' border=0> inattivo / <img src='../images/active2.gif' border=0> non confermato )";
 $lang['tpl_auto_thanks_signupmembers'] = "Grazie! Riceverete un'E-Mail di conferma!!";
 $lang['tpl_auto_thanks_unsubcribemembers'] = "Grazie! Riceverete un'E-Mail";
 $lang['tpl_auto_thanks_confirmmembers'] = "Grazie!
-La sua E-Mail è confermata.";
+La sua E-Mail ï¿½ confermata.";
 $lang['tpl_auto_signupmembers_message'] = "Informativa";
 $lang['tpl_auto_Home'] = "Home";
 $lang['msg1_sponsored'] = "O {{name}} ... apagado<br>";
 $lang['msg2_sponsored'] = "O {{name}} ... <font color=red>falhou</font><br>";
-$lang['tpl_auto_sponsored'] = "Patrocínio";
-$lang['tpl_sponsored_add'] = "Inserire Patrocínio";
-$lang['tpl_sponsored_modify'] = "Modificare Patrocínio";
+$lang['tpl_auto_sponsored'] = "Patrocï¿½nio";
+$lang['tpl_sponsored_add'] = "Inserire Patrocï¿½nio";
+$lang['tpl_sponsored_modify'] = "Modificare Patrocï¿½nio";
 $lang['tabel_sponsored']['id'] = "Id";
 $lang['tabel_sponsored']['carid'] = "Veicolo";
 $lang['tabel_sponsored']['date_start'] = "Data di Inizio";
@@ -478,7 +478,7 @@ $lang['tpl_auto_From_Emal'] = "Da Email";
 $lang['tpl_auto_Subject'] = "Oggetto";
 $lang['tpl_auto_Message'] = "Messaggio";
 $lang['tpl_auto_sendemail'] = "Inviare Email";
-$lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'] = "digita lìemail o selezionare per inviare a tutti";
+$lang['tpl_auto_please_and_email_to_send_or_check_to_send_to_all_members'] = "digita lï¿½email o selezionare per inviare a tutti";
 $lang['tpl_auto_please_type_from_name'] = "Digita il Nome";
 $lang['tpl_auto_please_type_fromemail'] = "Digita l'E-mail";
 $lang['tpl_auto_please_type_subject'] = "Digita l'oggetto";
@@ -515,7 +515,7 @@ $lang['tabel_orders']['id'] = "ID";
 $lang['tabel_orders']['receiver_email'] = "Ricevi E-Mail";
 $lang['tabel_orders']['item_name'] = "Item Nome";
 $lang['tabel_orders']['item_number'] = "Item Numero";
-$lang['tabel_orders']['quantity'] = "Quantità";
+$lang['tabel_orders']['quantity'] = "Quantitï¿½";
 $lang['tabel_orders']['payment_status'] = "Stato del Pagamento";
 $lang['tabel_orders']['pending_reason'] = "Motivi Pendenti";
 $lang['tabel_orders']['payment_date'] = "Data del pagamento";
@@ -528,7 +528,7 @@ $lang['tabel_orders']['txn_type'] = "Txn Type";
 $lang['tabel_orders']['first_name'] = "Nome";
 $lang['tabel_orders']['last_name'] = "Cognome";
 $lang['tabel_orders']['address_street'] = "Indirizzo";
-$lang['tabel_orders']['address_city'] = "Città";
+$lang['tabel_orders']['address_city'] = "Cittï¿½";
 $lang['tabel_orders']['address_state'] = "Provincia";
 $lang['tabel_orders']['address_zip'] = "CAP";
 $lang['tabel_orders']['address_country'] = "Country";
@@ -540,7 +540,7 @@ $lang['tabel_orders']['notify_version'] = "Notify Version";
 $lang['tabel_orders']['verify_sign'] = "Verify Sign";
 $lang['tabel_orders']['referrer_id'] = "Referrer Id";
 $lang['auto_meniu_expl']['settings'] = "Moneta di configurazione dello Script<BR> Como: <li>Numero di veicoli nella pagina principale dell'utente, <li>Numero dei veicoli nella pagina principale dell'admin,<li> Moneta Usata";
-$lang['auto_meniu_expl']['template'] = "Mude a configuração dos Modelos. <BR> Como: <li>Assunto do Email para Usuário Cadastrados <li>Assunto do Email para Contato <li>Assunto de Email para Membros ";
+$lang['auto_meniu_expl']['template'] = "Mude a configuraï¿½ï¿½o dos Modelos. <BR> Como: <li>Assunto do Email para Usuï¿½rio Cadastrados <li>Assunto do Email para Contato <li>Assunto de Email para Membros ";
 $lang['auto_meniu_expl']['admin'] = "Amministra admin/agents <BR><li> Crea/modifica/cancella";
 $lang['auto_meniu_expl']['rights'] = "Amministra diritti Perfis <BR> <li> crea/modifica/cancella superadmin, admin, superagents, agents, FAQ amministrazione utente,etc.";
 $lang['auto_meniu_expl']['category'] = "Amministra agenzia<BR><li> Crea/modifica/cancella/";
@@ -550,10 +550,10 @@ $lang['auto_meniu_expl']['cars'] = "Amministra Veicoli<BR> <li> crea/modifica/ca
 $lang['auto_meniu_expl']['news'] = "Amministra Notizie <BR> <li> crea/modifica/cancella;";
 $lang['auto_meniu_expl']['faq'] = "Amministra FAQ <BR> <li> crea/modifica/cancella;";
 $lang['auto_meniu_expl']['customlinks'] = "Amministra Customlinks <BR> <li> crea/modifica/cancella;";
-$lang['auto_meniu_expl']['dealers'] = "Você pode inserir agentes que após fazerem o login podem ver os carros a partir dos Revendedores de Veículos. Estes veículos devem ter um preço especial.";
-$lang['auto_meniu_expl']['carsdealer'] = "Amministra rivenditori <BR> <li> crea/modifica/cancella. Estes veículos podem ser vistos somente pelos agentes";
+$lang['auto_meniu_expl']['dealers'] = "Vocï¿½ pode inserir agentes que apï¿½s fazerem o login podem ver os carros a partir dos Revendedores de Veï¿½culos. Estes veï¿½culos devem ter um preï¿½o especial.";
+$lang['auto_meniu_expl']['carsdealer'] = "Amministra rivenditori <BR> <li> crea/modifica/cancella. Estes veï¿½culos podem ser vistos somente pelos agentes";
 $lang['auto_meniu_expl']['members'] = "Amministra membri che ricevono informazioni<BR> <li> crea/modifica/cancella";
-$lang['auto_meniu_expl']['sponsored'] = "Amministra veicoli sponsorizzati<BR> <li> estes veículos aparecerão no parte esquerda do site em cada página";
+$lang['auto_meniu_expl']['sponsored'] = "Amministra veicoli sponsorizzati<BR> <li> estes veï¿½culos aparecerï¿½o no parte esquerda do site em cada pï¿½gina";
 $lang['auto_meniu_expl']['sendemail'] = "Invia una mail a uno o tutti i menbri";
 $lang['auto_meniu_expl']['sendemailadmin'] = "Manda e-mail a uno o tutti gli agenti";
 $lang['auto_meniu_expl']['homepage'] = "Costruisci l'homa page";
@@ -588,8 +588,8 @@ $lang['tabel_payment']['active'] = "Attivo";
 $lang['error_payment']['business'] = "Prego inserire il business<br>";
 $lang['tpl_auto_Pic'] = "Foto";
 $lang['tpl_auto_of'] = "da";
-$lang['tpl_auto_previous'] = "« Precedente";
-$lang['tpl_auto_next'] = "Prossimo »";
+$lang['tpl_auto_previous'] = "ï¿½ Precedente";
+$lang['tpl_auto_next'] = "Prossimo ï¿½";
 $lang['tpl_auto_exit'] = "Uscire";
 $lang['tpl_auto_year'] = "Anno";
 $lang['tpl_auto_model'] = "Modello";
@@ -605,7 +605,7 @@ $lang['tpl_auto_name'] = "Nome";
 $lang['tpl_auto_phone'] = "Telefono";
 $lang['tpl_auto_country'] = "Indirizzo";
 $lang['tpl_auto_state'] = "Stato";
-$lang['tpl_auto_city'] = "Città";
+$lang['tpl_auto_city'] = "Cittï¿½";
 $lang['tpl_auto_Send_email'] = "Contattare agenzia";
 $lang['tpl_auto_Additional_Information'] = "Informazioni addizionali";
 $lang['tpl_auto_write_message'] = "Scivi messaggio";
@@ -621,7 +621,7 @@ $lang['tpl_auto_please_type_email_address_valid'] = "Per favore digita un'e-mail
 $lang['tpl_auto_please_type_phone'] = "Per favore digita il numero di telefono";
 $lang['tpl_auto_please_type_message'] = "Per favore digita il messaggio";
 $lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "Messaggio molto grande o molto piccolo ";
-$lang['tpl_auto_thanks'] = "Grazie per il suo messaggio. Risponderemo al più presto!";
+$lang['tpl_auto_thanks'] = "Grazie per il suo messaggio. Risponderemo al piï¿½ presto!";
 $lang['tpl_auto_close'] = "Chiudi";
 $lang['tpl_auto_signup'] = "Entra";
 $lang['tpl_auto_please_type_username'] = "Per favore digita l'username";
@@ -634,7 +634,7 @@ $lang['tpl_auto_your_password'] = "Password";
 $lang['tpl_auto_your_retype_password'] = "Ridigita la password";
 $lang['tpl_auto_thanks_signup'] = "Grazie! Riceverete un'email!!";
 $lang['tpl_auto_thanks_confirm'] = "Grazie!
-La sua e-mail è confermata.
+La sua e-mail ï¿½ confermata.
 Digita username e password e entra!";
 $lang['tpl_auto_thanks_confirm1'] = "<BR><BR>Prego clicca su login per accedere all'admin area!<center><a href='admin/index.php'>Admin</a></center>";
 $lang['tpl_auto_thanks_confirm2'] = "<BR><BR>Segui il link per effettuare il pagamento per attivare l'account!";
@@ -646,7 +646,7 @@ $lang['tpl_auto_Sold'] = "Venduto";
 $lang['sold'] = "Venduto";
 $lang['yes'] = "SI";
 $lang['no'] = "No";
-$lang['tpl_auto_Are_you_sure_you_want_to_activate_all_as_sold'] = "Você tem certeza de que você quer ativar todos os selecionados como vendidos?";
+$lang['tpl_auto_Are_you_sure_you_want_to_activate_all_as_sold'] = "Vocï¿½ tem certeza de que vocï¿½ quer ativar todos os selecionados como vendidos?";
 $lang['BRANDNEW'] = "Zero KM";
 $lang['EXDEMO'] = "Dimostrazione";
 $lang['array_types']['2'] = "Venduto";
@@ -669,10 +669,10 @@ $lang['tpl_auto_cars_found'] = "cerca veicolo";
 $lang['tpl_auto_please_select_adprofile'] = "Selezionare aggiungi profilo";
 $lang['tpl_auto_please_type_country'] = "Inserire l'indirizzo";
 $lang['tpl_auto_please_type_state'] = "Inserire lo stato";
-$lang['tpl_auto_please_type_city'] = "Inserire la città";
+$lang['tpl_auto_please_type_city'] = "Inserire la cittï¿½";
 $lang['tpl_auto_your_country'] = "Il tuo indirizzo";
 $lang['tpl_auto_your_state'] = "Il tuo stato";
-$lang['tpl_auto_your_city'] = "La tua città";
+$lang['tpl_auto_your_city'] = "La tua cittï¿½";
 $lang['tpl_auto_Confirm_email_address'] = "Conferma l'indirizzo e-mail";
 $lang['tpl_auto_Make_payments_with_PayPal_its_fast_freeand_secure'] = "Fai pagamenti con PayPal - it&#8217;s fast, freeand secure!";
 $lang['tpl_auto_Click_on_a_picture_to_view_the_gallery'] = "Clicca sulla foto per vedere la gallery";
@@ -691,7 +691,7 @@ $lang['tpl_auto_Send_To_a_Friend'] = "Manda ad un amico";
 $lang['tpl_auto_please_type_friendname'] = "Prego inserire il nome dell'amico";
 $lang['tpl_auto_please_type_friendemail_address'] = "Prego inserire e-mail di amici";
 $lang['tpl_auto_please_type_friendemail_address_valid'] = "Prego inserire un valido indirizzo e-mail";
-$lang['tpl_auto_thanksfriend'] = "Grazie,<BR>la tua e-mail è stata inviata.";
+$lang['tpl_auto_thanksfriend'] = "Grazie,<BR>la tua e-mail ï¿½ stata inviata.";
 $lang['msg1_model'] = "Il {{name}} ... cancellato<br>";
 $lang['msg2_model'] = "Il {{name}} ... <font color=red>fallito</font><br>";
 $lang['tpl_model_add'] = "aggiungi modello";
@@ -754,16 +754,16 @@ $lang['tabel_rentcarsfeatures']['id'] = "Id";
 $lang['tabel_rentcarsfeatures']['rentcarsid'] = "Veicolo id";
 $lang['tabel_rentcarsfeatures']['featuresid'] = "Caratteristiche";
 $lang['error_rentcarsfeatures']['rentcarsid'] = "Inserisci veicolo da affittare<br>";
-$lang['tpl_auto_previouscar'] = "« Precedente";
-$lang['tpl_auto_nextcar'] = "Prossimo»";
+$lang['tpl_auto_previouscar'] = "ï¿½ Precedente";
+$lang['tpl_auto_nextcar'] = "Prossimoï¿½";
 $lang['tpl_auto_View_all_cars'] = "Vedi tutti i veicoli";
 $lang['tpl_auto_guess'] = "ospiti";
 $lang['tpl_auto_LastUpdated'] = "Ultio updated";
 $lang['tpl_auto_ip'] = "Ip";
 $lang['tpl_auto_Summary'] = "Sommario";
-$lang['tpl_auto_Who_s_Online'] = "Chi è on-line (ultimi 300 secondi)";
+$lang['tpl_auto_Who_s_Online'] = "Chi ï¿½ on-line (ultimi 300 secondi)";
 $lang['tpl_auto_Statistics'] = "Statistiche";
-$lang['tpl_auto_Top_by_hits'] = "Il più visto";
+$lang['tpl_auto_Top_by_hits'] = "Il piï¿½ visto";
 $lang['tpl_auto_user_online'] = "utenti on line";
 $lang['tpl_auto_See'] = "vedi";
 $lang['tpl_auto_Send_This_To_a_Friend'] = "invia ad un amico";
@@ -1066,10 +1066,10 @@ $lang['norepeatfound']="<BR>{category}-{make}-{model}-#{id}
 Will expire in 3 days. Click here to continue your ad.<BR>
 <A href=\"{url1}\">Click here for another 30 days</A><BR><BR>";
 
-$lang[emaildelayheader]="Hello {name}<BR>
+$lang['emaildelayheader']="Hello {name}<BR>
 Your Object:<BR>";
 
-$lang[emaildelayfooter]="Or ignore this email and your scooter occasion will be suspended.<BR>
+$lang['emaildelayfooter']="Or ignore this email and your scooter occasion will be suspended.<BR>
 Thanks.";
 
 $lang['youradwasupdated']="Your ad <B>{category}-{make}-{model}-#{id}</b> was updated for another {days} days.";

@@ -214,8 +214,8 @@ if ($count>0) {
     $settings_profile['languagedropdown'] .= $settings_profile['languagedropdown1'];
 
 }
-if (file_exists($config['url_path'].'language/'.$settings_profile["language".$language_set])) {
-    include $config['path'].'language/'.$settings_profile["language".$language_set];
+if (file_exists('language/'.$settings_profile["language".$language_set])) {
+    include 'language/'.$settings_profile["language".$language_set];
 }
 include $path . "update.php";
 if ($settings_profile['nrpageuser']>0) {
@@ -237,7 +237,7 @@ $lang["tpl_auto_css"] = $config['tpl_path_visit'] . "style.css";
 $settings_profile['time']=dateformat($config["config_date_format"],strtotime ("now"));
 $lang["tpl_auto_separator_sign"]=$config["config_separator"];
 if (file_exists("seo1.php")){
-    @include_once("seo1.php");
+    include_once("seo1.php");
 }
 $settings_profile['customlinks'] = $VisitClass->customlinks("other_menu_list.html");
 $news_profile['customlinks'] = $settings_profile['customlinks'];

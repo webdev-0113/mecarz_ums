@@ -68,7 +68,7 @@ $lang['tpl_Delete_Image'] = "Verwijder foto";
 $lang['tpl_auto_Are_you_sure_you_want_to_delete_all'] = "Weet u zeker dat u de geselecteerde items wilt verwijderen?";
 $lang['tpl_auto_Name'] = "Naam";
 $lang['tpl_auto_Add'] = "Toevoegen";
-$lang['tpl_auto_Search'] = "Zoeken »";
+$lang['tpl_auto_Search'] = "Zoeken ï¿½";
 $lang['errorstyle'] = "<font color='#FF0000'>{{error}}</font>";
 $lang['foundstyle'] = "<font color='#FF0000'><b>\1</b></font>";
 $lang['msg_result_nr'] = "<br>Er zijn <b>{{nr}}</b> advertenties gevonden<br>Toon <b>{{nr1}}</b> tot <b>{{nr2}}</b><br>";
@@ -170,7 +170,7 @@ $lang['tpl_auto_today'] = "VANDAAG";
 $lang['error_date'] = "Verkeerde datum!<br>";
 $lang['tpl_auto_for'] = "voor";
 $lang['error_nosearch_result'] = "<center>Geen resultaten!<center>";
-$lang['tpl_auto_back'] = "« Terug";
+$lang['tpl_auto_back'] = "ï¿½ Terug";
 $lang['tpl_auto_from'] = "van";
 $lang['tpl_auto_to'] = "tot";
 $lang['msg1_category'] = "De {{name}} ... verwijderd<br>";
@@ -308,8 +308,8 @@ $lang['tabel_settings']['nrpageadmin'] = "Aantal advertenties per pagina (admini
 $lang['tabel_settings']['currency'] = "Valuta";
 $lang['tabel_settings']['nocars'] = "Het maximum aantal voertuigen voor gebruikers als ze geregistreerd zijn (0:onbeperkt)";
 $lang['tabel_settings']['short_nocars'] = "Maximim aantal";
-$lang['tabel_settings']['nopictures'] = "Max aantal foto´s voor geregistreerde gebruikers (0:ongelimiteerd)";
-$lang['tabel_settings']['short_nopictures'] = "Max aantal foto´s in gallerij";
+$lang['tabel_settings']['nopictures'] = "Max aantal fotoï¿½s voor geregistreerde gebruikers (0:ongelimiteerd)";
+$lang['tabel_settings']['short_nopictures'] = "Max aantal fotoï¿½s in gallerij";
 $lang['tabel_settings']['rights_signupuser'] = "Rechten voor gebruikers bij registratie";
 $lang['tabel_settings']['titlesite'] = "Titel site";
 $lang['tabel_settings']['description'] = "Beschrijving site";
@@ -334,7 +334,7 @@ $lang['error_settings']['id'] = "<br>";
 $lang['error_settings']['nrpageuser'] = "Vul het aantal advertenties per pagina in voor het frondend <br>";
 $lang['error_settings']['nrpageadmin'] = "Vul het aantal advertenties per pagina in voor de administratie <br>";
 $lang['error_settings']['nocars'] = "Het maximum aantal voertuigen voor gebruikers als ze geregistreerd zijn (0:onbeperkt)<br>";
-$lang['error_settings']['nopictures'] = "Vul het maximaal aantal foto´s voor de fotogallerij in <br>";
+$lang['error_settings']['nopictures'] = "Vul het maximaal aantal fotoï¿½s voor de fotogallerij in <br>";
 $lang['error_settings']['rights_signupuser'] = "Voer rechten in voor adverteerders bij registratie<br>";
 $lang['error_settings']['titlesite'] = "Vul een site titel in<br>";
 $lang['error_settings']['description'] = "Voer een site beschrijving in<br>";
@@ -473,7 +473,7 @@ $lang['tpl_auto_please_type_subject'] = "Vul een onderwerp in";
 $lang['tpl_auto_Email_send'] = "<font color=green>E-mail verstuurd naar {email}</font><BR>";
 $lang['tpl_auto_Email_not_send'] = "<font color=red>E-mail niet verstuurd naar {email}</font><BR>";
 $lang['tpl_auto_Send_Email_Results'] = "Verstuur e-mail resultaten";
-$lang['tpl_auto_message_send_email_attention'] = "<font style=\`color:red;font-size:15px;\`><B>Wacht nadat u op de verstuur knop heeft gedrukt (slechts één keer drukken). U kunt tijdens het versturen de pagina niet vernieuwen! <BR>
+$lang['tpl_auto_message_send_email_attention'] = "<font style=\`color:red;font-size:15px;\`><B>Wacht nadat u op de verstuur knop heeft gedrukt (slechts ï¿½ï¿½n keer drukken). U kunt tijdens het versturen de pagina niet vernieuwen! <BR>
 (Het script versuurd de e-mail naar 100 adressen tegelijk, vervolgens wordt er 1 seconde gepauseerd en wordt het versturen vervolgd. Indien u een e-mail naar meer dan 3000 leden wilt sturen, neemt u dan even contact op.
 <font>";
 $lang['tpl_auto_Send_Email_Admin'] = "E-mail versturen naar adverteerder";
@@ -491,7 +491,7 @@ $lang['tabel_adprofiles']['description'] = "Beschrijving";
 $lang['tabel_adprofiles']['price'] = "Prijs";
 $lang['tabel_adprofiles']['nocars'] = "Aantal autos";
 // commented out fotos
-$lang['tabel_adprofiles']['nopictures'] = "Aantal foto\´s";
+$lang['tabel_adprofiles']['nopictures'] = "Aantal foto\ï¿½s";
 $lang['tabel_adprofiles']['order'] = "Order";
 $lang['tabel_adprofiles']['active'] = "Aktief";
 $lang['error_adprofiles']['name'] = "Vul een naam in<br>";
@@ -539,7 +539,7 @@ $lang['auto_meniu_expl']['features'] = "Beheer opties <BR> <li> toevoegen/ wijzi
 $lang['auto_meniu_expl']['cars'] = "Beheer voertuigen <BR> <li>toevoegen/ wijzigen/ zoeken (Acura Ford F-450 2WD/etc)";
 $lang['auto_meniu_expl']['news'] = "Beheer nieuws <BR> <li> toevoegen/ wijzigen/ zoeken;";
 $lang['auto_meniu_expl']['faq'] = "Beheer FAQ <BR> <li> toevoegen/ wijzigen/ zoeken;";
-$lang['auto_meniu_expl']['customlinks'] = "Beheer extra pagina´s <BR> <li> toevoegen/wijzigen/zoeken (Algemene voorwaarden/Over ons/ Kontakt, etc);";
+$lang['auto_meniu_expl']['customlinks'] = "Beheer extra paginaï¿½s <BR> <li> toevoegen/wijzigen/zoeken (Algemene voorwaarden/Over ons/ Kontakt, etc);";
 $lang['auto_meniu_expl']['dealers'] = "U kunt handelaten toevoegen, die na inloggen de autos voor deze zaak zien kunnen.  Deze voertuigen moeten een speciale prijs hebben.";
 $lang['auto_meniu_expl']['carsdealer'] = "Beheer voertuigen van handelaren<BR> <li>toevoegen/ wijzigen/ zoeken (Acura Ford F-450 2WD/etc). ";
 $lang['auto_meniu_expl']['members'] = "Beheer leden voor nieuwsbrief<BR> <li> toevoegen/wijzigen/zoeken";
@@ -576,9 +576,9 @@ $lang['tabel_payment']['active'] = "Aktief";
 $lang['error_payment']['business'] = "Vul uw e-mail adres in<br>";
 $lang['tpl_auto_Pic'] = "Foto";
 $lang['tpl_auto_of'] = "van";
-$lang['tpl_auto_previous'] = "« Vorige";
-$lang['tpl_auto_next'] = "Volgende »";
-$lang['tpl_auto_exit'] = "Einde ×";
+$lang['tpl_auto_previous'] = "ï¿½ Vorige";
+$lang['tpl_auto_next'] = "Volgende ï¿½";
+$lang['tpl_auto_exit'] = "Einde ï¿½";
 $lang['tpl_auto_year'] = "Jaar";
 $lang['tpl_auto_model'] = "Model";
 $lang['tpl_auto_stereo'] = "Radio";
@@ -610,7 +610,7 @@ $lang['tpl_auto_please_type_phone'] = "Vul uw telefoonnummer in";
 $lang['tpl_auto_please_type_message'] = "Vul uw bericht in";
 $lang['tpl_auto_please_type_message_a_larger_or_smaller'] = "Bericht te kort of te lang ";
 $lang['tpl_auto_thanks'] = "Hartelijk dank voor uw bericht, we nemen zo snel mogelijk contact met u op!";
-$lang['tpl_auto_close'] = "Sluiten ×";
+$lang['tpl_auto_close'] = "Sluiten ï¿½";
 $lang['tpl_auto_signup'] = "Aanmelden";
 $lang['tpl_auto_please_type_username'] = "Vul een gebruikersnaam in";
 $lang['tpl_auto_please_type_username_a_larger_or_smaller'] = "Gebruikersnaam is te kort of te lang";
@@ -649,7 +649,7 @@ $lang['tpl_auto_Unsubscribe'] = "Afmelden";
 $lang['tpl_auto_Update'] = "Updaten";
 $lang['tpl_auto_Mark_All'] = "Selecteer alles";
 $lang['tpl_auto_Unmark_all'] = "Selecteer niets";
-$lang['tpl_auto_view_all_category'] = "Bekijk alle Kategorieën";
+$lang['tpl_auto_view_all_category'] = "Bekijk alle Kategorieï¿½n";
 $lang['tpl_auto_Advanced_search'] = "Uitgebreid zoeken";
 $lang['tpl_auto_cars_found'] = "Voertuigen gevonden";
 $lang['tpl_auto_please_select_adprofile'] = "Selecteer de gewenste advertentie";
@@ -810,8 +810,8 @@ $lang['tabel_gallery']['order'] = "Bestel";
 $lang['error_gallery']['picture'] = "Geef afbeelding<br>";
 //end gallery
 
-$lang["tpl_auto_previouscar"] = "« Vorige";
-$lang["tpl_auto_nextcar"] = "Volgende »";
+$lang["tpl_auto_previouscar"] = "ï¿½ Vorige";
+$lang["tpl_auto_nextcar"] = "Volgende ï¿½";
 
 
 $lang['tpl_auto_View_all_cars'] = "Bekijk alle autos";
@@ -1129,10 +1129,10 @@ $lang['norepeatfound']="<BR>{category}-{make}-{model}-#{id}
 Will expire in 3 days. Click here to continue your ad.<BR>
 <A href=\"{url1}\">Click here for another 30 days</A><BR><BR>";
 
-$lang[emaildelayheader]="Hello {name}<BR>
+$lang['emaildelayheader']="Hello {name}<BR>
 Your Object:<BR>";
 
-$lang[emaildelayfooter]="Or ignore this email and your scooter occasion will be suspended.<BR>
+$lang['emaildelayfooter']="Or ignore this email and your scooter occasion will be suspended.<BR>
 Thanks.";
 
 $lang['youradwasupdated']="Your ad <B>{category}-{make}-{model}-#{id}</b> was updated for another {days} days.";
