@@ -2,54 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1_cancel_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/1_cancel_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1_notify_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/1_notify_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1_success_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/1_success_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2_notify_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/2_notify_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_notify_url.php" beforeDir="false" afterPath="$PROJECT_DIR$/3_notify_url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acc.js.php" beforeDir="false" afterPath="$PROJECT_DIR$/acc.js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delete_all_images.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delete_all_images.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/remake_thumbnail.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/remake_thumbnail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/select_color.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/select_color.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ht.php" beforeDir="false" afterPath="$PROJECT_DIR$/ht.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/_global.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/_global.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/authorizeNetSim.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/authorizeNetSim.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/banner.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/banner.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/banner_visit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/banner_visit.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/bannerstats.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/bannerstats.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/config_write.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config_write.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dates.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dates.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/db.old.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/db.old.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dealer.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dealer.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/email.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/email.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/global.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/global.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/global.class1.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/global.class1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/globalstats.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/globalstats.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/image1.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/image1.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/licence.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/licence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/old_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/old_function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/old_image.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/old_image.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/renew.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/renew.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/searchengines.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/searchengines.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/update1.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/update1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/visit.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/visit.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/visitstats.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/visitstats.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipn.php" beforeDir="false" afterPath="$PROJECT_DIR$/ipn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js.php" beforeDir="false" afterPath="$PROJECT_DIR$/js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/old_index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/seo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seo1.php" beforeDir="false" afterPath="$PROJECT_DIR$/seo1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trovit_feed.php" beforeDir="false" afterPath="$PROJECT_DIR$/trovit_feed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htaccess" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/licence.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+            <state relative-caret-position="300">
+              <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -348,11 +301,6 @@
               <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
               <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -404,16 +352,15 @@
       <workItem from="1605100399768" duration="16610000" />
       <workItem from="1605130322152" duration="1223000" />
       <workItem from="1605131657221" duration="17133000" />
-      <workItem from="1605184499939" duration="10084000" />
+      <workItem from="1605184499939" duration="10364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92241000" />
+    <option name="totallyTimeSpent" value="92521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1784" height="941" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2963176" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -692,7 +639,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htaccess">
+    <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1060">
           <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
@@ -744,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/licence.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        <state relative-caret-position="300">
+          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
         </state>
       </provider>
     </entry>
