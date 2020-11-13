@@ -1,7 +1,5 @@
 <?php
 
-
-
 if (array_key_exists('p', $_REQUEST) && $_REQUEST['p']=='signup'){
     $lang['tpl_auto_Pragraph'] =<<<END
 
@@ -25,8 +23,8 @@ if(array_key_exists('country', $_REQUEST) &&
 
     if ($_REQUEST['country']>0 and $_REQUEST['state']==0  and $_REQUEST['city']==0 and $_REQUEST['category']==0 and $_REQUEST['make']==0 and $_REQUEST['model']==0 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
 
-        $category_profile = $Global_Class->getprofile( $_REQUEST[country], "country", 'id' );
-        $numbercars = $Global_Class->getnumrows( $_REQUEST[country], "cars", "country"," and active>=1 ") ;
+        $category_profile = $Global_Class->getprofile( $_REQUEST['country'], "country", 'id' );
+        $numbercars = $Global_Class->getnumrows( $_REQUEST['country'], "cars", "country"," and active>=1 ") ;
 
 
 
@@ -108,8 +106,8 @@ END;
 
     if ($_REQUEST['country']==0 and $_REQUEST['state']>0 and $_REQUEST['city']==0 and $_REQUEST['category']==0 and $_REQUEST['make']==0 and $_REQUEST['model']==0 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
 
-        $category_profile = $Global_Class->getprofile( $_REQUEST[state], "state", 'id' );
-        $numbercars = $Global_Class->getnumrows( $_REQUEST[state], "cars", "state"," and active>=1 ") ;
+        $category_profile = $Global_Class->getprofile( $_REQUEST['state'], "state", 'id' );
+        $numbercars = $Global_Class->getnumrows( $_REQUEST['state'], "cars", "state"," and active>=1 ") ;
 
 
 
@@ -220,8 +218,8 @@ END;
 
     if ($_REQUEST['country']==0 and $_REQUEST['state']==0 and $_REQUEST['city']>0 and $_REQUEST['category']==0 and $_REQUEST['make']==0 and $_REQUEST['model']==0 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
 
-        $category_profile = $Global_Class->getprofile( $_REQUEST[city], "city", 'id' );
-        $numbercars = $Global_Class->getnumrows( $_REQUEST[city], "cars", "city"," and active>=1 ") ;
+        $category_profile = $Global_Class->getprofile( $_REQUEST['city'], "city", 'id' );
+        $numbercars = $Global_Class->getnumrows( $_REQUEST['city'], "cars", "city"," and active>=1 ") ;
 
 
 
@@ -292,7 +290,7 @@ END;
 
     if ($_REQUEST['country']==0 and $_REQUEST['state']==0 and $_REQUEST['city']>0 and $_REQUEST['category']==0 and $_REQUEST['make']>0 and $_REQUEST['model']==0 and $_REQUEST['p']=='search' and $_REQUEST['changeseo']==1){
 
-        $category_profile = $Global_Class->getprofile( $_REQUEST[city], "city", 'id' );
+        $category_profile = $Global_Class->getprofile( $_REQUEST['city'], "city", 'id' );
         $make_profile = $Global_Class->getprofile( $_REQUEST['make'], "make", 'id' );
 
         $lang['tpl_auto_Pragraph'] =<<<END

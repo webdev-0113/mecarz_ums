@@ -6,7 +6,7 @@
 // (available Mon-Fri 10am to 17pm CET)
 // /e-mail contact
 // sales@accscripts.com
-if(extension_loaded('ionCube Loader')){
+if(!extension_loaded('ionCube Loader')){
     $__oc=strtolower(substr(php_uname(),0,3));
     $__ln='/ioncube/ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');
     $__oid=$__id=realpath(ini_get('extension_dir'));

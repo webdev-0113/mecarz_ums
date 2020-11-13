@@ -60,11 +60,11 @@ function verifyForm(theForm){
         var cond=0;
         var i;
         if ({{nrmax}}>1) {
-        for (i=0;i< {{nrmax}};i++) {
-            if (theForm.adprofiles[i].checked==true)
-                cond=1;
-        }
-        }else{
+            for (i=0;i< {{nrmax}};i++) {
+                if (theForm.adprofiles[i].checked==true)
+                    cond=1;
+            }
+        } else{
             cond=1;
         }
         if(cond==0){

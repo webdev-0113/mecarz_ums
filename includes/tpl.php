@@ -55,9 +55,6 @@ class TPL {
                 $value=stripslashes($value);
                 $output=str_replace("{{".$key."}}",$value,$output);
             }
-            $language_set1 = "0";
-            $language_setini = "0";
-            $language_session1 = "0";
             if (count($multiplelanguage)>0){
                 if ($_SESSION['language_session']=='') {
                     $language_set1='0';
@@ -68,6 +65,10 @@ class TPL {
                 }
                 $language_setini=$language_set1;
                 $language_set1=$language_set1.'-';
+            } else {
+                $language_set1 = "";
+                $language_setini = "";
+                $language_session1 = "";
             }
 
             $output = preg_replace("/{{language_set}}/i", $language_set1, $output);
@@ -75,10 +76,9 @@ class TPL {
             $output = preg_replace("/{{language_session}}/i", $language_session1, $output);
 
             $output = preg_replace("/<a href=\"(.*).html\">/i", "<a href=".preg_replace('/ /i','-','\\1').".html>", $output);
-//            $output = preg_replace_callback("/{{tpl_auto_(\w+)}}/i", $lang['tpl_auto_'.'${1}'], $output);
             $output = preg_replace_callback('/{{tpl_auto_(\w+)}}/i', function($found){ global $lang; return $lang['tpl_auto_' . $found[1]];}, $output);
             $output = preg_replace_callback('/{{config_auto_(\w+)}}/i', function($found){ global $config; return $config['config_auto_' . $found[1]];}, $output);
-            $output = preg_replace("/{{input_(\w+)_val}}/i", "PrepareForWrite(\$_REQUEST['input_\1'])", $output);
+            $output = preg_replace_callback("/{{input_(\w+)_val}}/i", function($found){ global $_REQUEST; return PrepareForWrite($_REQUEST['input_' . $found[1]]);}, $output);
             if ($condtemplates){
                 $output = preg_replace('/{{[^}}]*}}/','',$output);
             }

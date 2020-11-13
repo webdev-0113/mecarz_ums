@@ -908,7 +908,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                                 $uva_regex = preg_replace($re . '%', '\\1.*', preg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
                                 // Fixed db name matching
                                 // 2000-08-28 -- Benjamin Gandon
-                                if (ereg('^' . $uva_regex . '$', $uva_db)) {
+                                if (preg_match('^' . $uva_regex . '$', $uva_db)) {
                                     $dblist[] = $uva_db;
                                     break;
                                 }
@@ -1346,7 +1346,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     // We don't want more than one asterisk inside our 'only_db'.
                     continue;
                 }
-                if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
+                if ($is_show_dbs && preg_match('(^|[^\])(_|%)', $dblist[$i])) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                     // here, a PMA_DBI_query() could fail silently
                     // if SHOW DATABASES is disabled

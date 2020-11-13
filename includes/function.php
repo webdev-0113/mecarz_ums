@@ -171,17 +171,25 @@ function sort_order($order,$order_now,$sort_now){
     return $order;
 }
 function yes_or_no($val,$yes_no=1){
-    global $lang;
+    global $lang, $config;
     $temp ="selected$val";
     $$temp = "selected";
 
-    $out = "<option $selected1 value='1'>{$lang['yes']}</option>\n";
-    $out .= "<option $selected0 value='0'>{$lang['no']}</option>\n";
+//    $out = "<option $selected1 value='1'>{$lang['yes']}</option>\n";
+//    $out .= "<option $selected0 value='0'>{$lang['no']}</option>\n";
+//    if ($yes_no and $config['show_only_yes_no_for_active']){
+//        $out .= "<option $selected2 value='2'>{$lang['sold']}</option>\n";
+//        $out .= "<option $selected3 value='3'>{$lang['BRANDNEW']}</option>\n";
+//        $out .= "<option $selected4 value='4'>{$lang['EXDEMO']}</option>\n";
+//    }
+    $out = "<option value='1'>{$lang['yes']}</option>\n";
+    $out .= "<option value='0'>{$lang['no']}</option>\n";
     if ($yes_no and $config['show_only_yes_no_for_active']){
-        $out .= "<option $selected2 value='2'>{$lang['sold']}</option>\n";
-        $out .= "<option $selected3 value='3'>{$lang['BRANDNEW']}</option>\n";
-        $out .= "<option $selected4 value='4'>{$lang['EXDEMO']}</option>\n";
+        $out .= "<option value='2'>{$lang['sold']}</option>\n";
+        $out .= "<option value='3'>{$lang['BRANDNEW']}</option>\n";
+        $out .= "<option value='4'>{$lang['EXDEMO']}</option>\n";
     }
+
     return $out;
 }
 
@@ -202,24 +210,24 @@ function dateformat($format,$val){
 function makeurlold($url){
 
     $user['url'] = strip_tags($url);
-    $user['url'] = preg_replace("-", "_", $user['url']);
-    $user['url'] = preg_replace(" |\/", "-", $user['url']);
-    $user['url'] = preg_replace("!#[0-9]{0,4};", "", $user['url']);
+    $user['url'] = preg_replace("/-/", "_", $user['url']);
+    $user['url'] = preg_replace("/ |\/", "-", $user['url']);
+    $user['url'] = preg_replace("/!#[0-9]{0,4};/", "", $user['url']);
     $user['url'] = str_replace("!","", $user['url']);
     $user['url'] = str_replace("_","", $user['url']);
     $user['url'] = str_replace("#","", $user['url']);
     $user['url'] = str_replace("%","", $user['url']);
     $user['url'] = str_replace("/","-", $user['url']);
-    $user['url'] = preg_replace(":|,|\.|\(|\)|`|&", "", $user['url']);
-    $user['url'] = preg_replace("-+", "-", $user['url']);
-    $user['url'] = preg_replace("^-", "", $user['url']);
+    $user['url'] = preg_replace("/:|,|\.|\(|\)|`|&/", "", $user['url']);
+    $user['url'] = preg_replace("/-+/", "-", $user['url']);
+    $user['url'] = preg_replace("/^-/", "", $user['url']);
     return $user['url'];
 }
 function makeurl($url){
     $user['url'] = strip_tags($url);
-    $user['url'] = preg_replace("-", "_", $user['url']);
-    $user['url'] = preg_replace(" |\/", "-", $user['url']);
-    $user['url'] = preg_replace("!#[0-9]{0,4};", "", $user['url']);
+    $user['url'] = preg_replace("/-/", "_", $user['url']);
+    $user['url'] = preg_replace("/ |\/", "-", $user['url']);
+    $user['url'] = preg_replace("/!#[0-9]{0,4};/", "", $user['url']);
     $user['url'] = str_replace(array("\r\n","\n","\t"),"", $user['url']);
     $user['url'] = str_replace("!","", $user['url']);
     $user['url'] = str_replace("_","", $user['url']);
@@ -229,9 +237,9 @@ function makeurl($url){
     $user['url'] = str_replace(array("@","+"),"-", $user['url']);
     $user['url'] = str_replace(array("***","**","*","[","]","&amp;"),"-", $user['url']);
     $user['url'] = str_replace('**',"-", $user['url']);
-    $user['url'] = preg_replace(":|,|\.|\(|\)|`|&", "", $user['url']);
-    $user['url'] = preg_replace("-+", "-", $user['url']);
-    $user['url'] = preg_replace("^-", "", $user['url']);
+    $user['url'] = preg_replace("/:|,|\.|\(|\)|`|&/", "", $user['url']);
+    $user['url'] = preg_replace("/-+/", "-", $user['url']);
+    $user['url'] = preg_replace("/^-/", "", $user['url']);
 
     return ascii_encode(strtolower($user['url']));
 }
@@ -239,8 +247,8 @@ function makeurl($url){
 function makeurl2($url){
     $user['url'] = strip_tags($url);
     //$user['url'] = preg_replace("-", "_", $user['url']);
-    $user['url'] = preg_replace(" |\/", "-", $user['url']);
-    $user['url'] = preg_replace("!#[0-9]{0,4};", "", $user['url']);
+    $user['url'] = preg_replace("/ |\/", "-", $user['url']);
+    $user['url'] = preg_replace("/!#[0-9]{0,4};/", "", $user['url']);
     $user['url'] = str_replace(array("\r\n","\n","\t"),"", $user['url']);
     $user['url'] = str_replace("!","", $user['url']);
     $user['url'] = str_replace("_","", $user['url']);
@@ -250,9 +258,9 @@ function makeurl2($url){
     $user['url'] = str_replace(array("@","+"),"-", $user['url']);
     $user['url'] = str_replace(array("***","**","*","[","]","&amp;"),"-", $user['url']);
     $user['url'] = str_replace('**',"-", $user['url']);
-    $user['url'] = preg_replace(":|,|\.|\(|\)|`|&", "", $user['url']);
-    $user['url'] = preg_replace("-+", "-", $user['url']);
-    $user['url'] = preg_replace("^-", "", $user['url']);
+    $user['url'] = preg_replace("/:|,|\.|\(|\)|`|&/", "", $user['url']);
+    $user['url'] = preg_replace("/-+/", "-", $user['url']);
+    $user['url'] = preg_replace("/^-/", "", $user['url']);
 
     return ascii_encode(strtolower($user['url']));
 }
@@ -323,7 +331,7 @@ function writetofile($filename,$somecontent){
 }
 function checkoverapping($roomid="carid"){
     global $output_add,$o,$language_set,$db,$config,$tpl,$HTTP_POST_VARS,$_REQUEST,$Global_Class,$lang,$sql_default_global,$default_tabel,$valoare_1;
-
+    global $default_option;
     $tablefield_array_r['Field']="date_start";
 
     $temp = explode("-",$_POST["input_".$tablefield_array_r['Field']]);
@@ -448,7 +456,7 @@ function dayshours($weeks,$hours){
 
 function convert_time($mysql_timestamp){
     // YYYYMMDDHHMMSS
-    if (ereg("([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})",$mysql_timestamp,$res)){
+    if (preg_match("([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})",$mysql_timestamp,$res)){
         $info["year"]=$res[1];
         $info["month"]=$res[2];
         $info["day"]=$res[3];
@@ -460,7 +468,7 @@ function convert_time($mysql_timestamp){
         }
         return(mktime($info["hour"],$info["min"],$info["sec"],
             $info["month"],$info["day"],$info["year"]));
-    }elseif (ereg("([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})",$mysql_timestamp,$res)){
+    }elseif (preg_match("([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})",$mysql_timestamp,$res)){
         $info["year"]=$res[1];
         $info["month"]=$res[2];
         $info["day"]=$res[3];

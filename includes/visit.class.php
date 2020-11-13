@@ -143,7 +143,7 @@ class VisitClass{
             while ($user = mysqli_fetch_assoc($result)){
                 $user['name'] = $user["name" . "$language_set"];
                 $user["content"] = $user["content" . "$language_set"];
-                $user['name1'] = preg_replace(" |/", "-", $user["name" . "$language_set"]);
+                $user['name1'] = preg_replace("/ |/", "-", $user["name" . "$language_set"]);
                 $out .= $tpl->replace($user, $template);
                 // if ($contor%3==0 AND $contor!=0) $out .= "<BR>";
                 $contor++;
@@ -380,6 +380,7 @@ class VisitClass{
         if (!is_array($variable['features'])) $variable['features']=array();
 
         if (count($variable['features'])>0 ){
+            global $listing_features_result;
             foreach ($variable['features'] as $key=>$val){
                 $sqlini=' '."and featuresid ='$key' ".' group by carsid';
                 $listin_array_id_gallery = $Global_Class->getarrayid('carsfeatures','carsid',$sqlini);
@@ -599,6 +600,7 @@ class VisitClass{
     {
         global $db, $Global_Class, $tpl, $language_set;
         global $config, $_REQUEST, $lang, $IMG_HEIGHT, $IMG_WIDTH, $settings_profile, $_SESSION, $HTTP_COOKIE_VARS;
+        global $listing_features_result;
 
         $tabel_cars = "cars";
         $tabel_gallery = "gallery";
@@ -1082,7 +1084,7 @@ class VisitClass{
                     $outspo['Images'] .= $user['thumbnail'] . ";";
                     $outspo['Title'] .= "{$user['year']} {$user['make']} {$user['model']}" . ";";
                     $outspo['Url'] .= "index.php?p=details&id={$user['id']};";
-                    $outspo['Text'] .= preg_replace( "\r\n|\n"," ",substr(strip_tags($user['shortdescription']),0,$config['sponsored_shortdescription_cut'])).";";
+                    $outspo['Text'] .= preg_replace( "/\r\n|\n/"," ",substr(strip_tags($user['shortdescription']),0,$config['sponsored_shortdescription_cut'])).";";
 
                     $contor++;
 

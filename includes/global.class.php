@@ -23,7 +23,7 @@ class GlobalClass{
         global $db,$tpl; //class
         global $sql_default_global,$HTTP_SESSION_VARS, $tablefield_array_options, $tablefield_array_options_val;
         global $sql_default_global_from,$right_cookie,$settings_profile; //12 sept 2004 for view all bookings to select from 2 tabels
-
+        global $language_set;
         $sql_default_global=$sql_default;
 
         $variable = array (
@@ -811,6 +811,7 @@ class GlobalClass{
     function getdropdownspon($id,$default_tabel,$orderby,$id_,$name_,$number=0,$sqlini="",$cardatabase="cars"){
         global $config;
         global $db; //database
+        global $language_set;
         /*
                $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
                $result = $db->db_connect_id->query($sql);
@@ -835,7 +836,7 @@ class GlobalClass{
 
                 $model_profile = $this->getprofile($user['model'], "model", 'id');
                 $user['model'] = $model_profile["name{$language_set}"];
-                $out .= " value='".$user[$id_]."'>".$user[$id_]." - ".$user[stock]." - ".$user['make']." - ".$user['model']." - ".$user['year']."</option>\n";
+                $out .= " value='".$user[$id_]."'>".$user[$id_]." - ".$user['stock']." - ".$user['make']." - ".$user['model']." - ".$user['year']."</option>\n";
             }
             @mysqli_free_result($result);
             return ($out);
@@ -930,6 +931,10 @@ class GlobalClass{
         global $config,$lang;
         global $db,$tpl,$_POST,$datetime_fields,$text_fields_wysiwyg,$settings_profile; //class
         global $javascript_special,$dropdownval_onchange,$datetime_fields,$_COOKIE;
+        global $redirect;
+        global $IMG_HEIGHT, $IMG_WIDTH, $IMG_HEIGHT_BIG,$IMG_WIDTH_BIG;
+        global $p, $o;
+
         $var_initial =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -1225,7 +1230,7 @@ class GlobalClass{
         global $config,$lang,$IMG_WIDTH_FLAG,$IMG_HEIGHT_FLAG,$_POST,$varchar_fields;
         global $db,$tpl,$Image_Class,$Global_Class; //class
         global $sql_default_global,$datetime_fields;
-        global $redirect, $radio;
+        global $redirect, $radio, $o;
         $var =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -1383,6 +1388,7 @@ class GlobalClass{
                                         $addg=false;
                                     }
                                     if($admin_profile['nopictures']>0  and $config['auto_multiple']['gallery']>$admin_profile['nopictures']){
+                                        global $nopictures;
                                         $config['auto_multiple']['gallery']=$admin_profile['nopictures']-$nopictures;
                                     }
                                 }
@@ -1654,6 +1660,10 @@ class GlobalClass{
         global $config,$lang,$IMG_WIDTH_FLAG,$IMG_HEIGHT_FLAG,$_POST;
         global $db,$tpl,$Image_Class,$Global_Class; //class
         global $sql_default_global,$datetime_fields;
+        global $redirect, $varchar, $text, $dropdown, $text_fields_wysiwyg, $radio;
+        $sql_input = "";
+        $sql_input_val = "";
+        $sqlfinal = "";
         $var =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -1821,6 +1831,10 @@ class GlobalClass{
         global $config,$lang;
         global $db,$tpl,$_POST,$datetime_fields,$text_fields_wysiwyg,$settings_profile; //class
         global $javascript_special,$dropdownval_onchange,$datetime_fields;
+        global $redirect;
+        $out1 = "";
+        $out_temp1 = "";
+        $outtemp123 = "";
         $var_initial =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -1883,7 +1897,6 @@ class GlobalClass{
                     $var['tpl_input_name']='input_descriptiongallery';
                 }
                 $var['tpl_input_name_val']=$_POST[$kmultiplenew."input_".$tablefield_array_r['Field']];
-
                 if (in_array($tablefield_array_r['Field'],$varchar)){
                     $var['maxlength']=$config['varchar_special_maxlength'][$tablefield_array_r['Field']];
                     $var['size']=($config['varchar_special_maxlength'][$tablefield_array_r['Field']]>$config['default_size_for_fields_inbackend'])?$config['default_size_for_fields_inbackend']:$config['varchar_special_maxlength'][$tablefield_array_r['Field']];                   $var['size']=$config['varchar_special_maxlength'][$tablefield_array_r['Field']];
@@ -2017,6 +2030,10 @@ class GlobalClass{
         global $config,$lang,$IMG_WIDTH_FLAG,$IMG_HEIGHT_FLAG,$_POST;
         global $db,$tpl,$Image_Class,$Global_Class; //class
         global $sql_default_global,$datetime_fields;
+        global $redirect;
+        $sql_input = "";
+        $sql_input_val = "";
+        $sqlfinal = "";
         $var =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -2187,6 +2204,10 @@ class GlobalClass{
         global $config,$lang;
         global $db,$tpl,$_POST,$datetime_fields,$text_fields_wysiwyg,$settings_profile; //class
         global $javascript_special,$dropdownval_onchange,$datetime_fields;
+        global $redirect;
+        $out1 = "";
+        $out_temp1 = "";
+        $outtemp123 = "";
         $var_initial =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -2378,6 +2399,10 @@ class GlobalClass{
         global $config,$lang,$IMG_WIDTH_FLAG,$IMG_HEIGHT_FLAG,$_POST,$varchar_fields;
         global $db,$tpl,$Image_Class,$Global_Class; //class
         global $sql_default_global,$datetime_fields;
+        global $redirect, $radio;
+        $sql_input = "";
+        $sql_input_val = "";
+        $sqlfinal = "";
         $var =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -2547,6 +2572,10 @@ class GlobalClass{
         global $config,$lang;
         global $db,$tpl,$_POST,$datetime_fields,$text_fields_wysiwyg,$settings_profile; //class
         global $javascript_special,$dropdownval_onchange,$datetime_fields;
+        global $redirect;
+        $out1 = "";
+        $out_temp1 = "";
+        $outtemp123 = "";
         $var_initial =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -2816,6 +2845,8 @@ class GlobalClass{
         global $config,$lang,$IMG_WIDTH_FLAG,$IMG_HEIGHT_FLAG,$_POST;
         global $db,$tpl,$Image_Class,$Global_Class; //class
         global $sql_default_global,$datetime_fields;
+        global $redirect, $error, $radio, $kmultiplenew;
+        $sql_input = "";
         $var =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -2979,6 +3010,7 @@ class GlobalClass{
     function days($day=0,$today=0){
         global $config,$lang;
         global $db; //database
+        $out = "";
         if ($today==0) {
             $out .= "<option";
             $out .= " value='"."'>".$lang["tpl_day"]."</option>\n";
@@ -2993,6 +3025,7 @@ class GlobalClass{
     function months($month=0,$today=0){
         global $config;
         global $db,$lang; //database
+        $out = "";
         if ($today==0) {
             $out .= "<option";
             $out .= " value='"."'>".$lang["tpl_month"]."</option>\n";
@@ -3007,6 +3040,7 @@ class GlobalClass{
     function years($year=0,$today=0){
         global $config;
         global $db,$config,$lang; //database
+        $out = "";
         if ($today==1) {
             $config["config_auto_year_start"]=date("Y");
         }else{
@@ -3036,7 +3070,8 @@ class GlobalClass{
         global $sql_default_global,$HTTP_SESSION_VARS,$_POST;
         global $Global_Class,$right_cookie, $tablefield_array_options,
                $settings_profile, $multiplelanguage,$multiplefields,$multiplefields_text;
-
+        global $relation_id;
+        $output = "";
         if (!is_array($tablefield_array_options)) {
             $tablefield_array_optionsay=array();
         }
@@ -3092,8 +3127,8 @@ class GlobalClass{
         }
 
         $o = $_REQUEST['o'];
-        $oo = preg_replace( "0|1|2|3", "", $o );
-        $oo = preg_replace( "activate|deactivate|sold", "edit", $oo );
+        $oo = preg_replace( "/(0|1|2|3)/", "", $o );
+        $oo = preg_replace( "/(activate|deactivate|sold)/", "edit", $oo );
         $oo_bold=$oo;
         if ( $o == "search" or $o=="see") $oo = "view";
         if ( ( ( $right_cookie[$p.'_view'] == 0 ) && ( $oo == "" ) ) || ( ( $right_cookie[$p.'_' . $oo] == 0 ) && ( $oo != "" ) ) )
@@ -3297,6 +3332,7 @@ class GlobalClass{
         return $output;
     }
     function getdropdown_array($val,$array){
+        $out = "";
         if (!is_array($array)) {
             $array=array();
         }
@@ -3330,6 +3366,7 @@ class GlobalClass{
     }
     function getdropdown_array_listing($val,$array){
         global $lang;
+        $out = "";
         if (!is_array($array)) {
             $array=array();
         }
@@ -3407,6 +3444,8 @@ class GlobalClass{
     function getcheckbox($id,$default_tabel,$orderby,$id_,$name_,$default_tabel_relation,$relation_id1,$relation_id2){
         global $config,$tpl;
         global $db; //database
+        global $variab, $lang;
+        $out = "";
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
         $result = $db->db_connect_id->query($sql);
         while ($tablefield_array_r = mysqli_fetch_array($result)){
@@ -3451,7 +3490,7 @@ class GlobalClass{
         }else return false;
     }
     function insertcheckbox($id,$default_tabel,$orderby,$id_,$name_,$default_tabel_relation,$relation_id1,$relation_id2){
-        global $config,$tpl,$_REQUEST;
+        global $config,$tpl,$_REQUEST, $lang;
         global $db; //database
         global $_COOKIE;
         $sql="SHOW FIELDS FROM `{$config['table_prefix']}$default_tabel` ";
@@ -3596,9 +3635,9 @@ class GlobalClass{
                 $sendresult = $Email_class->emailsend(  $val['email'], $val['name'], $_REQUEST['input_fromemail'], $_REQUEST['input_from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
-                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_send']);
+                    $error .= preg_replace("/{email}/i", $val['email'], $lang['tpl_auto_Email_send']);
                 }else{
-                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_not_send']);
+                    $error .= preg_replace("/{email}/i", $val['email'], $lang['tpl_auto_Email_not_send']);
                 }
                 if ($key % $config['send_email_once']==0){
                     sleep($config['waitsecondes']);
@@ -3739,9 +3778,9 @@ class GlobalClass{
                 $sendresult = $Email_class->emailsend(  $val['email'], $val['name'], $_REQUEST['input_fromemail'], $_REQUEST['input_from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                 if ($sendresult) {
-                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_send']);
+                    $error .= preg_replace("/{email}/i", $val['email'], $lang['tpl_auto_Email_send']);
                 }else{
-                    $error .= preg_replace("{email}", $val['email'], $lang['tpl_auto_Email_not_send']);
+                    $error .= preg_replace("/{email}/i", $val['email'], $lang['tpl_auto_Email_not_send']);
                 }
                 if ($key % $config['send_email_once']==0){
                     sleep($config['waitsecondes']);
@@ -3808,6 +3847,8 @@ class GlobalClass{
         global $config,$lang;
         global $db,$tpl,$_POST,$datetime_fields,$text_fields_wysiwyg,$settings_profile,$tablefield_array_options; //class
         global $tablefield_array_options_val,$search_fields;
+        global $redirect, $var;
+        $out1 = "";
         $var_initial =array (
             "p"=>"$default_option",
             "o"=>"$default_option2",
@@ -3940,14 +3981,14 @@ class GlobalClass{
                 $var['tpl_input_name_val']=($var['tpl_input_name_val']==0)? $lang['no'] : $lang['yes'];
 
                 if (preg_match("/_add/",$tablefield_array_r['Field'])){
-                    $temp=preg_replace("_add","",$tablefield_array_r['Field']);
+                    $temp=preg_replace("/_add/","",$tablefield_array_r['Field']);
                     $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_add"];
 
                 }elseif (preg_match("/_view/",$tablefield_array_r['Field'])){
-                    $temp=preg_replace("_view","",$tablefield_array_r['Field']);
+                    $temp=preg_replace("/_view/","",$tablefield_array_r['Field']);
                     $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_view"];
                 }elseif (preg_match("/_delete/",$tablefield_array_r['Field'])){
-                    $temp=preg_replace("_delete","",$tablefield_array_r['Field']);
+                    $temp=preg_replace("/_delete/","",$tablefield_array_r['Field']);
                     $var['tpl_name'].=$lang["tpl_auto_".$temp]." ".$lang["tpl_auto_delete"];
                 }elseif (preg_match("/_edit/",$tablefield_array_r['Field'])){
                     //$var['tpl_name'].=$lang["tpl_auto_edit"];
@@ -3961,7 +4002,7 @@ class GlobalClass{
             }elseif (in_array($tablefield_array_r['Field'],$datetime_fields)){
                 $out1.=$tpl->replace($var,"global_add_see.html");
             }elseif (in_array($tablefield_array_r['Field'],$search_fields)){
-                if (ereg("\.jpg",$profile[$tablefield_array_r['Field']])){
+                if (preg_match("\.jpg",$profile[$tablefield_array_r['Field']])){
                     //$var['tpl_input_name_val']="";
                     //foreach($file as $key=>$val){
                     //if ($tablefield_array_r['Field'])

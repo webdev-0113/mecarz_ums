@@ -215,7 +215,7 @@ if ($count>0) {
 
 }
 if (file_exists('language/'.$settings_profile["language".$language_set])) {
-    include 'language/'.$settings_profile["language".$language_set];
+    include ('language/'.$settings_profile["language".$language_set]);
 }
 include $path . "update.php";
 if ($settings_profile['nrpageuser']>0) {
@@ -1328,11 +1328,11 @@ if (array_key_exists('p', $_REQUEST) && ($_REQUEST['p']=='search' OR $_REQUEST['
     $config['config_auto_searchtile']=str_replace("<year>",$_REQUEST['year'],$config['config_auto_searchtile']);
     $config['config_auto_descriptionsearchtile']=str_replace("<year>",$_REQUEST['year'],$config['config_auto_descriptionsearchtile']);
 
-    $category_profile = $Global_Class->getprofile( $_REQUEST[country], "country", 'id' );
+    $category_profile = $Global_Class->getprofile( $_REQUEST['country'], "country", 'id' );
     $config['config_auto_searchtile']=str_replace("<country>",$category_profile['name'.$language_set],$config['config_auto_searchtile']);
     $config['config_auto_descriptionsearchtile']=str_replace("<country>",$category_profile['name'.$language_set],$config['config_auto_descriptionsearchtile']);
 
-    $category_profile = $Global_Class->getprofile( $_REQUEST[city], "city", 'id' );
+    $category_profile = $Global_Class->getprofile( $_REQUEST['city'], "city", 'id' );
     $config['config_auto_searchtile']=str_replace("<city>",$category_profile['name'.$language_set],$config['config_auto_searchtile']);
     $config['config_auto_descriptionsearchtile']=str_replace("<city>",$category_profile['name'.$language_set],$config['config_auto_descriptionsearchtile']);
 

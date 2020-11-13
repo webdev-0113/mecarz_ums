@@ -633,7 +633,7 @@ function abspathtorelpath ($pos, $target) {
 }
 
 function is_script ($file) {
-	return ereg('.php[3-4]?$', $file);
+	return preg_match('.php[3-4]?$', $file);
 }
 
 function spath ($path) {

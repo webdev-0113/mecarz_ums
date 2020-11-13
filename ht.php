@@ -5,11 +5,11 @@ $starttime123 = utime();
 
 function utime ()
 {
-        $time = explode( " ", microtime() );
-        $usec = ( double )$time[0];
-        $sec = ( double )$time[1];
-        return $sec + $usec;
-} 
+    $time = explode( " ", microtime() );
+    $usec = ( double )$time[0];
+    $sec = ( double )$time[1];
+    return $sec + $usec;
+}
 
 
 $path = "includes/";
@@ -37,20 +37,20 @@ $b=md5($b);
 $b=substr($b,0,3);
 $_SESSION['session_uid']=$b;
 if ($_REQUEST['p']=="image") {
-			$x=100;
-			$y=20;
-			
-			$im = imagecreate($x, $y);
-			$bg = imagecolorallocate($im, 200,200,200);
-			imagefill($im, 0,0, $bg);
-			
-			$red=imagecolorallocate($im, 0, 0, 255);
-			
-			imagestring($im, 6, 58, 3, $b, $red);
-			
-			header("Content-type: image/png");
-			imagepng ($im); 
-			exit(0);
+    $x=100;
+    $y=20;
+
+    $im = imagecreate($x, $y);
+    $bg = imagecolorallocate($im, 200,200,200);
+    imagefill($im, 0,0, $bg);
+
+    $red=imagecolorallocate($im, 0, 0, 255);
+
+    imagestring($im, 6, 58, 3, $b, $red);
+
+    header("Content-type: image/png");
+    imagepng ($im);
+    exit(0);
 }
 
 // ini_set ('error_reporting', E_ALL);
@@ -91,9 +91,9 @@ $settings_profile = $Global_Class->getprofile( "1","settings","id" );
 //}
 //list($config['config_auto_bannerscode1'],$config['config_auto_bannerscode2'],$config['config_auto_bannerscode3'],$config['config_auto_bannerscode4'])=$banner_class->banner();
 foreach ($settings_profile as $kk1=>$vv1){
-	if ($vv1!=''){
-	$config[$kk1]=$vv1;
-	}
+    if ($vv1!=''){
+        $config[$kk1]=$vv1;
+    }
 }
 $config['config_auto_price_before']=$config['price_before'];
 
@@ -101,8 +101,8 @@ $_SESSION['cardatase'] = "cars";
 
 
 if ($_REQUEST['reset']==2){
-   $_SESSION['rent']=false;
-   $_SESSION['template'] = "";
+    $_SESSION['rent']=false;
+    $_SESSION['template'] = "";
 }
 /*
 if ($_REQUEST['p']=='rent'){
@@ -117,24 +117,24 @@ if ($_SESSION['rent']) {
 }
 */
 if ($_SESSION['cardatase'] =='') {
- $_SESSION['cardatase'] ="cars";
+    $_SESSION['cardatase'] ="cars";
 }
 
 $count = 0;
 if ($_REQUEST['language_session'] == '' AND $_COOKIE['language_session']<>'') {
-$_SESSION['language_session'] = $_REQUEST['language_session']=$_COOKIE['language_session'];
-	
+    $_SESSION['language_session'] = $_REQUEST['language_session']=$_COOKIE['language_session'];
+
 }
 if ($_REQUEST['language_session'] != '') {
- $_SESSION['language_session'] = $_REQUEST['language_session'];
- $language_set = $_SESSION['language_session'];
- if ($_SESSION['language_session']==0) {
-      $language_set = '';
- }
- setcookie('language_session',$_SESSION['language_session'],time()+3600*24*365);
+    $_SESSION['language_session'] = $_REQUEST['language_session'];
+    $language_set = $_SESSION['language_session'];
+    if ($_SESSION['language_session']==0) {
+        $language_set = '';
+    }
+    setcookie('language_session',$_SESSION['language_session'],time()+3600*24*365);
 }
 if ($_SESSION['language_session']>0) {
-  $language_set = $_SESSION['language_session'];
+    $language_set = $_SESSION['language_session'];
 }
 $array_lang[]=0;
 if ($settings_profile['language1']!=-1){
@@ -179,30 +179,30 @@ if (!in_array($_SESSION['language_session'],$array_lang)){
 //$results = get_browser();
 
 if ($count>0) {
-  $found=0;
-  foreach ($multiplelanguage as $key=>$val){
-            $class_ = ($_SESSION['language_session'] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
-            $found = ($_SESSION['language_session'] == $key ) ? 1: $found;
-            $var_lang['key']=$key;
-            $var_lang['val']=strtolower($val);
-            $var_lang['class']=strtolower($class_);
-			if (1) {
-			$var_lang['onclicklang']="setCookie('language_session',$key,365);window.location=window.location;return false;";
-			}
-            $settings_profile['languagedropdown1'] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
+    $found=0;
+    foreach ($multiplelanguage as $key=>$val){
+        $class_ = ($_SESSION['language_session'] == $key ) ? " class=\"selected\"": " class=\"noselected\"";
+        $found = ($_SESSION['language_session'] == $key ) ? 1: $found;
+        $var_lang['key']=$key;
+        $var_lang['val']=strtolower($val);
+        $var_lang['class']=strtolower($class_);
+        if (1) {
+            $var_lang['onclicklang']="setCookie('language_session',$key,365);window.location=window.location;return false;";
+        }
+        $settings_profile['languagedropdown1'] .= $config["config_separator"].$tpl->replace($var_lang,"urllanguge.html");
 
-  }
-  if ($found==0) $_SESSION['language_session']='';
-  $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
-  $var_lang['key']=0;
-  $var_lang['val']=strtolower(substr($settings_profile['language'],0,-4));
-  $var_lang['class']=strtolower($class_);
-			if (2) {
-			$var_lang['onclicklang']="setCookie('language_session',0,365);window.location=window.location;return false;";
-			}  
-  $settings_profile['languagedropdown'] = $tpl->replace($var_lang,"urllanguge.html");
+    }
+    if ($found==0) $_SESSION['language_session']='';
+    $class_ = ($_SESSION['language_session'] == '' ) ? " class=\"selected\"": " class=\"noselected\"";
+    $var_lang['key']=0;
+    $var_lang['val']=strtolower(substr($settings_profile['language'],0,-4));
+    $var_lang['class']=strtolower($class_);
+    if (2) {
+        $var_lang['onclicklang']="setCookie('language_session',0,365);window.location=window.location;return false;";
+    }
+    $settings_profile['languagedropdown'] = $tpl->replace($var_lang,"urllanguge.html");
 
-  $settings_profile['languagedropdown'] .= $settings_profile['languagedropdown1'];
+    $settings_profile['languagedropdown'] .= $settings_profile['languagedropdown1'];
 
 }
 if (file_exists($config['path'].'language/'.$settings_profile["language{$language_set}"])) {
@@ -243,67 +243,67 @@ $settings_profile['signup'] = "onclick=\"OpenWindow(this.href,'name', '{$config[
 $p=$_REQUEST['p'];
 
 if ( $HTTP_COOKIE_VARS['username_dealer_cookie'] == "" ) {
-        $settings_profile['dealerlogin'] = $tpl->replace($settings_profile,"dealerlogin.html");
+    $settings_profile['dealerlogin'] = $tpl->replace($settings_profile,"dealerlogin.html");
 }else{
-        $settings_profile['dealerlogin'] = "({$HTTP_COOKIE_VARS['username_dealer_cookie']}) <a href=\"logout.html\">{$lang['tpl_auto_Logout']}</a>";
+    $settings_profile['dealerlogin'] = "({$HTTP_COOKIE_VARS['username_dealer_cookie']}) <a href=\"logout.html\">{$lang['tpl_auto_Logout']}</a>";
 }
 
 if ($HTTP_COOKIE_VARS['username_dealer_cookie'] != "") {
-   $tabel_cars = "carsdealer";
+    $tabel_cars = "carsdealer";
 }else{
-   $tabel_cars = "cars";
+    $tabel_cars = "cars";
 }
 
 $arraytemp=explode(',',$_COOKIE['mycars']);
 if (!is_array($arraytemp)) $arraytemp=array();
 foreach ($arraytemp as $key=>$val){
-	if (trim($val)==''){
-		unset($arraytemp[$key]);
-	}
+    if (trim($val)==''){
+        unset($arraytemp[$key]);
+    }
 }
 $settings_profile['wishcount']=count($arraytemp);
 
 $javascript_profile = $Global_Class->getprofile( "1","javascript","id" );
 foreach ($javascript_profile as $key=>$val){
-        $config["javascriptprofiles"][$key]=unserialize(stripslashes($val));
-}        
+    $config["javascriptprofiles"][$key]=unserialize(stripslashes($val));
+}
 
 
-              $sql = "SELECT {$config['table_prefix']}make.* FROM `{$config['table_prefix']}make` where 1 ";
-              $result = $db->db_connect_id->query( $sql );
-              $num_rows = mysqli_num_rows( $result );
-              $contor=0;
-              if ( $num_rows > 0 ) {
-                  while ( $var_features = mysqli_fetch_assoc( $result ) ) {
-                    $name=makeurl($var_features['name']);
-                  	echo <<<END
+$sql = "SELECT {$config['table_prefix']}make.* FROM `{$config['table_prefix']}make` where 1 ";
+$result = $db->db_connect_id->query( $sql );
+$num_rows = mysqli_num_rows( $result );
+$contor=0;
+if ( $num_rows > 0 ) {
+    while ( $var_features = mysqli_fetch_assoc( $result ) ) {
+        $name=makeurl($var_features['name']);
+        echo <<<END
 \tRewriteRule ^([0-9]{1,2})-$name.html /index.php?language_session=$1&make=$var_features['id']&submit1=1&p=search
 \tRewriteRule ^$name.html /index.php?language_session=0&make=$var_features['id']&submit1=1&p=search
 
 END;
 
 
-                  } // while
-              }
-              
-              $sql = "SELECT {$config['table_prefix']}country.* FROM `{$config['table_prefix']}country` where 1 ";
-              $result = $db->db_connect_id->query( $sql );
-              $num_rows = mysqli_num_rows( $result );
-              $contor=0;
-              if ( $num_rows > 0 ) {
-                  while ( $var_features = mysqli_fetch_assoc( $result ) ) {
-                    $name=makeurl($var_features['name']);
-                  	echo <<<END
+    } // while
+}
+
+$sql = "SELECT {$config['table_prefix']}country.* FROM `{$config['table_prefix']}country` where 1 ";
+$result = $db->db_connect_id->query( $sql );
+$num_rows = mysqli_num_rows( $result );
+$contor=0;
+if ( $num_rows > 0 ) {
+    while ( $var_features = mysqli_fetch_assoc( $result ) ) {
+        $name=makeurl($var_features['name']);
+        echo <<<END
 \tRewriteRule ^([0-9]{1,2})-$name.html /index.php?language_session=$1&country=$var_features['id']&submit1=1&p=search
 \tRewriteRule ^$name.html /index.php?language_session=0&country=$var_features['id']&submit1=1&p=search
 
 END;
 
 
-                  } // while
-              }
-              
+    } // while
+}
 
-             
+
+
 
 ?>

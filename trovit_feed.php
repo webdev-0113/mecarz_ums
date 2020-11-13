@@ -343,10 +343,7 @@ END;
 //exit(0);
 
 $outputtoscreen = <<<END
-<?xml version="1.0" encoding="utf-8" ?> 
-<trovit>
-$outxml
-</trovit>
+<?xml version="1.0" encoding="utf-8" ?><trovit>$outxml</trovit>
 END;
 header('Content-type: text/xml');
 echo $outputtoscreen;

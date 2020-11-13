@@ -73,7 +73,7 @@ foreach ($settings_profile as $kk1=>$vv1){
 }
 $config['config_auto_price_before']=$config['price_before'];
 
-if ($config[adprofiles]){
+if ($config['adprofiles']){
     $config['delay_How_many_days_this_object_will_be_active']=-1;
 }
 
@@ -359,12 +359,12 @@ if ( $_COOKIE['username_cookie'] == "" )
             {
                 $outputtoscreen .= $admin->login( $username, "login1", $redirect, $lang["error2"] );
             }
-            elseif ( $_SESSION['session_uid']!='' and $code == "" and (extension_loaded ("gd"))  and $config[useimagesecurity] )
+            elseif ( $_SESSION['session_uid']!='' and $code == "" and (extension_loaded ("gd"))  and $config['useimagesecurity'] )
             {
                 $outputtoscreen .= $admin->login( $username, "login1", $redirect, $var["error"]=$lang["errorcode"] );
                 //unset($_SESSION[number_unic]);
                 $_SESSION['session_uid']="";
-            }elseif ( $_SESSION['session_uid']!='' and  $code != $_SESSION['session_uid'] and (extension_loaded ("gd"))  and $config[useimagesecurity] )
+            }elseif ( $_SESSION['session_uid']!='' and  $code != $_SESSION['session_uid'] and (extension_loaded ("gd"))  and $config['useimagesecurity'] )
             {
                 $outputtoscreen .= $admin->login( $username, "login1", $redirect, $var["error"]=$lang["errorcode1"] );
                 //unset($_SESSION[number_unic]);
@@ -1085,7 +1085,6 @@ else
             }
             $config['config_auto_oid']=$oid;
             if ($oid!=""){
-                session_register("option_oid1");
                 $_SESSION['option_oid1']=$oid;
             }
 
@@ -1177,7 +1176,6 @@ else
             }
             $config['config_auto_oid']=$oid;
             if ($oid!=""){
-                session_register("option_oid1");
                 $_SESSION['option_oid1']=$oid;
             }
             if ($_SESSION['option_oid1']!="") {
@@ -1292,7 +1290,6 @@ else
             }
             $config['config_auto_oid']=$oid;
             if ($oid!=""){
-                session_register("option_oid1");
                 $_SESSION['option_oid1']=$oid;
             }
             if ($_SESSION['option_oid1']!="") {
@@ -1463,8 +1460,8 @@ else
             $right_cookie['renew_delete']=1;
             $right_cookie['renew_add']=1;
             $o = $_REQUEST['o'];
-            $oo = preg_replace( "0|1|2|3", "", $o );
-            $oo = preg_replace( "activate|deactivate|sold", "edit", $oo );
+            $oo = preg_replace( "/(0|1|2|3)/", "", $o );
+            $oo = preg_replace( "/(activate|deactivate|sold)/", "edit", $oo );
             $oo_bold=$oo;
 
 
@@ -1624,7 +1621,7 @@ else
                                 } else if (preg_match('@OmniWeb/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
                                     define('PMA_USR_BROWSER_VER', $log_version[1]);
                                     define('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
-                                    // } else if (ereg('Konqueror/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
+                                    // } else if (preg_match('Konqueror/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
                                     // Konqueror 2.2.2 says Konqueror/2.2.2
                                     // Konqueror 3.0.3 says Konqueror/3
                                 } else if (preg_match('@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
@@ -1804,8 +1801,8 @@ else
 
             $permission_denied =false;
             $o = $_REQUEST['o'];
-            $oo = preg_replace( "0|1|2|3", "", $o );
-            $oo = preg_replace( "activate|deactivate|sold", "edit", $oo );
+            $oo = preg_replace( "/(0|1|2|3)/", "", $o );
+            $oo = preg_replace( "/(activate|deactivate|sold)/", "edit", $oo );
             $oo_bold=$oo;
 
             if ( $o == "search" or $o=="see") $oo = "view";

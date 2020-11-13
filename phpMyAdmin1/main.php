@@ -188,8 +188,8 @@ function PMA_analyseShowGrant($rs_usr, $is_create_priv, $db_to_create, $is_reloa
                 $db_to_create   = '';
                 break;
             } // end if
-            else if ( (ereg($re0 . '%|_', $show_grants_dbname)
-                    && !ereg('\\\\%|\\\\_', $show_grants_dbname))
+            else if ( (preg_match($re0 . '%|_', $show_grants_dbname)
+                    && !preg_match('\\\\%|\\\\_', $show_grants_dbname))
                     || (!PMA_DBI_try_query('USE ' . preg_replace($re1 .'(%|_)', '\\1\\3', $show_grants_dbname)) && substr(PMA_DBI_getError(), 1, 4) != 1044)
                     ) {
                      $db_to_create = preg_replace($re0 . '%', '\\1...', preg_replace($re0 . '_', '\\1?', $show_grants_dbname));
@@ -247,7 +247,7 @@ function PMA_analyseShowGrant($rs_usr, $is_create_priv, $db_to_create, $is_reloa
                 $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
                 $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
                 while ($row = PMA_DBI_fetch_assoc($rs_usr)) {
-                    if (ereg($re0 . '(%|_)', $row['Db'])
+                    if (preg_match($re0 . '(%|_)', $row['Db'])
                         || (!PMA_DBI_try_query('USE ' . preg_replace($re1 . '(%|_)', '\\1\\3', $row['Db'])) && substr(PMA_DBI_getError(), 1, 4) != 1044)) {
                         $db_to_create   = preg_replace($re0 . '%', '\\1...', preg_replace($re0 . '_', '\\1?', $row['Db']));
                         $db_to_create   = preg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
