@@ -1,431 +1,1243 @@
-<?php
-$a=date("dj");
-$b=md5($a);
-$b=substr($b,0,3);
-$b=md5($b);
-$b=substr($b,0,3);
-$_SESSION['session_uid']=$b;
-if ($_REQUEST['p']=="image") {
-			$x=100;
-			$y=20;
-			
-			$im = imagecreate($x, $y);
-			$bg = imagecolorallocate($im, 200,200,200);
-			imagefill($im, 0,0, $bg);
-			
-			$red=imagecolorallocate($im, 0, 0, 255);
-			
-			imagestring($im, 6, 58, 3, $b, $red);
-			
-			header("Content-type: image/png");
-			imagepng ($im); 
-			exit(0);
-}
-        
-$_POST[input_name]=str_replace("/"," ",$_POST[input_name]);
-$lang['tpl_auto_metacharset']='iso-8859-1';
-require "config_write.php";
-@ini_set("url_rewriter.tags","");
-
-$config['admin_menu_top1']=array("cars","stats","settings","category","members","paymenthistory","banner","import");
-
-$config["admin_menu_top2"]['cars']=array(
-"cars", "sponsored","summary",'logging');
-$config["admin_menu_top2"]['settings']=array(
-"admin", "rights","settings", "template","backup","tpl","language","ips","fixtools");
-$config["admin_menu_top2"]['category']=array(
-"category", "make", "model","country",'state',"city","year", "bodytype","transmission","intcolor","extcolor", "features", "news", "faq", "customlinks","homepage"
-,'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol',
-);
-$config["admin_menu_top2"]['members']=array(
-"members",  "sendemail", "sendemailadmin");
-$config["admin_menu_top2"]['paymenthistory']=array(
-"adprofiles", "payment", "orders","paymenthistory");
-$config["admin_menu_top2"]['import']=array(
-"import","export","importsettings");
-$config["admin_menu_top2"]['banner']=array(
-"banner","bannerstats","bannersettings"
-);
-$config["admin_menu_top2"]['stats']=array(
-"stats","statssettings"
-);
-
-$config["admin_menu_top3"]=array(
-"gallery", "carsfeatures");
-$config["admin_menu_top3_default"]="cars";
-$config["admin_section_sponsored_field_id"]="carid";
-
-$config['use_br_after_error']="<br />";
-$config['use_point_after_error']=" : ";
-
-$config['admin_not_delete_need']=array("template","settings","bannersettings","sendemail","homepage","payment","statssettings");
-$config['admin_special_menu']=array("payment");
-
-$config["config_options_in_admin"]=array(
-"cars", "sponsored","summary",
-"admin", "rights","settings","statssettings","bannersettings", "template","ips",'logging',
-"category", "make", "model","country",'state',"city","year","bodytype","transmission","intcolor","extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol', "features", "news", "faq", "customlinks","homepage",
-"members",  "sendemail", "sendemailadmin",
-"adprofiles", "payment", "orders","paymenthistory");
-
-$config['auto_multiple']['gallery']='3';
-
-//2.1
-$config['nrresult']=10; //per page
-
-$config['url_path_editor'] = $config['url_path']."editor_files/";
-
-$config['url_path_temp'] = $config['url_path']."temp/";
-$config['url_path_tpl_admin'] = $config['url_path']."tpl/admin/";
-$config["temp"]=$config['path']."temp/";// end `/`
-$config['tpladmin']=$config['path']."tpl/admin/";// end `/`
-$config['tpl']=$config['path']."tpl/";// end `/`
-$config['tplini']=$config['path']."tpl/";// end `/`
-
-$config['tplvisit']=$config['path']."tpl/visit/";// end `/`
-
-$config["config_auto_year_start"]=2005;
-$config["config_auto_year_finish"]=2010;
-$config["config_auto_startday_week"]=1;
-
-$config['tpl_path_admin']=$config['url_path']."tpl/admin/";
-$config['tpl_path_visit']=$config['url_path']."tpl/visit/";
-
-$config['cols']=70;
-$config['rows']=5;
-
-$config['width_popup']=600;
-$config['height_popup']=500;
-
-$IMG_HEIGHT = '120';           # Accepted height of resized image  for small pictures    "*" not resized
-$IMG_WIDTH  = '120';           # Accepted width of resized image   for small  pictures
-
-$IMG_HEIGHT_BIG = '500';           # Accepted height of resized image  for small pictures    "*" not resized
-$IMG_WIDTH_BIG  = '500';           # Accepted width of resized image   for small  pictures
-
-
-$IMG_HEIGHT_SIGLA = '*';           # Accepted height of resized image  for small pictures    "*" not resized
-$IMG_WIDTH_SIGLA  = '*';           # Accepted width of resized image   for small  pictures
-
-
-$IMG_HEIGHT_LOGO = '80';           # Accepted height of resized image  for small pictures    "*" not resized
-$IMG_WIDTH_LOGO  = '80';           # Accepted width of resized image   for small  pictures
-
-
-$config['width_vehicle_information_sheet']=850;
-$config['height_vehicle_information_sheet']=600;
-
-
-
-$config['wywiwyg_DefaultLanguage'] = 'en';
-$config['wywiwyg_sizerows'] = 60;
-$config['wywiwyg_sizecols'] = 9;
-
-$config["config_sponsored_play"]=true; //true or false
-$config['show_category_indetailpage']=true;
-
-$config['auto_multiple']['gallery']=3;
-$config['sponsored_shortdescription_cut']=80;
-
-$use_imagecreatetruecolor = true; // these flags enble ImageCreateTrueColor(); ImageCopyResampled();
-$use_imagecopyresampled  = true;// I cant test them coz my host doesn't allow these...
-$JPG_QUALITY        =        80; // output jpeg quality
-$IMG_ROOT = $config['path']."temp/"; //path to tmp directory
-                        # Remeber to set proper attributes to that folder. 777 will work :)
-##################################################################################################
-##################################################################################################
-##################################################################################################
-
-$config['emailverif']="^[a-z0-9]+([_.-][a-z0-9]+)*@([a-z0-9]+([.-][a-z0-9]+)*)+\\.[a-z]{2,4}$";
-$config["config_auto_year_start_"]=$config["config_auto_year_start"]-1;
-$config["config_auto_year_finish_"]=$config["config_auto_year_finish"]+1;
-$config["config_date_format"]="M d, Y";
-$config["config_date_format_admin"]="M d, Y";
-
-$config["config_price1_format"]=".";
-$config["config_price2_format"]=",";
-
-$config["config_separator"]=" :: ";
-
-$config['show_number_of_cars_in_dropdown']=1;
-
-$config['down_payment']="2500";
-
-$config['show_category_indetailpage']=1;
-$config['user_same_format_for_all_customlinks']=1;
-
-define( "_Sun", "S" );
-define( "_Mon", "M" );
-define( "_Tue", "T" );
-define( "_Wed", "W" );
-define( "_Thu", "T" );
-define( "_Fri", "F" );
-define( "_Sat", "S" );
-
-define( "_January", "Jan" );
-define( "_February", "Feb" );
-define( "_March", "Mar" );
-define( "_April", "Apr" );
-define( "_May", "May" );
-define( "_June", "Jun" );
-define( "_July", "Jul" );
-define( "_August", "Aug" );
-define( "_September", "Sep" );
-define( "_October", "Oct" );
-define( "_November", "Nov" );
-define( "_December", "Dec" );
-define( "_STARTDAY", "1" );
-
-$config["months_name"] = array( _January, _February, _March, _April, _May, _June,
-        _July, _August, _September, _October, _November, _December );
-$config["days_in_month"] = array( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
-$config["days_name"] = array( _Sun, _Mon, _Tue, _Wed, _Thu, _Fri, _Sat );
-
-foreach($config["days_name"] as $key=>$val){
-       $config["config_auto_days_name"].="\"$val\",";
-}
-$config["config_auto_days_name"].="\"\"";
-
-foreach($config["months_name"] as $key=>$val){
-       $config["config_auto_month_name"].="\"$val\",";
-}
-$config["config_auto_month_name"].="\"\"";
-$config["config_search_field"]=array("category","make","model","country",'state',"city","fueltype","year","price","price1","miles","miles1","orderby","method","gallery","features",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol','power',"admin","year1",'searchby','active');
-$config["config_orderby"]=array("id", "admin", "category", "make", "model", "year", "price","bodytype", "engine", "stereo", "fueltype", "transmission", "intcolor", "extcolor", "miles", "date_add","date_modify");
-$config["config_method"] = array("asc","desc");
-
-$config["config_order_menuadmin"]=array(
-"cars", "sponsored","summary","|",
-"admin", "rights","settings","statssettings", "template","ips",'logging',"language","|",
-"category", "make", "model","country",'state',"city","year", "|",
-"bodytype","transmission","intcolor","extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol',"|",
-"features", "news", "faq", "customlinks","homepage","|",
-"members",  "sendemail", "sendemailadmin","|",
-"adprofiles", "payment", "orders","paymenthistory");
-
-$config["config_statsinadmin"]=array(
-"cars", "sponsored","admin", "members");//"rights", "category", "make", "model", "features", "news", "faq", "customlinks",
-
-$config['aMaxLifeTime']=300; //session time in seconds
-$config[admin_number_intop]=10; //number cars in admin in summary
-
-$config[show_one_homepage_lastcars]=true;
-$config[no_show_one_homepage_lastcars]=8;
-$config[show_lastcars_onallpages]=true;
-
-$config[show_one_homepage_sponsored]=true;
-$config[no_show_one_homepage_sponsored]=4;
-$config[show_sponsored_onallpages]=true;
-
-$config['admin_section']['cars']['varchar_fields'] = array(  "price", "specialprice", "vin",  "engine", "stereo","miles","stock", "pricemesg","sitetitle" ,"mapto","power" );
-$config['admin_section']['cars']['multiplefields'] = array( "pricemesg", "sitetitle" );
-$config['admin_section']['cars']['text_fields'] = array("description","shortdescription","metadescription","metakeywords");
-$config['admin_section']['cars']['multiplefields_text'] = array( "description","shortdescription","metadescription","metakeywords");
-$config['admin_section']['cars']['text_fields_wysiwyg'] = array( "description" );
-$config['admin_section']['cars']['dropdown_fields'] = array( "country",'state',"city","year","category", "make", "model","bodytype","transmission","intcolor", "extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol');//
-$config['admin_section']['cars']['dropdown_fields_fromlanguage'] = array("fueltype");
-$config['admin_section']['cars']['fields_search_cars'] = array("id","stock","model","year", "price", "vin", "bodytype", "engine", "stereo", "transmission","intcolor", "extcolor", "miles",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol',);
-$config['admin_section']['cars']['fields_view_cars'] = array("id","stock","model","make","year","country",'state',"price","active","daysactive", "date_add","date_modify","noview");
-
-$config['admin_section']['cars']['require_array'] = array("admin", "category", "make", "fueltype","active","model","year");
-
-
-$config['admin_section']['cars']['onchange'] = array("make" ,"country","state");
-$config['admin_section']['cars']['onchange_sub'] = array( "model","city","state");//'state',
-$config['admin_section']['cars']['onchange_sub_id']["model"]='makeid';
-$config['admin_section']['cars']['onchange_sub_rel']["model"]='make';
-$config['admin_section']['cars']['onchange_sub_id']["city"]='stateid';
-$config['admin_section']['cars']['onchange_sub_rel']["city"]='state';
-$config['admin_section']['cars']['onchange_sub_id']["state"]='countryid';
-$config['admin_section']['cars']['onchange_sub_rel']["state"]='country';
-/*
-$config['admin_section']['cars']['onchange_sub_id']["state"]='makeid';
-$config['admin_section']['cars']['onchange_sub_rel']["state"]='country';
-*/
-
-$config['admin_section']['cars']['onchangefunction']['shortdescription']='metakeydescription(this)';
-
-$config['frontend_section']['searcharray_simple']=array('fueltype','year','active');
-$config['frontend_section']['searcharray_dropdown']=array("admin","country",'state',"city",'model','category','make',"bodytype","transmission","intcolor", "extcolor",'typeofvehicle','doors','classifyemissions','gearbox','climaticcontrol');
-
-$config['frontend_section']['searcharray_fromtofirst']=array('miles');
-$config['frontend_section']['searcharray_fromtolast']=array('miles1');
-
-$config['show_nopicture_indetailspage']=false;
-
-$config['price_before']=true;//currency before price
-
-$config['admin_section']['cars']['order']=array();
-//"stock", "admin", "category", "make", "model", "year", "price", "specialprice", "pricemesg", "pricemesg1", "vin", "bodytype", "engine", "stereo", "fueltype", "transmission", "shortdescription", "shortdescription1", "description", "description1", "intcolor", "extcolor", "miles", "mapto", "active", "sitetitle", "sitetitle1", "metadescription", "metadescription1", "metakeywords", "metakeywords1", "displaymodel"
-$config['default_digits']="0123456789";
-$config['default_character']=" -=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz�A��A�AA�E�E�I��NO��O�OU�U��a��a�aa�e�e�i��i��o�ou�u��0123456789";
-
-$config['varchar_special_maxlength']['cars']['year']=4;
-$config['varchar_special_maxlength_goodchars']['cars']['year']=$config['default_digits'];
-
-$config['varchar_special_maxlength']['cars']['price']=11;
-$config['varchar_special_maxlength_goodchars']['cars']['price']=$config['default_digits'].".";
-
-$config['varchar_special_maxlength']['cars']['specialprice']=11;
-$config['varchar_special_maxlength_goodchars']['cars']['specialprice']=$config['default_digits'].".";
-
-$config['default_size_for_fields_inbackend']=70;
-
-$config['default_fields_in_admin']=array("order");;
-$config['default_fieldssize_in_admin']=3;
-
-$config['default_fields_in_searchadmin']=array("id");;
-$config['default_fieldssize_in_searchadmin']=5;
-
-$config['mysqldump_pathtosearch']=array('/usr/bin/mysql/','/usr/bin/','/usr/local/bin/','/usr/local/mysql/bin/','c:/apache/mysql/bin/','c:/mysql/bin/','d:/mysql/bin/','e:/mysql/bin/', 'c:/apache2triad/mysql/bin/', 'd:/apache2triad/mysql/bin/', 'e:/apache2triad/mysql/bin/', 'c:/server/mysql/bin/');
-
-$config['useimagesecurity']=TRUE;
-
-
-$lang['config_price3_format']=range(0,5);
-$lang['banned_ip_after_try_to_loggin']=range(1,99);
-$lang['add_image_text_position']=range(0,3);
-$lang['no_show_one_homepage_lastlisting']=array(2,4,6,8);
-$lang['no_show_one_homepage_sponsored']=range(0,6);
-$lang['add_image_text_font']=range(1,5);
-
-
-$config['use_old_sponsored_format']=false;
-//$config['site_profile_listing_account']=
-$config['delay_How_many_days_this_object_will_be_active']=30;
-if ($config['delay_How_many_days_this_object_will_be_active']>0){
-	$config['admin_section']['cars']['fields_view_cars'][]='daystoexpire';
-}
-$config['how_many_days_before_expire_object_send_email']=3;
-$config['how_many_days_before_expire_canbe_reactivated']=3;
-
-$config['how_many_days_before_expire_account_send_email']=3;
-
-$config['send_email_to_admin_every_day']=TRUE;
-
-$config['show_only_yes_no_for_active']=TRUE;
-$config['lang_Paymenttransaction']='Payment transaction';
-
-
-function authorizeNet_hmac ($key, $data){
-	return (bin2hex (mhash(MHASH_MD5, $data, $key)));
-}
-function authorizeNet_CalculateFP ($loginid, $x_tran_key, $amount, $sequence, $tstamp, $currency = ""){
-	return (authorizeNet_hmac ($x_tran_key, $loginid . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency));
-}
-function authorizeNet_InsertFP ($login_id, $x_tran_key, $amount){
-	srand(time());
-	$sequence = rand(1, 1000);	
-	$tstamp = time ();
-	$fingerprint = authorizeNet_hmac ($x_tran_key, $login_id . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency);
-	return array($sequence,$tstamp,$fingerprint);
-
-}
-	
-
-$config['table_banner'] = $config['table_prefix'].'banner';
-$config['table_bannertypes'] = $config['table_prefix'].'bannertypes';
-$config['table_bannerdates'] = $config['table_prefix'].'bannerdates';
-$config['table_bannerclicks'] = $config['table_prefix'].'bannerclicks';
-$config['table_paymenthistory'] = $config['table_prefix'].'paymenthistory';
-
-$config[banner_settings_width]='237';
-$config[banner_settings_height]='61';
-$config[banner_settings_target]='_blank';
-$config['timeformat'] = "F j, Y, H:i";
-$config['timeformat_events'] = "d-m-Y";
-$config['timeformat_mysql'] = "Y-m-d"; 
-
-
-
-$config['import_relation']['cars__stock']=0;
-$config['import_relation']['cars__admin']=-1;
-$config['import_relation']['cars__category']=1;
-$config['import_relation']['cars__make']=2;
-$config['import_relation']['cars__model']=3;
-$config['import_relation']['cars__year']=-1;
-$config['import_relation']['cars__price']=4;
-$config['import_relation']['cars__specialprice']=-1;
-$config['import_relation']['cars__pricemesg']=-1;
-$config['import_relation']['cars__pricemesg1']=-1;
-$config['import_relation']['cars__pricemesg2']=-1;
-$config['import_relation']['cars__pricemesg3']=-1;
-$config['import_relation']['cars__address']=-1;
-$config['import_relation']['cars__vin']=6;
-$config['import_relation']['cars__bodytype']=7;
-$config['import_relation']['cars__engine']=-1;
-$config['import_relation']['cars__stereo']=-1;
-$config['import_relation']['cars__fueltype']=-1;
-$config['import_relation']['cars__transmission']=-1;
-$config['import_relation']['cars__shortdescription']=8;
-$config['import_relation']['cars__shortdescription1']=-1;
-$config['import_relation']['cars__shortdescription2']=-1;
-$config['import_relation']['cars__shortdescription3']=-1;
-$config['import_relation']['cars__description']=8;
-$config['import_relation']['cars__description1']=-1;
-$config['import_relation']['cars__description2']=-1;
-$config['import_relation']['cars__description3']=-1;
-$config['import_relation']['cars__intcolor']=-1;
-$config['import_relation']['cars__extcolor']=-1;
-$config['import_relation']['cars__miles']=9;
-$config['import_relation']['cars__noview']=-1;
-$config['import_relation']['cars__active']=-1;
-$config['import_relation']['cars__date_add']=-1;
-$config['import_relation']['cars__date_modify']=-1;
-$config['import_relation']['cars__sitetitle']=3;
-$config['import_relation']['cars__sitetitle1']=-1;
-$config['import_relation']['cars__sitetitle2']=-1;
-$config['import_relation']['cars__sitetitle3']=-1;
-$config['import_relation']['cars__metadescription']=10;
-$config['import_relation']['cars__metadescription1']=-1;
-$config['import_relation']['cars__metadescription2']=-1;
-$config['import_relation']['cars__metadescription3']=-1;
-$config['import_relation']['cars__metakeywords']=11;
-$config['import_relation']['cars__metakeywords1']=-1;
-$config['import_relation']['cars__metakeywords2']=-1;
-$config['import_relation']['cars__metakeywords3']=-1;
-$config['import_relation']['cars__displaymodel']=-1;
-$config['import_relation']['cars__delay']=-1;
-$config['import_relation']['cars__date_delay']=-1;
-$config['import_relation']['cars__unicid']=-1;
-$config['import_relation']['cars__emailrenewsent']=-1;
-$config['import_relation']['cars__daystoexpire']=-1;
-$config['import_relation']['cars__daysactive']=-1;
-
-$config['import_relation_active']=1;
-
-$config['admin_section']['cars']['tablefield_array_options']=array("gallery","carsfeatures","messages");
-$config['admin_section']['cars']['tablefield_array_options_val']=array("gallery"=>"carsid","carsfeatures"=>"carsid","messages"=>"carsid");
-
-$config['number_pictures_import']=5;
-$config['admin_section']['cars']['notimportfields']=array('daysactive','daystoexpire','emailrenewsent','unicid','date_delay','delay','date_add','date_modify','noview');
-$config[explort_features_true]=1;//features true
-$config[explort_features_false]=0;//features false
-
-$config['reducesql_getnumber']=false;
-$config['chars_to_see_on_list_page']=60;
-$config['chars_after_on_list_page']="...";
-
-//stats here
-$config['table_admin'] = $config['table_prefix'].'statssettings';
-$config['table_visits'] = $config['table_prefix'].'statsvisits';
-$config['table_settingsupdate']=$config['table_prefix'].'statssettingsupdate';
-
-$config['config_auto_minutes']=4;
-$config['cutlinkssize']=31;
-
-$config['timeformat'] = "D M d, y";
-$config['timeformat1'] = "M, y";
-$config['timeformat2'] = "H";
-$config['timeformat_events'] = "d-m-Y";
-$config['timeformat_mysql'] = "Y-m-d";
-
-$config['ignore_domain']=FALSE;
-
-$config['config_auto_http']=$config['url_path'];
-
-$config['use_2_objects_in_list_per_line'] = true;
-$config['use_2_objects_in_list_per_line_color'] = 1;
-
-$config[igonorefiledcontact]=array("p","code","submit","input_name");
-?>
+# PHP 5.3
+AddHandler application/x-httpd-php53 .php
+<IfModule mod_suphp.c>
+    suPHP_ConfigPath /opt/php53/lib
+</IfModule>
+
+#AddType application/x-httpd-php53 .php
+#suPHP_ConfigPath /home/mecarz
+RewriteEngine On
+
+# Fixing Index page redirection
+
+ErrorDocument 404 /customlinks_8_404.html
+RewriteCond %{HTTP_HOST} ^mecarz\.com [nc]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule (.*) http://www.mecarz.com/$1 [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([0-9]{1,2})-index.html http://www.mecarz.com/   [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([0-9]{1,2})-index.htm http://www.mecarz.com/   [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule index.html http://www.mecarz.com/   [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule index.htm http://www.mecarz.com/   [R=301,L]
+
+#RewriteRule index\.php$ http://www.MeCarz.com/ [R=301,L] 
+
+# index page
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule index.html index.php
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule index.htm index.php
+
+# cars
+ 
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^USA-xml.xml trovit_feed.php?country=24
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^Canada-xml.xml trovit_feed.php?country=25
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^UK-xml.xml trovit_feed.php?country=20
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^Spain-xml.xml trovit_feed.php?country=23
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^France-xml.xml trovit_feed.php?country=22
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+                 RewriteRule ^Kuwait-xml.xml trovit_feed.php?country=3
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+                 RewriteRule ^Egypt-xml.xml trovit_feed.php?country=4
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+                 RewriteRule ^Saudi-xml.xml trovit_feed.php?country=8
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+                 RewriteRule ^UAE-xml.xml trovit_feed.php?country=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+                 RewriteRule ^Jordan-xml.xml trovit_feed.php?country=2
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^all-xml.xml trovit_feed.php
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-([0-9]{1,9})_car_(.*).html http://www.mecarz.com/$2_car_$3.html
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-vehicle_information_sheet_([0-9]{1,9})_(.*).html index.php?language_session=0&p=vehicle_information&id=$2
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-signup.html index.php?language_session=0&p=signup
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-news.html index.php?language_session=0&p=news
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-faq.html index.php?language_session=0&p=faq
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-customlinks_([0-9]{1,9})_(.*).html index.php?language_session=0&p=customlinks&id=$2
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-contact_([0-9]{1,9})_([0-9]{1,9}).html index.php?language_session=0&p=contact&admin=$2&id=$3
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-search_agent_([0-9]{1,9}).html index.php?language_session=0&submit=Search&p=search&agent=$2
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-logout.html index.php?language_session=0&p=logout
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-search_cars_([0-9]{1,9})_(.*).html index.php?language_session=0&p=search&category=$2&name=$3&submit=yes
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-index-view-cars.html index.php?language_session=0&p=view&reset=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-simplesearch-cars.html index.php?language_session=0&p=search&reset=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-search-cars.html index.php?language_session=0&p=advsearch&o=advsearch1&reset=1&o=advsearch1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-all-cars.html http://www.mecarz.com/all-cars.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-pagesearch-([0-9]{1,9}).html index.php?language_session=0&p=search&submit=Search&reset=2&page=$2
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-pageadvsearch-([0-9]{1,9}).html index.php?language_session=0&p=search&submit=Search&reset=2&page=$2
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^index-([0-9]{1,9})-(.*).html index.php?language_session=0
+         #RewriteRule ^([0-9]{1,9})_car_(.*).html index.php?p=details&id=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,9})_car_([0-9a-z_-]{1,200}).html index.php?p=details&id=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,9})_car_([0-9a-z_]{1,200})-([0-9a-z_]{1,200}).html index.php?p=details&id=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,9})_car_([0-9a-z_]{1,200})-([0-9a-z_]{1,200})-([0-9a-z_]{1,200}).html index.php?p=details&id=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^vehicle_information_sheet_([0-9]{1,9})_(.*).html index.php?p=vehicle_information&id=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^signup.html index.php?p=signup
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^news.html index.php?p=news
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^faq.html index.php?p=faq
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^customlinks_([0-9]{1,9})_(.*).html index.php?p=customlinks&id=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^contact_([0-9]{1,9})_([0-9]{1,9}).html index.php?p=contact&admin=$1&id=$2
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^search_agent_([0-9]{1,9}).html index.php?&submit=Search&p=search&agent=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^logout.html index.php?p=logout
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^search_cars_([0-9]{1,9})_(.*).html index.php?p=search&category=$1&name=$2&submit=yes
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^index-view-cars.html index.php?p=view&reset=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^simplesearch-cars.html index.php?p=search&reset=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^search-cars.html index.php?p=advsearch&reset=1&o=advsearch1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^all-cars.html index.php?p=search&submit=Search&reset=2&changeseo=2
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^pagesearch-([0-9]{1,9}).html index.php?p=search&submit=Search&reset=2&page=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^pageadvsearch-([0-9]{1,9}).html index.php?p=search&submit=Search&reset=2&page=$1
+         
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-view_wishlist.html index.php?language_session=0&p=mycars
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^view_wishlist.html index.php?p=mycars         
+         
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-contactus.html index.php?language_session=0&p=contactus
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^contactus.html index.php?p=contactus         
+                  
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^sitemap.xml index.php?p=sitemapxml
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^searchyear-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&year=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-searchyear-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&year=$2
+         
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^searchcategory-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&category=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-searchcategory-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&category=$2
+         
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^searchmake-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&make=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-searchmake-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&make=$2
+         
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^searchmodel-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&model=$1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-searchmodel-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&model=$2  
+                
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^searchcity-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&city=$1&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-searchcity-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&city=$2&changeseo=1
+
+#Test ^used-cars in URL rather than the old ^searchcity
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^([0-9]{1,9})-used-cars-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&city=$1&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-([0-9]{1,9})-used-cars-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&city=$2&changeseo=1
+
+         #  CityMake pages Start
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^citymake-([0-9]{1,9})-(.+)-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&city=$1&make=$3&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-citymake-([0-9]{1,9})-(.+)-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&city=$2&make=$4&changeseo=1
+
+         #  CityMake pages End 	
+
+         #  StateMake pages Start
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^statemake-([0-9]{1,9})-(.+)-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&state=$1&make=$3&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-statemake-([0-9]{1,9})-(.+)-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&state=$2&make=$4&changeseo=1
+
+         #  StateMake pages End 	
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	 RewriteRule ^searchstate-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&state=$1&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-searchstate-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&state=$2&changeseo=1    
+         
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+		 RewriteRule ^searchcountry-([0-9]{1,9})-(.*).html index.php?p=search&submit=1&reset=2&submit1=1&country=$1&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+         RewriteRule ^([0-9]{1,2})-searchcountry-([0-9]{1,9})-(.*).html index.php?language_session=0&p=search&&submit=1&reset=2&submit1=1&country=$2&changeseo=1
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-acura.html http://www.mecarz.com/acura.html [R=301,L] 
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^acura.html /index.php?language_session=0&make=5&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-alfa-romeo.html http://www.mecarz.com/alfa-romeo.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^alfa-romeo.html /index.php?language_session=0&make=6&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-ac.html http://www.mecarz.com/ac.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^ac.html /index.php?language_session=0&make=4&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-skoda.html http://www.mecarz.com/skoda.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^skoda.html /index.php?language_session=0&make=100&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-american-motors.html http://www.mecarz.com/american-motors.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^american-motors.html /index.php?language_session=0&make=8&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-aston-martin.html http://www.mecarz.com/aston-martin.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^aston-martin.html /index.php?language_session=0&make=9&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-audi.html http://www.mecarz.com/audi.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^audi.html /index.php?language_session=0&make=10&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-austin.html http://www.mecarz.com/austin.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^austin.html /index.php?language_session=0&make=11&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-avanti.html http://www.mecarz.com/avanti.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^avanti.html /index.php?language_session=0&make=13&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-bentley.html http://www.mecarz.com/bentley.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^bentley.html /index.php?language_session=0&make=14&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-bmw.html http://www.mecarz.com/bmw.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^bmw.html /index.php?language_session=0&make=15&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-bugatti.html http://www.mecarz.com/bugatti.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^bugatti.html /index.php?language_session=0&make=16&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-buick.html http://www.mecarz.com/buick.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^buick.html /index.php?language_session=0&make=17&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-cadillac.html http://www.mecarz.com/cadillac.html  [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^cadillac.html /index.php?language_session=0&make=18&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-checker.html http://www.mecarz.com/checker.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^checker.html /index.php?language_session=0&make=19&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-chevrolet.html http://www.mecarz.com/chevrolet.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^chevrolet.html /index.php?language_session=0&make=20&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-chrysler.html http://www.mecarz.com/chrysler.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^chrysler.html /index.php?language_session=0&make=21&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-citroen.html http://www.mecarz.com/citroen.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^citroen.html /index.php?language_session=0&make=22&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-daewoo.html http://www.mecarz.com/daewoo.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^daewoo.html /index.php?language_session=0&make=23&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-daihatsu.html http://www.mecarz.com/daihatsu.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^daihatsu.html /index.php?language_session=0&make=24&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-datsun.html http://www.mecarz.com/datsun.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^datsun.html /index.php?language_session=0&make=25&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-detomaso.html http://www.mecarz.com/detomaso.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^detomaso.html /index.php?language_session=0&make=26&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-delorean.html http://www.mecarz.com/delorean.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^delorean.html /index.php?language_session=0&make=27&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-dodge.html http://www.mecarz.com/dodge.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^dodge.html /index.php?language_session=0&make=29&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-eagle.html http://www.mecarz.com/eagle.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^eagle.html /index.php?language_session=0&make=30&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-edsel.html http://www.mecarz.com/edsel.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^edsel.html /index.php?language_session=0&make=31&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-ferrari.html http://www.mecarz.com/ferrari.html  [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^ferrari.html /index.php?language_session=0&make=33&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-fiat.html http://www.mecarz.com/fiat.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^fiat.html /index.php?language_session=0&make=34&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-ford.html http://www.mecarz.com/ford.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^ford.html /index.php?language_session=0&make=35&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-gmc.html http://www.mecarz.com/gmc.html  [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^gmc.html /index.php?language_session=0&make=37&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-geo.html http://www.mecarz.com/geo.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^geo.html /index.php?language_session=0&make=39&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-honda.html http://www.mecarz.com/honda.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^honda.html /index.php?language_session=0&make=40&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-hummer.html http://www.mecarz.com/hummer.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^hummer.html /index.php?language_session=0&make=42&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-hyundai.html http://www.mecarz.com/hyundai.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^hyundai.html /index.php?language_session=0&make=44&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-infiniti.html http://www.mecarz.com/infiniti.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^infiniti.html /index.php?language_session=0&make=45&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-international.html http://www.mecarz.com/international.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^international.html /index.php?language_session=0&make=46&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-isuzu.html http://www.mecarz.com/isuzu.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^isuzu.html /index.php?language_session=0&make=47&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-jaguar.html http://www.mecarz.com/jaguar.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^jaguar.html /index.php?language_session=0&make=48&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-jeep.html http://www.mecarz.com/jeep.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^jeep.html /index.php?language_session=0&make=49&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-jensen.html http://www.mecarz.com/jensen.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^jensen.html /index.php?language_session=0&make=50&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-kia.html http://www.mecarz.com/kia.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^kia.html /index.php?language_session=0&make=52&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-lamborghini.html http://www.mecarz.com/lamborghini.html  [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^lamborghini.html /index.php?language_session=0&make=54&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-land-rover.html http://www.mecarz.com/land-rover.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^land-rover.html /index.php?language_session=0&make=55&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-lexus.html http://www.mecarz.com/lexus.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^lexus.html /index.php?language_session=0&make=56&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-lincoln.html http://www.mecarz.com/lincoln.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^lincoln.html /index.php?language_session=0&make=57&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-lotus.html http://www.mecarz.com/lotus.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^lotus.html /index.php?language_session=0&make=58&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-maserati.html http://www.mecarz.com/maserati.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^maserati.html /index.php?language_session=0&make=60&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-maybach.html http://www.mecarz.com/maybach.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^maybach.html /index.php?language_session=0&make=61&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-mazda.html http://www.mecarz.com/mazda.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^mazda.html /index.php?language_session=0&make=62&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-mercedesbenz.html http://www.mecarz.com/mercedesbenz.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^mercedesbenz.html /index.php?language_session=0&make=63&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-mercury.html http://www.mecarz.com/mercury.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^mercury.html /index.php?language_session=0&make=64&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-merkur.html http://www.mecarz.com/merkur.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^merkur.html /index.php?language_session=0&make=65&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-mini.html http://www.mecarz.com/mini.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^mini.html /index.php?language_session=0&make=66&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-mitsubishi.html http://www.mecarz.com/mitsubishi.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^mitsubishi.html /index.php?language_session=0&make=67&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-morgan.html http://www.mecarz.com/morgan.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^morgan.html /index.php?language_session=0&make=68&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-morris.html http://www.mecarz.com/morris.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^morris.html /index.php?language_session=0&make=69&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-nissan.html http://www.mecarz.com/nissan.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^nissan.html /index.php?language_session=0&make=71&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-oldsmobile.html http://www.mecarz.com/oldsmobile.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^oldsmobile.html /index.php?language_session=0&make=72&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-opel.html http://www.mecarz.com/opel.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^opel.html /index.php?language_session=0&make=73&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-panoz.html http://www.mecarz.com/panoz.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^panoz.html /index.php?language_session=0&make=75&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-peugeot.html http://www.mecarz.com/peugeot.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^peugeot.html /index.php?language_session=0&make=76&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-plymouth.html http://www.mecarz.com/plymouth.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^plymouth.html /index.php?language_session=0&make=77&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-pontiac.html http://www.mecarz.com/pontiac.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^pontiac.html /index.php?language_session=0&make=78&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-porsche.html http://www.mecarz.com/porsche.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^porsche.html /index.php?language_session=0&make=79&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-qvale.html http://www.mecarz.com/qvale.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^qvale.html /index.php?language_session=0&make=80&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-renault.html http://www.mecarz.com/renault.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^renault.html /index.php?language_session=0&make=81&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-rollsroyce.html http://www.mecarz.com/rollsroyce.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^rollsroyce.html /index.php?language_session=0&make=82&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-rover.html http://www.mecarz.com/rover.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^rover.html /index.php?language_session=0&make=83&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-saab.html http://www.mecarz.com/saab.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^saab.html /index.php?language_session=0&make=84&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-saleen.html http://www.mecarz.com/saleen.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^saleen.html /index.php?language_session=0&make=85&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-saturn.html http://www.mecarz.com/saturn.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^saturn.html /index.php?language_session=0&make=86&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-scion.html http://www.mecarz.com/scion.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^scion.html /index.php?language_session=0&make=87&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-smart.html http://www.mecarz.com/smart.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^smart.html /index.php?language_session=0&make=88&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-sterling.html http://www.mecarz.com/sterling.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^sterling.html /index.php?language_session=0&make=89&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-subaru.html http://www.mecarz.com/subaru.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^subaru.html /index.php?language_session=0&make=91&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-sunbeam.html http://www.mecarz.com/sunbeam.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^sunbeam.html /index.php?language_session=0&make=92&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-suzuki.html http://www.mecarz.com/suzuki.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^suzuki.html /index.php?language_session=0&make=93&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-toyota.html http://www.mecarz.com/toyota.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^toyota.html /index.php?language_session=0&make=94&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-volkswagen.html http://www.mecarz.com/volkswagen.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^volkswagen.html /index.php?language_session=0&make=96&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-volvo.html http://www.mecarz.com/volvo.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^volvo.html /index.php?language_session=0&make=97&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-yugo.html http://www.mecarz.com/yugo.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^yugo.html /index.php?language_session=0&make=99&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-seat.html http://www.mecarz.com/seat.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^seat.html /index.php?language_session=0&make=101&submit1=1&p=search&changeseo=1
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-uae.html http://www.mecarz.com/uae.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^uae.html /index.php?language_session=0&country=1&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-jordan.html http://www.mecarz.com/jordan.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^jordan.html /index.php?language_session=0&country=2&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-kuwait.html http://www.mecarz.com/kuwait.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^kuwait.html /index.php?language_session=0&country=3&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-egypt.html http://www.mecarz.com/egypt.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^egypt.html /index.php?language_session=0&country=4&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-qatar.html http://www.mecarz.com/qatar.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^qatar.html /index.php?language_session=0&country=5&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-bahrain.html http://www.mecarz.com/bahrain.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^bahrain.html /index.php?language_session=0&country=6&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-algeria.html http://www.mecarz.com/algeria.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^algeria.html /index.php?language_session=0&country=7&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-saudi-arabia.html http://www.mecarz.com/saudi-arabia.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^saudi-arabia.html /index.php?language_session=0&country=8&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-lebanon.html http://www.mecarz.com/lebanon.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^lebanon.html /index.php?language_session=0&country=9&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-syria.html http://www.mecarz.com/syria.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^syria.html /index.php?language_session=0&country=10&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-oman.html http://www.mecarz.com/oman.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^oman.html /index.php?language_session=0&country=11&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-iraq.html http://www.mecarz.com/iraq.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^iraq.html /index.php?language_session=0&country=12&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-iran.html http://www.mecarz.com/iran.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^iran.html /index.php?language_session=0&country=13&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-libya.html http://www.mecarz.com/libya.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^libya.html /index.php?language_session=0&country=14&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-morocco.html http://www.mecarz.com/morocco.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^morocco.html /index.php?language_session=0&country=15&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-palestine.html http://www.mecarz.com/palestine.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^palestine.html /index.php?language_session=0&country=16&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-tunisia.html http://www.mecarz.com/tunisia.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^tunisia.html /index.php?language_session=0&country=17&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-yemen.html http://www.mecarz.com/yemen.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^yemen.html /index.php?language_session=0&country=18&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-italy.html http://www.mecarz.com/italy.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^italy.html /index.php?language_session=0&country=19&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-united-kingdom.html http://www.mecarz.com/united-kingdom.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^united-kingdom.html /index.php?language_session=0&country=20&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-germany.html http://www.mecarz.com/germany.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^germany.html /index.php?language_session=0&country=21&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-france.html http://www.mecarz.com/france.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^france.html /index.php?language_session=0&country=22&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-spain.html http://www.mecarz.com/spain.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^spain.html /index.php?language_session=0&country=23&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-usa.html http://www.mecarz.com/usa.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^usa.html /index.php?language_session=0&country=24&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-canada.html http://www.mecarz.com/canada.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^canada.html /index.php?language_session=0&country=25&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-india.html http://www.mecarz.com/india.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^india.html /index.php?language_session=0&country=26&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^([0-9]{1,2})-greece.html http://www.mecarz.com/greece.html [R=301,L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^greece.html /index.php?language_session=0&country=28&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^cyprus.html /index.php?language_session=0&country=29&submit1=1&p=search&changeseo=1
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+        RewriteRule ^romania.html /index.php?language_session=0&country=27&submit1=1&p=search&changeseo=1
+ 
+
+         

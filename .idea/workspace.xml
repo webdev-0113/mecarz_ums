@@ -38,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="430" column="2" selection-start-line="430" selection-start-column="2" selection-end-line="430" selection-end-column="2" />
+            <state relative-caret-position="737">
+              <caret line="1243" selection-start-line="1243" selection-end-line="1243" />
             </state>
           </provider>
         </entry>
@@ -263,12 +263,12 @@
         <option value="$PROJECT_DIR$/includes/function.php" />
         <option value="$PROJECT_DIR$/ht.php" />
         <option value="$PROJECT_DIR$/includes/email.class.php" />
-        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/seo.php" />
         <option value="$PROJECT_DIR$/includes/config.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/includes/config_write.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/htaccess" />
       </list>
     </option>
@@ -367,12 +367,12 @@
       <workItem from="1605184499939" duration="17029000" />
       <workItem from="1605217386853" duration="15442000" />
       <workItem from="1605238367192" duration="2701000" />
-      <workItem from="1605273718331" duration="8346000" />
+      <workItem from="1605273718331" duration="8480000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125675000" />
+    <option name="totallyTimeSpent" value="125809000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1784" height="941" extended-state="6" />
@@ -655,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/seo1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -767,6 +760,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="737">
+          <caret line="1243" lean-forward="true" selection-start-line="1243" selection-end-line="1243" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/includes/config_write.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -776,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="430" column="2" selection-start-line="430" selection-start-column="2" selection-end-line="430" selection-end-column="2" />
+        <state relative-caret-position="737">
+          <caret line="1243" selection-start-line="1243" selection-end-line="1243" />
         </state>
       </provider>
     </entry>
