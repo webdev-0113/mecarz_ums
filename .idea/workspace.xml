@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/config_write.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config_write.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/seo.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,17 +29,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/config_write.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+            <state relative-caret-position="100">
+              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24460">
-              <caret line="1223" column="99" lean-forward="true" selection-start-line="1223" selection-start-column="99" selection-end-line="1223" selection-end-column="99" />
+            <state relative-caret-position="643">
+              <caret line="430" column="2" selection-start-line="430" selection-start-column="2" selection-end-line="430" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -131,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/seo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="16" column="97" lean-forward="true" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
+            <state relative-caret-position="160">
+              <caret line="17" column="168" lean-forward="true" selection-start-line="17" selection-start-column="168" selection-end-line="17" selection-end-column="168" />
             </state>
           </provider>
         </entry>
@@ -268,14 +262,14 @@
         <option value="$PROJECT_DIR$/includes/global.class.php" />
         <option value="$PROJECT_DIR$/includes/function.php" />
         <option value="$PROJECT_DIR$/ht.php" />
-        <option value="$PROJECT_DIR$/includes/config_write.php" />
         <option value="$PROJECT_DIR$/includes/email.class.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/htaccess" />
         <option value="$PROJECT_DIR$/seo.php" />
         <option value="$PROJECT_DIR$/includes/config.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
+        <option value="$PROJECT_DIR$/includes/config_write.php" />
+        <option value="$PROJECT_DIR$/htaccess" />
       </list>
     </option>
   </component>
@@ -373,12 +367,12 @@
       <workItem from="1605184499939" duration="17029000" />
       <workItem from="1605217386853" duration="15442000" />
       <workItem from="1605238367192" duration="2701000" />
-      <workItem from="1605273718331" duration="7633000" />
+      <workItem from="1605273718331" duration="8346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124962000" />
+    <option name="totallyTimeSpent" value="125675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1784" height="941" extended-state="6" />
@@ -668,20 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/config_write.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24460">
-          <caret line="1223" column="99" lean-forward="true" selection-start-line="1223" selection-start-column="99" selection-end-line="1223" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/seo1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -782,8 +762,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/seo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="16" column="97" lean-forward="true" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
+        <state relative-caret-position="160">
+          <caret line="17" column="168" lean-forward="true" selection-start-line="17" selection-start-column="168" selection-end-line="17" selection-end-column="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/config_write.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="430" column="2" selection-start-line="430" selection-start-column="2" selection-end-line="430" selection-end-column="2" />
         </state>
       </provider>
     </entry>
