@@ -72,8 +72,8 @@ $tpl = new TPL;
 $Image_Class = new Image;
 $Global_Class = new GlobalClass;
 $VisitClass = new VisitClass;
-//$Email_class = new EmailClass;
-//$banner_class = new Banner_Visit_Class;
+$Email_class = new EmailClass;
+$banner_class = new Banner_Visit_Class;
 //$dealer = new DealerClass;
 
 $settings_profile = $Global_Class->getprofile( "1","settings","id" );

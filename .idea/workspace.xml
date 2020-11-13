@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96bf175-fa17-4de9-ab2f-449e73f9f26d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ht.php" beforeDir="false" afterPath="$PROJECT_DIR$/ht.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/config_write.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config_write.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,26 +32,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/config_write.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htaccess">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="1217" column="47" selection-end-line="1243" />
+            <state relative-caret-position="140">
+              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.htaccess">
+        <entry file="file://$PROJECT_DIR$/includes/licence.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="245" selection-start-line="245" selection-end-line="245" />
+            <state relative-caret-position="480">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+              <folding>
+                <element signature="e#6#13#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="194" column="47" selection-start-line="194" selection-start-column="47" selection-end-line="194" selection-end-column="47" />
+              <folding>
+                <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+                <element signature="e#43#49#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,9 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$_REQUEST[country]</find>
-      <find>$_REQUEST[city]</find>
-      <find>$var[stateid]</find>
       <find>$var[countryid]</find>
       <find>v</find>
       <find>&lt;center&gt;</find>
@@ -88,6 +97,9 @@
       <find>$selected1</find>
       <find>$selected</find>
       <find>$default_option</find>
+      <find>EmailClass</find>
+      <find>$Email_class = new EmailClass;</find>
+      <find>$Email_class</find>
     </findStrings>
     <replaceStrings>
       <replace>$settings_profile['language4']</replace>
@@ -164,14 +176,14 @@
         <option value="$PROJECT_DIR$/seo.php" />
         <option value="$PROJECT_DIR$/seo1.php" />
         <option value="$PROJECT_DIR$/FCKeditor/editor/filemanager/browser/default/connectors/php/connector.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/admin.class.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/includes/global.class.php" />
         <option value="$PROJECT_DIR$/includes/function.php" />
         <option value="$PROJECT_DIR$/ht.php" />
-        <option value="$PROJECT_DIR$/includes/config_write.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/includes/config_write.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -204,11 +216,6 @@
             <path>
               <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
               <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mecarz_ums" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mecarz_ums" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -262,16 +269,15 @@
       <workItem from="1605130322152" duration="1223000" />
       <workItem from="1605131657221" duration="17133000" />
       <workItem from="1605184499939" duration="17029000" />
-      <workItem from="1605217386853" duration="9939000" />
+      <workItem from="1605217386853" duration="13183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109125000" />
+    <option name="totallyTimeSpent" value="112369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="27" width="1784" height="941" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29976985" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -301,24 +307,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/renew.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#6#13#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/searchengines.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#6#13#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/session.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -458,23 +446,6 @@
         <state>
           <folding>
             <element signature="e#6#13#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="217" column="70" lean-forward="true" selection-start-line="217" selection-start-column="70" selection-end-line="217" selection-end-column="70" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
-            <element signature="e#43#49#1" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -726,24 +697,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/config_write.php">
+    <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        <state relative-caret-position="737">
+          <caret line="1243" lean-forward="true" selection-start-line="1243" selection-end-line="1243" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="1217" column="47" selection-end-line="1243" />
+        <state relative-caret-position="157">
+          <caret line="1218" column="51" lean-forward="true" selection-start-line="1218" selection-start-column="51" selection-end-line="1218" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
+    <entry file="file://$PROJECT_DIR$/includes/email.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="245" selection-start-line="245" selection-end-line="245" />
+        <state relative-caret-position="78">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#13#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/config_write.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="194" column="47" selection-start-line="194" selection-start-column="47" selection-end-line="194" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#!!top" expanded="true" />
+            <element signature="e#43#49#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/licence.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding>
+            <element signature="e#6#13#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

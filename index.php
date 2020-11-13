@@ -215,7 +215,7 @@ if ($count>0) {
 
 }
 if (file_exists('language/'.$settings_profile["language".$language_set])) {
-    include ('language/'.$settings_profile["language".$language_set]);
+    include 'language/'.$settings_profile["language".$language_set];
 }
 include $path . "update.php";
 if ($settings_profile['nrpageuser']>0) {
