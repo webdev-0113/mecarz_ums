@@ -14,7 +14,7 @@ ob_start();
 // ini_set ('error_reporting', E_ALL);
 
 $path = "../includes/";
-include $path . "licence.php";
+//include $path . "licence.php";
 include $path . "config.php";
 if (_INSTALL!=1){
     header("Location: ../install/"); /* Redirect browser */
@@ -44,25 +44,25 @@ include $path . "image.class.php";
 include $path . "global.class.php";
 include $path . "admin.class.php";
 include $path . "visit.class.php";
-include $path . "email.class.php";
+//include $path . "email.class.php";
 include $config['wywiwyg_path']. "fckeditor.php" ;
-include $path . "visitstats.class.php";
+//include $path . "visitstats.class.php";
 $admin = new Admin;
 $p = $_REQUEST['p'];
-if ( $p == "dates" )
-{
-    include $path . "dates.class.php";
-    $Dates_Class = new Dates_Class;
-}
+//if ( $p == "dates" )
+//{
+//    include $path . "dates.class.php";
+////    $Dates_Class = new Dates_Class;
+//}
 $config['tpl'] .= "admin/";
 
 
 $tpl = new TPL;
 $Image_Class = new Image;
 $Global_Class = new GlobalClass;
-$Email_class = new EmailClass;
+//$Email_class = new EmailClass;
 $VisitClass = new VisitClass;
-$visit_class = new Visit_Class;
+//$visit_class = new Visit_Class;
 
 $settings_profile = $Global_Class->getprofile( "1","settings","id" );
 
@@ -331,8 +331,8 @@ if ( $_COOKIE['username_cookie'] == "" )
                         $email_var['link'] = $config['url_path']."index.php?p=confirm&amp;id=".$email_var['unic_id'];
                         $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template['signup_subject'] );
                         $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $settings_template['signup_body'] );
-                        $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
-                        $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+//                        $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+//                        $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
                     }
                     $settings_template['signup_subject'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $lang['newpassword_subject'] );
                     $settings_template['signup_body'] = preg_replace( "/\{(\w+)\}/i", "\$email_var[\\1]", $lang['newpassword_body'] );
@@ -340,8 +340,8 @@ if ( $_COOKIE['username_cookie'] == "" )
                     $sql="UPDATE `{$config['table_prefix']}admin` SET password='".md5($password)."'{$sql_unic_id} where `email` = '$email' limit 1";
                     $result = $db->db_connect_id->query($sql);
 
-                    $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
-                    $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+//                    $sendresult = $Email_class->emailsend(  $email_var['email'], $email_var['username'],$settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
+//                    $sendresult = $Email_class->emailsend(  $settings_template['email'], $settings_template['from'] , $settings_template['email'], $settings_template['from'], $settings_template['signup_subject'], $settings_template['signup_body'] );
 
                     $outputtoscreen .= $admin->login( $username, "login1", $redirect, $lang['tpl_auto_You_will_receive'] );
                 }
@@ -1884,7 +1884,7 @@ else
             $outputtoscreen .= $tpl->replace( $var_header, "global_banner.html" );
             break;
 
-//banner ends  
+//banner ends
 //importsettings start
         case "importsettings":
             if ( $right_cookie['importsettings'] == 0 )
@@ -2080,7 +2080,7 @@ else
                 $var_header['banner']=$outputtoscreenfix;
                 $outputtoscreen .= $tpl->replace( $var_header, "global_banner.html" );		                                                break;
             }
-//fixtools ends  
+//fixtools ends
 //import start
         case "import":
             if ( $right_cookie['import'] == 0 )
@@ -2600,7 +2600,7 @@ else
                     break;
                 }
             }
-//export ends	
+//export ends
 //start stats
         case "stats":
             $father_template = $Global_Class->getprofile( 1 , 'statssettings' ,"id" ) ;
@@ -2646,7 +2646,7 @@ else
                     exit(0);
                     break;
                 default:
-                    if (substr($settingsupdate_template[lastupdate],0,8)!=date("Ymd")){
+                    if (substr($settingsupdate_template['lastupdate'],0,8)!=date("Ymd")){
                         $sql = "UPDATE `{$config['table_settingsupdate']}` SET 	`lastupdate`=NOW()+0 WHERE `id`=1 LIMIT 1";
                         $result = $db->db_connect_id->query( $sql );
                         $sqlupdateall=1;
@@ -2659,10 +2659,10 @@ else
                     $db->free_result($result_);
                     $config['maxx_id']=$row['maxx'];
 
-                    $var_header['visits'] = $visit_class->visits($sqlupdateall);
-                    $var_header['referrers'] = $visit_class->referrers($sqlupdateall);
-                    $var_header['searches'] = $visit_class->searches($sqlupdateall);
-                    $var_header['system'] = $visit_class->sistem($sqlupdateall);
+//                    $var_header['visits'] = $visit_class->visits($sqlupdateall);
+//                    $var_header['referrers'] = $visit_class->referrers($sqlupdateall);
+//                    $var_header['searches'] = $visit_class->searches($sqlupdateall);
+//                    $var_header['system'] = $visit_class->sistem($sqlupdateall);
 
                     //$var_header["signsort_".$_COOKIE['accstats_orderby']]= "<font class=\"sign\">&uarr;</font>";
                     //$var_header["signsort1_".$_COOKIE['accstats_orderby1']]= "<font class=\"sign\">&uarr;</font>";
@@ -2696,7 +2696,7 @@ else
 
             $outputtoscreen.=$output_header.$outputstats.$output_footer;
             break;
-//ends stats				
+//ends stats
         default:
             if ($_REQUEST['p']!='') {
                 $default_tabel = $_REQUEST['p'];

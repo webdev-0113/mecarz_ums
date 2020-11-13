@@ -18,7 +18,7 @@ $path = "includes/";
 
 include $path . "db.php";
 
-include $path . "licence.php";
+//include $path . "licence.php";
 include $path . "config.php";
 
 if (_INSTALL!=1){
@@ -1361,7 +1361,7 @@ $settings_profile['footer'] = $settings_profile["footer{$language_set}"];
 //$settings_profile['rentform']=$tpl->replace($settings_profile,"rentform.html");
 
 if (file_exists("seo.php")){
-    @include_once("seo.php");
+    include("seo.php");
 }
 
 if ($language_set==1){

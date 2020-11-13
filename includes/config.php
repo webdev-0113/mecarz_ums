@@ -21,9 +21,6 @@ if (in_array("p", $_REQUEST) && $_REQUEST['p']=="image") {
     imagepng ($im);
     exit(0);
 }
-if (in_array("input_name", $_REQUEST)) {
-    $_POST['input_name']=str_replace("/"," ",$_POST['input_name']);
-}
 
 $lang['tpl_auto_metacharset']='iso-8859-1';
 include "config_write.php";
@@ -81,10 +78,10 @@ $config['url_path_temp'] = $config['url_path']."temp/";
 $config['url_path_tpl_admin'] = $config['url_path']."tpl/admin/";
 $config["temp"]=$config['path']."temp/";// end `/`
 $config['tpladmin']=$config['path']."tpl/admin/";// end `/`
-$config['tpl']=$config['url_path']."tpl/";// end `/`
-$config['tplini']=$config['url_path']."tpl/";// end `/`
+$config['tpl']=$config['path']."tpl/";// end `/`
+$config['tplini']=$config['path']."tpl/";// end `/`
 
-$config['tplvisit']=$config['url_path']."tpl/visit/";// end `/`
+$config['tplvisit']=$config['path']."tpl/visit/";// end `/`
 
 $config["config_auto_year_start"]=2005;
 $config["config_auto_year_finish"]=2010;
@@ -317,14 +314,14 @@ function authorizeNet_hmac ($key, $data){
 function authorizeNet_CalculateFP ($loginid, $x_tran_key, $amount, $sequence, $tstamp, $currency = ""){
     return (authorizeNet_hmac ($x_tran_key, $loginid . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency));
 }
-//function authorizeNet_InsertFP ($login_id, $x_tran_key, $amount){
-//	srand(time());
-//	$sequence = rand(1, 1000);
-//	$tstamp = time ();
-//	$fingerprint = authorizeNet_hmac ($x_tran_key, $login_id . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency);
-//	return array($sequence,$tstamp,$fingerprint);
-//
-//}
+function authorizeNet_InsertFP ($login_id, $x_tran_key, $amount){
+    srand(time());
+    $sequence = rand(1, 1000);
+    $tstamp = time ();
+    $fingerprint = authorizeNet_hmac ($x_tran_key, $login_id . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency);
+    return array($sequence,$tstamp,$fingerprint);
+
+}
 
 
 $config['table_banner'] = $config['table_prefix'].'banner';
